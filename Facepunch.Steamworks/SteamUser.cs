@@ -228,7 +228,7 @@ namespace Steamworks
 
 		public static uint OptimalSampleRate => Internal.GetVoiceOptimalSampleRate();
 
-
+        #if DEPRECATED
 		/// <summary>
 		/// Decodes the compressed voice data returned by GetVoice.
 		/// The output data is raw single-channel 16-bit PCM audio.The decoder supports any sample rate from 11025 to 48000.
@@ -264,6 +264,7 @@ namespace Steamworks
 			output.Write( to, 0, (int)szWritten );
 			return (int)szWritten;
 		}
+#endif
 
 		/// <summary>
 		/// Lazy version

@@ -57,7 +57,7 @@ namespace Steamworks
 		public static event Action<Result> OnSteamServersDisconnected;
 
 		/// <summary>
-		/// Called when authentication status changes, useful for grabbing SteamId once aavailability is current
+		/// Called when authentication status changes, useful for grabbing SteamId once availability is current
 		/// </summary>
 		public static event Action<SteamNetworkingAvailability> OnSteamNetAuthenticationStatus;
 

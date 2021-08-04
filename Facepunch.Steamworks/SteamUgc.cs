@@ -55,7 +55,7 @@ namespace Steamworks
 		}
 
 		/// <summary>
-		/// Will attempt to download this item asyncronously - allowing you to instantly react to its installation
+		/// Will attempt to download this item asynchronously - allowing you to instantly react to its installation
 		/// </summary>
 		/// <param name="fileId">The ID of the file you want to download</param>
 		/// <param name="progress">An optional callback</param>

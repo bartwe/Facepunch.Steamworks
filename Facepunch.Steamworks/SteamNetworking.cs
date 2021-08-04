@@ -79,6 +79,7 @@ namespace Steamworks
 			return Internal.IsP2PPacketAvailable( ref msgSize, channel );
 		}
 
+#if DEPRECATED
 		/// <summary>
 		/// Reads in a packet that has been sent from another user via SendP2PPacket..
 		/// </summary>
@@ -107,6 +108,7 @@ namespace Steamworks
 				};
 			}
 		}
+#endif
 
 		/// <summary>
 		/// Reads in a packet that has been sent from another user via SendP2PPacket..

@@ -279,7 +279,7 @@ namespace Steamworks.Ugc
         }
 
 		/// <summary>
-		/// Allows the user to subscribe to download this item asyncronously
+		/// Allows the user to subscribe to download this item asynchronously
 		/// If CancellationToken is default then there is 60 seconds timeout
 		/// Progress will be set to 0-1
 		/// </summary>
