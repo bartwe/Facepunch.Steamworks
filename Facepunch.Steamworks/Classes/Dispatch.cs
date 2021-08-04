@@ -287,7 +287,7 @@ namespace Steamworks
 		/// <summary>
 		/// Install a global callback. The passed function will get called if it's all good.
 		/// </summary>
-		internal static void Install<T>( Action<T> p, bool server = false ) where T : ICallbackData
+		internal static void Install<T>( Action<T> p, bool server = false ) where T : struct, ICallbackData
 		{
 			var t = default( T );
 			var type = t.CallbackType;

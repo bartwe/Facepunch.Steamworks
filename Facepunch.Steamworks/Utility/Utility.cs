@@ -36,7 +36,9 @@ namespace Steamworks
 
         static public uint IpToInt32( this IPAddress ipAddress )
         {
+#pragma warning disable 618
             return Swap( (uint) ipAddress.Address );
+#pragma warning restore 618
         }
 
         static public IPAddress Int32ToIp( uint ipAddress )

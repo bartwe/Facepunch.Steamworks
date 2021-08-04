@@ -344,7 +344,7 @@ namespace Steamworks
 
 			void f( GetAuthSessionTicketResponse_t t )
 			{
-				if ( t.AuthTicket != ticket.Handle ) return;
+				if ( ( ticket == null ) || ( t.AuthTicket != ticket.Handle ) ) return;
 				result = t.Result;
 			}
 
