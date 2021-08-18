@@ -5,7 +5,7 @@ using Steamworks.Data;
 
 namespace Steamworks
 {
-	public class InventoryDef : IEquatable<InventoryDef>
+	public sealed class InventoryDef : IEquatable<InventoryDef>
 	{
 		internal InventoryDefId _id;
 		internal Dictionary<string, string> _properties;

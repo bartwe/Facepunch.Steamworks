@@ -2,7 +2,7 @@
 
 namespace Steamworks
 {
-	public class AuthTicket : IDisposable
+	public sealed class AuthTicket : IDisposable
 	{
 		public byte[] Data;
 		public uint Handle;

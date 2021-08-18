@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Steamworks.ServerList
 {
-	public class Favourites : Base
+	public sealed class Favourites : Base
 	{
 		internal override void LaunchQuery()
 		{

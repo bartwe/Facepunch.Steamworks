@@ -13,7 +13,7 @@ namespace Steamworks
 	/// will show a beacon in the selected group and allow that many users to “follow” the beacon to your party. 
 	/// Adjust the number of open slots if other players join through alternate matchmaking methods.
 	/// </summary>
-	public class SteamParties : SteamClientClass<SteamParties>
+	public sealed class SteamParties : SteamClientClass<SteamParties>
 	{
 		internal static ISteamParties Internal => Interface as ISteamParties;
 

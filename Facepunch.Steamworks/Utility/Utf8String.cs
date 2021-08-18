@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Steamworks
 {
-	internal unsafe class Utf8StringToNative : ICustomMarshaler
+	internal unsafe sealed class Utf8StringToNative : ICustomMarshaler
 	{
 		public IntPtr MarshalManagedToNative(object managedObj)
 		{

@@ -12,7 +12,7 @@ namespace Steamworks
 	/// <summary>
 	/// Undocumented Parental Settings
 	/// </summary>
-	public class SteamInventory : SteamSharedClass<SteamInventory>
+	public sealed class SteamInventory : SteamSharedClass<SteamInventory>
 	{
 		internal static ISteamInventory Internal => Interface as ISteamInventory;
 

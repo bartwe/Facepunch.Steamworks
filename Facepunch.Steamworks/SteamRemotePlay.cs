@@ -10,7 +10,7 @@ namespace Steamworks
 	/// <summary>
 	/// Functions that provide information about Steam Remote Play sessions, streaming your game content to another computer or to a Steam Link app or hardware.
 	/// </summary>
-	public class SteamRemotePlay : SteamClientClass<SteamRemotePlay>
+	public sealed class SteamRemotePlay : SteamClientClass<SteamRemotePlay>
 	{
 		internal static ISteamRemotePlay Internal => Interface as ISteamRemotePlay;
 

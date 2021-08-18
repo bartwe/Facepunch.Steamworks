@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Steamworks.ServerList
 {
-	public class IpList : Internet
+	public sealed class IpList : Internet
 	{
 		public List<string> Ips = new List<string>();
 		bool wantsCancel;

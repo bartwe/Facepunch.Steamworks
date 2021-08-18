@@ -8,7 +8,7 @@ using Steamworks.Data;
 
 namespace Steamworks
 {
-	public class SteamNetworkingSockets : SteamSharedClass<SteamNetworkingSockets>
+	public sealed class SteamNetworkingSockets : SteamSharedClass<SteamNetworkingSockets>
 	{
 		internal static ISteamNetworkingSockets Internal => Interface as ISteamNetworkingSockets;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Steamworks.ServerList
 {
-	public class LocalNetwork : Base
+	public sealed class LocalNetwork : Base
 	{
 		internal override void LaunchQuery()
 		{

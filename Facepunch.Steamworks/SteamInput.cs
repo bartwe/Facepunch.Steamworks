@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Steamworks
 {
-	public class SteamInput : SteamClientClass<SteamInput>
+	public sealed class SteamInput : SteamClientClass<SteamInput>
 	{
 		internal static ISteamInput Internal => Interface as ISteamInput;
 

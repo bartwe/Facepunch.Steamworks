@@ -59,7 +59,7 @@ namespace Steamworks
 		internal abstract void DestroyInterface( bool server );
 	}
 
-	public class SteamSharedClass<T> : SteamClass
+	public abstract class SteamSharedClass<T> : SteamClass
 	{
 		internal static SteamInterface Interface => InterfaceClient ?? InterfaceServer;
 		internal static SteamInterface InterfaceClient;
@@ -97,7 +97,7 @@ namespace Steamworks
 		}
 	}
 
-	public class SteamClientClass<T> : SteamClass
+	public abstract class SteamClientClass<T> : SteamClass
 	{
 		internal static SteamInterface Interface;
 
@@ -120,7 +120,7 @@ namespace Steamworks
 		}
 	}	
 	
-	public class SteamServerClass<T> : SteamClass
+	public abstract class SteamServerClass<T> : SteamClass
 	{
 		internal static SteamInterface Interface;
 

@@ -10,7 +10,7 @@ namespace Steamworks
 	/// <summary>
 	/// Undocumented Parental Settings
 	/// </summary>
-	public class SteamVideo : SteamClientClass<SteamVideo>
+	public sealed class SteamVideo : SteamClientClass<SteamVideo>
 	{
 		internal static ISteamVideo Internal => Interface as ISteamVideo;
 

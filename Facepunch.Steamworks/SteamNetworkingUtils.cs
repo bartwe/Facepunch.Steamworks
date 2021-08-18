@@ -10,7 +10,7 @@ namespace Steamworks
 	/// <summary>
 	/// Undocumented Parental Settings
 	/// </summary>
-	public class SteamNetworkingUtils : SteamSharedClass<SteamNetworkingUtils>
+	public sealed class SteamNetworkingUtils : SteamSharedClass<SteamNetworkingUtils>
 	{
 		internal static ISteamNetworkingUtils Internal => Interface as ISteamNetworkingUtils;
 

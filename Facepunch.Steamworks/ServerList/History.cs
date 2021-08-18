@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Steamworks.ServerList
 {
-	public class History : Base
+	public sealed class History : Base
 	{
 		internal override void LaunchQuery()
 		{
