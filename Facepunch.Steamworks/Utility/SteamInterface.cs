@@ -1,146 +1,129 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Runtime.InteropServices;
-using System.Text;
 
-namespace Steamworks
-{
-	internal abstract class SteamInterface
-	{
-		public virtual IntPtr GetUserInterfacePointer() => IntPtr.Zero;
-		public virtual IntPtr GetServerInterfacePointer() => IntPtr.Zero;
-		public virtual IntPtr GetGlobalInterfacePointer() => IntPtr.Zero;
+namespace Steamworks {
+    abstract class SteamInterface {
+        public IntPtr Self;
+        public IntPtr SelfGlobal;
+        public IntPtr SelfServer;
+        public IntPtr SelfClient;
 
-		public IntPtr Self;
-		public IntPtr SelfGlobal;
-		public IntPtr SelfServer;
-		public IntPtr SelfClient;
+        public bool IsValid {
+            get { return Self != IntPtr.Zero; }
+        }
 
-		public bool IsValid => Self != IntPtr.Zero;
-		public bool IsServer { get; private set; }
+        public bool IsServer { get; private set; }
 
-		internal void SetupInterface( bool gameServer )
-		{
-			if ( Self != IntPtr.Zero )
-				return;
+        public virtual IntPtr GetUserInterfacePointer() {
+            return IntPtr.Zero;
+        }
 
-			IsServer = gameServer;
-			SelfGlobal = GetGlobalInterfacePointer();
-			Self = SelfGlobal;
+        public virtual IntPtr GetServerInterfacePointer() {
+            return IntPtr.Zero;
+        }
 
-			if ( Self != IntPtr.Zero )
-				return;
+        public virtual IntPtr GetGlobalInterfacePointer() {
+            return IntPtr.Zero;
+        }
 
-			if ( gameServer )
-			{
-				SelfServer = GetServerInterfacePointer();
-				Self = SelfServer;
-			}
-			else
-			{
-				SelfClient = GetUserInterfacePointer();
-				Self = SelfClient;
-			}
-		}
+        internal void SetupInterface(bool gameServer) {
+            if (Self != IntPtr.Zero)
+                return;
 
-		internal void ShutdownInterface()
-		{
-			Self = IntPtr.Zero;
-		}
-	}
+            IsServer = gameServer;
+            SelfGlobal = GetGlobalInterfacePointer();
+            Self = SelfGlobal;
 
-	public abstract class SteamClass
-	{
-		internal abstract bool InitializeInterface( bool server );
-		internal abstract void DestroyInterface( bool server );
-	}
+            if (Self != IntPtr.Zero)
+                return;
 
-	public abstract class SteamSharedClass<T> : SteamClass
-	{
-		internal static SteamInterface Interface => InterfaceClient ?? InterfaceServer;
-		internal static SteamInterface InterfaceClient;
-		internal static SteamInterface InterfaceServer;
+            if (gameServer) {
+                SelfServer = GetServerInterfacePointer();
+                Self = SelfServer;
+            }
+            else {
+                SelfClient = GetUserInterfacePointer();
+                Self = SelfClient;
+            }
+        }
 
-		internal override bool InitializeInterface( bool server )
-		{
-			return false;
-		}
+        internal void ShutdownInterface() {
+            Self = IntPtr.Zero;
+        }
+    }
 
-		internal virtual void SetInterface( bool server, SteamInterface iface )
-		{
-			if ( server )
-			{
-				InterfaceServer = iface;
-			}
+    public abstract class SteamClass {
+        internal abstract bool InitializeInterface(bool server);
+        internal abstract void DestroyInterface(bool server);
+    }
 
-			if ( !server )
-			{
-				InterfaceClient = iface;
-			}
-		}
+    public abstract class SteamSharedClass<T> : SteamClass {
+        internal static SteamInterface InterfaceClient;
+        internal static SteamInterface InterfaceServer;
 
-		internal override void DestroyInterface( bool server )
-		{
-			if ( !server )
-			{
-				InterfaceClient = null;
-			}
+        internal static SteamInterface Interface {
+            get { return InterfaceClient ?? InterfaceServer; }
+        }
 
-			if ( server )
-			{
-				InterfaceServer = null;
-			}
-		}
-	}
+        internal override bool InitializeInterface(bool server) {
+            return false;
+        }
 
-	public abstract class SteamClientClass<T> : SteamClass
-	{
-		internal static SteamInterface Interface;
+        internal virtual void SetInterface(bool server, SteamInterface iface) {
+            if (server) {
+                InterfaceServer = iface;
+            }
 
-		internal override bool InitializeInterface( bool server )
-		{
-			return false;
-		}
+            if (!server) {
+                InterfaceClient = iface;
+            }
+        }
 
-		internal virtual void SetInterface( bool server, SteamInterface iface )
-		{
-			if ( server )
-				throw new System.NotSupportedException();
+        internal override void DestroyInterface(bool server) {
+            if (!server) {
+                InterfaceClient = null;
+            }
 
-			Interface = iface;
-		}
+            if (server) {
+                InterfaceServer = null;
+            }
+        }
+    }
 
-		internal override void DestroyInterface( bool server )
-		{
-			Interface = null;
-		}
-	}	
-	
-	public abstract class SteamServerClass<T> : SteamClass
-	{
-		internal static SteamInterface Interface;
+    public abstract class SteamClientClass<T> : SteamClass {
+        internal static SteamInterface Interface;
 
-		internal override bool InitializeInterface( bool server )
-		{
-			return false;
-		}
+        internal override bool InitializeInterface(bool server) {
+            return false;
+        }
 
-		internal virtual void SetInterface( bool server, SteamInterface iface )
-		{
-			if ( !server )
-				throw new System.NotSupportedException();
+        internal virtual void SetInterface(bool server, SteamInterface iface) {
+            if (server)
+                throw new NotSupportedException();
 
-			Interface = iface;
-		}
+            Interface = iface;
+        }
 
-		internal override void DestroyInterface( bool server )
-		{
-			Interface = null;
-		}
-	}
+        internal override void DestroyInterface(bool server) {
+            Interface = null;
+        }
+    }
 
+    public abstract class SteamServerClass<T> : SteamClass {
+        internal static SteamInterface Interface;
+
+        internal override bool InitializeInterface(bool server) {
+            return false;
+        }
+
+        internal virtual void SetInterface(bool server, SteamInterface iface) {
+            if (!server)
+                throw new NotSupportedException();
+
+            Interface = iface;
+        }
+
+        internal override void DestroyInterface(bool server) {
+            Interface = null;
+        }
+    }
 }

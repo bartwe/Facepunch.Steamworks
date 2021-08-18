@@ -1,94 +1,78 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Collections.Generic;
 
-namespace Steamworks
-{
-	internal static class Helpers
-	{
-		public const int MemoryBufferSize = 1024 * 32;
+namespace Steamworks {
+    static class Helpers {
+        public const int MemoryBufferSize = 1024 * 32;
 
-		private static IntPtr[] MemoryPool = new IntPtr[]
-		{
-			Marshal.AllocHGlobal( MemoryBufferSize ),
-			Marshal.AllocHGlobal( MemoryBufferSize ),
-			Marshal.AllocHGlobal( MemoryBufferSize ),
-			Marshal.AllocHGlobal( MemoryBufferSize )
-		};
-		private static int MemoryPoolIndex;
+        static readonly IntPtr[] MemoryPool = {
+            Marshal.AllocHGlobal(MemoryBufferSize), Marshal.AllocHGlobal(MemoryBufferSize), Marshal.AllocHGlobal(MemoryBufferSize), Marshal.AllocHGlobal(MemoryBufferSize),
+        };
 
-		public static unsafe IntPtr TakeMemory()
-		{
-			lock ( MemoryPool )
-			{
-				MemoryPoolIndex++;
-
-				if ( MemoryPoolIndex >= MemoryPool.Length )
-					MemoryPoolIndex = 0;
-
-				var take = MemoryPool[MemoryPoolIndex];
-
-				((byte*)take)[0] = 0;
-
-				return take;
-			}
-		}
+        static int MemoryPoolIndex;
 
 
-		private static byte[][] BufferPool = new byte[4][];
-		private static int BufferPoolIndex;
+        static readonly byte[][] BufferPool = new byte[4][];
+        static int BufferPoolIndex;
 
-		/// <summary>
-		/// Returns a buffer. This will get returned and reused later on.
-		/// We shouldn't really be using this anymore. 
-		/// </summary>
-		public static byte[] TakeBuffer( int minSize )
-		{
-			lock ( BufferPool  )
-			{
-				BufferPoolIndex++;
+        public static unsafe IntPtr TakeMemory() {
+            lock (MemoryPool) {
+                MemoryPoolIndex++;
 
-				if ( BufferPoolIndex >= BufferPool.Length )
-					BufferPoolIndex = 0;
+                if (MemoryPoolIndex >= MemoryPool.Length)
+                    MemoryPoolIndex = 0;
 
-				if ( BufferPool[BufferPoolIndex] == null ) 
-					BufferPool[BufferPoolIndex] = new byte[1024 * 256];
+                var take = MemoryPool[MemoryPoolIndex];
 
-				if ( BufferPool[BufferPoolIndex].Length < minSize )
-				{
-					BufferPool[BufferPoolIndex] = new byte[minSize + 1024];
-				}
+                ((byte*)take)[0] = 0;
 
-				return BufferPool[BufferPoolIndex];
-			}
-		}
+                return take;
+            }
+        }
 
-		internal unsafe static string MemoryToString( IntPtr ptr )
-		{
-			var len = 0;
+        /// <summary>
+        ///     Returns a buffer. This will get returned and reused later on.
+        ///     We shouldn't really be using this anymore.
+        /// </summary>
+        public static byte[] TakeBuffer(int minSize) {
+            lock (BufferPool) {
+                BufferPoolIndex++;
 
-			for( len = 0; len < MemoryBufferSize; len++ )
-			{
-				if ( ((byte*)ptr)[len] == 0 )
-					break;
-			}
+                if (BufferPoolIndex >= BufferPool.Length)
+                    BufferPoolIndex = 0;
 
-			if ( len == 0 )
-				return string.Empty;
+                if (BufferPool[BufferPoolIndex] == null)
+                    BufferPool[BufferPoolIndex] = new byte[1024 * 256];
 
-			return UTF8Encoding.UTF8.GetString( (byte*)ptr, len );
-		}
-	}
+                if (BufferPool[BufferPoolIndex].Length < minSize) {
+                    BufferPool[BufferPoolIndex] = new byte[minSize + 1024];
+                }
 
-	internal sealed class MonoPInvokeCallbackAttribute : Attribute
-	{
-		public MonoPInvokeCallbackAttribute() { }
-	}
+                return BufferPool[BufferPoolIndex];
+            }
+        }
 
-	/// <summary>
-	/// Prevent unity from stripping shit we depend on
-	/// https://docs.unity3d.com/Manual/ManagedCodeStripping.html
-	/// </summary>
-	internal sealed class PreserveAttribute : System.Attribute { }
+        internal static unsafe string MemoryToString(IntPtr ptr) {
+            var len = 0;
+
+            for (len = 0; len < MemoryBufferSize; len++) {
+                if (((byte*)ptr)[len] == 0)
+                    break;
+            }
+
+            if (len == 0)
+                return string.Empty;
+
+            return Encoding.UTF8.GetString((byte*)ptr, len);
+        }
+    }
+
+    sealed class MonoPInvokeCallbackAttribute : Attribute { }
+
+    /// <summary>
+    ///     Prevent unity from stripping shit we depend on
+    ///     https://docs.unity3d.com/Manual/ManagedCodeStripping.html
+    /// </summary>
+    sealed class PreserveAttribute : Attribute { }
 }
