@@ -234,17 +234,11 @@ namespace Steamworks {
     #region FunctionMeta
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUtils_CheckFileSignature", CallingConvention = Platform.CC)]
-        static extern SteamAPICall_t _CheckFileSignature(
-            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string szFileName
-        );
+        static extern SteamAPICall_t _CheckFileSignature(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string szFileName);
 
     #endregion
 
-        internal CallResult<CheckFileSignature_t> CheckFileSignature(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string szFileName
-        ) {
+        internal CallResult<CheckFileSignature_t> CheckFileSignature([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string szFileName) {
             var returnValue = _CheckFileSignature(Self, szFileName);
             return new(returnValue, IsServer);
         }
@@ -254,17 +248,16 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUtils_ShowGamepadTextInput", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _ShowGamepadTextInput(
-            IntPtr self, GamepadTextInputMode eInputMode, GamepadTextInputLineMode eLineInputMode, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchDescription, uint unCharMax, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchExistingText
+            IntPtr self, GamepadTextInputMode eInputMode, GamepadTextInputLineMode eLineInputMode,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchDescription, uint unCharMax,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchExistingText
         );
 
     #endregion
 
         internal bool ShowGamepadTextInput(
-            GamepadTextInputMode eInputMode, GamepadTextInputLineMode eLineInputMode, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchDescription, uint unCharMax, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchExistingText
+            GamepadTextInputMode eInputMode, GamepadTextInputLineMode eLineInputMode, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchDescription,
+            uint unCharMax, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchExistingText
         ) {
             var returnValue = _ShowGamepadTextInput(Self, eInputMode, eLineInputMode, pchDescription, unCharMax, pchExistingText);
             return returnValue;
@@ -411,15 +404,15 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUtils_FilterText", CallingConvention = Platform.CC)]
         static extern int _FilterText(
-            IntPtr self, TextFilteringContext eContext, SteamId sourceSteamID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchInputMessage, IntPtr pchOutFilteredText, uint nByteSizeOutFilteredText
+            IntPtr self, TextFilteringContext eContext, SteamId sourceSteamID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchInputMessage,
+            IntPtr pchOutFilteredText, uint nByteSizeOutFilteredText
         );
 
     #endregion
 
         internal int FilterText(
-            TextFilteringContext eContext, SteamId sourceSteamID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchInputMessage, out string pchOutFilteredText
+            TextFilteringContext eContext, SteamId sourceSteamID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchInputMessage,
+            out string pchOutFilteredText
         ) {
             var mempchOutFilteredText = Helpers.TakeMemory();
             var returnValue = _FilterText(Self, eContext, sourceSteamID, pchInputMessage, mempchOutFilteredText, 1024 * 32);

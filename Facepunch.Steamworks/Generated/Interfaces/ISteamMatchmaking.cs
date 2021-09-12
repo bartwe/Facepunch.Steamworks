@@ -84,17 +84,15 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmaking_AddRequestLobbyListStringFilter", CallingConvention = Platform.CC)]
         static extern void _AddRequestLobbyListStringFilter(
-            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKeyToMatch, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchValueToMatch, LobbyComparison eComparisonType
+            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKeyToMatch,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchValueToMatch, LobbyComparison eComparisonType
         );
 
     #endregion
 
         internal void AddRequestLobbyListStringFilter(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKeyToMatch, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchValueToMatch, LobbyComparison eComparisonType
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKeyToMatch,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchValueToMatch, LobbyComparison eComparisonType
         ) {
             _AddRequestLobbyListStringFilter(Self, pchKeyToMatch, pchValueToMatch, eComparisonType);
         }
@@ -103,15 +101,13 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmaking_AddRequestLobbyListNumericalFilter", CallingConvention = Platform.CC)]
         static extern void _AddRequestLobbyListNumericalFilter(
-            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKeyToMatch, int nValueToMatch, LobbyComparison eComparisonType
+            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKeyToMatch, int nValueToMatch, LobbyComparison eComparisonType
         );
 
     #endregion
 
         internal void AddRequestLobbyListNumericalFilter(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKeyToMatch, int nValueToMatch, LobbyComparison eComparisonType
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKeyToMatch, int nValueToMatch, LobbyComparison eComparisonType
         ) {
             _AddRequestLobbyListNumericalFilter(Self, pchKeyToMatch, nValueToMatch, eComparisonType);
         }
@@ -120,16 +116,12 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmaking_AddRequestLobbyListNearValueFilter", CallingConvention = Platform.CC)]
         static extern void _AddRequestLobbyListNearValueFilter(
-            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKeyToMatch, int nValueToBeCloseTo
+            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKeyToMatch, int nValueToBeCloseTo
         );
 
     #endregion
 
-        internal void AddRequestLobbyListNearValueFilter(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKeyToMatch, int nValueToBeCloseTo
-        ) {
+        internal void AddRequestLobbyListNearValueFilter([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKeyToMatch, int nValueToBeCloseTo) {
             _AddRequestLobbyListNearValueFilter(Self, pchKeyToMatch, nValueToBeCloseTo);
         }
 
@@ -264,17 +256,11 @@ namespace Steamworks {
     #region FunctionMeta
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmaking_GetLobbyData", CallingConvention = Platform.CC)]
-        static extern Utf8StringPointer _GetLobbyData(
-            IntPtr self, SteamId steamIDLobby, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKey
-        );
+        static extern Utf8StringPointer _GetLobbyData(IntPtr self, SteamId steamIDLobby, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKey);
 
     #endregion
 
-        internal string GetLobbyData(
-            SteamId steamIDLobby, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKey
-        ) {
+        internal string GetLobbyData(SteamId steamIDLobby, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKey) {
             var returnValue = _GetLobbyData(Self, steamIDLobby, pchKey);
             return returnValue;
         }
@@ -284,17 +270,15 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmaking_SetLobbyData", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _SetLobbyData(
-            IntPtr self, SteamId steamIDLobby, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKey, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchValue
+            IntPtr self, SteamId steamIDLobby, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKey,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchValue
         );
 
     #endregion
 
         internal bool SetLobbyData(
-            SteamId steamIDLobby, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKey, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchValue
+            SteamId steamIDLobby, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKey,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchValue
         ) {
             var returnValue = _SetLobbyData(Self, steamIDLobby, pchKey, pchValue);
             return returnValue;
@@ -333,17 +317,11 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmaking_DeleteLobbyData", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
-        static extern bool _DeleteLobbyData(
-            IntPtr self, SteamId steamIDLobby, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKey
-        );
+        static extern bool _DeleteLobbyData(IntPtr self, SteamId steamIDLobby, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKey);
 
     #endregion
 
-        internal bool DeleteLobbyData(
-            SteamId steamIDLobby, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKey
-        ) {
+        internal bool DeleteLobbyData(SteamId steamIDLobby, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKey) {
             var returnValue = _DeleteLobbyData(Self, steamIDLobby, pchKey);
             return returnValue;
         }
@@ -352,16 +330,12 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmaking_GetLobbyMemberData", CallingConvention = Platform.CC)]
         static extern Utf8StringPointer _GetLobbyMemberData(
-            IntPtr self, SteamId steamIDLobby, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKey
+            IntPtr self, SteamId steamIDLobby, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKey
         );
 
     #endregion
 
-        internal string GetLobbyMemberData(
-            SteamId steamIDLobby, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKey
-        ) {
+        internal string GetLobbyMemberData(SteamId steamIDLobby, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKey) {
             var returnValue = _GetLobbyMemberData(Self, steamIDLobby, steamIDUser, pchKey);
             return returnValue;
         }
@@ -370,17 +344,15 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmaking_SetLobbyMemberData", CallingConvention = Platform.CC)]
         static extern void _SetLobbyMemberData(
-            IntPtr self, SteamId steamIDLobby, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKey, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchValue
+            IntPtr self, SteamId steamIDLobby, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKey,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchValue
         );
 
     #endregion
 
         internal void SetLobbyMemberData(
-            SteamId steamIDLobby, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKey, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchValue
+            SteamId steamIDLobby, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKey,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchValue
         ) {
             _SetLobbyMemberData(Self, steamIDLobby, pchKey, pchValue);
         }

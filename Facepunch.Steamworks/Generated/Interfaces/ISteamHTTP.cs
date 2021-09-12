@@ -27,16 +27,12 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamHTTP_CreateHTTPRequest", CallingConvention = Platform.CC)]
         static extern HTTPRequestHandle _CreateHTTPRequest(
-            IntPtr self, HTTPMethod eHTTPRequestMethod, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchAbsoluteURL
+            IntPtr self, HTTPMethod eHTTPRequestMethod, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchAbsoluteURL
         );
 
     #endregion
 
-        internal HTTPRequestHandle CreateHTTPRequest(
-            HTTPMethod eHTTPRequestMethod, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchAbsoluteURL
-        ) {
+        internal HTTPRequestHandle CreateHTTPRequest(HTTPMethod eHTTPRequestMethod, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchAbsoluteURL) {
             var returnValue = _CreateHTTPRequest(Self, eHTTPRequestMethod, pchAbsoluteURL);
             return returnValue;
         }
@@ -72,17 +68,15 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamHTTP_SetHTTPRequestHeaderValue", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _SetHTTPRequestHeaderValue(
-            IntPtr self, HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchHeaderName, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchHeaderValue
+            IntPtr self, HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchHeaderName,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchHeaderValue
         );
 
     #endregion
 
         internal bool SetHTTPRequestHeaderValue(
-            HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchHeaderName, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchHeaderValue
+            HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchHeaderName,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchHeaderValue
         ) {
             var returnValue = _SetHTTPRequestHeaderValue(Self, hRequest, pchHeaderName, pchHeaderValue);
             return returnValue;
@@ -93,17 +87,15 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamHTTP_SetHTTPRequestGetOrPostParameter", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _SetHTTPRequestGetOrPostParameter(
-            IntPtr self, HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchParamName, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchParamValue
+            IntPtr self, HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchParamName,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchParamValue
         );
 
     #endregion
 
         internal bool SetHTTPRequestGetOrPostParameter(
-            HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchParamName, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchParamValue
+            HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchParamName,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchParamValue
         ) {
             var returnValue = _SetHTTPRequestGetOrPostParameter(Self, hRequest, pchParamName, pchParamValue);
             return returnValue;
@@ -166,15 +158,13 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamHTTP_GetHTTPResponseHeaderSize", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _GetHTTPResponseHeaderSize(
-            IntPtr self, HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchHeaderName, ref uint unResponseHeaderSize
+            IntPtr self, HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchHeaderName, ref uint unResponseHeaderSize
         );
 
     #endregion
 
         internal bool GetHTTPResponseHeaderSize(
-            HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchHeaderName, ref uint unResponseHeaderSize
+            HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchHeaderName, ref uint unResponseHeaderSize
         ) {
             var returnValue = _GetHTTPResponseHeaderSize(Self, hRequest, pchHeaderName, ref unResponseHeaderSize);
             return returnValue;
@@ -185,15 +175,14 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamHTTP_GetHTTPResponseHeaderValue", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _GetHTTPResponseHeaderValue(
-            IntPtr self, HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchHeaderName, ref byte pHeaderValueBuffer, uint unBufferSize
+            IntPtr self, HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchHeaderName, ref byte pHeaderValueBuffer,
+            uint unBufferSize
         );
 
     #endregion
 
         internal bool GetHTTPResponseHeaderValue(
-            HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchHeaderName, ref byte pHeaderValueBuffer, uint unBufferSize
+            HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchHeaderName, ref byte pHeaderValueBuffer, uint unBufferSize
         ) {
             var returnValue = _GetHTTPResponseHeaderValue(Self, hRequest, pchHeaderName, ref pHeaderValueBuffer, unBufferSize);
             return returnValue;
@@ -269,15 +258,14 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamHTTP_SetHTTPRequestRawPostBody", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _SetHTTPRequestRawPostBody(
-            IntPtr self, HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchContentType, [In] [Out] byte[] pubBody, uint unBodyLen
+            IntPtr self, HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchContentType, [In] [Out] byte[] pubBody,
+            uint unBodyLen
         );
 
     #endregion
 
         internal bool SetHTTPRequestRawPostBody(
-            HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchContentType, [In] [Out] byte[] pubBody, uint unBodyLen
+            HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchContentType, [In] [Out] byte[] pubBody, uint unBodyLen
         ) {
             var returnValue = _SetHTTPRequestRawPostBody(Self, hRequest, pchContentType, pubBody, unBodyLen);
             return returnValue;
@@ -313,19 +301,17 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamHTTP_SetCookie", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _SetCookie(
-            IntPtr self, HTTPCookieContainerHandle hCookieContainer, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchHost, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchUrl, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchCookie
+            IntPtr self, HTTPCookieContainerHandle hCookieContainer, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchHost,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchUrl,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchCookie
         );
 
     #endregion
 
         internal bool SetCookie(
-            HTTPCookieContainerHandle hCookieContainer, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchHost, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchUrl, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchCookie
+            HTTPCookieContainerHandle hCookieContainer, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchHost,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchUrl,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchCookie
         ) {
             var returnValue = _SetCookie(Self, hCookieContainer, pchHost, pchUrl, pchCookie);
             return returnValue;
@@ -349,16 +335,12 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamHTTP_SetHTTPRequestUserAgentInfo", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _SetHTTPRequestUserAgentInfo(
-            IntPtr self, HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchUserAgentInfo
+            IntPtr self, HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchUserAgentInfo
         );
 
     #endregion
 
-        internal bool SetHTTPRequestUserAgentInfo(
-            HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchUserAgentInfo
-        ) {
+        internal bool SetHTTPRequestUserAgentInfo(HTTPRequestHandle hRequest, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchUserAgentInfo) {
             var returnValue = _SetHTTPRequestUserAgentInfo(Self, hRequest, pchUserAgentInfo);
             return returnValue;
         }

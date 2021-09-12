@@ -60,15 +60,15 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamInventory_GetResultItemProperty", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _GetResultItemProperty(
-            IntPtr self, SteamInventoryResult_t resultHandle, uint unItemIndex, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchPropertyName, IntPtr pchValueBuffer, ref uint punValueBufferSizeOut
+            IntPtr self, SteamInventoryResult_t resultHandle, uint unItemIndex, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchPropertyName,
+            IntPtr pchValueBuffer, ref uint punValueBufferSizeOut
         );
 
     #endregion
 
         internal bool GetResultItemProperty(
-            SteamInventoryResult_t resultHandle, uint unItemIndex, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchPropertyName, out string pchValueBuffer, ref uint punValueBufferSizeOut
+            SteamInventoryResult_t resultHandle, uint unItemIndex, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchPropertyName,
+            out string pchValueBuffer, ref uint punValueBufferSizeOut
         ) {
             var mempchValueBuffer = Helpers.TakeMemory();
             var returnValue = _GetResultItemProperty(Self, resultHandle, unItemIndex, pchPropertyName, mempchValueBuffer, ref punValueBufferSizeOut);
@@ -368,15 +368,15 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamInventory_GetItemDefinitionProperty", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _GetItemDefinitionProperty(
-            IntPtr self, InventoryDefId iDefinition, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchPropertyName, IntPtr pchValueBuffer, ref uint punValueBufferSizeOut
+            IntPtr self, InventoryDefId iDefinition, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchPropertyName, IntPtr pchValueBuffer,
+            ref uint punValueBufferSizeOut
         );
 
     #endregion
 
         internal bool GetItemDefinitionProperty(
-            InventoryDefId iDefinition, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchPropertyName, out string pchValueBuffer, ref uint punValueBufferSizeOut
+            InventoryDefId iDefinition, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchPropertyName, out string pchValueBuffer,
+            ref uint punValueBufferSizeOut
         ) {
             var mempchValueBuffer = Helpers.TakeMemory();
             var returnValue = _GetItemDefinitionProperty(Self, iDefinition, pchPropertyName, mempchValueBuffer, ref punValueBufferSizeOut);
@@ -488,15 +488,13 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamInventory_RemoveProperty", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _RemoveProperty(
-            IntPtr self, SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchPropertyName
+            IntPtr self, SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchPropertyName
         );
 
     #endregion
 
         internal bool RemoveProperty(
-            SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchPropertyName
+            SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchPropertyName
         ) {
             var returnValue = _RemoveProperty(Self, handle, nItemID, pchPropertyName);
             return returnValue;
@@ -507,17 +505,15 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamInventory_SetPropertyString", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _SetProperty(
-            IntPtr self, SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchPropertyName, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchPropertyValue
+            IntPtr self, SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchPropertyName,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchPropertyValue
         );
 
     #endregion
 
         internal bool SetProperty(
-            SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchPropertyName, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchPropertyValue
+            SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchPropertyName,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchPropertyValue
         ) {
             var returnValue = _SetProperty(Self, handle, nItemID, pchPropertyName, pchPropertyValue);
             return returnValue;
@@ -528,15 +524,15 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamInventory_SetPropertyBool", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _SetProperty(
-            IntPtr self, SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchPropertyName, [MarshalAs(UnmanagedType.U1)] bool bValue
+            IntPtr self, SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchPropertyName,
+            [MarshalAs(UnmanagedType.U1)] bool bValue
         );
 
     #endregion
 
         internal bool SetProperty(
-            SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchPropertyName, [MarshalAs(UnmanagedType.U1)] bool bValue
+            SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchPropertyName,
+            [MarshalAs(UnmanagedType.U1)] bool bValue
         ) {
             var returnValue = _SetProperty(Self, handle, nItemID, pchPropertyName, bValue);
             return returnValue;
@@ -547,15 +543,14 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamInventory_SetPropertyInt64", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _SetProperty(
-            IntPtr self, SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchPropertyName, long nValue
+            IntPtr self, SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchPropertyName,
+            long nValue
         );
 
     #endregion
 
         internal bool SetProperty(
-            SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchPropertyName, long nValue
+            SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchPropertyName, long nValue
         ) {
             var returnValue = _SetProperty(Self, handle, nItemID, pchPropertyName, nValue);
             return returnValue;
@@ -566,15 +561,14 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamInventory_SetPropertyFloat", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _SetProperty(
-            IntPtr self, SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchPropertyName, float flValue
+            IntPtr self, SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchPropertyName,
+            float flValue
         );
 
     #endregion
 
         internal bool SetProperty(
-            SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchPropertyName, float flValue
+            SteamInventoryUpdateHandle_t handle, InventoryItemId nItemID, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchPropertyName, float flValue
         ) {
             var returnValue = _SetProperty(Self, handle, nItemID, pchPropertyName, flValue);
             return returnValue;
@@ -598,8 +592,7 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamInventory_InspectItem", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _InspectItem(
-            IntPtr self, ref SteamInventoryResult_t pResultHandle, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchItemToken
+            IntPtr self, ref SteamInventoryResult_t pResultHandle, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchItemToken
         );
 
     #endregion
@@ -607,10 +600,7 @@ namespace Steamworks {
         /// <summary>
         ///     Look up the given token and return a pseudo-Inventory item.
         /// </summary>
-        internal bool InspectItem(
-            ref SteamInventoryResult_t pResultHandle, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchItemToken
-        ) {
+        internal bool InspectItem(ref SteamInventoryResult_t pResultHandle, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchItemToken) {
             var returnValue = _InspectItem(Self, ref pResultHandle, pchItemToken);
             return returnValue;
         }

@@ -32,17 +32,15 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamScreenshots_AddScreenshotToLibrary", CallingConvention = Platform.CC)]
         static extern ScreenshotHandle _AddScreenshotToLibrary(
-            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchFilename, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchThumbnailFilename, int nWidth, int nHeight
+            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchFilename,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchThumbnailFilename, int nWidth, int nHeight
         );
 
     #endregion
 
         internal ScreenshotHandle AddScreenshotToLibrary(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchFilename, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchThumbnailFilename, int nWidth, int nHeight
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchFilename,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchThumbnailFilename, int nWidth, int nHeight
         ) {
             var returnValue = _AddScreenshotToLibrary(Self, pchFilename, pchThumbnailFilename, nWidth, nHeight);
             return returnValue;
@@ -74,17 +72,11 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamScreenshots_SetLocation", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
-        static extern bool _SetLocation(
-            IntPtr self, ScreenshotHandle hScreenshot, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchLocation
-        );
+        static extern bool _SetLocation(IntPtr self, ScreenshotHandle hScreenshot, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchLocation);
 
     #endregion
 
-        internal bool SetLocation(
-            ScreenshotHandle hScreenshot, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchLocation
-        ) {
+        internal bool SetLocation(ScreenshotHandle hScreenshot, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchLocation) {
             var returnValue = _SetLocation(Self, hScreenshot, pchLocation);
             return returnValue;
         }
@@ -132,17 +124,15 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamScreenshots_AddVRScreenshotToLibrary", CallingConvention = Platform.CC)]
         static extern ScreenshotHandle _AddVRScreenshotToLibrary(
-            IntPtr self, VRScreenshotType eType, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchFilename, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchVRFilename
+            IntPtr self, VRScreenshotType eType, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchFilename,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchVRFilename
         );
 
     #endregion
 
         internal ScreenshotHandle AddVRScreenshotToLibrary(
-            VRScreenshotType eType, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchFilename, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchVRFilename
+            VRScreenshotType eType, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchFilename,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchVRFilename
         ) {
             var returnValue = _AddVRScreenshotToLibrary(Self, eType, pchFilename, pchVRFilename);
             return returnValue;

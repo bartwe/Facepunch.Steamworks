@@ -68,17 +68,11 @@ namespace Steamworks {
     #region FunctionMeta
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamInput_GetActionSetHandle", CallingConvention = Platform.CC)]
-        static extern InputActionSetHandle_t _GetActionSetHandle(
-            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pszActionSetName
-        );
+        static extern InputActionSetHandle_t _GetActionSetHandle(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pszActionSetName);
 
     #endregion
 
-        internal InputActionSetHandle_t GetActionSetHandle(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pszActionSetName
-        ) {
+        internal InputActionSetHandle_t GetActionSetHandle([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pszActionSetName) {
             var returnValue = _GetActionSetHandle(Self, pszActionSetName);
             return returnValue;
         }
@@ -154,17 +148,11 @@ namespace Steamworks {
     #region FunctionMeta
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamInput_GetDigitalActionHandle", CallingConvention = Platform.CC)]
-        static extern InputDigitalActionHandle_t _GetDigitalActionHandle(
-            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pszActionName
-        );
+        static extern InputDigitalActionHandle_t _GetDigitalActionHandle(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pszActionName);
 
     #endregion
 
-        internal InputDigitalActionHandle_t GetDigitalActionHandle(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pszActionName
-        ) {
+        internal InputDigitalActionHandle_t GetDigitalActionHandle([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pszActionName) {
             var returnValue = _GetDigitalActionHandle(Self, pszActionName);
             return returnValue;
         }
@@ -198,17 +186,11 @@ namespace Steamworks {
     #region FunctionMeta
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamInput_GetAnalogActionHandle", CallingConvention = Platform.CC)]
-        static extern InputAnalogActionHandle_t _GetAnalogActionHandle(
-            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pszActionName
-        );
+        static extern InputAnalogActionHandle_t _GetAnalogActionHandle(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pszActionName);
 
     #endregion
 
-        internal InputAnalogActionHandle_t GetAnalogActionHandle(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pszActionName
-        ) {
+        internal InputAnalogActionHandle_t GetAnalogActionHandle([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pszActionName) {
             var returnValue = _GetAnalogActionHandle(Self, pszActionName);
             return returnValue;
         }

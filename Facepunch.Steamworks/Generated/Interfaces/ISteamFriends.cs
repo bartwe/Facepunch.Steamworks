@@ -31,17 +31,11 @@ namespace Steamworks {
     #region FunctionMeta
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamFriends_SetPersonaName", CallingConvention = Platform.CC)]
-        static extern SteamAPICall_t _SetPersonaName(
-            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchPersonaName
-        );
+        static extern SteamAPICall_t _SetPersonaName(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchPersonaName);
 
     #endregion
 
-        internal CallResult<SetPersonaNameResponse_t> SetPersonaName(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchPersonaName
-        ) {
+        internal CallResult<SetPersonaNameResponse_t> SetPersonaName([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchPersonaName) {
             var returnValue = _SetPersonaName(Self, pchPersonaName);
             return new(returnValue, IsServer);
         }
@@ -363,34 +357,22 @@ namespace Steamworks {
     #region FunctionMeta
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamFriends_ActivateGameOverlay", CallingConvention = Platform.CC)]
-        static extern void _ActivateGameOverlay(
-            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchDialog
-        );
+        static extern void _ActivateGameOverlay(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchDialog);
 
     #endregion
 
-        internal void ActivateGameOverlay(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchDialog
-        ) {
+        internal void ActivateGameOverlay([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchDialog) {
             _ActivateGameOverlay(Self, pchDialog);
         }
 
     #region FunctionMeta
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamFriends_ActivateGameOverlayToUser", CallingConvention = Platform.CC)]
-        static extern void _ActivateGameOverlayToUser(
-            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchDialog, SteamId steamID
-        );
+        static extern void _ActivateGameOverlayToUser(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchDialog, SteamId steamID);
 
     #endregion
 
-        internal void ActivateGameOverlayToUser(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchDialog, SteamId steamID
-        ) {
+        internal void ActivateGameOverlayToUser([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchDialog, SteamId steamID) {
             _ActivateGameOverlayToUser(Self, pchDialog, steamID);
         }
 
@@ -398,16 +380,12 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamFriends_ActivateGameOverlayToWebPage", CallingConvention = Platform.CC)]
         static extern void _ActivateGameOverlayToWebPage(
-            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchURL, ActivateGameOverlayToWebPageMode eMode
+            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchURL, ActivateGameOverlayToWebPageMode eMode
         );
 
     #endregion
 
-        internal void ActivateGameOverlayToWebPage(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchURL, ActivateGameOverlayToWebPageMode eMode
-        ) {
+        internal void ActivateGameOverlayToWebPage([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchURL, ActivateGameOverlayToWebPageMode eMode) {
             _ActivateGameOverlayToWebPage(Self, pchURL, eMode);
         }
 
@@ -558,17 +536,15 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamFriends_SetRichPresence", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _SetRichPresence(
-            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKey, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchValue
+            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKey,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchValue
         );
 
     #endregion
 
         internal bool SetRichPresence(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKey, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchValue
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKey,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchValue
         ) {
             var returnValue = _SetRichPresence(Self, pchKey, pchValue);
             return returnValue;
@@ -589,16 +565,12 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamFriends_GetFriendRichPresence", CallingConvention = Platform.CC)]
         static extern Utf8StringPointer _GetFriendRichPresence(
-            IntPtr self, SteamId steamIDFriend, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKey
+            IntPtr self, SteamId steamIDFriend, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKey
         );
 
     #endregion
 
-        internal string GetFriendRichPresence(
-            SteamId steamIDFriend, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKey
-        ) {
+        internal string GetFriendRichPresence(SteamId steamIDFriend, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKey) {
             var returnValue = _GetFriendRichPresence(Self, steamIDFriend, pchKey);
             return returnValue;
         }
@@ -642,17 +614,11 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamFriends_InviteUserToGame", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
-        static extern bool _InviteUserToGame(
-            IntPtr self, SteamId steamIDFriend, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchConnectString
-        );
+        static extern bool _InviteUserToGame(IntPtr self, SteamId steamIDFriend, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchConnectString);
 
     #endregion
 
-        internal bool InviteUserToGame(
-            SteamId steamIDFriend, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchConnectString
-        ) {
+        internal bool InviteUserToGame(SteamId steamIDFriend, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchConnectString) {
             var returnValue = _InviteUserToGame(Self, steamIDFriend, pchConnectString);
             return returnValue;
         }
@@ -758,17 +724,11 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamFriends_SendClanChatMessage", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
-        static extern bool _SendClanChatMessage(
-            IntPtr self, SteamId steamIDClanChat, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchText
-        );
+        static extern bool _SendClanChatMessage(IntPtr self, SteamId steamIDClanChat, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchText);
 
     #endregion
 
-        internal bool SendClanChatMessage(
-            SteamId steamIDClanChat, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchText
-        ) {
+        internal bool SendClanChatMessage(SteamId steamIDClanChat, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchText) {
             var returnValue = _SendClanChatMessage(Self, steamIDClanChat, pchText);
             return returnValue;
         }
@@ -854,17 +814,11 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamFriends_ReplyToFriendMessage", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
-        static extern bool _ReplyToFriendMessage(
-            IntPtr self, SteamId steamIDFriend, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchMsgToSend
-        );
+        static extern bool _ReplyToFriendMessage(IntPtr self, SteamId steamIDFriend, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchMsgToSend);
 
     #endregion
 
-        internal bool ReplyToFriendMessage(
-            SteamId steamIDFriend, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchMsgToSend
-        ) {
+        internal bool ReplyToFriendMessage(SteamId steamIDFriend, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchMsgToSend) {
             var returnValue = _ReplyToFriendMessage(Self, steamIDFriend, pchMsgToSend);
             return returnValue;
         }
@@ -970,17 +924,11 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamFriends_RegisterProtocolInOverlayBrowser", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
-        static extern bool _RegisterProtocolInOverlayBrowser(
-            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchProtocol
-        );
+        static extern bool _RegisterProtocolInOverlayBrowser(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchProtocol);
 
     #endregion
 
-        internal bool RegisterProtocolInOverlayBrowser(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchProtocol
-        ) {
+        internal bool RegisterProtocolInOverlayBrowser([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchProtocol) {
             var returnValue = _RegisterProtocolInOverlayBrowser(Self, pchProtocol);
             return returnValue;
         }
@@ -988,17 +936,11 @@ namespace Steamworks {
     #region FunctionMeta
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamFriends_ActivateGameOverlayInviteDialogConnectString", CallingConvention = Platform.CC)]
-        static extern void _ActivateGameOverlayInviteDialogConnectString(
-            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchConnectString
-        );
+        static extern void _ActivateGameOverlayInviteDialogConnectString(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchConnectString);
 
     #endregion
 
-        internal void ActivateGameOverlayInviteDialogConnectString(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchConnectString
-        ) {
+        internal void ActivateGameOverlayInviteDialogConnectString([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchConnectString) {
             _ActivateGameOverlayInviteDialogConnectString(Self, pchConnectString);
         }
     }

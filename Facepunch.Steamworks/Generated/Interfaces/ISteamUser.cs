@@ -82,16 +82,12 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_TrackAppUsageEvent", CallingConvention = Platform.CC)]
         static extern void _TrackAppUsageEvent(
-            IntPtr self, GameId gameID, int eAppUsageEvent, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchExtraInfo
+            IntPtr self, GameId gameID, int eAppUsageEvent, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchExtraInfo
         );
 
     #endregion
 
-        internal void TrackAppUsageEvent(
-            GameId gameID, int eAppUsageEvent, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchExtraInfo
-        ) {
+        internal void TrackAppUsageEvent(GameId gameID, int eAppUsageEvent, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchExtraInfo) {
             _TrackAppUsageEvent(Self, gameID, eAppUsageEvent, pchExtraInfo);
         }
 
@@ -324,17 +320,11 @@ namespace Steamworks {
     #region FunctionMeta
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_RequestStoreAuthURL", CallingConvention = Platform.CC)]
-        static extern SteamAPICall_t _RequestStoreAuthURL(
-            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchRedirectURL
-        );
+        static extern SteamAPICall_t _RequestStoreAuthURL(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchRedirectURL);
 
     #endregion
 
-        internal CallResult<StoreAuthURLResponse_t> RequestStoreAuthURL(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchRedirectURL
-        ) {
+        internal CallResult<StoreAuthURLResponse_t> RequestStoreAuthURL([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchRedirectURL) {
             var returnValue = _RequestStoreAuthURL(Self, pchRedirectURL);
             return new(returnValue, IsServer);
         }

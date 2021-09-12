@@ -97,17 +97,16 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamParties_CreateBeacon", CallingConvention = Platform.CC)]
         static extern SteamAPICall_t _CreateBeacon(
-            IntPtr self, uint unOpenSlots, ref SteamPartyBeaconLocation_t pBeaconLocation, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchConnectString, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchMetadata
+            IntPtr self, uint unOpenSlots, ref SteamPartyBeaconLocation_t pBeaconLocation,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchConnectString,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchMetadata
         );
 
     #endregion
 
         internal CallResult<CreateBeaconCallback_t> CreateBeacon(
-            uint unOpenSlots, /* ref */ SteamPartyBeaconLocation_t pBeaconLocation, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchConnectString, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchMetadata
+            uint unOpenSlots, /* ref */ SteamPartyBeaconLocation_t pBeaconLocation, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchConnectString,
+            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchMetadata
         ) {
             var returnValue = _CreateBeacon(Self, unOpenSlots, ref pBeaconLocation, pchConnectString, pchMetadata);
             return new(returnValue, IsServer);

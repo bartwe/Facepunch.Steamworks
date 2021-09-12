@@ -32,17 +32,11 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamGameServerStats_GetUserStatInt32", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
-        static extern bool _GetUserStat(
-            IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchName, ref int pData
-        );
+        static extern bool _GetUserStat(IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref int pData);
 
     #endregion
 
-        internal bool GetUserStat(
-            SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchName, ref int pData
-        ) {
+        internal bool GetUserStat(SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref int pData) {
             var returnValue = _GetUserStat(Self, steamIDUser, pchName, ref pData);
             return returnValue;
         }
@@ -51,17 +45,11 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamGameServerStats_GetUserStatFloat", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
-        static extern bool _GetUserStat(
-            IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchName, ref float pData
-        );
+        static extern bool _GetUserStat(IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref float pData);
 
     #endregion
 
-        internal bool GetUserStat(
-            SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchName, ref float pData
-        ) {
+        internal bool GetUserStat(SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref float pData) {
             var returnValue = _GetUserStat(Self, steamIDUser, pchName, ref pData);
             return returnValue;
         }
@@ -71,15 +59,13 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamGameServerStats_GetUserAchievement", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _GetUserAchievement(
-            IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchName, [MarshalAs(UnmanagedType.U1)] ref bool pbAchieved
+            IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, [MarshalAs(UnmanagedType.U1)] ref bool pbAchieved
         );
 
     #endregion
 
         internal bool GetUserAchievement(
-            SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchName, [MarshalAs(UnmanagedType.U1)] ref bool pbAchieved
+            SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, [MarshalAs(UnmanagedType.U1)] ref bool pbAchieved
         ) {
             var returnValue = _GetUserAchievement(Self, steamIDUser, pchName, ref pbAchieved);
             return returnValue;
@@ -89,17 +75,11 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamGameServerStats_SetUserStatInt32", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
-        static extern bool _SetUserStat(
-            IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchName, int nData
-        );
+        static extern bool _SetUserStat(IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, int nData);
 
     #endregion
 
-        internal bool SetUserStat(
-            SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchName, int nData
-        ) {
+        internal bool SetUserStat(SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, int nData) {
             var returnValue = _SetUserStat(Self, steamIDUser, pchName, nData);
             return returnValue;
         }
@@ -108,17 +88,11 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamGameServerStats_SetUserStatFloat", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
-        static extern bool _SetUserStat(
-            IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchName, float fData
-        );
+        static extern bool _SetUserStat(IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, float fData);
 
     #endregion
 
-        internal bool SetUserStat(
-            SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchName, float fData
-        ) {
+        internal bool SetUserStat(SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, float fData) {
             var returnValue = _SetUserStat(Self, steamIDUser, pchName, fData);
             return returnValue;
         }
@@ -128,15 +102,13 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamGameServerStats_UpdateUserAvgRateStat", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _UpdateUserAvgRateStat(
-            IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchName, float flCountThisSession, double dSessionLength
+            IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, float flCountThisSession, double dSessionLength
         );
 
     #endregion
 
         internal bool UpdateUserAvgRateStat(
-            SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchName, float flCountThisSession, double dSessionLength
+            SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, float flCountThisSession, double dSessionLength
         ) {
             var returnValue = _UpdateUserAvgRateStat(Self, steamIDUser, pchName, flCountThisSession, dSessionLength);
             return returnValue;
@@ -146,17 +118,11 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamGameServerStats_SetUserAchievement", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
-        static extern bool _SetUserAchievement(
-            IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchName
-        );
+        static extern bool _SetUserAchievement(IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName);
 
     #endregion
 
-        internal bool SetUserAchievement(
-            SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchName
-        ) {
+        internal bool SetUserAchievement(SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName) {
             var returnValue = _SetUserAchievement(Self, steamIDUser, pchName);
             return returnValue;
         }
@@ -165,17 +131,11 @@ namespace Steamworks {
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamGameServerStats_ClearUserAchievement", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
-        static extern bool _ClearUserAchievement(
-            IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchName
-        );
+        static extern bool _ClearUserAchievement(IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName);
 
     #endregion
 
-        internal bool ClearUserAchievement(
-            SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchName
-        ) {
+        internal bool ClearUserAchievement(SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName) {
             var returnValue = _ClearUserAchievement(Self, steamIDUser, pchName);
             return returnValue;
         }

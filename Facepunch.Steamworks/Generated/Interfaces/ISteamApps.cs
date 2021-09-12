@@ -292,17 +292,11 @@ namespace Steamworks {
     #region FunctionMeta
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamApps_GetLaunchQueryParam", CallingConvention = Platform.CC)]
-        static extern Utf8StringPointer _GetLaunchQueryParam(
-            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKey
-        );
+        static extern Utf8StringPointer _GetLaunchQueryParam(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKey);
 
     #endregion
 
-        internal string GetLaunchQueryParam(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pchKey
-        ) {
+        internal string GetLaunchQueryParam([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKey) {
             var returnValue = _GetLaunchQueryParam(Self, pchKey);
             return returnValue;
         }
@@ -346,17 +340,11 @@ namespace Steamworks {
     #region FunctionMeta
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamApps_GetFileDetails", CallingConvention = Platform.CC)]
-        static extern SteamAPICall_t _GetFileDetails(
-            IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pszFileName
-        );
+        static extern SteamAPICall_t _GetFileDetails(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pszFileName);
 
     #endregion
 
-        internal CallResult<FileDetailsResult_t> GetFileDetails(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pszFileName
-        ) {
+        internal CallResult<FileDetailsResult_t> GetFileDetails([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pszFileName) {
             var returnValue = _GetFileDetails(Self, pszFileName);
             return new(returnValue, IsServer);
         }

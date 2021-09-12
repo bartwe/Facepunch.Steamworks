@@ -88,15 +88,14 @@ namespace Steamworks {
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamNetworkingSockets_CloseConnection", CallingConvention = Platform.CC)]
         [return: MarshalAs(UnmanagedType.I1)]
         static extern bool _CloseConnection(
-            IntPtr self, Connection hPeer, int nReason, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pszDebug, [MarshalAs(UnmanagedType.U1)] bool bEnableLinger
+            IntPtr self, Connection hPeer, int nReason, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pszDebug,
+            [MarshalAs(UnmanagedType.U1)] bool bEnableLinger
         );
 
     #endregion
 
         internal bool CloseConnection(
-            Connection hPeer, int nReason, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pszDebug, [MarshalAs(UnmanagedType.U1)] bool bEnableLinger
+            Connection hPeer, int nReason, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pszDebug, [MarshalAs(UnmanagedType.U1)] bool bEnableLinger
         ) {
             var returnValue = _CloseConnection(Self, hPeer, nReason, pszDebug, bEnableLinger);
             return returnValue;
@@ -143,17 +142,11 @@ namespace Steamworks {
     #region FunctionMeta
 
         [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamNetworkingSockets_SetConnectionName", CallingConvention = Platform.CC)]
-        static extern void _SetConnectionName(
-            IntPtr self, Connection hPeer, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pszName
-        );
+        static extern void _SetConnectionName(IntPtr self, Connection hPeer, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pszName);
 
     #endregion
 
-        internal void SetConnectionName(
-            Connection hPeer, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
-            string pszName
-        ) {
+        internal void SetConnectionName(Connection hPeer, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pszName) {
             _SetConnectionName(Self, hPeer, pszName);
         }
 
