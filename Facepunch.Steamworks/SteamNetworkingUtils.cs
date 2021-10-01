@@ -326,8 +326,6 @@ namespace Steamworks {
 
         /*
 
-        TODO - Connection object
-
         internal unsafe static bool SetConnectionConfig( uint con, NetConfig type, int value )
         {
             int* ptr = &value;

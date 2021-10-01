@@ -124,8 +124,6 @@ namespace Steamworks {
                 case "ZAR":
                     return $"R {decimaled}";
 
-                // TODO - check all of them https://partner.steamgames.com/doc/store/pricing/currencies
-
                 default:
                     return $"{decimaled} {currency}";
             }

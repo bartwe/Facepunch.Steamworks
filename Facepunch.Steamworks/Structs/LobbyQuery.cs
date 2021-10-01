@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 
 namespace Steamworks.Data {
     public struct LobbyQuery {
-        // TODO FILTERS
         // AddRequestLobbyListStringFilter
         // - WithoutKeyValue
 
