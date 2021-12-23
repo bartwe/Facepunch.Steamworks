@@ -1,118 +1,118 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Steamworks.Data {
-    [StructLayout(LayoutKind.Explicit, Size = 136, Pack = 1)]
-    public partial struct NetIdentity {
-        [FieldOffset(0)]
-        internal IdentityType type;
+namespace Steamworks.Data;
 
-        [FieldOffset(4)]
-        internal int size;
+[StructLayout(LayoutKind.Explicit, Size = 136, Pack = 1)]
+public partial struct NetIdentity {
+    [FieldOffset(0)]
+    internal IdentityType type;
 
-        [FieldOffset(8)]
-        internal ulong steamid;
+    [FieldOffset(4)]
+    internal int size;
 
-        [FieldOffset(8)]
-        internal NetAddress netaddress;
+    [FieldOffset(8)]
+    internal ulong steamid;
 
-        /// <summary>
-        ///     Return a NetIdentity that represents LocalHost
-        /// </summary>
-        public static NetIdentity LocalHost {
-            get {
-                NetIdentity id = default;
-                InternalSetLocalHost(ref id);
-                return id;
-            }
-        }
+    [FieldOffset(8)]
+    internal NetAddress netaddress;
 
-
-        public bool IsSteamId {
-            get { return type == IdentityType.SteamID; }
-        }
-
-        public bool IsIpAddress {
-            get { return type == IdentityType.IPAddress; }
-        }
-
-        /// <summary>
-        ///     Return true if this identity is localhost
-        /// </summary>
-        public bool IsLocalHost {
-            get {
-                NetIdentity id = default;
-                return InternalIsLocalHost(ref id);
-            }
-        }
-
-        /// <summary>
-        ///     Convert to a SteamId
-        /// </summary>
-        /// <param name="value"></param>
-        public static implicit operator NetIdentity(SteamId value) {
+    /// <summary>
+    ///     Return a NetIdentity that represents LocalHost
+    /// </summary>
+    public static NetIdentity LocalHost {
+        get {
             NetIdentity id = default;
-            InternalSetSteamID(ref id, value);
+            InternalSetLocalHost(ref id);
             return id;
         }
+    }
 
-        /// <summary>
-        ///     Set the specified Address
-        /// </summary>
-        public static implicit operator NetIdentity(NetAddress address) {
+
+    public bool IsSteamId {
+        get { return type == IdentityType.SteamID; }
+    }
+
+    public bool IsIpAddress {
+        get { return type == IdentityType.IPAddress; }
+    }
+
+    /// <summary>
+    ///     Return true if this identity is localhost
+    /// </summary>
+    public bool IsLocalHost {
+        get {
             NetIdentity id = default;
-            InternalSetIPAddr(ref id, ref address);
-            return id;
+            return InternalIsLocalHost(ref id);
         }
+    }
 
-        /// <summary>
-        ///     Automatically convert to a SteamId
-        /// </summary>
-        /// <param name="value"></param>
-        public static implicit operator SteamId(NetIdentity value) {
-            return value.SteamId;
-        }
+    /// <summary>
+    ///     Convert to a SteamId
+    /// </summary>
+    /// <param name="value"></param>
+    public static implicit operator NetIdentity(SteamId value) {
+        NetIdentity id = default;
+        InternalSetSteamID(ref id, value);
+        return id;
+    }
 
-        /// <summary>
-        ///     Returns NULL if we're not a SteamId
-        /// </summary>
-        public SteamId SteamId {
-            get {
-                if (type != IdentityType.SteamID)
-                    return default;
-                var id = this;
-                return InternalGetSteamID(ref id);
-            }
-        }
+    /// <summary>
+    ///     Set the specified Address
+    /// </summary>
+    public static implicit operator NetIdentity(NetAddress address) {
+        NetIdentity id = default;
+        InternalSetIPAddr(ref id, ref address);
+        return id;
+    }
 
-        /// <summary>
-        ///     Returns NULL if we're not a NetAddress
-        /// </summary>
-        public NetAddress Address {
-            get {
-                if (type != IdentityType.IPAddress)
-                    return default;
-                var id = this;
+    /// <summary>
+    ///     Automatically convert to a SteamId
+    /// </summary>
+    /// <param name="value"></param>
+    public static implicit operator SteamId(NetIdentity value) {
+        return value.SteamId;
+    }
 
-                var addrptr = InternalGetIPAddr(ref id);
-                return addrptr.ToType<NetAddress>();
-            }
-        }
-
-        /// <summary>
-        ///     We override tostring to provide a sensible representation
-        /// </summary>
-        public override string ToString() {
+    /// <summary>
+    ///     Returns NULL if we're not a SteamId
+    /// </summary>
+    public SteamId SteamId {
+        get {
+            if (type != IdentityType.SteamID)
+                return default;
             var id = this;
-            SteamNetworkingUtils.Internal.SteamNetworkingIdentity_ToString(ref id, out var str);
-            return str;
+            return InternalGetSteamID(ref id);
         }
+    }
 
-        internal enum IdentityType {
-            Invalid = 0,
-            IPAddress = 1,
-            GenericString = 2,
-            GenericBytes = 3,
-            SteamID = 16,
+    /// <summary>
+    ///     Returns NULL if we're not a NetAddress
+    /// </summary>
+    public NetAddress Address {
+        get {
+            if (type != IdentityType.IPAddress)
+                return default;
+            var id = this;
+
+            var addrptr = InternalGetIPAddr(ref id);
+            return addrptr.ToType<NetAddress>();
         }
+    }
+
+    /// <summary>
+    ///     We override tostring to provide a sensible representation
+    /// </summary>
+    public override string ToString() {
+        var id = this;
+        SteamNetworkingUtils.Internal.SteamNetworkingIdentity_ToString(ref id, out var str);
+        return str;
+    }
+
+    internal enum IdentityType {
+        Invalid = 0,
+        IPAddress = 1,
+        GenericString = 2,
+        GenericBytes = 3,
+        SteamID = 16,
     }
 }

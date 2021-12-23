@@ -1,163 +1,163 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Steamworks.Data {
-    public struct Leaderboard {
-        internal SteamLeaderboard_t Id;
+namespace Steamworks.Data;
 
-        /// <summary>
-        ///     the name of a leaderboard
-        /// </summary>
-        public string Name {
-            get { return SteamUserStats.Internal.GetLeaderboardName(Id); }
-        }
+public struct Leaderboard {
+    internal SteamLeaderboard_t Id;
 
-        public LeaderboardSort Sort {
-            get { return SteamUserStats.Internal.GetLeaderboardSortMethod(Id); }
-        }
+    /// <summary>
+    ///     the name of a leaderboard
+    /// </summary>
+    public string Name {
+        get { return SteamUserStats.Internal.GetLeaderboardName(Id); }
+    }
 
-        public LeaderboardDisplay Display {
-            get { return SteamUserStats.Internal.GetLeaderboardDisplayType(Id); }
-        }
+    public LeaderboardSort Sort {
+        get { return SteamUserStats.Internal.GetLeaderboardSortMethod(Id); }
+    }
 
-        public int EntryCount {
-            get { return SteamUserStats.Internal.GetLeaderboardEntryCount(Id); }
-        }
+    public LeaderboardDisplay Display {
+        get { return SteamUserStats.Internal.GetLeaderboardDisplayType(Id); }
+    }
 
-        static readonly int[] detailsBuffer = new int[64];
-        static readonly int[] noDetails = Array.Empty<int>();
+    public int EntryCount {
+        get { return SteamUserStats.Internal.GetLeaderboardEntryCount(Id); }
+    }
 
-        /// <summary>
-        ///     Submit your score and replace your old score even if it was better
-        /// </summary>
-        public async Task<LeaderboardUpdate?> ReplaceScore(int score, int[] details = null) {
-            if (details == null)
-                details = noDetails;
+    static readonly int[] detailsBuffer = new int[64];
+    static readonly int[] noDetails = Array.Empty<int>();
 
-            var r = await SteamUserStats.Internal.UploadLeaderboardScore(Id, LeaderboardUploadScoreMethod.ForceUpdate, score, details, details.Length);
-            if (!r.HasValue)
-                return null;
+    /// <summary>
+    ///     Submit your score and replace your old score even if it was better
+    /// </summary>
+    public async Task<LeaderboardUpdate?> ReplaceScore(int score, int[] details = null) {
+        if (details == null)
+            details = noDetails;
 
-            return LeaderboardUpdate.From(r.Value);
-        }
+        var r = await SteamUserStats.Internal.UploadLeaderboardScore(Id, LeaderboardUploadScoreMethod.ForceUpdate, score, details, details.Length);
+        if (!r.HasValue)
+            return null;
 
-        /// <summary>
-        ///     Submit your new score, but won't replace your high score if it's lower
-        /// </summary>
-        public async Task<LeaderboardUpdate?> SubmitScoreAsync(int score, int[] details = null) {
-            if (details == null)
-                details = noDetails;
+        return LeaderboardUpdate.From(r.Value);
+    }
 
-            var r = await SteamUserStats.Internal.UploadLeaderboardScore(Id, LeaderboardUploadScoreMethod.KeepBest, score, details, details.Length);
-            if (!r.HasValue)
-                return null;
+    /// <summary>
+    ///     Submit your new score, but won't replace your high score if it's lower
+    /// </summary>
+    public async Task<LeaderboardUpdate?> SubmitScoreAsync(int score, int[] details = null) {
+        if (details == null)
+            details = noDetails;
 
-            return LeaderboardUpdate.From(r.Value);
-        }
+        var r = await SteamUserStats.Internal.UploadLeaderboardScore(Id, LeaderboardUploadScoreMethod.KeepBest, score, details, details.Length);
+        if (!r.HasValue)
+            return null;
 
-        /// <summary>
-        ///     Attaches a piece of user generated content the user's entry on a leaderboard
-        /// </summary>
-        public async Task<Result> AttachUgc(Ugc file) {
-            var r = await SteamUserStats.Internal.AttachLeaderboardUGC(Id, file.Handle);
-            if (!r.HasValue)
-                return Result.Fail;
+        return LeaderboardUpdate.From(r.Value);
+    }
 
-            return r.Value.Result;
-        }
+    /// <summary>
+    ///     Attaches a piece of user generated content the user's entry on a leaderboard
+    /// </summary>
+    public async Task<Result> AttachUgc(Ugc file) {
+        var r = await SteamUserStats.Internal.AttachLeaderboardUGC(Id, file.Handle);
+        if (!r.HasValue)
+            return Result.Fail;
 
-        /// <summary>
-        ///     Fetches leaderboard entries for an arbitrary set of users on a specified leaderboard.
-        /// </summary>
-        public async Task<LeaderboardEntry[]> GetScoresForUsersAsync(SteamId[] users) {
-            if ((users == null) || (users.Length == 0))
-                return null;
+        return r.Value.Result;
+    }
 
-            var r = await SteamUserStats.Internal.DownloadLeaderboardEntriesForUsers(Id, users, users.Length);
-            if (!r.HasValue)
-                return null;
+    /// <summary>
+    ///     Fetches leaderboard entries for an arbitrary set of users on a specified leaderboard.
+    /// </summary>
+    public async Task<LeaderboardEntry[]> GetScoresForUsersAsync(SteamId[] users) {
+        if ((users == null) || (users.Length == 0))
+            return null;
 
-            return await LeaderboardResultToEntries(r.Value);
-        }
+        var r = await SteamUserStats.Internal.DownloadLeaderboardEntriesForUsers(Id, users, users.Length);
+        if (!r.HasValue)
+            return null;
 
-        /// <summary>
-        ///     Used to query for a sequential range of leaderboard entries by leaderboard Sort.
-        /// </summary>
-        public async Task<LeaderboardEntry[]> GetScoresAsync(int count, int offset = 1) {
-            if (offset <= 0)
-                throw new ArgumentException("Should be 1+", nameof(offset));
+        return await LeaderboardResultToEntries(r.Value);
+    }
 
-            var r = await SteamUserStats.Internal.DownloadLeaderboardEntries(Id, LeaderboardDataRequest.Global, offset, (offset + count) - 1);
-            if (!r.HasValue)
-                return null;
+    /// <summary>
+    ///     Used to query for a sequential range of leaderboard entries by leaderboard Sort.
+    /// </summary>
+    public async Task<LeaderboardEntry[]> GetScoresAsync(int count, int offset = 1) {
+        if (offset <= 0)
+            throw new ArgumentException("Should be 1+", nameof(offset));
 
-            return await LeaderboardResultToEntries(r.Value);
-        }
+        var r = await SteamUserStats.Internal.DownloadLeaderboardEntries(Id, LeaderboardDataRequest.Global, offset, offset + count - 1);
+        if (!r.HasValue)
+            return null;
 
-        /// <summary>
-        ///     Used to retrieve leaderboard entries relative a user's entry. If there are not enough entries in the leaderboard
-        ///     before or after the user's entry, Steam will adjust the range to try to return the number of entries requested.
-        ///     For example, if the user is #1 on the leaderboard and start is set to -2, end is set to 2, Steam will return the
-        ///     first
-        ///     5 entries in the leaderboard. If The current user has no entry, this will return null.
-        /// </summary>
-        public async Task<LeaderboardEntry[]> GetScoresAroundUserAsync(int start = -10, int end = 10) {
-            var r = await SteamUserStats.Internal.DownloadLeaderboardEntries(Id, LeaderboardDataRequest.GlobalAroundUser, start, end);
-            if (!r.HasValue)
-                return null;
+        return await LeaderboardResultToEntries(r.Value);
+    }
 
-            return await LeaderboardResultToEntries(r.Value);
-        }
+    /// <summary>
+    ///     Used to retrieve leaderboard entries relative a user's entry. If there are not enough entries in the leaderboard
+    ///     before or after the user's entry, Steam will adjust the range to try to return the number of entries requested.
+    ///     For example, if the user is #1 on the leaderboard and start is set to -2, end is set to 2, Steam will return the
+    ///     first
+    ///     5 entries in the leaderboard. If The current user has no entry, this will return null.
+    /// </summary>
+    public async Task<LeaderboardEntry[]> GetScoresAroundUserAsync(int start = -10, int end = 10) {
+        var r = await SteamUserStats.Internal.DownloadLeaderboardEntries(Id, LeaderboardDataRequest.GlobalAroundUser, start, end);
+        if (!r.HasValue)
+            return null;
 
-        /// <summary>
-        ///     Used to retrieve all leaderboard entries for friends of the current user
-        /// </summary>
-        public async Task<LeaderboardEntry[]> GetScoresFromFriendsAsync() {
-            var r = await SteamUserStats.Internal.DownloadLeaderboardEntries(Id, LeaderboardDataRequest.Friends, 0, 0);
-            if (!r.HasValue)
-                return null;
+        return await LeaderboardResultToEntries(r.Value);
+    }
 
-            return await LeaderboardResultToEntries(r.Value);
-        }
+    /// <summary>
+    ///     Used to retrieve all leaderboard entries for friends of the current user
+    /// </summary>
+    public async Task<LeaderboardEntry[]> GetScoresFromFriendsAsync() {
+        var r = await SteamUserStats.Internal.DownloadLeaderboardEntries(Id, LeaderboardDataRequest.Friends, 0, 0);
+        if (!r.HasValue)
+            return null;
+
+        return await LeaderboardResultToEntries(r.Value);
+    }
 
     #region util
 
-        internal async Task<LeaderboardEntry[]> LeaderboardResultToEntries(LeaderboardScoresDownloaded_t r) {
-            if (r.CEntryCount <= 0)
-                return null;
+    internal async Task<LeaderboardEntry[]> LeaderboardResultToEntries(LeaderboardScoresDownloaded_t r) {
+        if (r.CEntryCount <= 0)
+            return null;
 
-            var output = new LeaderboardEntry[r.CEntryCount];
-            var e = default(LeaderboardEntry_t);
+        var output = new LeaderboardEntry[r.CEntryCount];
+        var e = default(LeaderboardEntry_t);
 
-            for (var i = 0; i < output.Length; i++) {
-                if (SteamUserStats.Internal.GetDownloadedLeaderboardEntry(r.SteamLeaderboardEntries, i, ref e, detailsBuffer, detailsBuffer.Length)) {
-                    output[i] = LeaderboardEntry.From(e, detailsBuffer);
-                }
-            }
-
-            await WaitForUserNames(output);
-
-            return output;
-        }
-
-        internal static async Task WaitForUserNames(LeaderboardEntry[] entries) {
-            var gotAll = false;
-            while (!gotAll) {
-                gotAll = true;
-
-                foreach (var entry in entries) {
-                    if (entry.User.Id == 0)
-                        continue;
-                    if (!SteamFriends.Internal.RequestUserInformation(entry.User.Id, true))
-                        continue;
-
-                    gotAll = false;
-                }
-
-                await Task.Delay(1);
+        for (var i = 0; i < output.Length; i++) {
+            if (SteamUserStats.Internal.GetDownloadedLeaderboardEntry(r.SteamLeaderboardEntries, i, ref e, detailsBuffer, detailsBuffer.Length)) {
+                output[i] = LeaderboardEntry.From(e, detailsBuffer);
             }
         }
+
+        await WaitForUserNames(output);
+
+        return output;
+    }
+
+    internal static async Task WaitForUserNames(LeaderboardEntry[] entries) {
+        var gotAll = false;
+        while (!gotAll) {
+            gotAll = true;
+
+            foreach (var entry in entries) {
+                if (entry.User.Id == 0)
+                    continue;
+                if (!SteamFriends.Internal.RequestUserInformation(entry.User.Id, true))
+                    continue;
+
+                gotAll = false;
+            }
+
+            await Task.Delay(1);
+        }
+    }
 
     #endregion
-    }
 }

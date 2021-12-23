@@ -1,69 +1,69 @@
 ﻿using System;
 using Steamworks.Data;
 
-namespace Steamworks {
+namespace Steamworks;
+
+/// <summary>
+///     Undocumented Parental Settings
+/// </summary>
+public sealed class SteamParental : SteamSharedClass<SteamParental> {
+    internal static ISteamParentalSettings Internal {
+        get { return Interface as ISteamParentalSettings; }
+    }
+
+
     /// <summary>
-    ///     Undocumented Parental Settings
     /// </summary>
-    public sealed class SteamParental : SteamSharedClass<SteamParental> {
-        internal static ISteamParentalSettings Internal {
-            get { return Interface as ISteamParentalSettings; }
-        }
+    public static bool IsParentalLockEnabled {
+        get { return Internal.BIsParentalLockEnabled(); }
+    }
 
+    /// <summary>
+    /// </summary>
+    public static bool IsParentalLockLocked {
+        get { return Internal.BIsParentalLockLocked(); }
+    }
 
-        /// <summary>
-        /// </summary>
-        public static bool IsParentalLockEnabled {
-            get { return Internal.BIsParentalLockEnabled(); }
-        }
+    internal override bool InitializeInterface(bool server) {
+        SetInterface(server, new ISteamParentalSettings(server));
+        if (Interface.Self == IntPtr.Zero)
+            return false;
 
-        /// <summary>
-        /// </summary>
-        public static bool IsParentalLockLocked {
-            get { return Internal.BIsParentalLockLocked(); }
-        }
+        InstallEvents(server);
 
-        internal override bool InitializeInterface(bool server) {
-            SetInterface(server, new ISteamParentalSettings(server));
-            if (Interface.Self == IntPtr.Zero)
-                return false;
+        return true;
+    }
 
-            InstallEvents(server);
+    internal static void InstallEvents(bool server) {
+        Dispatch.Install<SteamParentalSettingsChanged_t>(x => OnSettingsChanged?.Invoke(), server);
+    }
 
-            return true;
-        }
+    /// <summary>
+    ///     Parental Settings Changed
+    /// </summary>
+    public static event Action OnSettingsChanged;
 
-        internal static void InstallEvents(bool server) {
-            Dispatch.Install<SteamParentalSettingsChanged_t>(x => OnSettingsChanged?.Invoke(), server);
-        }
+    /// <summary>
+    /// </summary>
+    public static bool IsAppBlocked(AppId app) {
+        return Internal.BIsAppBlocked(app.Value);
+    }
 
-        /// <summary>
-        ///     Parental Settings Changed
-        /// </summary>
-        public static event Action OnSettingsChanged;
+    /// <summary>
+    /// </summary>
+    public static bool BIsAppInBlockList(AppId app) {
+        return Internal.BIsAppInBlockList(app.Value);
+    }
 
-        /// <summary>
-        /// </summary>
-        public static bool IsAppBlocked(AppId app) {
-            return Internal.BIsAppBlocked(app.Value);
-        }
+    /// <summary>
+    /// </summary>
+    public static bool IsFeatureBlocked(ParentalFeature feature) {
+        return Internal.BIsFeatureBlocked(feature);
+    }
 
-        /// <summary>
-        /// </summary>
-        public static bool BIsAppInBlockList(AppId app) {
-            return Internal.BIsAppInBlockList(app.Value);
-        }
-
-        /// <summary>
-        /// </summary>
-        public static bool IsFeatureBlocked(ParentalFeature feature) {
-            return Internal.BIsFeatureBlocked(feature);
-        }
-
-        /// <summary>
-        /// </summary>
-        public static bool BIsFeatureInBlockList(ParentalFeature feature) {
-            return Internal.BIsFeatureInBlockList(feature);
-        }
+    /// <summary>
+    /// </summary>
+    public static bool BIsFeatureInBlockList(ParentalFeature feature) {
+        return Internal.BIsFeatureInBlockList(feature);
     }
 }

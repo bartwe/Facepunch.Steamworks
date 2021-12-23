@@ -4,266 +4,266 @@ using System.Net;
 using System.Threading.Tasks;
 using Steamworks.Data;
 
-namespace Steamworks {
-    public struct Friend {
-        public SteamId Id;
+namespace Steamworks;
 
-        public Friend(SteamId steamid) {
-            Id = steamid;
-        }
+public struct Friend {
+    public SteamId Id;
 
-        public override string ToString() {
-            return $"{Name} ({Id.ToString()})";
-        }
+    public Friend(SteamId steamid) {
+        Id = steamid;
+    }
 
-
-        /// <summary>
-        ///     Returns true if this is the local user
-        /// </summary>
-        public bool IsMe {
-            get { return Id == SteamClient.SteamId; }
-        }
-
-        /// <summary>
-        ///     Return true if this is a friend
-        /// </summary>
-        public bool IsFriend {
-            get { return Relationship == Relationship.Friend; }
-        }
-
-        /// <summary>
-        ///     Returns true if you have this user blocked
-        /// </summary>
-        public bool IsBlocked {
-            get { return Relationship == Relationship.Blocked; }
-        }
-
-        /// <summary>
-        ///     Return true if this user is playing the game we're running
-        /// </summary>
-        public bool IsPlayingThisGame {
-            get { return GameInfo?.GameID == SteamClient.AppId; }
-        }
-
-        /// <summary>
-        ///     Returns true if this friend is online
-        /// </summary>
-        public bool IsOnline {
-            get { return State != FriendState.Offline; }
-        }
-
-        /// <summary>
-        ///     Sometimes we don't know the user's name. This will wait until we have
-        ///     downloaded the information on this user.
-        /// </summary>
-        public async Task RequestInfoAsync() {
-            await SteamFriends.CacheUserInformationAsync(Id, true);
-        }
-
-        /// <summary>
-        ///     Returns true if this friend is marked as away
-        /// </summary>
-        public bool IsAway {
-            get { return State == FriendState.Away; }
-        }
-
-        /// <summary>
-        ///     Returns true if this friend is marked as busy
-        /// </summary>
-        public bool IsBusy {
-            get { return State == FriendState.Busy; }
-        }
-
-        /// <summary>
-        ///     Returns true if this friend is marked as snoozing
-        /// </summary>
-        public bool IsSnoozing {
-            get { return State == FriendState.Snooze; }
-        }
+    public override string ToString() {
+        return $"{Name} ({Id.ToString()})";
+    }
 
 
-        public Relationship Relationship {
-            get { return SteamFriends.Internal.GetFriendRelationship(Id); }
-        }
+    /// <summary>
+    ///     Returns true if this is the local user
+    /// </summary>
+    public bool IsMe {
+        get { return Id == SteamClient.SteamId; }
+    }
 
-        public FriendState State {
-            get { return SteamFriends.Internal.GetFriendPersonaState(Id); }
-        }
+    /// <summary>
+    ///     Return true if this is a friend
+    /// </summary>
+    public bool IsFriend {
+        get { return Relationship == Relationship.Friend; }
+    }
 
-        public string Name {
-            get { return SteamFriends.Internal.GetFriendPersonaName(Id); }
-        }
+    /// <summary>
+    ///     Returns true if you have this user blocked
+    /// </summary>
+    public bool IsBlocked {
+        get { return Relationship == Relationship.Blocked; }
+    }
 
-        public IEnumerable<string> NameHistory {
-            get {
-                for (var i = 0; i < 32; i++) {
-                    var n = SteamFriends.Internal.GetFriendPersonaNameHistory(Id, i);
-                    if (string.IsNullOrEmpty(n))
-                        break;
+    /// <summary>
+    ///     Return true if this user is playing the game we're running
+    /// </summary>
+    public bool IsPlayingThisGame {
+        get { return GameInfo?.GameID == SteamClient.AppId; }
+    }
 
-                    yield return n;
-                }
+    /// <summary>
+    ///     Returns true if this friend is online
+    /// </summary>
+    public bool IsOnline {
+        get { return State != FriendState.Offline; }
+    }
+
+    /// <summary>
+    ///     Sometimes we don't know the user's name. This will wait until we have
+    ///     downloaded the information on this user.
+    /// </summary>
+    public async Task RequestInfoAsync() {
+        await SteamFriends.CacheUserInformationAsync(Id, true);
+    }
+
+    /// <summary>
+    ///     Returns true if this friend is marked as away
+    /// </summary>
+    public bool IsAway {
+        get { return State == FriendState.Away; }
+    }
+
+    /// <summary>
+    ///     Returns true if this friend is marked as busy
+    /// </summary>
+    public bool IsBusy {
+        get { return State == FriendState.Busy; }
+    }
+
+    /// <summary>
+    ///     Returns true if this friend is marked as snoozing
+    /// </summary>
+    public bool IsSnoozing {
+        get { return State == FriendState.Snooze; }
+    }
+
+
+    public Relationship Relationship {
+        get { return SteamFriends.Internal.GetFriendRelationship(Id); }
+    }
+
+    public FriendState State {
+        get { return SteamFriends.Internal.GetFriendPersonaState(Id); }
+    }
+
+    public string Name {
+        get { return SteamFriends.Internal.GetFriendPersonaName(Id); }
+    }
+
+    public IEnumerable<string> NameHistory {
+        get {
+            for (var i = 0; i < 32; i++) {
+                var n = SteamFriends.Internal.GetFriendPersonaNameHistory(Id, i);
+                if (string.IsNullOrEmpty(n))
+                    break;
+
+                yield return n;
             }
         }
+    }
 
-        public int SteamLevel {
-            get { return SteamFriends.Internal.GetFriendSteamLevel(Id); }
-        }
+    public int SteamLevel {
+        get { return SteamFriends.Internal.GetFriendSteamLevel(Id); }
+    }
 
 
-        public FriendGameInfo? GameInfo {
-            get {
-                FriendGameInfo_t gameInfo = default;
-                if (!SteamFriends.Internal.GetFriendGamePlayed(Id, ref gameInfo))
-                    return null;
-
-                return FriendGameInfo.From(gameInfo);
-            }
-        }
-
-        public bool IsIn(SteamId group_or_room) {
-            return SteamFriends.Internal.IsUserInSource(Id, group_or_room);
-        }
-
-        public struct FriendGameInfo {
-            internal ulong GameID; // m_gameID class CGameID
-            internal uint GameIP; // m_unGameIP uint32
-            internal ulong SteamIDLobby; // m_steamIDLobby class CSteamID
-
-            public int ConnectionPort;
-            public int QueryPort;
-
-            public uint IpAddressRaw {
-                get { return GameIP; }
-            }
-
-            public IPAddress IpAddress {
-                get { return Utility.Int32ToIp(GameIP); }
-            }
-
-            public Lobby? Lobby {
-                get {
-                    if (SteamIDLobby == 0)
-                        return null;
-                    return new Lobby(SteamIDLobby);
-                }
-            }
-
-            internal static FriendGameInfo From(FriendGameInfo_t i) {
-                return new() {
-                    GameID = i.GameID,
-                    GameIP = i.GameIP,
-                    ConnectionPort = i.GamePort,
-                    QueryPort = i.QueryPort,
-                    SteamIDLobby = i.SteamIDLobby,
-                };
-            }
-        }
-
-        public async Task<Image?> GetSmallAvatarAsync() {
-            return await SteamFriends.GetSmallAvatarAsync(Id);
-        }
-
-        public async Task<Image?> GetMediumAvatarAsync() {
-            return await SteamFriends.GetMediumAvatarAsync(Id);
-        }
-
-        public async Task<Image?> GetLargeAvatarAsync() {
-            return await SteamFriends.GetLargeAvatarAsync(Id);
-        }
-
-        public string GetRichPresence(string key) {
-            var val = SteamFriends.Internal.GetFriendRichPresence(Id, key);
-            if (string.IsNullOrEmpty(val))
+    public FriendGameInfo? GameInfo {
+        get {
+            FriendGameInfo_t gameInfo = default;
+            if (!SteamFriends.Internal.GetFriendGamePlayed(Id, ref gameInfo))
                 return null;
-            return val;
+
+            return FriendGameInfo.From(gameInfo);
+        }
+    }
+
+    public bool IsIn(SteamId group_or_room) {
+        return SteamFriends.Internal.IsUserInSource(Id, group_or_room);
+    }
+
+    public struct FriendGameInfo {
+        internal ulong GameID; // m_gameID class CGameID
+        internal uint GameIP; // m_unGameIP uint32
+        internal ulong SteamIDLobby; // m_steamIDLobby class CSteamID
+
+        public int ConnectionPort;
+        public int QueryPort;
+
+        public uint IpAddressRaw {
+            get { return GameIP; }
         }
 
-        /// <summary>
-        ///     Invite this friend to the game that we are playing
-        /// </summary>
-        public bool InviteToGame(string Text) {
-            return SteamFriends.Internal.InviteUserToGame(Id, Text);
+        public IPAddress IpAddress {
+            get { return Utility.Int32ToIp(GameIP); }
         }
 
-        /// <summary>
-        ///     Sends a message to a Steam friend. Returns true if success
-        /// </summary>
-        public bool SendMessage(string message) {
-            return SteamFriends.Internal.ReplyToFriendMessage(Id, message);
+        public Lobby? Lobby {
+            get {
+                if (SteamIDLobby == 0)
+                    return null;
+                return new Lobby(SteamIDLobby);
+            }
         }
 
-
-        /// <summary>
-        ///     Tries to get download the latest user stats
-        /// </summary>
-        /// <returns>True if successful, False if failure</returns>
-        public async Task<bool> RequestUserStatsAsync() {
-            var result = await SteamUserStats.Internal.RequestUserStats(Id);
-            return result.HasValue && (result.Value.Result == Result.OK);
+        internal static FriendGameInfo From(FriendGameInfo_t i) {
+            return new() {
+                GameID = i.GameID,
+                GameIP = i.GameIP,
+                ConnectionPort = i.GamePort,
+                QueryPort = i.QueryPort,
+                SteamIDLobby = i.SteamIDLobby,
+            };
         }
+    }
 
-        /// <summary>
-        ///     Gets a user stat. Must call RequestUserStats first.
-        /// </summary>
-        /// <param name="statName">The name of the stat you want to get</param>
-        /// <param name="defult">Will return this value if not available</param>
-        /// <returns>The value, or defult if not available</returns>
-        public float GetStatFloat(string statName, float defult = 0) {
-            var val = defult;
+    public async Task<Image?> GetSmallAvatarAsync() {
+        return await SteamFriends.GetSmallAvatarAsync(Id);
+    }
 
-            if (!SteamUserStats.Internal.GetUserStat(Id, statName, ref val))
-                return defult;
+    public async Task<Image?> GetMediumAvatarAsync() {
+        return await SteamFriends.GetMediumAvatarAsync(Id);
+    }
 
-            return val;
-        }
+    public async Task<Image?> GetLargeAvatarAsync() {
+        return await SteamFriends.GetLargeAvatarAsync(Id);
+    }
 
-        /// <summary>
-        ///     Gets a user stat. Must call RequestUserStats first.
-        /// </summary>
-        /// <param name="statName">The name of the stat you want to get</param>
-        /// <param name="defult">Will return this value if not available</param>
-        /// <returns>The value, or defult if not available</returns>
-        public int GetStatInt(string statName, int defult = 0) {
-            var val = defult;
+    public string GetRichPresence(string key) {
+        var val = SteamFriends.Internal.GetFriendRichPresence(Id, key);
+        if (string.IsNullOrEmpty(val))
+            return null;
+        return val;
+    }
 
-            if (!SteamUserStats.Internal.GetUserStat(Id, statName, ref val))
-                return defult;
+    /// <summary>
+    ///     Invite this friend to the game that we are playing
+    /// </summary>
+    public bool InviteToGame(string Text) {
+        return SteamFriends.Internal.InviteUserToGame(Id, Text);
+    }
 
-            return val;
-        }
+    /// <summary>
+    ///     Sends a message to a Steam friend. Returns true if success
+    /// </summary>
+    public bool SendMessage(string message) {
+        return SteamFriends.Internal.ReplyToFriendMessage(Id, message);
+    }
 
-        /// <summary>
-        ///     Gets a user achievement state. Must call RequestUserStats first.
-        /// </summary>
-        /// <param name="statName">The name of the achievement you want to get</param>
-        /// <param name="defult">Will return this value if not available</param>
-        /// <returns>The value, or defult if not available</returns>
-        public bool GetAchievement(string statName, bool defult = false) {
-            var val = defult;
 
-            if (!SteamUserStats.Internal.GetUserAchievement(Id, statName, ref val))
-                return defult;
+    /// <summary>
+    ///     Tries to get download the latest user stats
+    /// </summary>
+    /// <returns>True if successful, False if failure</returns>
+    public async Task<bool> RequestUserStatsAsync() {
+        var result = await SteamUserStats.Internal.RequestUserStats(Id);
+        return result.HasValue && (result.Value.Result == Result.OK);
+    }
 
-            return val;
-        }
+    /// <summary>
+    ///     Gets a user stat. Must call RequestUserStats first.
+    /// </summary>
+    /// <param name="statName">The name of the stat you want to get</param>
+    /// <param name="defult">Will return this value if not available</param>
+    /// <returns>The value, or defult if not available</returns>
+    public float GetStatFloat(string statName, float defult = 0) {
+        var val = defult;
 
-        /// <summary>
-        ///     Gets a the time this achievement was unlocked.
-        /// </summary>
-        /// <param name="statName">The name of the achievement you want to get</param>
-        /// <returns>
-        ///     The time unlocked. If it wasn't unlocked, or you haven't downloaded the stats yet - will return
-        ///     DateTime.MinValue
-        /// </returns>
-        public DateTime GetAchievementUnlockTime(string statName) {
-            var val = false;
-            uint time = 0;
+        if (!SteamUserStats.Internal.GetUserStat(Id, statName, ref val))
+            return defult;
 
-            if (!SteamUserStats.Internal.GetUserAchievementAndUnlockTime(Id, statName, ref val, ref time) || !val)
-                return DateTime.MinValue;
+        return val;
+    }
 
-            return Epoch.ToDateTime(time);
-        }
+    /// <summary>
+    ///     Gets a user stat. Must call RequestUserStats first.
+    /// </summary>
+    /// <param name="statName">The name of the stat you want to get</param>
+    /// <param name="defult">Will return this value if not available</param>
+    /// <returns>The value, or defult if not available</returns>
+    public int GetStatInt(string statName, int defult = 0) {
+        var val = defult;
+
+        if (!SteamUserStats.Internal.GetUserStat(Id, statName, ref val))
+            return defult;
+
+        return val;
+    }
+
+    /// <summary>
+    ///     Gets a user achievement state. Must call RequestUserStats first.
+    /// </summary>
+    /// <param name="statName">The name of the achievement you want to get</param>
+    /// <param name="defult">Will return this value if not available</param>
+    /// <returns>The value, or defult if not available</returns>
+    public bool GetAchievement(string statName, bool defult = false) {
+        var val = defult;
+
+        if (!SteamUserStats.Internal.GetUserAchievement(Id, statName, ref val))
+            return defult;
+
+        return val;
+    }
+
+    /// <summary>
+    ///     Gets a the time this achievement was unlocked.
+    /// </summary>
+    /// <param name="statName">The name of the achievement you want to get</param>
+    /// <returns>
+    ///     The time unlocked. If it wasn't unlocked, or you haven't downloaded the stats yet - will return
+    ///     DateTime.MinValue
+    /// </returns>
+    public DateTime GetAchievementUnlockTime(string statName) {
+        var val = false;
+        uint time = 0;
+
+        if (!SteamUserStats.Internal.GetUserAchievementAndUnlockTime(Id, statName, ref val, ref time) || !val)
+            return DateTime.MinValue;
+
+        return Epoch.ToDateTime(time);
     }
 }

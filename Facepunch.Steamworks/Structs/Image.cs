@@ -1,33 +1,33 @@
-﻿namespace Steamworks.Data {
-    public struct Image {
-        public uint Width;
-        public uint Height;
-        public byte[] Data;
+﻿namespace Steamworks.Data;
 
-        public Color GetPixel(int x, int y) {
-            if ((x < 0) || (x >= Width))
-                throw new("x out of bounds");
-            if ((y < 0) || (y >= Height))
-                throw new("y out of bounds");
+public struct Image {
+    public uint Width;
+    public uint Height;
+    public byte[] Data;
 
-            var c = new Color();
+    public Color GetPixel(int x, int y) {
+        if ((x < 0) || (x >= Width))
+            throw new("x out of bounds");
+        if ((y < 0) || (y >= Height))
+            throw new("y out of bounds");
 
-            var i = ((y * Width) + x) * 4;
+        var c = new Color();
 
-            c.r = Data[i + 0];
-            c.g = Data[i + 1];
-            c.b = Data[i + 2];
-            c.a = Data[i + 3];
+        var i = ((y * Width) + x) * 4;
 
-            return c;
-        }
+        c.r = Data[i + 0];
+        c.g = Data[i + 1];
+        c.b = Data[i + 2];
+        c.a = Data[i + 3];
 
-        public override string ToString() {
-            return $"{Width}x{Height} ({Data.Length}bytes)";
-        }
+        return c;
     }
 
-    public struct Color {
-        public byte r, g, b, a;
+    public override string ToString() {
+        return $"{Width}x{Height} ({Data.Length}bytes)";
     }
+}
+
+public struct Color {
+    public byte r, g, b, a;
 }

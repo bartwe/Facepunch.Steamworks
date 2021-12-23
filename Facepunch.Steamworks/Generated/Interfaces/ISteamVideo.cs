@@ -1,68 +1,68 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace Steamworks {
-    sealed class ISteamVideo : SteamInterface {
-        internal ISteamVideo(bool IsGameServer) {
-            SetupInterface(IsGameServer);
-        }
+namespace Steamworks;
 
-        [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_SteamVideo_v002", CallingConvention = Platform.CC)]
-        internal static extern IntPtr SteamAPI_SteamVideo_v002();
+sealed class ISteamVideo : SteamInterface {
+    internal ISteamVideo(bool IsGameServer) {
+        SetupInterface(IsGameServer);
+    }
 
-        public override IntPtr GetUserInterfacePointer() {
-            return SteamAPI_SteamVideo_v002();
-        }
+    [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_SteamVideo_v002", CallingConvention = Platform.CC)]
+    internal static extern IntPtr SteamAPI_SteamVideo_v002();
 
+    public override IntPtr GetUserInterfacePointer() {
+        return SteamAPI_SteamVideo_v002();
+    }
 
-    #region FunctionMeta
-
-        [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamVideo_GetVideoURL", CallingConvention = Platform.CC)]
-        static extern void _GetVideoURL(IntPtr self, AppId unVideoAppID);
-
-    #endregion
-
-        internal void GetVideoURL(AppId unVideoAppID) {
-            _GetVideoURL(Self, unVideoAppID);
-        }
 
     #region FunctionMeta
 
-        [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamVideo_IsBroadcasting", CallingConvention = Platform.CC)]
-        [return: MarshalAs(UnmanagedType.I1)]
-        static extern bool _IsBroadcasting(IntPtr self, ref int pnNumViewers);
+    [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamVideo_GetVideoURL", CallingConvention = Platform.CC)]
+    static extern void _GetVideoURL(IntPtr self, AppId unVideoAppID);
 
     #endregion
 
-        internal bool IsBroadcasting(ref int pnNumViewers) {
-            var returnValue = _IsBroadcasting(Self, ref pnNumViewers);
-            return returnValue;
-        }
+    internal void GetVideoURL(AppId unVideoAppID) {
+        _GetVideoURL(Self, unVideoAppID);
+    }
 
     #region FunctionMeta
 
-        [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamVideo_GetOPFSettings", CallingConvention = Platform.CC)]
-        static extern void _GetOPFSettings(IntPtr self, AppId unVideoAppID);
+    [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamVideo_IsBroadcasting", CallingConvention = Platform.CC)]
+    [return: MarshalAs(UnmanagedType.I1)]
+    static extern bool _IsBroadcasting(IntPtr self, ref int pnNumViewers);
 
     #endregion
 
-        internal void GetOPFSettings(AppId unVideoAppID) {
-            _GetOPFSettings(Self, unVideoAppID);
-        }
+    internal bool IsBroadcasting(ref int pnNumViewers) {
+        var returnValue = _IsBroadcasting(Self, ref pnNumViewers);
+        return returnValue;
+    }
 
     #region FunctionMeta
 
-        [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamVideo_GetOPFStringForApp", CallingConvention = Platform.CC)]
-        [return: MarshalAs(UnmanagedType.I1)]
-        static extern bool _GetOPFStringForApp(IntPtr self, AppId unVideoAppID, IntPtr pchBuffer, ref int pnBufferSize);
+    [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamVideo_GetOPFSettings", CallingConvention = Platform.CC)]
+    static extern void _GetOPFSettings(IntPtr self, AppId unVideoAppID);
 
     #endregion
 
-        internal bool GetOPFStringForApp(AppId unVideoAppID, out string pchBuffer, ref int pnBufferSize) {
-            var mempchBuffer = Helpers.TakeMemory();
-            var returnValue = _GetOPFStringForApp(Self, unVideoAppID, mempchBuffer, ref pnBufferSize);
-            pchBuffer = Helpers.MemoryToString(mempchBuffer);
-            return returnValue;
-        }
+    internal void GetOPFSettings(AppId unVideoAppID) {
+        _GetOPFSettings(Self, unVideoAppID);
+    }
+
+    #region FunctionMeta
+
+    [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamVideo_GetOPFStringForApp", CallingConvention = Platform.CC)]
+    [return: MarshalAs(UnmanagedType.I1)]
+    static extern bool _GetOPFStringForApp(IntPtr self, AppId unVideoAppID, IntPtr pchBuffer, ref int pnBufferSize);
+
+    #endregion
+
+    internal bool GetOPFStringForApp(AppId unVideoAppID, out string pchBuffer, ref int pnBufferSize) {
+        var mempchBuffer = Helpers.TakeMemory();
+        var returnValue = _GetOPFStringForApp(Self, unVideoAppID, mempchBuffer, ref pnBufferSize);
+        pchBuffer = Helpers.MemoryToString(mempchBuffer);
+        return returnValue;
     }
 }

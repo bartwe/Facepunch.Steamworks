@@ -3,82 +3,82 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Steamworks.Data;
 
-namespace Steamworks {
+namespace Steamworks;
+
+/// <summary>
+///     An awaitable version of a SteamAPICall_t
+/// </summary>
+struct CallResult<T> : INotifyCompletion where T : struct, ICallbackData {
+    readonly SteamAPICall_t call;
+    readonly ISteamUtils utils;
+    readonly bool server;
+
+    public CallResult(SteamAPICall_t call, bool server) {
+        this.call = call;
+        this.server = server;
+
+        utils = (server ? SteamUtils.InterfaceServer : SteamUtils.InterfaceClient) as ISteamUtils;
+
+        if (utils == null)
+            utils = SteamUtils.Interface as ISteamUtils;
+    }
+
     /// <summary>
-    ///     An awaitable version of a SteamAPICall_t
+    ///     This gets called if IsComplete returned false on the first call.
+    ///     The Action "continues" the async call. We pass it to the Dispatch
+    ///     to be called when the callback returns.
     /// </summary>
-    struct CallResult<T> : INotifyCompletion where T : struct, ICallbackData {
-        readonly SteamAPICall_t call;
-        readonly ISteamUtils utils;
-        readonly bool server;
+    public void OnCompleted(Action continuation) {
+        if (IsCompleted)
+            continuation();
+        else
+            Dispatch.OnCallComplete<T>(call, continuation, server);
+    }
 
-        public CallResult(SteamAPICall_t call, bool server) {
-            this.call = call;
-            this.server = server;
+    /// <summary>
+    ///     Gets the result. This is called internally by the async shit.
+    /// </summary>
+    public T? GetResult() {
+        var failed = false;
+        if (!utils.IsAPICallCompleted(call, ref failed) || failed)
+            return null;
 
-            utils = (server ? SteamUtils.InterfaceServer : SteamUtils.InterfaceClient) as ISteamUtils;
+        var t = default(T);
+        var size = t.DataSize;
+        var ptr = Marshal.AllocHGlobal(size);
 
-            if (utils == null)
-                utils = SteamUtils.Interface as ISteamUtils;
-        }
-
-        /// <summary>
-        ///     This gets called if IsComplete returned false on the first call.
-        ///     The Action "continues" the async call. We pass it to the Dispatch
-        ///     to be called when the callback returns.
-        /// </summary>
-        public void OnCompleted(Action continuation) {
-            if (IsCompleted)
-                continuation();
-            else
-                Dispatch.OnCallComplete<T>(call, continuation, server);
-        }
-
-        /// <summary>
-        ///     Gets the result. This is called internally by the async shit.
-        /// </summary>
-        public T? GetResult() {
-            var failed = false;
-            if (!utils.IsAPICallCompleted(call, ref failed) || failed)
+        try {
+            if (!utils.GetAPICallResult(call, ptr, size, (int)t.CallbackType, ref failed) || failed) {
+                Dispatch.OnDebugCallback?.Invoke(t.CallbackType, "!GetAPICallResult or failed", server);
                 return null;
-
-            var t = default(T);
-            var size = t.DataSize;
-            var ptr = Marshal.AllocHGlobal(size);
-
-            try {
-                if (!utils.GetAPICallResult(call, ptr, size, (int)t.CallbackType, ref failed) || failed) {
-                    Dispatch.OnDebugCallback?.Invoke(t.CallbackType, "!GetAPICallResult or failed", server);
-                    return null;
-                }
-
-                Dispatch.OnDebugCallback?.Invoke(t.CallbackType, Dispatch.CallbackToString(t.CallbackType, ptr, size), server);
-
-                return (T)Marshal.PtrToStructure(ptr, typeof(T))!;
             }
-            finally {
-                Marshal.FreeHGlobal(ptr);
-            }
-        }
 
-        /// <summary>
-        ///     Return true if complete or failed
-        /// </summary>
-        public bool IsCompleted {
-            get {
-                var failed = false;
-                if (utils.IsAPICallCompleted(call, ref failed) || failed)
-                    return true;
+            Dispatch.OnDebugCallback?.Invoke(t.CallbackType, Dispatch.CallbackToString(t.CallbackType, ptr, size), server);
 
-                return false;
-            }
+            return (T)Marshal.PtrToStructure(ptr, typeof(T))!;
         }
+        finally {
+            Marshal.FreeHGlobal(ptr);
+        }
+    }
 
-        /// <summary>
-        ///     This is what makes this struct awaitable
-        /// </summary>
-        internal CallResult<T> GetAwaiter() {
-            return this;
+    /// <summary>
+    ///     Return true if complete or failed
+    /// </summary>
+    public bool IsCompleted {
+        get {
+            var failed = false;
+            if (utils.IsAPICallCompleted(call, ref failed) || failed)
+                return true;
+
+            return false;
         }
+    }
+
+    /// <summary>
+    ///     This is what makes this struct awaitable
+    /// </summary>
+    internal CallResult<T> GetAwaiter() {
+        return this;
     }
 }

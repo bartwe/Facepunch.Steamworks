@@ -2,126 +2,126 @@
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-namespace Steamworks.Data {
-    public struct Stat {
-        public string Name { get; internal set; }
-        public SteamId UserId { get; internal set; }
+namespace Steamworks.Data;
 
-        public Stat(string name) {
-            Name = name;
-            UserId = 0;
-        }
+public struct Stat {
+    public string Name { get; internal set; }
+    public SteamId UserId { get; internal set; }
 
-        public Stat(string name, SteamId user) {
-            Name = name;
-            UserId = user;
-        }
+    public Stat(string name) {
+        Name = name;
+        UserId = 0;
+    }
 
-        internal void LocalUserOnly([CallerMemberName] string caller = null) {
-            if (UserId == 0)
-                return;
-            throw new($"Stat.{caller} can only be called for the local user");
-        }
+    public Stat(string name, SteamId user) {
+        Name = name;
+        UserId = user;
+    }
 
-        public double GetGlobalFloat() {
-            var val = 0.0;
+    internal void LocalUserOnly([CallerMemberName] string caller = null) {
+        if (UserId == 0)
+            return;
+        throw new($"Stat.{caller} can only be called for the local user");
+    }
 
-            if (SteamUserStats.Internal.GetGlobalStat(Name, ref val))
-                return val;
+    public double GetGlobalFloat() {
+        var val = 0.0;
 
-            return 0;
-        }
-
-        public long GetGlobalInt() {
-            long val = 0;
-            SteamUserStats.Internal.GetGlobalStat(Name, ref val);
+        if (SteamUserStats.Internal.GetGlobalStat(Name, ref val))
             return val;
+
+        return 0;
+    }
+
+    public long GetGlobalInt() {
+        long val = 0;
+        _ = SteamUserStats.Internal.GetGlobalStat(Name, ref val);
+        return val;
+    }
+
+    public async Task<long[]> GetGlobalIntDaysAsync(int days) {
+        var result = await SteamUserStats.Internal.RequestGlobalStats(days);
+        if (result?.Result != Result.OK)
+            return null;
+
+        var r = new long[days];
+
+        var rows = SteamUserStats.Internal.GetGlobalStatHistory(Name, r, (uint)r.Length * sizeof(long));
+
+        if (days != rows)
+            r = r.Take(rows).ToArray();
+
+        return r;
+    }
+
+    public async Task<double[]> GetGlobalFloatDays(int days) {
+        var result = await SteamUserStats.Internal.RequestGlobalStats(days);
+        if (result?.Result != Result.OK)
+            return null;
+
+        var r = new double[days];
+
+        var rows = SteamUserStats.Internal.GetGlobalStatHistory(Name, r, (uint)r.Length * sizeof(double));
+
+        if (days != rows)
+            r = r.Take(rows).ToArray();
+
+        return r;
+    }
+
+    public float GetFloat() {
+        var val = 0.0f;
+
+        if (UserId > 0) {
+            _ = SteamUserStats.Internal.GetUserStat(UserId, Name, ref val);
+        }
+        else {
+            _ = SteamUserStats.Internal.GetStat(Name, ref val);
         }
 
-        public async Task<long[]> GetGlobalIntDaysAsync(int days) {
-            var result = await SteamUserStats.Internal.RequestGlobalStats(days);
-            if (result?.Result != Result.OK)
-                return null;
+        return 0;
+    }
 
-            var r = new long[days];
+    public int GetInt() {
+        var val = 0;
 
-            var rows = SteamUserStats.Internal.GetGlobalStatHistory(Name, r, (uint)r.Length * sizeof(long));
-
-            if (days != rows)
-                r = r.Take(rows).ToArray();
-
-            return r;
+        if (UserId > 0) {
+            _ = SteamUserStats.Internal.GetUserStat(UserId, Name, ref val);
+        }
+        else {
+            _ = SteamUserStats.Internal.GetStat(Name, ref val);
         }
 
-        public async Task<double[]> GetGlobalFloatDays(int days) {
-            var result = await SteamUserStats.Internal.RequestGlobalStats(days);
-            if (result?.Result != Result.OK)
-                return null;
+        return val;
+    }
 
-            var r = new double[days];
+    public bool Set(int val) {
+        LocalUserOnly();
+        return SteamUserStats.Internal.SetStat(Name, val);
+    }
 
-            var rows = SteamUserStats.Internal.GetGlobalStatHistory(Name, r, (uint)r.Length * sizeof(double));
+    public bool Set(float val) {
+        LocalUserOnly();
+        return SteamUserStats.Internal.SetStat(Name, val);
+    }
 
-            if (days != rows)
-                r = r.Take(rows).ToArray();
+    public bool Add(int val) {
+        LocalUserOnly();
+        return Set(GetInt() + val);
+    }
 
-            return r;
-        }
+    public bool Add(float val) {
+        LocalUserOnly();
+        return Set(GetFloat() + val);
+    }
 
-        public float GetFloat() {
-            var val = 0.0f;
+    public bool UpdateAverageRate(float count, float sessionlength) {
+        LocalUserOnly();
+        return SteamUserStats.Internal.UpdateAvgRateStat(Name, count, sessionlength);
+    }
 
-            if (UserId > 0) {
-                SteamUserStats.Internal.GetUserStat(UserId, Name, ref val);
-            }
-            else {
-                SteamUserStats.Internal.GetStat(Name, ref val);
-            }
-
-            return 0;
-        }
-
-        public int GetInt() {
-            var val = 0;
-
-            if (UserId > 0) {
-                SteamUserStats.Internal.GetUserStat(UserId, Name, ref val);
-            }
-            else {
-                SteamUserStats.Internal.GetStat(Name, ref val);
-            }
-
-            return val;
-        }
-
-        public bool Set(int val) {
-            LocalUserOnly();
-            return SteamUserStats.Internal.SetStat(Name, val);
-        }
-
-        public bool Set(float val) {
-            LocalUserOnly();
-            return SteamUserStats.Internal.SetStat(Name, val);
-        }
-
-        public bool Add(int val) {
-            LocalUserOnly();
-            return Set(GetInt() + val);
-        }
-
-        public bool Add(float val) {
-            LocalUserOnly();
-            return Set(GetFloat() + val);
-        }
-
-        public bool UpdateAverageRate(float count, float sessionlength) {
-            LocalUserOnly();
-            return SteamUserStats.Internal.UpdateAvgRateStat(Name, count, sessionlength);
-        }
-
-        public bool Store() {
-            LocalUserOnly();
-            return SteamUserStats.Internal.StoreStats();
-        }
+    public bool Store() {
+        LocalUserOnly();
+        return SteamUserStats.Internal.StoreStats();
     }
 }

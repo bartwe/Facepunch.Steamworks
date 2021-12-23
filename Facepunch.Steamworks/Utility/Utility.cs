@@ -4,142 +4,100 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Steamworks {
-    public static class Utility {
-        static readonly byte[] readBuffer = new byte[1024 * 8];
+namespace Steamworks;
 
-        internal static T ToType<T>(this IntPtr ptr) {
-            if (ptr == IntPtr.Zero)
-                return default;
+public static class Utility {
+    static readonly byte[] readBuffer = new byte[1024 * 8];
 
-            return (T)Marshal.PtrToStructure(ptr, typeof(T))!;
-        }
+    internal static T ToType<T>(this IntPtr ptr) {
+        if (ptr == IntPtr.Zero)
+            return default;
 
-        internal static object ToType(this IntPtr ptr, Type t) {
-            if (ptr == IntPtr.Zero)
-                return default;
+        return (T)Marshal.PtrToStructure(ptr, typeof(T))!;
+    }
 
-            return Marshal.PtrToStructure(ptr, t);
-        }
+    internal static object ToType(this IntPtr ptr, Type t) {
+        if (ptr == IntPtr.Zero)
+            return default;
 
-        internal static uint Swap(uint x) {
-            return ((x & 0x000000ff) << 24) +
-                ((x & 0x0000ff00) << 8) +
-                ((x & 0x00ff0000) >> 8) +
-                ((x & 0xff000000) >> 24);
-        }
+        return Marshal.PtrToStructure(ptr, t);
+    }
 
-        public static uint IpToInt32(this IPAddress ipAddress) {
+    internal static uint Swap(uint x) {
+        return ((x & 0x000000ff) << 24) +
+            ((x & 0x0000ff00) << 8) +
+            ((x & 0x00ff0000) >> 8) +
+            ((x & 0xff000000) >> 24);
+    }
+
+    public static uint IpToInt32(this IPAddress ipAddress) {
 #pragma warning disable 618
-            return Swap((uint)ipAddress.Address);
+        return Swap((uint)ipAddress.Address);
 #pragma warning restore 618
-        }
+    }
 
-        public static IPAddress Int32ToIp(uint ipAddress) {
-            return new(Swap(ipAddress));
-        }
+    public static IPAddress Int32ToIp(uint ipAddress) {
+        return new(Swap(ipAddress));
+    }
 
-        public static string FormatPrice(string currency, double price) {
-            var decimaled = price.ToString("0.00");
+    public static string FormatPrice(string currency, double price) {
+        var decimaled = price.ToString("0.00");
 
-            switch (currency) {
-                case "AED":
-                    return $"{decimaled}د.إ";
-                case "ARS":
-                    return $"${decimaled} ARS";
-                case "AUD":
-                    return $"A${decimaled}";
-                case "BRL":
-                    return $"R${decimaled}";
-                case "CAD":
-                    return $"C${decimaled}";
-                case "CHF":
-                    return $"Fr. {decimaled}";
-                case "CLP":
-                    return $"${decimaled} CLP";
-                case "CNY":
-                    return $"{decimaled}元";
-                case "COP":
-                    return $"COL$ {decimaled}";
-                case "CRC":
-                    return $"₡{decimaled}";
-                case "EUR":
-                    return $"€{decimaled}";
-                case "SEK":
-                    return $"{decimaled}kr";
-                case "GBP":
-                    return $"£{decimaled}";
-                case "HKD":
-                    return $"HK${decimaled}";
-                case "ILS":
-                    return $"₪{decimaled}";
-                case "IDR":
-                    return $"Rp{decimaled}";
-                case "INR":
-                    return $"₹{decimaled}";
-                case "JPY":
-                    return $"¥{decimaled}";
-                case "KRW":
-                    return $"₩{decimaled}";
-                case "KWD":
-                    return $"KD {decimaled}";
-                case "KZT":
-                    return $"{decimaled}₸";
-                case "MXN":
-                    return $"Mex${decimaled}";
-                case "MYR":
-                    return $"RM {decimaled}";
-                case "NOK":
-                    return $"{decimaled} kr";
-                case "NZD":
-                    return $"${decimaled} NZD";
-                case "PEN":
-                    return $"S/. {decimaled}";
-                case "PHP":
-                    return $"₱{decimaled}";
-                case "PLN":
-                    return $"{decimaled}zł";
-                case "QAR":
-                    return $"QR {decimaled}";
-                case "RUB":
-                    return $"{decimaled}₽";
-                case "SAR":
-                    return $"SR {decimaled}";
-                case "SGD":
-                    return $"S${decimaled}";
-                case "THB":
-                    return $"฿{decimaled}";
-                case "TRY":
-                    return $"₺{decimaled}";
-                case "TWD":
-                    return $"NT$ {decimaled}";
-                case "UAH":
-                    return $"₴{decimaled}";
-                case "USD":
-                    return $"${decimaled}";
-                case "UYU":
-                    return $"$U {decimaled}"; // yes the U goes after $
-                case "VND":
-                    return $"₫{decimaled}";
-                case "ZAR":
-                    return $"R {decimaled}";
+        return currency switch {
+            "AED" => $"{decimaled}د.إ",
+            "ARS" => $"${decimaled} ARS",
+            "AUD" => $"A${decimaled}",
+            "BRL" => $"R${decimaled}",
+            "CAD" => $"C${decimaled}",
+            "CHF" => $"Fr. {decimaled}",
+            "CLP" => $"${decimaled} CLP",
+            "CNY" => $"{decimaled}元",
+            "COP" => $"COL$ {decimaled}",
+            "CRC" => $"₡{decimaled}",
+            "EUR" => $"€{decimaled}",
+            "SEK" => $"{decimaled}kr",
+            "GBP" => $"£{decimaled}",
+            "HKD" => $"HK${decimaled}",
+            "ILS" => $"₪{decimaled}",
+            "IDR" => $"Rp{decimaled}",
+            "INR" => $"₹{decimaled}",
+            "JPY" => $"¥{decimaled}",
+            "KRW" => $"₩{decimaled}",
+            "KWD" => $"KD {decimaled}",
+            "KZT" => $"{decimaled}₸",
+            "MXN" => $"Mex${decimaled}",
+            "MYR" => $"RM {decimaled}",
+            "NOK" => $"{decimaled} kr",
+            "NZD" => $"${decimaled} NZD",
+            "PEN" => $"S/. {decimaled}",
+            "PHP" => $"₱{decimaled}",
+            "PLN" => $"{decimaled}zł",
+            "QAR" => $"QR {decimaled}",
+            "RUB" => $"{decimaled}₽",
+            "SAR" => $"SR {decimaled}",
+            "SGD" => $"S${decimaled}",
+            "THB" => $"฿{decimaled}",
+            "TRY" => $"₺{decimaled}",
+            "TWD" => $"NT$ {decimaled}",
+            "UAH" => $"₴{decimaled}",
+            "USD" => $"${decimaled}",
+            "UYU" => $"$U {decimaled}",// yes the U goes after $
+            "VND" => $"₫{decimaled}",
+            "ZAR" => $"R {decimaled}",
+            _ => $"{decimaled} {currency}",
+        };
+    }
 
-                default:
-                    return $"{decimaled} {currency}";
+    public static string ReadNullTerminatedUTF8String(this BinaryReader br) {
+        lock (readBuffer) {
+            byte chr;
+            var i = 0;
+            while (((chr = br.ReadByte()) != 0) && (i < readBuffer.Length)) {
+                readBuffer[i] = chr;
+                i++;
             }
-        }
 
-        public static string ReadNullTerminatedUTF8String(this BinaryReader br) {
-            lock (readBuffer) {
-                byte chr;
-                var i = 0;
-                while (((chr = br.ReadByte()) != 0) && (i < readBuffer.Length)) {
-                    readBuffer[i] = chr;
-                    i++;
-                }
-
-                return Encoding.UTF8.GetString(readBuffer, 0, i);
-            }
+            return Encoding.UTF8.GetString(readBuffer, 0, i);
         }
     }
 }

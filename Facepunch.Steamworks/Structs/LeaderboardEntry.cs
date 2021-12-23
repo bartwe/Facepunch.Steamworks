@@ -1,24 +1,27 @@
 ﻿using System.Linq;
 
-namespace Steamworks.Data {
-    public struct LeaderboardEntry {
-        public Friend User;
-        public int GlobalRank;
-        public int Score;
+namespace Steamworks.Data;
 
-        public int[] Details;
-        // UGCHandle_t m_hUGC
+public struct LeaderboardEntry {
+    public Friend User;
+    public int GlobalRank;
+    public int Score;
 
-        internal static LeaderboardEntry From(LeaderboardEntry_t e, int[] detailsBuffer) {
-            var r = new LeaderboardEntry {
-                User = new(e.SteamIDUser), GlobalRank = e.GlobalRank, Score = e.Score, Details = null,
-            };
+    public int[] Details;
+    // UGCHandle_t m_hUGC
 
-            if (e.CDetails > 0) {
-                r.Details = detailsBuffer.Take(e.CDetails).ToArray();
-            }
+    internal static LeaderboardEntry From(LeaderboardEntry_t e, int[] detailsBuffer) {
+        var r = new LeaderboardEntry {
+            User = new(e.SteamIDUser),
+            GlobalRank = e.GlobalRank,
+            Score = e.Score,
+            Details = null,
+        };
 
-            return r;
+        if (e.CDetails > 0) {
+            r.Details = detailsBuffer.Take(e.CDetails).ToArray();
         }
+
+        return r;
     }
 }

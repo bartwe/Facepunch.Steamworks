@@ -1,5 +1,5 @@
-﻿namespace Steamworks.Data {
-    struct SteamDatagramRelayAuthTicket {
-        // Not implemented, not used
-    }
+﻿namespace Steamworks.Data;
+
+struct SteamDatagramRelayAuthTicket {
+    // Not implemented, not used
 }

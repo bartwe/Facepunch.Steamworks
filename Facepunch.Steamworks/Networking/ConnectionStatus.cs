@@ -1,100 +1,100 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Steamworks.Data {
+namespace Steamworks.Data;
+
+/// <summary>
+///     Describe the status of a connection
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
+public struct ConnectionStatus {
+    internal ConnectionState state; // m_eState ESteamNetworkingConnectionState
+    internal int ping; // m_nPing int
+    internal float connectionQualityLocal; // m_flConnectionQualityLocal float
+    internal float connectionQualityRemote; // m_flConnectionQualityRemote float
+    internal float outPacketsPerSec; // m_flOutPacketsPerSec float
+    internal float outBytesPerSec; // m_flOutBytesPerSec float
+    internal float inPacketsPerSec; // m_flInPacketsPerSec float
+    internal float inBytesPerSec; // m_flInBytesPerSec float
+    internal int sendRateBytesPerSecond; // m_nSendRateBytesPerSecond int
+    internal int cbPendingUnreliable; // m_cbPendingUnreliable int
+    internal int cbPendingReliable; // m_cbPendingReliable int
+    internal int cbSentUnackedReliable; // m_cbSentUnackedReliable int
+    internal long ecQueueTime; // m_usecQueueTime SteamNetworkingMicroseconds
+
+    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16, ArraySubType = UnmanagedType.U4)]
+    internal uint[] reserved; // reserved uint32 [16]
+
     /// <summary>
-    ///     Describe the status of a connection
+    ///     Current ping (ms)
     /// </summary>
-    [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
-    public struct ConnectionStatus {
-        internal ConnectionState state; // m_eState ESteamNetworkingConnectionState
-        internal int ping; // m_nPing int
-        internal float connectionQualityLocal; // m_flConnectionQualityLocal float
-        internal float connectionQualityRemote; // m_flConnectionQualityRemote float
-        internal float outPacketsPerSec; // m_flOutPacketsPerSec float
-        internal float outBytesPerSec; // m_flOutBytesPerSec float
-        internal float inPacketsPerSec; // m_flInPacketsPerSec float
-        internal float inBytesPerSec; // m_flInBytesPerSec float
-        internal int sendRateBytesPerSecond; // m_nSendRateBytesPerSecond int
-        internal int cbPendingUnreliable; // m_cbPendingUnreliable int
-        internal int cbPendingReliable; // m_cbPendingReliable int
-        internal int cbSentUnackedReliable; // m_cbSentUnackedReliable int
-        internal long ecQueueTime; // m_usecQueueTime SteamNetworkingMicroseconds
+    public int Ping {
+        get { return ping; }
+    }
 
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16, ArraySubType = UnmanagedType.U4)]
-        internal uint[] reserved; // reserved uint32 [16]
+    /// <summary>
+    ///     Outgoing packets per second
+    /// </summary>
+    public float OutPacketsPerSec {
+        get { return outPacketsPerSec; }
+    }
 
-        /// <summary>
-        ///     Current ping (ms)
-        /// </summary>
-        public int Ping {
-            get { return ping; }
-        }
+    /// <summary>
+    ///     Outgoing bytes per second
+    /// </summary>
+    public float OutBytesPerSec {
+        get { return outBytesPerSec; }
+    }
 
-        /// <summary>
-        ///     Outgoing packets per second
-        /// </summary>
-        public float OutPacketsPerSec {
-            get { return outPacketsPerSec; }
-        }
+    /// <summary>
+    ///     Incoming packets per second
+    /// </summary>
+    public float InPacketsPerSec {
+        get { return inPacketsPerSec; }
+    }
 
-        /// <summary>
-        ///     Outgoing bytes per second
-        /// </summary>
-        public float OutBytesPerSec {
-            get { return outBytesPerSec; }
-        }
+    /// <summary>
+    ///     Incoming bytes per second
+    /// </summary>
+    public float InBytesPerSec {
+        get { return inBytesPerSec; }
+    }
 
-        /// <summary>
-        ///     Incoming packets per second
-        /// </summary>
-        public float InPacketsPerSec {
-            get { return inPacketsPerSec; }
-        }
+    /// <summary>
+    ///     Connection quality measured locally, 0...1 (percentage of packets delivered end-to-end in order).
+    /// </summary>
+    public float ConnectionQualityLocal {
+        get { return connectionQualityLocal; }
+    }
 
-        /// <summary>
-        ///     Incoming bytes per second
-        /// </summary>
-        public float InBytesPerSec {
-            get { return inBytesPerSec; }
-        }
+    /// <summary>
+    ///     Packet delivery success rate as observed from remote host, 0...1 (percentage of packets delivered end-to-end in
+    ///     order).
+    /// </summary>
+    public float ConnectionQualityRemote {
+        get { return connectionQualityRemote; }
+    }
 
-        /// <summary>
-        ///     Connection quality measured locally, 0...1 (percentage of packets delivered end-to-end in order).
-        /// </summary>
-        public float ConnectionQualityLocal {
-            get { return connectionQualityLocal; }
-        }
+    /// <summary>
+    ///     Number of bytes unreliable data pending to be sent. This is data that you have recently requested to be sent but
+    ///     has not yet actually been put on the wire.
+    /// </summary>
+    public int PendingUnreliable {
+        get { return cbPendingUnreliable; }
+    }
 
-        /// <summary>
-        ///     Packet delivery success rate as observed from remote host, 0...1 (percentage of packets delivered end-to-end in
-        ///     order).
-        /// </summary>
-        public float ConnectionQualityRemote {
-            get { return connectionQualityRemote; }
-        }
+    /// <summary>
+    ///     Number of bytes reliable data pending to be sent. This is data that you have recently requested to be sent but has
+    ///     not yet actually been put on the wire.
+    /// </summary>
+    public int PendingReliable {
+        get { return cbPendingReliable; }
+    }
 
-        /// <summary>
-        ///     Number of bytes unreliable data pending to be sent. This is data that you have recently requested to be sent but
-        ///     has not yet actually been put on the wire.
-        /// </summary>
-        public int PendingUnreliable {
-            get { return cbPendingUnreliable; }
-        }
-
-        /// <summary>
-        ///     Number of bytes reliable data pending to be sent. This is data that you have recently requested to be sent but has
-        ///     not yet actually been put on the wire.
-        /// </summary>
-        public int PendingReliable {
-            get { return cbPendingReliable; }
-        }
-
-        /// <summary>
-        ///     Number of bytes of reliable data that has been placed the wire, but for which we have not yet received an
-        ///     acknowledgment, and thus we may have to re-transmit.
-        /// </summary>
-        public int SentUnackedReliable {
-            get { return cbSentUnackedReliable; }
-        }
+    /// <summary>
+    ///     Number of bytes of reliable data that has been placed the wire, but for which we have not yet received an
+    ///     acknowledgment, and thus we may have to re-transmit.
+    /// </summary>
+    public int SentUnackedReliable {
+        get { return cbSentUnackedReliable; }
     }
 }

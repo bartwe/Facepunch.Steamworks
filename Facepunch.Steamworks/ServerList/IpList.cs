@@ -2,58 +2,58 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Steamworks.ServerList {
-    public sealed class IpList : Internet {
-        public List<string> Ips = new();
-        bool wantsCancel;
+namespace Steamworks.ServerList;
 
-        public IpList(IEnumerable<string> list) {
-            Ips.AddRange(list);
-        }
+public sealed class IpList : Internet {
+    public List<string> Ips = new();
+    bool wantsCancel;
 
-        public IpList(params string[] list) {
-            Ips.AddRange(list);
-        }
+    public IpList(IEnumerable<string> list) {
+        Ips.AddRange(list);
+    }
 
-        public override async Task<bool> RunQueryAsync(float timeoutSeconds = 10) {
-            var blockSize = 16;
-            var pointer = 0;
+    public IpList(params string[] list) {
+        Ips.AddRange(list);
+    }
 
-            var ips = Ips.ToArray();
+    public override async Task<bool> RunQueryAsync(float timeoutSeconds = 10) {
+        var blockSize = 16;
+        var pointer = 0;
 
-            while (true) {
-                var sublist = ips.Skip(pointer).Take(blockSize);
-                if (sublist.Count() == 0)
-                    break;
+        var ips = Ips.ToArray();
 
-                using (var list = new Internet()) {
-                    list.AddFilter("or", sublist.Count().ToString());
+        while (true) {
+            var sublist = ips.Skip(pointer).Take(blockSize);
+            if (sublist.Count() == 0)
+                break;
 
-                    foreach (var server in sublist) {
-                        list.AddFilter("gameaddr", server);
-                    }
+            using (var list = new Internet()) {
+                list.AddFilter("or", sublist.Count().ToString());
 
-                    await list.RunQueryAsync(timeoutSeconds);
-
-                    if (wantsCancel)
-                        return false;
-
-                    Responsive.AddRange(list.Responsive);
-                    Responsive = Responsive.Distinct().ToList();
-                    Unresponsive.AddRange(list.Unresponsive);
-                    Unresponsive = Unresponsive.Distinct().ToList();
+                foreach (var server in sublist) {
+                    list.AddFilter("gameaddr", server);
                 }
 
-                pointer += sublist.Count();
+                _ = await list.RunQueryAsync(timeoutSeconds);
 
-                InvokeChanges();
+                if (wantsCancel)
+                    return false;
+
+                Responsive.AddRange(list.Responsive);
+                Responsive = Responsive.Distinct().ToList();
+                Unresponsive.AddRange(list.Unresponsive);
+                Unresponsive = Unresponsive.Distinct().ToList();
             }
 
-            return true;
+            pointer += sublist.Count();
+
+            InvokeChanges();
         }
 
-        public override void Cancel() {
-            wantsCancel = true;
-        }
+        return true;
+    }
+
+    public override void Cancel() {
+        wantsCancel = true;
     }
 }

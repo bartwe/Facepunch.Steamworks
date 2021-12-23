@@ -2,43 +2,43 @@ using System;
 using System.Runtime.InteropServices;
 using Steamworks.Data;
 
-namespace Steamworks {
-    sealed class ISteamMatchmakingServerListResponse : SteamInterface {
-        internal ISteamMatchmakingServerListResponse(bool IsGameServer) {
-            SetupInterface(IsGameServer);
-        }
+namespace Steamworks;
+
+sealed class ISteamMatchmakingServerListResponse : SteamInterface {
+    internal ISteamMatchmakingServerListResponse(bool IsGameServer) {
+        SetupInterface(IsGameServer);
+    }
 
     #region FunctionMeta
 
-        [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmakingServerListResponse_ServerResponded", CallingConvention = Platform.CC)]
-        static extern void _ServerResponded(IntPtr self, HServerListRequest hRequest, int iServer);
+    [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmakingServerListResponse_ServerResponded", CallingConvention = Platform.CC)]
+    static extern void _ServerResponded(IntPtr self, HServerListRequest hRequest, int iServer);
 
     #endregion
 
-        internal void ServerResponded(HServerListRequest hRequest, int iServer) {
-            _ServerResponded(Self, hRequest, iServer);
-        }
+    internal void ServerResponded(HServerListRequest hRequest, int iServer) {
+        _ServerResponded(Self, hRequest, iServer);
+    }
 
     #region FunctionMeta
 
-        [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmakingServerListResponse_ServerFailedToRespond", CallingConvention = Platform.CC)]
-        static extern void _ServerFailedToRespond(IntPtr self, HServerListRequest hRequest, int iServer);
+    [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmakingServerListResponse_ServerFailedToRespond", CallingConvention = Platform.CC)]
+    static extern void _ServerFailedToRespond(IntPtr self, HServerListRequest hRequest, int iServer);
 
     #endregion
 
-        internal void ServerFailedToRespond(HServerListRequest hRequest, int iServer) {
-            _ServerFailedToRespond(Self, hRequest, iServer);
-        }
+    internal void ServerFailedToRespond(HServerListRequest hRequest, int iServer) {
+        _ServerFailedToRespond(Self, hRequest, iServer);
+    }
 
     #region FunctionMeta
 
-        [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmakingServerListResponse_RefreshComplete", CallingConvention = Platform.CC)]
-        static extern void _RefreshComplete(IntPtr self, HServerListRequest hRequest, MatchMakingServerResponse response);
+    [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmakingServerListResponse_RefreshComplete", CallingConvention = Platform.CC)]
+    static extern void _RefreshComplete(IntPtr self, HServerListRequest hRequest, MatchMakingServerResponse response);
 
     #endregion
 
-        internal void RefreshComplete(HServerListRequest hRequest, MatchMakingServerResponse response) {
-            _RefreshComplete(Self, hRequest, response);
-        }
+    internal void RefreshComplete(HServerListRequest hRequest, MatchMakingServerResponse response) {
+        _RefreshComplete(Self, hRequest, response);
     }
 }

@@ -1,33 +1,33 @@
-﻿namespace Steamworks.Data {
-    public struct GameId {
-        /*
-         
-        enum EGameIDType
-        {
-            k_EGameIDTypeApp		= 0,
-            k_EGameIDTypeGameMod	= 1,
-            k_EGameIDTypeShortcut	= 2,
-            k_EGameIDTypeP2P		= 3,
-        };
+﻿namespace Steamworks.Data;
 
-        # ifdef VALVE_BIG_ENDIAN
-            unsigned int m_nModID : 32;
-            unsigned int m_nType : 8;
-            unsigned int m_nAppID : 24;
-        #else
-            unsigned int m_nAppID : 24;
-            unsigned int m_nType : 8;
-            unsigned int m_nModID : 32;
-        #endif
-        */
-        public ulong Value;
+public struct GameId {
+    /*
 
-        public static implicit operator GameId(ulong value) {
-            return new() { Value = value };
-        }
+    enum EGameIDType
+    {
+        k_EGameIDTypeApp		= 0,
+        k_EGameIDTypeGameMod	= 1,
+        k_EGameIDTypeShortcut	= 2,
+        k_EGameIDTypeP2P		= 3,
+    };
 
-        public static implicit operator ulong(GameId value) {
-            return value.Value;
-        }
+    # ifdef VALVE_BIG_ENDIAN
+        unsigned int m_nModID : 32;
+        unsigned int m_nType : 8;
+        unsigned int m_nAppID : 24;
+    #else
+        unsigned int m_nAppID : 24;
+        unsigned int m_nType : 8;
+        unsigned int m_nModID : 32;
+    #endif
+    */
+    public ulong Value;
+
+    public static implicit operator GameId(ulong value) {
+        return new() { Value = value };
+    }
+
+    public static implicit operator ulong(GameId value) {
+        return value.Value;
     }
 }

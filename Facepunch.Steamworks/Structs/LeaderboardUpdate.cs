@@ -1,18 +1,21 @@
-﻿namespace Steamworks.Data {
-    public struct LeaderboardUpdate {
-        public int Score;
-        public bool Changed;
-        public int NewGlobalRank;
-        public int OldGlobalRank;
+﻿namespace Steamworks.Data;
 
-        public int RankChange {
-            get { return NewGlobalRank - OldGlobalRank; }
-        }
+public struct LeaderboardUpdate {
+    public int Score;
+    public bool Changed;
+    public int NewGlobalRank;
+    public int OldGlobalRank;
 
-        internal static LeaderboardUpdate From(LeaderboardScoreUploaded_t e) {
-            return new() {
-                Score = e.Score, Changed = e.ScoreChanged == 1, NewGlobalRank = e.GlobalRankNew, OldGlobalRank = e.GlobalRankPrevious,
-            };
-        }
+    public int RankChange {
+        get { return NewGlobalRank - OldGlobalRank; }
+    }
+
+    internal static LeaderboardUpdate From(LeaderboardScoreUploaded_t e) {
+        return new() {
+            Score = e.Score,
+            Changed = e.ScoreChanged == 1,
+            NewGlobalRank = e.GlobalRankNew,
+            OldGlobalRank = e.GlobalRankPrevious,
+        };
     }
 }
