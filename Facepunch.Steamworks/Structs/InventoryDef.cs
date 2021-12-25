@@ -206,7 +206,7 @@ public sealed class InventoryDef : IEquatable<InventoryDef> {
 
         if (val.Length == 0)
             return false;
-        if ((val[0] == '0') || (val[0] == 'F') || (val[0] == 'f'))
+        if (val[0] is '0' or 'F' or 'f')
             return false;
 
         return true;

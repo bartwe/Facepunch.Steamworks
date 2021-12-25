@@ -44,7 +44,7 @@ public sealed class SteamFriends : SteamClientClass<SteamFriends> {
         return true;
     }
 
-    internal void InstallEvents() {
+    internal static void InstallEvents() {
         Dispatch.Install<PersonaStateChange_t>(x => OnPersonaStateChange?.Invoke(new(x.SteamID)));
         Dispatch.Install<GameRichPresenceJoinRequested_t>(x => OnGameRichPresenceJoinRequested?.Invoke(new(x.SteamIDFriend), x.ConnectUTF8()));
         Dispatch.Install<GameConnectedFriendChatMsg_t>(OnFriendChatMessage);

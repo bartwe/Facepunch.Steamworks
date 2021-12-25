@@ -41,8 +41,7 @@ public partial struct NetIdentity {
     /// </summary>
     public bool IsLocalHost {
         get {
-            NetIdentity id = default;
-            return InternalIsLocalHost(ref id);
+            return InternalIsLocalHost(ref this);
         }
     }
 

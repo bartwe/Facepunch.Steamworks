@@ -49,8 +49,7 @@ public sealed class SteamUserStats : SteamClientClass<SteamUserStats> {
         Dispatch.Install<UserStatsUnloaded_t>(x => OnUserStatsUnloaded?.Invoke(x.SteamIDUser));
         Dispatch.Install<UserAchievementIconFetched_t>(x => OnAchievementIconFetched?.Invoke(x.AchievementNameUTF8(), x.IconHandle));
     }
-
-
+    
     /// <summary>
     ///     called when the achivement icon is loaded
     /// </summary>
@@ -88,7 +87,7 @@ public sealed class SteamUserStats : SteamClientClass<SteamUserStats> {
     /// </summary>
     public static bool IndicateAchievementProgress(string achName, int curProg, int maxProg) {
         if (string.IsNullOrEmpty(achName))
-            throw new ArgumentNullException("Achievement string is null or empty");
+            throw new ArgumentNullException(nameof(achName), "Achievement string is null or empty");
 
         if (curProg >= maxProg)
             throw new ArgumentException($" Current progress [{curProg}] arguement toward achievement greater than or equal to max [{maxProg}]");

@@ -171,7 +171,7 @@ public sealed class SteamNetworkingUtils : SteamSharedClass<SteamNetworkingUtils
     }
 
     static void InstallCallbacks(bool server) {
-        Dispatch.Install<SteamRelayNetworkStatus_t>(x => { Status = x.Avail; }, server);
+        Dispatch.Install<SteamRelayNetworkStatus_t>(x => Status = x.Avail, server);
     }
 
     /// <summary>

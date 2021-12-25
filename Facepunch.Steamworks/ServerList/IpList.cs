@@ -24,7 +24,7 @@ public sealed class IpList : Internet {
 
         while (true) {
             var sublist = ips.Skip(pointer).Take(blockSize);
-            if (sublist.Count() == 0)
+            if (!sublist.Any())
                 break;
 
             using (var list = new Internet()) {

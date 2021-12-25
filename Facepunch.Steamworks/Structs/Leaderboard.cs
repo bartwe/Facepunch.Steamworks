@@ -123,7 +123,7 @@ public struct Leaderboard {
 
     #region util
 
-    internal async Task<LeaderboardEntry[]> LeaderboardResultToEntries(LeaderboardScoresDownloaded_t r) {
+    internal static async Task<LeaderboardEntry[]> LeaderboardResultToEntries(LeaderboardScoresDownloaded_t r) {
         if (r.CEntryCount <= 0)
             return null;
 

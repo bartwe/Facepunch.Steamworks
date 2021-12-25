@@ -29,7 +29,7 @@ public sealed class SteamRemotePlay : SteamClientClass<SteamRemotePlay> {
         return true;
     }
 
-    internal void InstallEvents(bool server) {
+    internal static void InstallEvents(bool server) {
         Dispatch.Install<SteamRemotePlaySessionConnected_t>(x => OnSessionConnected?.Invoke(x.SessionID), server);
         Dispatch.Install<SteamRemotePlaySessionDisconnected_t>(x => OnSessionDisconnected?.Invoke(x.SessionID), server);
     }

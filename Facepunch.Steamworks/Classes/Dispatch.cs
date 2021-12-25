@@ -124,6 +124,7 @@ public static class Dispatch {
     ///     Given a callback, try to turn it into a string
     /// </summary>
     internal static string CallbackToString(CallbackType type, IntPtr data, int expectedsize) {
+        _ = expectedsize;
         if (!CallbackTypeFactory.All.TryGetValue(type, out var t))
             return $"[{type} not in sdk]";
 

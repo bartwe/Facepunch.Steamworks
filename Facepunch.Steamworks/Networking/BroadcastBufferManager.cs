@@ -27,7 +27,7 @@ static unsafe class BufferManager {
 
     public static IntPtr Get(int size, int referenceCount) {
         const int maxSize = 16 * 1024 * 1024;
-        if ((size < 0) || (size > maxSize))
+        if (size is < 0 or > maxSize)
             throw new ArgumentOutOfRangeException(nameof(size));
         if (referenceCount <= 0)
             throw new ArgumentOutOfRangeException(nameof(referenceCount));

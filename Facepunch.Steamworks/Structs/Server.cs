@@ -123,4 +123,8 @@ public struct ServerInfo : IEquatable<ServerInfo> {
     public override int GetHashCode() {
         return Address.GetHashCode() + SteamId.GetHashCode() + ConnectionPort.GetHashCode() + QueryPort.GetHashCode();
     }
+
+    public override bool Equals(object obj) {
+        return obj is ServerInfo info && Equals(info);
+    }
 }

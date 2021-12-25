@@ -73,7 +73,7 @@ public struct InventoryResult : IDisposable {
             await Task.Delay(10);
         }
 
-        if ((_result != Result.OK) && (_result != Result.Expired))
+        if (_result is not Result.OK and not Result.Expired)
             return null;
 
         return new InventoryResult(sresult, _result == Result.Expired);

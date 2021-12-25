@@ -31,9 +31,9 @@ public static class Utility {
     }
 
     public static uint IpToInt32(this IPAddress ipAddress) {
-#pragma warning disable 618
+#pragma warning disable CS0618 // Type or member is obsolete
         return Swap((uint)ipAddress.Address);
-#pragma warning restore 618
+#pragma warning restore CS0618 // Type or member is obsolete
     }
 
     public static IPAddress Int32ToIp(uint ipAddress) {

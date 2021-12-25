@@ -100,7 +100,7 @@ public class ConnectionManager {
     }
 
     public unsafe int Receive(int bufferSize = 32, bool receiveToEnd = true) {
-        if ((bufferSize < 1) || (bufferSize > 256))
+        if (bufferSize is < 1 or > 256)
             throw new ArgumentOutOfRangeException(nameof(bufferSize));
 
         var totalProcessed = 0;

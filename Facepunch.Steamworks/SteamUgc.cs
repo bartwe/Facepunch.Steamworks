@@ -88,7 +88,7 @@ public sealed class SteamUGC : SteamSharedClass<SteamUGC> {
                     if (ct.IsCancellationRequested)
                         break;
 
-                    await Task.Delay(milisecondsUpdateDelay);
+                    await Task.Delay(milisecondsUpdateDelay, ct);
                 }
             }
             finally {
@@ -97,7 +97,7 @@ public sealed class SteamUGC : SteamSharedClass<SteamUGC> {
         }
 
         progress?.Invoke(0.2f);
-        await Task.Delay(milisecondsUpdateDelay);
+        await Task.Delay(milisecondsUpdateDelay, ct);
 
         //Wait for downloading completion
         {
@@ -110,7 +110,7 @@ public sealed class SteamUGC : SteamSharedClass<SteamUGC> {
                 if (!item.IsDownloading && item.IsInstalled)
                     break;
 
-                await Task.Delay(milisecondsUpdateDelay);
+                await Task.Delay(milisecondsUpdateDelay, ct);
             }
         }
 

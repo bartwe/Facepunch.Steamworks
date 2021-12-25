@@ -261,7 +261,7 @@ public struct Item {
         get { return (ItemState)SteamUGC.Internal.GetItemState(Id); }
     }
 
-    public static async Task<Item?> GetAsync(PublishedFileId id, int maxageseconds = 60 * 30) {
+    public static async Task<Item?> GetAsync(PublishedFileId id) {
         var file = await Query.All
             .WithFileId(id)
             .WithLongDescription(true)

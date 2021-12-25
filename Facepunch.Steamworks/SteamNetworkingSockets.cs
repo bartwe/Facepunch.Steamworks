@@ -36,7 +36,7 @@ public sealed class SteamNetworkingSockets : SteamSharedClass<SteamNetworkingSoc
     }
 
 
-    internal void InstallEvents(bool server) {
+    internal static void InstallEvents(bool server) {
         Dispatch.Install<SteamNetConnectionStatusChangedCallback_t>(ConnectionStatusChanged, server);
     }
 
