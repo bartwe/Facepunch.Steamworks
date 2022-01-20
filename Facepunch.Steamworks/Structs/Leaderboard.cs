@@ -9,21 +9,13 @@ public struct Leaderboard {
     /// <summary>
     ///     the name of a leaderboard
     /// </summary>
-    public string Name {
-        get { return SteamUserStats.Internal.GetLeaderboardName(Id); }
-    }
+    public string Name => SteamUserStats.Internal.GetLeaderboardName(Id);
 
-    public LeaderboardSort Sort {
-        get { return SteamUserStats.Internal.GetLeaderboardSortMethod(Id); }
-    }
+    public LeaderboardSort Sort => SteamUserStats.Internal.GetLeaderboardSortMethod(Id);
 
-    public LeaderboardDisplay Display {
-        get { return SteamUserStats.Internal.GetLeaderboardDisplayType(Id); }
-    }
+    public LeaderboardDisplay Display => SteamUserStats.Internal.GetLeaderboardDisplayType(Id);
 
-    public int EntryCount {
-        get { return SteamUserStats.Internal.GetLeaderboardEntryCount(Id); }
-    }
+    public int EntryCount => SteamUserStats.Internal.GetLeaderboardEntryCount(Id);
 
     static readonly int[] detailsBuffer = new int[64];
     static readonly int[] noDetails = Array.Empty<int>();

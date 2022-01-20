@@ -10,32 +10,20 @@ public struct Clan {
         Id = id;
     }
 
-    public string Name {
-        get { return SteamFriends.Internal.GetClanName(Id); }
-    }
+    public string Name => SteamFriends.Internal.GetClanName(Id);
 
-    public string Tag {
-        get { return SteamFriends.Internal.GetClanTag(Id); }
-    }
+    public string Tag => SteamFriends.Internal.GetClanTag(Id);
 
-    public int ChatMemberCount {
-        get { return SteamFriends.Internal.GetClanChatMemberCount(Id); }
-    }
+    public int ChatMemberCount => SteamFriends.Internal.GetClanChatMemberCount(Id);
 
-    public Friend Owner {
-        get { return new(SteamFriends.Internal.GetClanOwner(Id)); }
-    }
+    public Friend Owner => new(SteamFriends.Internal.GetClanOwner(Id));
 
-    public bool Public {
-        get { return SteamFriends.Internal.IsClanPublic(Id); }
-    }
+    public bool Public => SteamFriends.Internal.IsClanPublic(Id);
 
     /// <summary>
     ///     Is the clan an official game group?
     /// </summary>
-    public bool Official {
-        get { return SteamFriends.Internal.IsClanOfficialGameGroup(Id); }
-    }
+    public bool Official => SteamFriends.Internal.IsClanOfficialGameGroup(Id);
 
     /// <summary>
     ///     Asynchronously fetches the officer list for a given clan

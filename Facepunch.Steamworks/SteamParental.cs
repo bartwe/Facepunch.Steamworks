@@ -7,22 +7,16 @@ namespace Steamworks;
 ///     Undocumented Parental Settings
 /// </summary>
 public sealed class SteamParental : SteamSharedClass<SteamParental> {
-    internal static ISteamParentalSettings Internal {
-        get { return Interface as ISteamParentalSettings; }
-    }
+    internal static ISteamParentalSettings Internal => Interface as ISteamParentalSettings;
 
 
     /// <summary>
     /// </summary>
-    public static bool IsParentalLockEnabled {
-        get { return Internal.BIsParentalLockEnabled(); }
-    }
+    public static bool IsParentalLockEnabled => Internal.BIsParentalLockEnabled();
 
     /// <summary>
     /// </summary>
-    public static bool IsParentalLockLocked {
-        get { return Internal.BIsParentalLockLocked(); }
-    }
+    public static bool IsParentalLockLocked => Internal.BIsParentalLockLocked();
 
     internal override bool InitializeInterface(bool server) {
         SetInterface(server, new ISteamParentalSettings(server));

@@ -14,9 +14,7 @@ namespace Steamworks;
 public sealed class SteamInventory : SteamSharedClass<SteamInventory> {
     static Dictionary<int, InventoryDef> _defMap;
 
-    internal static ISteamInventory Internal {
-        get { return Interface as ISteamInventory; }
-    }
+    internal static ISteamInventory Internal => Interface as ISteamInventory;
 
     public static string Currency { get; internal set; }
 

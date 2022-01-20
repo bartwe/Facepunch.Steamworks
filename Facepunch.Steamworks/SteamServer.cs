@@ -23,20 +23,16 @@ public sealed class SteamServer : SteamServerClass<SteamServer> {
 
     static readonly Dictionary<string, string> KeyValue = new();
 
-    internal static ISteamGameServer Internal {
-        get { return Interface as ISteamGameServer; }
-    }
+    internal static ISteamGameServer Internal => Interface as ISteamGameServer;
 
-    public static bool IsValid {
-        get { return (Internal != null) && Internal.IsValid; }
-    }
+    public static bool IsValid => (Internal != null) && Internal.IsValid;
 
     /// <summary>
     ///     Sets whether this should be marked as a dedicated server.
     ///     If not, it is assumed to be a listen server.
     /// </summary>
     public static bool DedicatedServer {
-        get { return _dedicatedServer; }
+        get => _dedicatedServer;
         set {
             if (_dedicatedServer == value)
                 return;
@@ -50,7 +46,7 @@ public sealed class SteamServer : SteamServerClass<SteamServer> {
     ///     This doesn't enforce any kind of limit, it just updates the master server.
     /// </summary>
     public static int MaxPlayers {
-        get { return _maxplayers; }
+        get => _maxplayers;
         set {
             if (_maxplayers == value)
                 return;
@@ -64,7 +60,7 @@ public sealed class SteamServer : SteamServerClass<SteamServer> {
     ///     This doesn't enforce any kind of limit, it just updates the master server.
     /// </summary>
     public static int BotCount {
-        get { return _botcount; }
+        get => _botcount;
         set {
             if (_botcount == value)
                 return;
@@ -77,7 +73,7 @@ public sealed class SteamServer : SteamServerClass<SteamServer> {
     ///     Gets or sets the current Map Name.
     /// </summary>
     public static string MapName {
-        get { return _mapname; }
+        get => _mapname;
         set {
             if (_mapname == value)
                 return;
@@ -90,7 +86,7 @@ public sealed class SteamServer : SteamServerClass<SteamServer> {
     ///     Gets or sets the current ModDir
     /// </summary>
     public static string ModDir {
-        get { return _modDir; }
+        get => _modDir;
         internal set {
             if (_modDir == value)
                 return;
@@ -103,7 +99,7 @@ public sealed class SteamServer : SteamServerClass<SteamServer> {
     ///     Gets the current product
     /// </summary>
     public static string Product {
-        get { return _product; }
+        get => _product;
         internal set {
             if (_product == value)
                 return;
@@ -116,7 +112,7 @@ public sealed class SteamServer : SteamServerClass<SteamServer> {
     ///     Gets or sets the current Product
     /// </summary>
     public static string GameDescription {
-        get { return _gameDescription; }
+        get => _gameDescription;
         internal set {
             if (_gameDescription == value)
                 return;
@@ -129,7 +125,7 @@ public sealed class SteamServer : SteamServerClass<SteamServer> {
     ///     Gets or sets the current ServerName
     /// </summary>
     public static string ServerName {
-        get { return _serverName; }
+        get => _serverName;
         set {
             if (_serverName == value)
                 return;
@@ -142,7 +138,7 @@ public sealed class SteamServer : SteamServerClass<SteamServer> {
     ///     Set whether the server should report itself as passworded
     /// </summary>
     public static bool Passworded {
-        get { return _passworded; }
+        get => _passworded;
         set {
             if (_passworded == value)
                 return;
@@ -156,7 +152,7 @@ public sealed class SteamServer : SteamServerClass<SteamServer> {
     ///     When querying the server list you can filter by these tags.
     /// </summary>
     public static string GameTags {
-        get { return _gametags; }
+        get => _gametags;
         set {
             if (_gametags == value)
                 return;
@@ -165,33 +161,27 @@ public sealed class SteamServer : SteamServerClass<SteamServer> {
         }
     }
 
-    public static SteamId SteamId {
-        get { return Internal.GetSteamID(); }
-    }
+    public static SteamId SteamId => Internal.GetSteamID();
 
     /// <summary>
     ///     Returns true if the server is connected and registered with the Steam master server
     ///     You should have called LogOnAnonymous etc on startup.
     /// </summary>
-    public static bool LoggedOn {
-        get { return Internal.BLoggedOn(); }
-    }
+    public static bool LoggedOn => Internal.BLoggedOn();
 
     /// <summary>
     ///     To the best of its ability this tries to get the server's
     ///     current public ip address. Be aware that this is likely to return
     ///     null for the first few seconds after initialization.
     /// </summary>
-    public static IPAddress PublicIp {
-        get { return Internal.GetPublicIP(); }
-    }
+    public static IPAddress PublicIp => Internal.GetPublicIP();
 
     /// <summary>
     ///     Enable or disable heartbeats, which are sent regularly to the master server.
     ///     Enabled by default.
     /// </summary>
     public static bool AutomaticHeartbeats {
-        set { Internal.EnableHeartbeats(value); }
+        set => Internal.EnableHeartbeats(value);
     }
 
     /// <summary>
@@ -199,7 +189,7 @@ public sealed class SteamServer : SteamServerClass<SteamServer> {
     ///     You can leave this at the default.
     /// </summary>
     public static int AutomaticHeartbeatRate {
-        set { Internal.SetHeartbeatInterval(value); }
+        set => Internal.SetHeartbeatInterval(value);
     }
 
     internal override bool InitializeInterface(bool server) {

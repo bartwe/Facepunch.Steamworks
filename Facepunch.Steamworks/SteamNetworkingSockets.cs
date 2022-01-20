@@ -5,9 +5,7 @@ using Steamworks.Data;
 namespace Steamworks;
 
 public sealed class SteamNetworkingSockets : SteamSharedClass<SteamNetworkingSockets> {
-    internal static ISteamNetworkingSockets Internal {
-        get { return Interface as ISteamNetworkingSockets; }
-    }
+    internal static ISteamNetworkingSockets Internal => Interface as ISteamNetworkingSockets;
 
     /// <summary>
     ///     Get the identity assigned to this interface.

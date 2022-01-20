@@ -8,16 +8,12 @@ namespace Steamworks;
 ///     computer or to a Steam Link app or hardware.
 /// </summary>
 public sealed class SteamRemotePlay : SteamClientClass<SteamRemotePlay> {
-    internal static ISteamRemotePlay Internal {
-        get { return Interface as ISteamRemotePlay; }
-    }
+    internal static ISteamRemotePlay Internal => Interface as ISteamRemotePlay;
 
     /// <summary>
     ///     Get the number of currently connected Steam Remote Play sessions
     /// </summary>
-    public static int SessionCount {
-        get { return (int)Internal.GetSessionCount(); }
-    }
+    public static int SessionCount => (int)Internal.GetSessionCount();
 
     internal override bool InitializeInterface(bool server) {
         SetInterface(server, new ISteamRemotePlay(server));

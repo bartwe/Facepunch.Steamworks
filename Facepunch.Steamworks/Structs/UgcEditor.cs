@@ -27,32 +27,24 @@ public struct Editor {
     /// <summary>
     ///     Create a Normal Workshop item that can be subscribed to
     /// </summary>
-    public static Editor NewCommunityFile {
-        get { return new(WorkshopFileType.Community); }
-    }
+    public static Editor NewCommunityFile => new(WorkshopFileType.Community);
 
     /// <summary>
     ///     Create a Collection
     ///     Add items using Item.AddDependency()
     /// </summary>
-    public static Editor NewCollection {
-        get { return new(WorkshopFileType.Collection); }
-    }
+    public static Editor NewCollection => new(WorkshopFileType.Collection);
 
     /// <summary>
     ///     Workshop item that is meant to be voted on for the purpose of selling in-game
     /// </summary>
-    public static Editor NewMicrotransactionFile {
-        get { return new(WorkshopFileType.Microtransaction); }
-    }
+    public static Editor NewMicrotransactionFile => new(WorkshopFileType.Microtransaction);
 
     /// <summary>
     ///     Workshop item that is meant to be managed by the game. It is queryable by the API, but isn't visible on the web
     ///     browser.
     /// </summary>
-    public static Editor NewGameManagedFile {
-        get { return new(WorkshopFileType.GameManagedItem); }
-    }
+    public static Editor NewGameManagedFile => new(WorkshopFileType.GameManagedItem);
 
     public Editor ForAppId(AppId id) {
         consumerAppId = id;
@@ -324,9 +316,7 @@ public struct Editor {
 }
 
 public struct PublishResult {
-    public bool Success {
-        get { return Result == Result.OK; }
-    }
+    public bool Success => Result == Result.OK;
 
     public Result Result;
     public PublishedFileId FileId;

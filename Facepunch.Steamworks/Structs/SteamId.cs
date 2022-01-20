@@ -15,11 +15,7 @@ public struct SteamId {
         return Value.ToString();
     }
 
-    public uint AccountId {
-        get { return (uint)(Value & 0xFFFFFFFFul); }
-    }
+    public uint AccountId => (uint)(Value & 0xFFFFFFFFul);
 
-    public bool IsValid {
-        get { return Value != default; }
-    }
+    public bool IsValid => Value != default;
 }

@@ -4,9 +4,7 @@ using Steamworks.Data;
 namespace Steamworks;
 
 public struct PartyBeacon {
-    static ISteamParties Internal {
-        get { return SteamParties.Internal; }
-    }
+    static ISteamParties Internal => SteamParties.Internal;
 
     internal PartyBeaconID_t Id;
 

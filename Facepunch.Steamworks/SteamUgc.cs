@@ -12,9 +12,7 @@ namespace Steamworks;
 ///     This is also where the APIs for Steam Voice are exposed.
 /// </summary>
 public sealed class SteamUGC : SteamSharedClass<SteamUGC> {
-    internal static ISteamUGC Internal {
-        get { return Interface as ISteamUGC; }
-    }
+    internal static ISteamUGC Internal => Interface as ISteamUGC;
 
     internal override bool InitializeInterface(bool server) {
         SetInterface(server, new ISteamUGC(server));

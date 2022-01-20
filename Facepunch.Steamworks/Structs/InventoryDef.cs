@@ -15,94 +15,68 @@ public sealed class InventoryDef : IEquatable<InventoryDef> {
         _id = defId;
     }
 
-    public int Id {
-        get { return _id.Value; }
-    }
+    public int Id => _id.Value;
 
     /// <summary>
     ///     Shortcut to call GetProperty( "name" )
     /// </summary>
-    public string Name {
-        get { return GetProperty("name"); }
-    }
+    public string Name => GetProperty("name");
 
     /// <summary>
     ///     Shortcut to call GetProperty( "description" )
     /// </summary>
-    public string Description {
-        get { return GetProperty("description"); }
-    }
+    public string Description => GetProperty("description");
 
     /// <summary>
     ///     Shortcut to call GetProperty( "icon_url" )
     /// </summary>
-    public string IconUrl {
-        get { return GetProperty("icon_url"); }
-    }
+    public string IconUrl => GetProperty("icon_url");
 
     /// <summary>
     ///     Shortcut to call GetProperty( "icon_url_large" )
     /// </summary>
-    public string IconUrlLarge {
-        get { return GetProperty("icon_url_large"); }
-    }
+    public string IconUrlLarge => GetProperty("icon_url_large");
 
     /// <summary>
     ///     Shortcut to call GetProperty( "price_category" )
     /// </summary>
-    public string PriceCategory {
-        get { return GetProperty("price_category"); }
-    }
+    public string PriceCategory => GetProperty("price_category");
 
     /// <summary>
     ///     Shortcut to call GetProperty( "type" )
     /// </summary>
-    public string Type {
-        get { return GetProperty("type"); }
-    }
+    public string Type => GetProperty("type");
 
     /// <summary>
     ///     Returns true if this is an item that generates an item, rather
     ///     than something that is actual an item
     /// </summary>
-    public bool IsGenerator {
-        get { return Type == "generator"; }
-    }
+    public bool IsGenerator => Type == "generator";
 
     /// <summary>
     ///     Shortcut to call GetProperty( "exchange" )
     /// </summary>
-    public string ExchangeSchema {
-        get { return GetProperty("exchange"); }
-    }
+    public string ExchangeSchema => GetProperty("exchange");
 
     /// <summary>
     ///     Shortcut to call GetBoolProperty( "marketable" )
     /// </summary>
-    public bool Marketable {
-        get { return GetBoolProperty("marketable"); }
-    }
+    public bool Marketable => GetBoolProperty("marketable");
 
     /// <summary>
     ///     Shortcut to call GetBoolProperty( "tradable" )
     /// </summary>
-    public bool Tradable {
-        get { return GetBoolProperty("tradable"); }
-    }
+    public bool Tradable => GetBoolProperty("tradable");
 
     /// <summary>
     ///     Gets the property timestamp
     /// </summary>
-    public DateTime Created {
-        get { return GetProperty<DateTime>("timestamp"); }
-    }
+    public DateTime Created => GetProperty<DateTime>("timestamp");
 
     /// <summary>
     ///     Gets the property modified
     /// </summary>
-    public DateTime Modified {
-        get { return GetProperty<DateTime>("modified"); }
-    }
+    public DateTime Modified => GetProperty<DateTime>("modified");
 
     /// <summary>
     ///     Gets a list of all properties on this item
@@ -133,9 +107,7 @@ public sealed class InventoryDef : IEquatable<InventoryDef> {
         }
     }
 
-    public string LocalPriceFormatted {
-        get { return Utility.FormatPrice(SteamInventory.Currency, LocalPrice / 100.0); }
-    }
+    public string LocalPriceFormatted => Utility.FormatPrice(SteamInventory.Currency, LocalPrice / 100.0);
 
     /// <summary>
     ///     If the price has been discounted, LocalPrice will differ from LocalBasePrice
@@ -153,9 +125,7 @@ public sealed class InventoryDef : IEquatable<InventoryDef> {
         }
     }
 
-    public string LocalBasePriceFormatted {
-        get { return Utility.FormatPrice(SteamInventory.Currency, LocalPrice / 100.0); }
-    }
+    public string LocalBasePriceFormatted => Utility.FormatPrice(SteamInventory.Currency, LocalPrice / 100.0);
 
     public bool Equals(InventoryDef p) {
         if (p == null)

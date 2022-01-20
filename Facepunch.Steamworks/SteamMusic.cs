@@ -10,37 +10,29 @@ namespace Steamworks;
 ///     Nothing uses Steam Music though so this can probably get fucked
 /// </summary>
 public sealed class SteamMusic : SteamClientClass<SteamMusic> {
-    internal static ISteamMusic Internal {
-        get { return Interface as ISteamMusic; }
-    }
+    internal static ISteamMusic Internal => Interface as ISteamMusic;
 
     /// <summary>
     ///     Checks if Steam Music is enabled
     /// </summary>
-    public static bool IsEnabled {
-        get { return Internal.BIsEnabled(); }
-    }
+    public static bool IsEnabled => Internal.BIsEnabled();
 
     /// <summary>
     ///     true if a song is currently playing, paused, or queued up to play; otherwise false.
     /// </summary>
-    public static bool IsPlaying {
-        get { return Internal.BIsPlaying(); }
-    }
+    public static bool IsPlaying => Internal.BIsPlaying();
 
     /// <summary>
     ///     Gets the current status of the Steam Music player
     /// </summary>
-    public static MusicStatus Status {
-        get { return Internal.GetPlaybackStatus(); }
-    }
+    public static MusicStatus Status => Internal.GetPlaybackStatus();
 
     /// <summary>
     ///     Gets/Sets the current volume of the Steam Music player
     /// </summary>
     public static float Volume {
-        get { return Internal.GetVolume(); }
-        set { Internal.SetVolume(value); }
+        get => Internal.GetVolume();
+        set => Internal.SetVolume(value);
     }
 
     internal override bool InitializeInterface(bool server) {

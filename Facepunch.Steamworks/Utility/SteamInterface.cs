@@ -8,9 +8,7 @@ abstract class SteamInterface {
     public IntPtr SelfServer;
     public IntPtr SelfClient;
 
-    public bool IsValid {
-        get { return Self != IntPtr.Zero; }
-    }
+    public bool IsValid => Self != IntPtr.Zero;
 
     public bool IsServer { get; private set; }
 
@@ -61,9 +59,7 @@ public abstract class SteamSharedClass<T> : SteamClass {
     internal static SteamInterface InterfaceClient;
     internal static SteamInterface InterfaceServer;
 
-    internal static SteamInterface Interface {
-        get { return InterfaceClient ?? InterfaceServer; }
-    }
+    internal static SteamInterface Interface => InterfaceClient ?? InterfaceServer;
 
     internal override bool InitializeInterface(bool server) {
         return false;

@@ -29,9 +29,7 @@ public abstract class Base : IDisposable {
 
     #region ISteamMatchmakingServers
 
-    internal static ISteamMatchmakingServers Internal {
-        get { return SteamMatchmakingServers.Internal; }
-    }
+    internal static ISteamMatchmakingServers Internal => SteamMatchmakingServers.Internal;
 
     #endregion
 
@@ -41,13 +39,9 @@ public abstract class Base : IDisposable {
     /// </summary>
     public AppId AppId { get; set; }
 
-    internal int Count {
-        get { return Internal.GetServerCount(request); }
-    }
+    internal int Count => Internal.GetServerCount(request);
 
-    internal bool IsRefreshing {
-        get { return (request.Value != IntPtr.Zero) && Internal.IsRefreshing(request); }
-    }
+    internal bool IsRefreshing => (request.Value != IntPtr.Zero) && Internal.IsRefreshing(request);
 
     public void Dispose() {
         ReleaseQuery();

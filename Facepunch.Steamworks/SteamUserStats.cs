@@ -6,9 +6,7 @@ using Steamworks.Data;
 namespace Steamworks;
 
 public sealed class SteamUserStats : SteamClientClass<SteamUserStats> {
-    internal static ISteamUserStats Internal {
-        get { return Interface as ISteamUserStats; }
-    }
+    internal static ISteamUserStats Internal => Interface as ISteamUserStats;
 
     public static bool StatsRecieved { get; internal set; }
 
@@ -49,7 +47,7 @@ public sealed class SteamUserStats : SteamClientClass<SteamUserStats> {
         Dispatch.Install<UserStatsUnloaded_t>(x => OnUserStatsUnloaded?.Invoke(x.SteamIDUser));
         Dispatch.Install<UserAchievementIconFetched_t>(x => OnAchievementIconFetched?.Invoke(x.AchievementNameUTF8(), x.IconHandle));
     }
-    
+
     /// <summary>
     ///     called when the achivement icon is loaded
     /// </summary>

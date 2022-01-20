@@ -25,17 +25,11 @@ public struct Achievement {
         }
     }
 
-    public string Identifier {
-        get { return Value; }
-    }
+    public string Identifier => Value;
 
-    public string Name {
-        get { return SteamUserStats.Internal.GetAchievementDisplayAttribute(Value, "name"); }
-    }
+    public string Name => SteamUserStats.Internal.GetAchievementDisplayAttribute(Value, "name");
 
-    public string Description {
-        get { return SteamUserStats.Internal.GetAchievementDisplayAttribute(Value, "desc"); }
-    }
+    public string Description => SteamUserStats.Internal.GetAchievementDisplayAttribute(Value, "desc");
 
 
     /// <summary>

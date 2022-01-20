@@ -11,14 +11,10 @@ namespace Steamworks;
 ///     Adjust the number of open slots if other players join through alternate matchmaking methods.
 /// </summary>
 public sealed class SteamParties : SteamClientClass<SteamParties> {
-    internal static ISteamParties Internal {
-        get { return Interface as ISteamParties; }
-    }
+    internal static ISteamParties Internal => Interface as ISteamParties;
 
 
-    public static int ActiveBeaconCount {
-        get { return (int)Internal.GetNumActiveBeacons(); }
-    }
+    public static int ActiveBeaconCount => (int)Internal.GetNumActiveBeacons();
 
     public static IEnumerable<PartyBeacon> ActiveBeacons {
         get {

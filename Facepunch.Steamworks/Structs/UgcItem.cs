@@ -19,9 +19,7 @@ public struct Item {
     /// <summary>
     ///     The actual ID of this file
     /// </summary>
-    public PublishedFileId Id {
-        get { return _id; }
-    }
+    public PublishedFileId Id => _id;
 
     /// <summary>
     ///     The given title of this item
@@ -46,93 +44,67 @@ public struct Item {
     /// <summary>
     ///     App Id of the app that created this item
     /// </summary>
-    public AppId CreatorApp {
-        get { return details.CreatorAppID; }
-    }
+    public AppId CreatorApp => details.CreatorAppID;
 
     /// <summary>
     ///     App Id of the app that will consume this item.
     /// </summary>
-    public AppId ConsumerApp {
-        get { return details.ConsumerAppID; }
-    }
+    public AppId ConsumerApp => details.ConsumerAppID;
 
     /// <summary>
     ///     User who created this content
     /// </summary>
-    public Friend Owner {
-        get { return new(details.SteamIDOwner); }
-    }
+    public Friend Owner => new(details.SteamIDOwner);
 
     /// <summary>
     ///     The bayesian average for up votes / total votes, between [0,1]
     /// </summary>
-    public float Score {
-        get { return details.Score; }
-    }
+    public float Score => details.Score;
 
     /// <summary>
     ///     Time when the published item was created
     /// </summary>
-    public DateTime Created {
-        get { return Epoch.ToDateTime(details.TimeCreated); }
-    }
+    public DateTime Created => Epoch.ToDateTime(details.TimeCreated);
 
     /// <summary>
     ///     Time when the published item was last updated
     /// </summary>
-    public DateTime Updated {
-        get { return Epoch.ToDateTime(details.TimeUpdated); }
-    }
+    public DateTime Updated => Epoch.ToDateTime(details.TimeUpdated);
 
     /// <summary>
     ///     True if this is publically visible
     /// </summary>
-    public bool IsPublic {
-        get { return details.Visibility == RemoteStoragePublishedFileVisibility.Public; }
-    }
+    public bool IsPublic => details.Visibility == RemoteStoragePublishedFileVisibility.Public;
 
     /// <summary>
     ///     True if this item is only visible by friends of the creator
     /// </summary>
-    public bool IsFriendsOnly {
-        get { return details.Visibility == RemoteStoragePublishedFileVisibility.FriendsOnly; }
-    }
+    public bool IsFriendsOnly => details.Visibility == RemoteStoragePublishedFileVisibility.FriendsOnly;
 
     /// <summary>
     ///     True if this is only visible to the creator
     /// </summary>
-    public bool IsPrivate {
-        get { return details.Visibility == RemoteStoragePublishedFileVisibility.Private; }
-    }
+    public bool IsPrivate => details.Visibility == RemoteStoragePublishedFileVisibility.Private;
 
     /// <summary>
     ///     True if this item has been banned
     /// </summary>
-    public bool IsBanned {
-        get { return details.Banned; }
-    }
+    public bool IsBanned => details.Banned;
 
     /// <summary>
     ///     Whether the developer of this app has specifically flagged this item as accepted in the Workshop
     /// </summary>
-    public bool IsAcceptedForUse {
-        get { return details.AcceptedForUse; }
-    }
+    public bool IsAcceptedForUse => details.AcceptedForUse;
 
     /// <summary>
     ///     The number of upvotes of this item
     /// </summary>
-    public uint VotesUp {
-        get { return details.VotesUp; }
-    }
+    public uint VotesUp => details.VotesUp;
 
     /// <summary>
     ///     The number of downvotes of this item
     /// </summary>
-    public uint VotesDown {
-        get { return details.VotesDown; }
-    }
+    public uint VotesDown => details.VotesDown;
 
     /// <summary>
     ///     Dependencies/children of this item or collection, available only from WithDependencies(true) queries
@@ -144,25 +116,15 @@ public struct Item {
     /// </summary>
     public UgcAdditionalPreview[] AdditionalPreviews { get; internal set; }
 
-    public bool IsInstalled {
-        get { return (State & ItemState.Installed) == ItemState.Installed; }
-    }
+    public bool IsInstalled => (State & ItemState.Installed) == ItemState.Installed;
 
-    public bool IsDownloading {
-        get { return (State & ItemState.Downloading) == ItemState.Downloading; }
-    }
+    public bool IsDownloading => (State & ItemState.Downloading) == ItemState.Downloading;
 
-    public bool IsDownloadPending {
-        get { return (State & ItemState.DownloadPending) == ItemState.DownloadPending; }
-    }
+    public bool IsDownloadPending => (State & ItemState.DownloadPending) == ItemState.DownloadPending;
 
-    public bool IsSubscribed {
-        get { return (State & ItemState.Subscribed) == ItemState.Subscribed; }
-    }
+    public bool IsSubscribed => (State & ItemState.Subscribed) == ItemState.Subscribed;
 
-    public bool NeedsUpdate {
-        get { return (State & ItemState.NeedsUpdate) == ItemState.NeedsUpdate; }
-    }
+    public bool NeedsUpdate => (State & ItemState.NeedsUpdate) == ItemState.NeedsUpdate;
 
     public string Directory {
         get {
@@ -257,9 +219,7 @@ public struct Item {
         }
     }
 
-    ItemState State {
-        get { return (ItemState)SteamUGC.Internal.GetItemState(Id); }
-    }
+    ItemState State => (ItemState)SteamUGC.Internal.GetItemState(Id);
 
     public static async Task<Item?> GetAsync(PublishedFileId id) {
         var file = await Query.All
@@ -361,37 +321,27 @@ public struct Item {
     /// <summary>
     ///     Return a URL to view this item online
     /// </summary>
-    public string Url {
-        get { return $"http://steamcommunity.com/sharedfiles/filedetails/?source=Facepunch.Steamworks&id={Id}"; }
-    }
+    public string Url => $"http://steamcommunity.com/sharedfiles/filedetails/?source=Facepunch.Steamworks&id={Id}";
 
     /// <summary>
     ///     The URl to view this item's changelog
     /// </summary>
-    public string ChangelogUrl {
-        get { return $"http://steamcommunity.com/sharedfiles/filedetails/changelog/{Id}"; }
-    }
+    public string ChangelogUrl => $"http://steamcommunity.com/sharedfiles/filedetails/changelog/{Id}";
 
     /// <summary>
     ///     The URL to view the comments on this item
     /// </summary>
-    public string CommentsUrl {
-        get { return $"http://steamcommunity.com/sharedfiles/filedetails/comments/{Id}"; }
-    }
+    public string CommentsUrl => $"http://steamcommunity.com/sharedfiles/filedetails/comments/{Id}";
 
     /// <summary>
     ///     The URL to discuss this item
     /// </summary>
-    public string DiscussUrl {
-        get { return $"http://steamcommunity.com/sharedfiles/filedetails/discussions/{Id}"; }
-    }
+    public string DiscussUrl => $"http://steamcommunity.com/sharedfiles/filedetails/discussions/{Id}";
 
     /// <summary>
     ///     The URL to view this items stats online
     /// </summary>
-    public string StatsUrl {
-        get { return $"http://steamcommunity.com/sharedfiles/filedetails/stats/{Id}"; }
-    }
+    public string StatsUrl => $"http://steamcommunity.com/sharedfiles/filedetails/stats/{Id}";
 
     public ulong NumSubscriptions { get; internal set; }
     public ulong NumFavorites { get; internal set; }
@@ -434,7 +384,5 @@ public struct Item {
         return r?.Result == Result.OK;
     }
 
-    public Result Result {
-        get { return details.Result; }
-    }
+    public Result Result => details.Result;
 }

@@ -64,8 +64,8 @@ public struct Connection : IEquatable<Connection> {
     ///     Get/Set connection user data
     /// </summary>
     public long UserData {
-        get { return SteamNetworkingSockets.Internal.GetConnectionUserData(this); }
-        set { _ = SteamNetworkingSockets.Internal.SetConnectionUserData(this, value); }
+        get => SteamNetworkingSockets.Internal.GetConnectionUserData(this);
+        set => _ = SteamNetworkingSockets.Internal.SetConnectionUserData(this, value);
     }
 
     /// <summary>
@@ -79,7 +79,7 @@ public struct Connection : IEquatable<Connection> {
             return strVal;
         }
 
-        set { SteamNetworkingSockets.Internal.SetConnectionName(this, value); }
+        set => SteamNetworkingSockets.Internal.SetConnectionName(this, value);
     }
 
     /// <summary>

@@ -22,9 +22,7 @@ public sealed class SteamNetworkingUtils : SteamSharedClass<SteamNetworkingUtils
 
     static readonly ConcurrentQueue<DebugMessage> debugMessages = new();
 
-    internal static ISteamNetworkingUtils Internal {
-        get { return Interface as ISteamNetworkingUtils; }
-    }
+    internal static ISteamNetworkingUtils Internal => Interface as ISteamNetworkingUtils;
 
     /// <summary>
     ///     The latest available status gathered from the SteamRelayNetworkStatus callback
@@ -49,57 +47,55 @@ public sealed class SteamNetworkingUtils : SteamSharedClass<SteamNetworkingUtils
         }
     }
 
-    public static long LocalTimestamp {
-        get { return Internal.GetLocalTimestamp(); }
-    }
+    public static long LocalTimestamp => Internal.GetLocalTimestamp();
 
 
     /// <summary>
     ///     [0 - 100] - Randomly discard N pct of packets
     /// </summary>
     public static float FakeSendPacketLoss {
-        get { return GetConfigFloat(NetConfig.FakePacketLoss_Send); }
-        set { _ = SetConfigFloat(NetConfig.FakePacketLoss_Send, value); }
+        get => GetConfigFloat(NetConfig.FakePacketLoss_Send);
+        set => _ = SetConfigFloat(NetConfig.FakePacketLoss_Send, value);
     }
 
     /// <summary>
     ///     [0 - 100] - Randomly discard N pct of packets
     /// </summary>
     public static float FakeRecvPacketLoss {
-        get { return GetConfigFloat(NetConfig.FakePacketLoss_Recv); }
-        set { _ = SetConfigFloat(NetConfig.FakePacketLoss_Recv, value); }
+        get => GetConfigFloat(NetConfig.FakePacketLoss_Recv);
+        set => _ = SetConfigFloat(NetConfig.FakePacketLoss_Recv, value);
     }
 
     /// <summary>
     ///     Delay all packets by N ms
     /// </summary>
     public static float FakeSendPacketLag {
-        get { return GetConfigFloat(NetConfig.FakePacketLag_Send); }
-        set { _ = SetConfigFloat(NetConfig.FakePacketLag_Send, value); }
+        get => GetConfigFloat(NetConfig.FakePacketLag_Send);
+        set => _ = SetConfigFloat(NetConfig.FakePacketLag_Send, value);
     }
 
     /// <summary>
     ///     Delay all packets by N ms
     /// </summary>
     public static float FakeRecvPacketLag {
-        get { return GetConfigFloat(NetConfig.FakePacketLag_Recv); }
-        set { _ = SetConfigFloat(NetConfig.FakePacketLag_Recv, value); }
+        get => GetConfigFloat(NetConfig.FakePacketLag_Recv);
+        set => _ = SetConfigFloat(NetConfig.FakePacketLag_Recv, value);
     }
 
     /// <summary>
     ///     Timeout value (in ms) to use when first connecting
     /// </summary>
     public static int ConnectionTimeout {
-        get { return GetConfigInt(NetConfig.TimeoutInitial); }
-        set { _ = SetConfigInt(NetConfig.TimeoutInitial, value); }
+        get => GetConfigInt(NetConfig.TimeoutInitial);
+        set => _ = SetConfigInt(NetConfig.TimeoutInitial, value);
     }
 
     /// <summary>
     ///     Timeout value (in ms) to use after connection is established
     /// </summary>
     public static int Timeout {
-        get { return GetConfigInt(NetConfig.TimeoutConnected); }
-        set { _ = SetConfigInt(NetConfig.TimeoutConnected, value); }
+        get => GetConfigInt(NetConfig.TimeoutConnected);
+        set => _ = SetConfigInt(NetConfig.TimeoutConnected, value);
     }
 
     /// <summary>
@@ -108,8 +104,8 @@ public sealed class SteamNetworkingUtils : SteamSharedClass<SteamNetworkingUtils
     ///     Default is 524288 bytes (512k)
     /// </summary>
     public static int SendBufferSize {
-        get { return GetConfigInt(NetConfig.SendBufferSize); }
-        set { _ = SetConfigInt(NetConfig.SendBufferSize, value); }
+        get => GetConfigInt(NetConfig.SendBufferSize);
+        set => _ = SetConfigInt(NetConfig.SendBufferSize, value);
     }
 
     /// <summary>
@@ -122,8 +118,8 @@ public sealed class SteamNetworkingUtils : SteamSharedClass<SteamNetworkingUtils
     ///     production.
     /// </summary>
     public static int AllowWithoutAuth {
-        get { return GetConfigInt(NetConfig.IP_AllowWithoutAuth); }
-        set { _ = SetConfigInt(NetConfig.IP_AllowWithoutAuth, value); }
+        get => GetConfigInt(NetConfig.IP_AllowWithoutAuth);
+        set => _ = SetConfigInt(NetConfig.IP_AllowWithoutAuth, value);
     }
 
     /// <summary>
@@ -137,8 +133,8 @@ public sealed class SteamNetworkingUtils : SteamSharedClass<SteamNetworkingUtils
     ///     the peer to also modify their value in order for encryption to be disabled.)
     /// </summary>
     public static int Unencrypted {
-        get { return GetConfigInt(NetConfig.Unencrypted); }
-        set { _ = SetConfigInt(NetConfig.Unencrypted, value); }
+        get => GetConfigInt(NetConfig.Unencrypted);
+        set => _ = SetConfigInt(NetConfig.Unencrypted, value);
     }
 
     /// <summary>
@@ -151,7 +147,7 @@ public sealed class SteamNetworkingUtils : SteamSharedClass<SteamNetworkingUtils
     ///     doing this work.
     /// </summary>
     public static NetDebugOutput DebugLevel {
-        get { return _debugLevel; }
+        get => _debugLevel;
         set {
             _debugLevel = value;
             _debugFunc = OnDebugMessage;

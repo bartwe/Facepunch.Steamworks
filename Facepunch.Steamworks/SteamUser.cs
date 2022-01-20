@@ -14,9 +14,7 @@ namespace Steamworks;
 ///     This is also where the APIs for Steam Voice are exposed.
 /// </summary>
 public sealed class SteamUser : SteamClientClass<SteamUser> {
-    internal static ISteamUser Internal {
-        get { return Interface as ISteamUser; }
-    }
+    internal static ISteamUser Internal => Interface as ISteamUser;
 
     internal override bool InitializeInterface(bool server) {
         SetInterface(server, new ISteamUser(server));
@@ -125,7 +123,7 @@ public sealed class SteamUser : SteamClientClass<SteamUser> {
     /// </summary>
 
     public static bool VoiceRecord {
-        get { return _recordingVoice; }
+        get => _recordingVoice;
         set {
             _recordingVoice = value;
             if (value)
@@ -209,7 +207,7 @@ public sealed class SteamUser : SteamClientClass<SteamUser> {
     static uint sampleRate = 48000;
 
     public static uint SampleRate {
-        get { return sampleRate; }
+        get => sampleRate;
 
         set {
             if (SampleRate < 11025)
@@ -221,9 +219,7 @@ public sealed class SteamUser : SteamClientClass<SteamUser> {
         }
     }
 
-    public static uint OptimalSampleRate {
-        get { return Internal.GetVoiceOptimalSampleRate(); }
-    }
+    public static uint OptimalSampleRate => Internal.GetVoiceOptimalSampleRate();
 
 #if DEPRECATED
 		/// <summary>
@@ -388,16 +384,12 @@ public sealed class SteamUser : SteamClientClass<SteamUser> {
     ///     Checks if the current users looks like they are behind a NAT device.
     ///     This is only valid if the user is connected to the Steam servers and may not catch all forms of NAT.
     /// </summary>
-    public static bool IsBehindNAT {
-        get { return Internal.BIsBehindNAT(); }
-    }
+    public static bool IsBehindNAT => Internal.BIsBehindNAT();
 
     /// <summary>
     ///     Gets the Steam level of the user, as shown on their Steam community profile.
     /// </summary>
-    public static int SteamLevel {
-        get { return Internal.GetPlayerSteamLevel(); }
-    }
+    public static int SteamLevel => Internal.GetPlayerSteamLevel();
 
     /// <summary>
     ///     Requests a URL which authenticates an in-game browser for store check-out, and then redirects to the specified URL.
@@ -419,30 +411,22 @@ public sealed class SteamUser : SteamClientClass<SteamUser> {
     /// <summary>
     ///     Checks whether the current user has verified their phone number.
     /// </summary>
-    public static bool IsPhoneVerified {
-        get { return Internal.BIsPhoneVerified(); }
-    }
+    public static bool IsPhoneVerified => Internal.BIsPhoneVerified();
 
     /// <summary>
     ///     Checks whether the current user has Steam Guard two factor authentication enabled on their account.
     /// </summary>
-    public static bool IsTwoFactorEnabled {
-        get { return Internal.BIsTwoFactorEnabled(); }
-    }
+    public static bool IsTwoFactorEnabled => Internal.BIsTwoFactorEnabled();
 
     /// <summary>
     ///     Checks whether the user's phone number is used to uniquely identify them.
     /// </summary>
-    public static bool IsPhoneIdentifying {
-        get { return Internal.BIsPhoneIdentifying(); }
-    }
+    public static bool IsPhoneIdentifying => Internal.BIsPhoneIdentifying();
 
     /// <summary>
     ///     Checks whether the current user's phone number is awaiting (re)verification.
     /// </summary>
-    public static bool IsPhoneRequiringVerification {
-        get { return Internal.BIsPhoneRequiringVerification(); }
-    }
+    public static bool IsPhoneRequiringVerification => Internal.BIsPhoneRequiringVerification();
 
     /// <summary>
     ///     Requests an application ticket encrypted with the secret "encrypted app ticket key".

@@ -15,9 +15,7 @@ public sealed class SteamInput : SteamClientClass<SteamInput> {
 
     internal static Dictionary<string, InputActionSetHandle_t> ActionSets = new();
 
-    internal static ISteamInput Internal {
-        get { return Interface as ISteamInput; }
-    }
+    internal static ISteamInput Internal => Interface as ISteamInput;
 
     /// <summary>
     ///     Return a list of connected controllers.

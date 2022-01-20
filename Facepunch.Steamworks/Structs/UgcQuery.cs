@@ -17,61 +17,33 @@ public struct Query {
         matchingType = type;
     }
 
-    public static Query All {
-        get { return new(UgcType.All); }
-    }
+    public static Query All => new(UgcType.All);
 
-    public static Query Items {
-        get { return new(UgcType.Items); }
-    }
+    public static Query Items => new(UgcType.Items);
 
-    public static Query ItemsMtx {
-        get { return new(UgcType.Items_Mtx); }
-    }
+    public static Query ItemsMtx => new(UgcType.Items_Mtx);
 
-    public static Query ItemsReadyToUse {
-        get { return new(UgcType.Items_ReadyToUse); }
-    }
+    public static Query ItemsReadyToUse => new(UgcType.Items_ReadyToUse);
 
-    public static Query Collections {
-        get { return new(UgcType.Collections); }
-    }
+    public static Query Collections => new(UgcType.Collections);
 
-    public static Query Artwork {
-        get { return new(UgcType.Artwork); }
-    }
+    public static Query Artwork => new(UgcType.Artwork);
 
-    public static Query Videos {
-        get { return new(UgcType.Videos); }
-    }
+    public static Query Videos => new(UgcType.Videos);
 
-    public static Query Screenshots {
-        get { return new(UgcType.Screenshots); }
-    }
+    public static Query Screenshots => new(UgcType.Screenshots);
 
-    public static Query AllGuides {
-        get { return new(UgcType.AllGuides); }
-    }
+    public static Query AllGuides => new(UgcType.AllGuides);
 
-    public static Query WebGuides {
-        get { return new(UgcType.WebGuides); }
-    }
+    public static Query WebGuides => new(UgcType.WebGuides);
 
-    public static Query IntegratedGuides {
-        get { return new(UgcType.IntegratedGuides); }
-    }
+    public static Query IntegratedGuides => new(UgcType.IntegratedGuides);
 
-    public static Query UsableInGame {
-        get { return new(UgcType.UsableInGame); }
-    }
+    public static Query UsableInGame => new(UgcType.UsableInGame);
 
-    public static Query ControllerBindings {
-        get { return new(UgcType.ControllerBindings); }
-    }
+    public static Query ControllerBindings => new(UgcType.ControllerBindings);
 
-    public static Query GameManagedItems {
-        get { return new(UgcType.GameManagedItems); }
-    }
+    public static Query GameManagedItems => new(UgcType.GameManagedItems);
 
 
     public Query RankedByVote() {

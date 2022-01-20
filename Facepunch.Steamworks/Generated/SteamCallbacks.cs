@@ -10,13 +10,9 @@ struct SteamServersConnected_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamServersConnected_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamServersConnected; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamServersConnected;
 
     #endregion
 }
@@ -32,13 +28,9 @@ struct SteamServerConnectFailure_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamServerConnectFailure_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamServerConnectFailure; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamServerConnectFailure;
 
     #endregion
 }
@@ -51,13 +43,9 @@ struct SteamServersDisconnected_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamServersDisconnected_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamServersDisconnected; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamServersDisconnected;
 
     #endregion
 }
@@ -74,13 +62,9 @@ struct ClientGameServerDeny_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(ClientGameServerDeny_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.ClientGameServerDeny; }
-    }
+    public CallbackType CallbackType => CallbackType.ClientGameServerDeny;
 
     #endregion
 }
@@ -93,13 +77,9 @@ struct IPCFailure_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(IPCFailure_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.IPCFailure; }
-    }
+    public CallbackType CallbackType => CallbackType.IPCFailure;
 
     #endregion
 
@@ -115,13 +95,9 @@ struct LicensesUpdated_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(LicensesUpdated_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.LicensesUpdated; }
-    }
+    public CallbackType CallbackType => CallbackType.LicensesUpdated;
 
     #endregion
 }
@@ -136,13 +112,9 @@ struct ValidateAuthTicketResponse_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(ValidateAuthTicketResponse_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.ValidateAuthTicketResponse; }
-    }
+    public CallbackType CallbackType => CallbackType.ValidateAuthTicketResponse;
 
     #endregion
 }
@@ -157,13 +129,9 @@ struct MicroTxnAuthorizationResponse_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(MicroTxnAuthorizationResponse_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.MicroTxnAuthorizationResponse; }
-    }
+    public CallbackType CallbackType => CallbackType.MicroTxnAuthorizationResponse;
 
     #endregion
 }
@@ -176,13 +144,9 @@ struct EncryptedAppTicketResponse_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(EncryptedAppTicketResponse_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.EncryptedAppTicketResponse; }
-    }
+    public CallbackType CallbackType => CallbackType.EncryptedAppTicketResponse;
 
     #endregion
 }
@@ -196,13 +160,9 @@ struct GetAuthSessionTicketResponse_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GetAuthSessionTicketResponse_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GetAuthSessionTicketResponse; }
-    }
+    public CallbackType CallbackType => CallbackType.GetAuthSessionTicketResponse;
 
     #endregion
 }
@@ -220,13 +180,9 @@ struct GameWebCallback_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GameWebCallback_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GameWebCallback; }
-    }
+    public CallbackType CallbackType => CallbackType.GameWebCallback;
 
     #endregion
 }
@@ -244,13 +200,9 @@ struct StoreAuthURLResponse_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(StoreAuthURLResponse_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.StoreAuthURLResponse; }
-    }
+    public CallbackType CallbackType => CallbackType.StoreAuthURLResponse;
 
     #endregion
 }
@@ -269,13 +221,9 @@ struct MarketEligibilityResponse_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(MarketEligibilityResponse_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.MarketEligibilityResponse; }
-    }
+    public CallbackType CallbackType => CallbackType.MarketEligibilityResponse;
 
     #endregion
 }
@@ -298,13 +246,9 @@ struct DurationControl_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(DurationControl_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.DurationControl; }
-    }
+    public CallbackType CallbackType => CallbackType.DurationControl;
 
     #endregion
 }
@@ -318,13 +262,9 @@ struct PersonaStateChange_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(PersonaStateChange_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.PersonaStateChange; }
-    }
+    public CallbackType CallbackType => CallbackType.PersonaStateChange;
 
     #endregion
 }
@@ -337,13 +277,9 @@ struct GameOverlayActivated_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GameOverlayActivated_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GameOverlayActivated; }
-    }
+    public CallbackType CallbackType => CallbackType.GameOverlayActivated;
 
     #endregion
 }
@@ -368,13 +304,9 @@ struct GameServerChangeRequested_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GameServerChangeRequested_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GameServerChangeRequested; }
-    }
+    public CallbackType CallbackType => CallbackType.GameServerChangeRequested;
 
     #endregion
 }
@@ -388,13 +320,9 @@ struct GameLobbyJoinRequested_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GameLobbyJoinRequested_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GameLobbyJoinRequested; }
-    }
+    public CallbackType CallbackType => CallbackType.GameLobbyJoinRequested;
 
     #endregion
 }
@@ -410,13 +338,9 @@ struct AvatarImageLoaded_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(AvatarImageLoaded_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.AvatarImageLoaded; }
-    }
+    public CallbackType CallbackType => CallbackType.AvatarImageLoaded;
 
     #endregion
 }
@@ -431,13 +355,9 @@ struct ClanOfficerListResponse_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(ClanOfficerListResponse_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.ClanOfficerListResponse; }
-    }
+    public CallbackType CallbackType => CallbackType.ClanOfficerListResponse;
 
     #endregion
 }
@@ -451,13 +371,9 @@ struct FriendRichPresenceUpdate_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(FriendRichPresenceUpdate_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.FriendRichPresenceUpdate; }
-    }
+    public CallbackType CallbackType => CallbackType.FriendRichPresenceUpdate;
 
     #endregion
 }
@@ -477,13 +393,9 @@ struct GameRichPresenceJoinRequested_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GameRichPresenceJoinRequested_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GameRichPresenceJoinRequested; }
-    }
+    public CallbackType CallbackType => CallbackType.GameRichPresenceJoinRequested;
 
     #endregion
 }
@@ -498,13 +410,9 @@ struct GameConnectedClanChatMsg_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GameConnectedClanChatMsg_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GameConnectedClanChatMsg; }
-    }
+    public CallbackType CallbackType => CallbackType.GameConnectedClanChatMsg;
 
     #endregion
 }
@@ -518,13 +426,9 @@ struct GameConnectedChatJoin_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GameConnectedChatJoin_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GameConnectedChatJoin; }
-    }
+    public CallbackType CallbackType => CallbackType.GameConnectedChatJoin;
 
     #endregion
 }
@@ -544,13 +448,9 @@ struct GameConnectedChatLeave_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GameConnectedChatLeave_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GameConnectedChatLeave; }
-    }
+    public CallbackType CallbackType => CallbackType.GameConnectedChatLeave;
 
     #endregion
 }
@@ -564,13 +464,9 @@ struct DownloadClanActivityCountsResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(DownloadClanActivityCountsResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.DownloadClanActivityCountsResult; }
-    }
+    public CallbackType CallbackType => CallbackType.DownloadClanActivityCountsResult;
 
     #endregion
 }
@@ -584,13 +480,9 @@ struct JoinClanChatRoomCompletionResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(JoinClanChatRoomCompletionResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.JoinClanChatRoomCompletionResult; }
-    }
+    public CallbackType CallbackType => CallbackType.JoinClanChatRoomCompletionResult;
 
     #endregion
 }
@@ -604,13 +496,9 @@ struct GameConnectedFriendChatMsg_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GameConnectedFriendChatMsg_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GameConnectedFriendChatMsg; }
-    }
+    public CallbackType CallbackType => CallbackType.GameConnectedFriendChatMsg;
 
     #endregion
 }
@@ -625,13 +513,9 @@ struct FriendsGetFollowerCount_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(FriendsGetFollowerCount_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.FriendsGetFollowerCount; }
-    }
+    public CallbackType CallbackType => CallbackType.FriendsGetFollowerCount;
 
     #endregion
 }
@@ -648,13 +532,9 @@ struct FriendsIsFollowing_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(FriendsIsFollowing_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.FriendsIsFollowing; }
-    }
+    public CallbackType CallbackType => CallbackType.FriendsIsFollowing;
 
     #endregion
 }
@@ -673,13 +553,9 @@ struct FriendsEnumerateFollowingList_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(FriendsEnumerateFollowingList_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.FriendsEnumerateFollowingList; }
-    }
+    public CallbackType CallbackType => CallbackType.FriendsEnumerateFollowingList;
 
     #endregion
 }
@@ -698,13 +574,9 @@ struct SetPersonaNameResponse_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SetPersonaNameResponse_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SetPersonaNameResponse; }
-    }
+    public CallbackType CallbackType => CallbackType.SetPersonaNameResponse;
 
     #endregion
 }
@@ -715,13 +587,9 @@ struct UnreadChatMessagesChanged_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(UnreadChatMessagesChanged_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.UnreadChatMessagesChanged; }
-    }
+    public CallbackType CallbackType => CallbackType.UnreadChatMessagesChanged;
 
     #endregion
 }
@@ -739,13 +607,9 @@ struct OverlayBrowserProtocolNavigation_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(OverlayBrowserProtocolNavigation_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.OverlayBrowserProtocolNavigation; }
-    }
+    public CallbackType CallbackType => CallbackType.OverlayBrowserProtocolNavigation;
 
     #endregion
 }
@@ -756,13 +620,9 @@ struct IPCountry_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(IPCountry_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.IPCountry; }
-    }
+    public CallbackType CallbackType => CallbackType.IPCountry;
 
     #endregion
 }
@@ -775,13 +635,9 @@ struct LowBatteryPower_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(LowBatteryPower_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.LowBatteryPower; }
-    }
+    public CallbackType CallbackType => CallbackType.LowBatteryPower;
 
     #endregion
 }
@@ -796,13 +652,9 @@ struct SteamAPICallCompleted_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamAPICallCompleted_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamAPICallCompleted; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamAPICallCompleted;
 
     #endregion
 }
@@ -813,13 +665,9 @@ struct SteamShutdown_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamShutdown_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamShutdown; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamShutdown;
 
     #endregion
 }
@@ -832,13 +680,9 @@ struct CheckFileSignature_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(CheckFileSignature_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.CheckFileSignature; }
-    }
+    public CallbackType CallbackType => CallbackType.CheckFileSignature;
 
     #endregion
 }
@@ -854,13 +698,9 @@ struct GamepadTextInputDismissed_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GamepadTextInputDismissed_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GamepadTextInputDismissed; }
-    }
+    public CallbackType CallbackType => CallbackType.GamepadTextInputDismissed;
 
     #endregion
 }
@@ -882,13 +722,9 @@ struct FavoritesListChanged_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(FavoritesListChanged_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.FavoritesListChanged; }
-    }
+    public CallbackType CallbackType => CallbackType.FavoritesListChanged;
 
     #endregion
 }
@@ -903,13 +739,9 @@ struct LobbyInvite_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(LobbyInvite_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.LobbyInvite; }
-    }
+    public CallbackType CallbackType => CallbackType.LobbyInvite;
 
     #endregion
 }
@@ -928,13 +760,9 @@ struct LobbyEnter_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(LobbyEnter_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.LobbyEnter; }
-    }
+    public CallbackType CallbackType => CallbackType.LobbyEnter;
 
     #endregion
 }
@@ -949,13 +777,9 @@ struct LobbyDataUpdate_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(LobbyDataUpdate_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.LobbyDataUpdate; }
-    }
+    public CallbackType CallbackType => CallbackType.LobbyDataUpdate;
 
     #endregion
 }
@@ -971,13 +795,9 @@ struct LobbyChatUpdate_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(LobbyChatUpdate_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.LobbyChatUpdate; }
-    }
+    public CallbackType CallbackType => CallbackType.LobbyChatUpdate;
 
     #endregion
 }
@@ -993,13 +813,9 @@ struct LobbyChatMsg_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(LobbyChatMsg_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.LobbyChatMsg; }
-    }
+    public CallbackType CallbackType => CallbackType.LobbyChatMsg;
 
     #endregion
 }
@@ -1015,13 +831,9 @@ struct LobbyGameCreated_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(LobbyGameCreated_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.LobbyGameCreated; }
-    }
+    public CallbackType CallbackType => CallbackType.LobbyGameCreated;
 
     #endregion
 }
@@ -1034,13 +846,9 @@ struct LobbyMatchList_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(LobbyMatchList_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.LobbyMatchList; }
-    }
+    public CallbackType CallbackType => CallbackType.LobbyMatchList;
 
     #endregion
 }
@@ -1055,13 +863,9 @@ struct LobbyKicked_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(LobbyKicked_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.LobbyKicked; }
-    }
+    public CallbackType CallbackType => CallbackType.LobbyKicked;
 
     #endregion
 }
@@ -1075,13 +879,9 @@ struct LobbyCreated_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(LobbyCreated_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.LobbyCreated; }
-    }
+    public CallbackType CallbackType => CallbackType.LobbyCreated;
 
     #endregion
 }
@@ -1097,13 +897,9 @@ struct PSNGameBootInviteResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(PSNGameBootInviteResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.PSNGameBootInviteResult; }
-    }
+    public CallbackType CallbackType => CallbackType.PSNGameBootInviteResult;
 
     #endregion
 }
@@ -1116,13 +912,9 @@ struct FavoritesListAccountsUpdated_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(FavoritesListAccountsUpdated_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.FavoritesListAccountsUpdated; }
-    }
+    public CallbackType CallbackType => CallbackType.FavoritesListAccountsUpdated;
 
     #endregion
 }
@@ -1140,13 +932,9 @@ struct SearchForGameProgressCallback_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SearchForGameProgressCallback_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SearchForGameProgressCallback; }
-    }
+    public CallbackType CallbackType => CallbackType.SearchForGameProgressCallback;
 
     #endregion
 }
@@ -1166,13 +954,9 @@ struct SearchForGameResultCallback_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SearchForGameResultCallback_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SearchForGameResultCallback; }
-    }
+    public CallbackType CallbackType => CallbackType.SearchForGameResultCallback;
 
     #endregion
 }
@@ -1186,13 +970,9 @@ struct RequestPlayersForGameProgressCallback_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RequestPlayersForGameProgressCallback_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RequestPlayersForGameProgressCallback; }
-    }
+    public CallbackType CallbackType => CallbackType.RequestPlayersForGameProgressCallback;
 
     #endregion
 }
@@ -1214,13 +994,9 @@ struct RequestPlayersForGameResultCallback_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RequestPlayersForGameResultCallback_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RequestPlayersForGameResultCallback; }
-    }
+    public CallbackType CallbackType => CallbackType.RequestPlayersForGameResultCallback;
 
     #endregion
 
@@ -1241,13 +1017,9 @@ struct RequestPlayersForGameFinalResultCallback_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RequestPlayersForGameFinalResultCallback_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RequestPlayersForGameFinalResultCallback; }
-    }
+    public CallbackType CallbackType => CallbackType.RequestPlayersForGameFinalResultCallback;
 
     #endregion
 }
@@ -1262,13 +1034,9 @@ struct SubmitPlayerResultResultCallback_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SubmitPlayerResultResultCallback_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SubmitPlayerResultResultCallback; }
-    }
+    public CallbackType CallbackType => CallbackType.SubmitPlayerResultResultCallback;
 
     #endregion
 }
@@ -1282,13 +1050,9 @@ struct EndGameResultCallback_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(EndGameResultCallback_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.EndGameResultCallback; }
-    }
+    public CallbackType CallbackType => CallbackType.EndGameResultCallback;
 
     #endregion
 }
@@ -1310,13 +1074,9 @@ struct JoinPartyCallback_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(JoinPartyCallback_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.JoinPartyCallback; }
-    }
+    public CallbackType CallbackType => CallbackType.JoinPartyCallback;
 
     #endregion
 }
@@ -1330,13 +1090,9 @@ struct CreateBeaconCallback_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(CreateBeaconCallback_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.CreateBeaconCallback; }
-    }
+    public CallbackType CallbackType => CallbackType.CreateBeaconCallback;
 
     #endregion
 }
@@ -1350,13 +1106,9 @@ struct ReservationNotificationCallback_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(ReservationNotificationCallback_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.ReservationNotificationCallback; }
-    }
+    public CallbackType CallbackType => CallbackType.ReservationNotificationCallback;
 
     #endregion
 }
@@ -1369,13 +1121,9 @@ struct ChangeNumOpenSlotsCallback_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(ChangeNumOpenSlotsCallback_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.ChangeNumOpenSlotsCallback; }
-    }
+    public CallbackType CallbackType => CallbackType.ChangeNumOpenSlotsCallback;
 
     #endregion
 }
@@ -1386,13 +1134,9 @@ struct AvailableBeaconLocationsUpdated_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(AvailableBeaconLocationsUpdated_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.AvailableBeaconLocationsUpdated; }
-    }
+    public CallbackType CallbackType => CallbackType.AvailableBeaconLocationsUpdated;
 
     #endregion
 }
@@ -1403,13 +1147,9 @@ struct ActiveBeaconsUpdated_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(ActiveBeaconsUpdated_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.ActiveBeaconsUpdated; }
-    }
+    public CallbackType CallbackType => CallbackType.ActiveBeaconsUpdated;
 
     #endregion
 }
@@ -1424,13 +1164,9 @@ struct RemoteStorageAppSyncedClient_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageAppSyncedClient_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageAppSyncedClient; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageAppSyncedClient;
 
     #endregion
 }
@@ -1445,13 +1181,9 @@ struct RemoteStorageAppSyncedServer_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageAppSyncedServer_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageAppSyncedServer; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageAppSyncedServer;
 
     #endregion
 }
@@ -1476,13 +1208,9 @@ struct RemoteStorageAppSyncProgress_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageAppSyncProgress_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageAppSyncProgress; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageAppSyncProgress;
 
     #endregion
 }
@@ -1496,13 +1224,9 @@ struct RemoteStorageAppSyncStatusCheck_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageAppSyncStatusCheck_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageAppSyncStatusCheck; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageAppSyncStatusCheck;
 
     #endregion
 }
@@ -1523,13 +1247,9 @@ struct RemoteStorageFileShareResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageFileShareResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageFileShareResult; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageFileShareResult;
 
     #endregion
 }
@@ -1546,13 +1266,9 @@ struct RemoteStoragePublishFileResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStoragePublishFileResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStoragePublishFileResult; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStoragePublishFileResult;
 
     #endregion
 }
@@ -1566,13 +1282,9 @@ struct RemoteStorageDeletePublishedFileResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageDeletePublishedFileResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageDeletePublishedFileResult; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageDeletePublishedFileResult;
 
     #endregion
 }
@@ -1590,13 +1302,9 @@ struct RemoteStorageEnumerateUserPublishedFilesResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageEnumerateUserPublishedFilesResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageEnumerateUserPublishedFilesResult; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageEnumerateUserPublishedFilesResult;
 
     #endregion
 }
@@ -1610,13 +1318,9 @@ struct RemoteStorageSubscribePublishedFileResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageSubscribePublishedFileResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageSubscribePublishedFileResult; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageSubscribePublishedFileResult;
 
     #endregion
 }
@@ -1637,13 +1341,9 @@ struct RemoteStorageEnumerateUserSubscribedFilesResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageEnumerateUserSubscribedFilesResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageEnumerateUserSubscribedFilesResult; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageEnumerateUserSubscribedFilesResult;
 
     #endregion
 }
@@ -1657,13 +1357,9 @@ struct RemoteStorageUnsubscribePublishedFileResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageUnsubscribePublishedFileResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageUnsubscribePublishedFileResult; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageUnsubscribePublishedFileResult;
 
     #endregion
 }
@@ -1680,13 +1376,9 @@ struct RemoteStorageUpdatePublishedFileResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageUpdatePublishedFileResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageUpdatePublishedFileResult; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageUpdatePublishedFileResult;
 
     #endregion
 }
@@ -1711,13 +1403,9 @@ struct RemoteStorageDownloadUGCResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageDownloadUGCResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageDownloadUGCResult; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageDownloadUGCResult;
 
     #endregion
 }
@@ -1789,13 +1477,9 @@ struct RemoteStorageGetPublishedFileDetailsResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageGetPublishedFileDetailsResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageGetPublishedFileDetailsResult; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageGetPublishedFileDetailsResult;
 
     #endregion
 }
@@ -1819,13 +1503,9 @@ struct RemoteStorageEnumerateWorkshopFilesResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageEnumerateWorkshopFilesResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageEnumerateWorkshopFilesResult; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageEnumerateWorkshopFilesResult;
 
     #endregion
 }
@@ -1843,13 +1523,9 @@ struct RemoteStorageGetPublishedItemVoteDetailsResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageGetPublishedItemVoteDetailsResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageGetPublishedItemVoteDetailsResult; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageGetPublishedItemVoteDetailsResult;
 
     #endregion
 }
@@ -1863,13 +1539,9 @@ struct RemoteStoragePublishedFileSubscribed_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStoragePublishedFileSubscribed_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStoragePublishedFileSubscribed; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStoragePublishedFileSubscribed;
 
     #endregion
 }
@@ -1883,13 +1555,9 @@ struct RemoteStoragePublishedFileUnsubscribed_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStoragePublishedFileUnsubscribed_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStoragePublishedFileUnsubscribed; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStoragePublishedFileUnsubscribed;
 
     #endregion
 }
@@ -1903,13 +1571,9 @@ struct RemoteStoragePublishedFileDeleted_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStoragePublishedFileDeleted_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStoragePublishedFileDeleted; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStoragePublishedFileDeleted;
 
     #endregion
 }
@@ -1923,13 +1587,9 @@ struct RemoteStorageUpdateUserPublishedItemVoteResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageUpdateUserPublishedItemVoteResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageUpdateUserPublishedItemVoteResult; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageUpdateUserPublishedItemVoteResult;
 
     #endregion
 }
@@ -1944,13 +1604,9 @@ struct RemoteStorageUserVoteDetails_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageUserVoteDetails_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageUserVoteDetails; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageUserVoteDetails;
 
     #endregion
 }
@@ -1968,13 +1624,9 @@ struct RemoteStorageEnumerateUserSharedWorkshopFilesResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageEnumerateUserSharedWorkshopFilesResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageEnumerateUserSharedWorkshopFilesResult; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageEnumerateUserSharedWorkshopFilesResult;
 
     #endregion
 }
@@ -1989,13 +1641,9 @@ struct RemoteStorageSetUserPublishedFileActionResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageSetUserPublishedFileActionResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageSetUserPublishedFileActionResult; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageSetUserPublishedFileActionResult;
 
     #endregion
 }
@@ -2017,13 +1665,9 @@ struct RemoteStorageEnumeratePublishedFilesByUserActionResult_t : ICallbackData 
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageEnumeratePublishedFilesByUserActionResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageEnumeratePublishedFilesByUserActionResult; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageEnumeratePublishedFilesByUserActionResult;
 
     #endregion
 }
@@ -2039,13 +1683,9 @@ struct RemoteStoragePublishFileProgress_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStoragePublishFileProgress_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStoragePublishFileProgress; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStoragePublishFileProgress;
 
     #endregion
 }
@@ -2060,13 +1700,9 @@ struct RemoteStoragePublishedFileUpdated_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStoragePublishedFileUpdated_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStoragePublishedFileUpdated; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStoragePublishedFileUpdated;
 
     #endregion
 }
@@ -2079,13 +1715,9 @@ struct RemoteStorageFileWriteAsyncComplete_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageFileWriteAsyncComplete_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageFileWriteAsyncComplete; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageFileWriteAsyncComplete;
 
     #endregion
 }
@@ -2101,13 +1733,9 @@ struct RemoteStorageFileReadAsyncComplete_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageFileReadAsyncComplete_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoteStorageFileReadAsyncComplete; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoteStorageFileReadAsyncComplete;
 
     #endregion
 }
@@ -2122,13 +1750,9 @@ struct UserStatsReceived_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(UserStatsReceived_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.UserStatsReceived; }
-    }
+    public CallbackType CallbackType => CallbackType.UserStatsReceived;
 
     #endregion
 }
@@ -2142,13 +1766,9 @@ struct UserStatsStored_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(UserStatsStored_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.UserStatsStored; }
-    }
+    public CallbackType CallbackType => CallbackType.UserStatsStored;
 
     #endregion
 }
@@ -2174,13 +1794,9 @@ struct UserAchievementStored_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(UserAchievementStored_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.UserAchievementStored; }
-    }
+    public CallbackType CallbackType => CallbackType.UserAchievementStored;
 
     #endregion
 }
@@ -2194,13 +1810,9 @@ struct LeaderboardFindResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(LeaderboardFindResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.LeaderboardFindResult; }
-    }
+    public CallbackType CallbackType => CallbackType.LeaderboardFindResult;
 
     #endregion
 }
@@ -2215,13 +1827,9 @@ struct LeaderboardScoresDownloaded_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(LeaderboardScoresDownloaded_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.LeaderboardScoresDownloaded; }
-    }
+    public CallbackType CallbackType => CallbackType.LeaderboardScoresDownloaded;
 
     #endregion
 }
@@ -2239,13 +1847,9 @@ struct LeaderboardScoreUploaded_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(LeaderboardScoreUploaded_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.LeaderboardScoreUploaded; }
-    }
+    public CallbackType CallbackType => CallbackType.LeaderboardScoreUploaded;
 
     #endregion
 }
@@ -2259,13 +1863,9 @@ struct NumberOfCurrentPlayers_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(NumberOfCurrentPlayers_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.NumberOfCurrentPlayers; }
-    }
+    public CallbackType CallbackType => CallbackType.NumberOfCurrentPlayers;
 
     #endregion
 }
@@ -2278,13 +1878,9 @@ struct UserStatsUnloaded_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(UserStatsUnloaded_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.UserStatsUnloaded; }
-    }
+    public CallbackType CallbackType => CallbackType.UserStatsUnloaded;
 
     #endregion
 }
@@ -2309,13 +1905,9 @@ struct UserAchievementIconFetched_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(UserAchievementIconFetched_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.UserAchievementIconFetched; }
-    }
+    public CallbackType CallbackType => CallbackType.UserAchievementIconFetched;
 
     #endregion
 }
@@ -2329,13 +1921,9 @@ struct GlobalAchievementPercentagesReady_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GlobalAchievementPercentagesReady_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GlobalAchievementPercentagesReady; }
-    }
+    public CallbackType CallbackType => CallbackType.GlobalAchievementPercentagesReady;
 
     #endregion
 }
@@ -2349,13 +1937,9 @@ struct LeaderboardUGCSet_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(LeaderboardUGCSet_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.LeaderboardUGCSet; }
-    }
+    public CallbackType CallbackType => CallbackType.LeaderboardUGCSet;
 
     #endregion
 }
@@ -2369,13 +1953,9 @@ struct GlobalStatsReceived_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GlobalStatsReceived_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GlobalStatsReceived; }
-    }
+    public CallbackType CallbackType => CallbackType.GlobalStatsReceived;
 
     #endregion
 }
@@ -2388,13 +1968,9 @@ struct DlcInstalled_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(DlcInstalled_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.DlcInstalled; }
-    }
+    public CallbackType CallbackType => CallbackType.DlcInstalled;
 
     #endregion
 }
@@ -2408,13 +1984,9 @@ struct RegisterActivationCodeResponse_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RegisterActivationCodeResponse_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RegisterActivationCodeResponse; }
-    }
+    public CallbackType CallbackType => CallbackType.RegisterActivationCodeResponse;
 
     #endregion
 }
@@ -2425,13 +1997,9 @@ struct NewUrlLaunchParameters_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(NewUrlLaunchParameters_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.NewUrlLaunchParameters; }
-    }
+    public CallbackType CallbackType => CallbackType.NewUrlLaunchParameters;
 
     #endregion
 }
@@ -2453,13 +2021,9 @@ struct AppProofOfPurchaseKeyResponse_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(AppProofOfPurchaseKeyResponse_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.AppProofOfPurchaseKeyResponse; }
-    }
+    public CallbackType CallbackType => CallbackType.AppProofOfPurchaseKeyResponse;
 
     #endregion
 }
@@ -2478,13 +2042,9 @@ struct FileDetailsResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(FileDetailsResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.FileDetailsResult; }
-    }
+    public CallbackType CallbackType => CallbackType.FileDetailsResult;
 
     #endregion
 }
@@ -2503,13 +2063,9 @@ struct TimedTrialStatus_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(TimedTrialStatus_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.TimedTrialStatus; }
-    }
+    public CallbackType CallbackType => CallbackType.TimedTrialStatus;
 
     #endregion
 }
@@ -2522,13 +2078,9 @@ struct P2PSessionRequest_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(P2PSessionRequest_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.P2PSessionRequest; }
-    }
+    public CallbackType CallbackType => CallbackType.P2PSessionRequest;
 
     #endregion
 }
@@ -2542,13 +2094,9 @@ struct P2PSessionConnectFail_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(P2PSessionConnectFail_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.P2PSessionConnectFail; }
-    }
+    public CallbackType CallbackType => CallbackType.P2PSessionConnectFail;
 
     #endregion
 }
@@ -2562,13 +2110,9 @@ struct ScreenshotReady_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(ScreenshotReady_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.ScreenshotReady; }
-    }
+    public CallbackType CallbackType => CallbackType.ScreenshotReady;
 
     #endregion
 }
@@ -2579,13 +2123,9 @@ struct ScreenshotRequested_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(ScreenshotRequested_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.ScreenshotRequested; }
-    }
+    public CallbackType CallbackType => CallbackType.ScreenshotRequested;
 
     #endregion
 }
@@ -2596,13 +2136,9 @@ struct PlaybackStatusHasChanged_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(PlaybackStatusHasChanged_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.PlaybackStatusHasChanged; }
-    }
+    public CallbackType CallbackType => CallbackType.PlaybackStatusHasChanged;
 
     #endregion
 }
@@ -2615,13 +2151,9 @@ struct VolumeHasChanged_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(VolumeHasChanged_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.VolumeHasChanged; }
-    }
+    public CallbackType CallbackType => CallbackType.VolumeHasChanged;
 
     #endregion
 }
@@ -2632,13 +2164,9 @@ struct MusicPlayerRemoteWillActivate_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerRemoteWillActivate_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.MusicPlayerRemoteWillActivate; }
-    }
+    public CallbackType CallbackType => CallbackType.MusicPlayerRemoteWillActivate;
 
     #endregion
 }
@@ -2649,13 +2177,9 @@ struct MusicPlayerRemoteWillDeactivate_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerRemoteWillDeactivate_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.MusicPlayerRemoteWillDeactivate; }
-    }
+    public CallbackType CallbackType => CallbackType.MusicPlayerRemoteWillDeactivate;
 
     #endregion
 }
@@ -2666,13 +2190,9 @@ struct MusicPlayerRemoteToFront_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerRemoteToFront_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.MusicPlayerRemoteToFront; }
-    }
+    public CallbackType CallbackType => CallbackType.MusicPlayerRemoteToFront;
 
     #endregion
 }
@@ -2683,13 +2203,9 @@ struct MusicPlayerWillQuit_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerWillQuit_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.MusicPlayerWillQuit; }
-    }
+    public CallbackType CallbackType => CallbackType.MusicPlayerWillQuit;
 
     #endregion
 }
@@ -2700,13 +2216,9 @@ struct MusicPlayerWantsPlay_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerWantsPlay_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.MusicPlayerWantsPlay; }
-    }
+    public CallbackType CallbackType => CallbackType.MusicPlayerWantsPlay;
 
     #endregion
 }
@@ -2717,13 +2229,9 @@ struct MusicPlayerWantsPause_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerWantsPause_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.MusicPlayerWantsPause; }
-    }
+    public CallbackType CallbackType => CallbackType.MusicPlayerWantsPause;
 
     #endregion
 }
@@ -2734,13 +2242,9 @@ struct MusicPlayerWantsPlayPrevious_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerWantsPlayPrevious_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.MusicPlayerWantsPlayPrevious; }
-    }
+    public CallbackType CallbackType => CallbackType.MusicPlayerWantsPlayPrevious;
 
     #endregion
 }
@@ -2751,13 +2255,9 @@ struct MusicPlayerWantsPlayNext_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerWantsPlayNext_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.MusicPlayerWantsPlayNext; }
-    }
+    public CallbackType CallbackType => CallbackType.MusicPlayerWantsPlayNext;
 
     #endregion
 }
@@ -2771,13 +2271,9 @@ struct MusicPlayerWantsShuffled_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerWantsShuffled_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.MusicPlayerWantsShuffled; }
-    }
+    public CallbackType CallbackType => CallbackType.MusicPlayerWantsShuffled;
 
     #endregion
 }
@@ -2791,13 +2287,9 @@ struct MusicPlayerWantsLooped_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerWantsLooped_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.MusicPlayerWantsLooped; }
-    }
+    public CallbackType CallbackType => CallbackType.MusicPlayerWantsLooped;
 
     #endregion
 }
@@ -2810,13 +2302,9 @@ struct MusicPlayerWantsVolume_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerWantsVolume_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.MusicPlayerWantsVolume; }
-    }
+    public CallbackType CallbackType => CallbackType.MusicPlayerWantsVolume;
 
     #endregion
 }
@@ -2829,13 +2317,9 @@ struct MusicPlayerSelectsQueueEntry_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerSelectsQueueEntry_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.MusicPlayerSelectsQueueEntry; }
-    }
+    public CallbackType CallbackType => CallbackType.MusicPlayerSelectsQueueEntry;
 
     #endregion
 }
@@ -2848,13 +2332,9 @@ struct MusicPlayerSelectsPlaylistEntry_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerSelectsPlaylistEntry_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.MusicPlayerSelectsPlaylistEntry; }
-    }
+    public CallbackType CallbackType => CallbackType.MusicPlayerSelectsPlaylistEntry;
 
     #endregion
 }
@@ -2867,13 +2347,9 @@ struct MusicPlayerWantsPlayingRepeatStatus_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerWantsPlayingRepeatStatus_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.MusicPlayerWantsPlayingRepeatStatus; }
-    }
+    public CallbackType CallbackType => CallbackType.MusicPlayerWantsPlayingRepeatStatus;
 
     #endregion
 }
@@ -2893,13 +2369,9 @@ struct HTTPRequestCompleted_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTTPRequestCompleted_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTTPRequestCompleted; }
-    }
+    public CallbackType CallbackType => CallbackType.HTTPRequestCompleted;
 
     #endregion
 }
@@ -2913,13 +2385,9 @@ struct HTTPRequestHeadersReceived_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTTPRequestHeadersReceived_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTTPRequestHeadersReceived; }
-    }
+    public CallbackType CallbackType => CallbackType.HTTPRequestHeadersReceived;
 
     #endregion
 }
@@ -2935,13 +2403,9 @@ struct HTTPRequestDataReceived_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTTPRequestDataReceived_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTTPRequestDataReceived; }
-    }
+    public CallbackType CallbackType => CallbackType.HTTPRequestDataReceived;
 
     #endregion
 }
@@ -2967,13 +2431,9 @@ struct SteamUGCQueryCompleted_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamUGCQueryCompleted_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamUGCQueryCompleted; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamUGCQueryCompleted;
 
     #endregion
 }
@@ -2989,13 +2449,9 @@ struct SteamUGCRequestUGCDetailsResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamUGCRequestUGCDetailsResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamUGCRequestUGCDetailsResult; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamUGCRequestUGCDetailsResult;
 
     #endregion
 }
@@ -3012,13 +2468,9 @@ struct CreateItemResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(CreateItemResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.CreateItemResult; }
-    }
+    public CallbackType CallbackType => CallbackType.CreateItemResult;
 
     #endregion
 }
@@ -3036,13 +2488,9 @@ struct SubmitItemUpdateResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SubmitItemUpdateResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SubmitItemUpdateResult; }
-    }
+    public CallbackType CallbackType => CallbackType.SubmitItemUpdateResult;
 
     #endregion
 }
@@ -3056,13 +2504,9 @@ struct ItemInstalled_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(ItemInstalled_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.ItemInstalled; }
-    }
+    public CallbackType CallbackType => CallbackType.ItemInstalled;
 
     #endregion
 }
@@ -3077,13 +2521,9 @@ struct DownloadItemResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(DownloadItemResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.DownloadItemResult; }
-    }
+    public CallbackType CallbackType => CallbackType.DownloadItemResult;
 
     #endregion
 }
@@ -3100,13 +2540,9 @@ struct UserFavoriteItemsListChanged_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(UserFavoriteItemsListChanged_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.UserFavoriteItemsListChanged; }
-    }
+    public CallbackType CallbackType => CallbackType.UserFavoriteItemsListChanged;
 
     #endregion
 }
@@ -3123,13 +2559,9 @@ struct SetUserItemVoteResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SetUserItemVoteResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SetUserItemVoteResult; }
-    }
+    public CallbackType CallbackType => CallbackType.SetUserItemVoteResult;
 
     #endregion
 }
@@ -3152,13 +2584,9 @@ struct GetUserItemVoteResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GetUserItemVoteResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GetUserItemVoteResult; }
-    }
+    public CallbackType CallbackType => CallbackType.GetUserItemVoteResult;
 
     #endregion
 }
@@ -3171,13 +2599,9 @@ struct StartPlaytimeTrackingResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(StartPlaytimeTrackingResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.StartPlaytimeTrackingResult; }
-    }
+    public CallbackType CallbackType => CallbackType.StartPlaytimeTrackingResult;
 
     #endregion
 }
@@ -3190,13 +2614,9 @@ struct StopPlaytimeTrackingResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(StopPlaytimeTrackingResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.StopPlaytimeTrackingResult; }
-    }
+    public CallbackType CallbackType => CallbackType.StopPlaytimeTrackingResult;
 
     #endregion
 }
@@ -3211,13 +2631,9 @@ struct AddUGCDependencyResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(AddUGCDependencyResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.AddUGCDependencyResult; }
-    }
+    public CallbackType CallbackType => CallbackType.AddUGCDependencyResult;
 
     #endregion
 }
@@ -3232,13 +2648,9 @@ struct RemoveUGCDependencyResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoveUGCDependencyResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoveUGCDependencyResult; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoveUGCDependencyResult;
 
     #endregion
 }
@@ -3253,13 +2665,9 @@ struct AddAppDependencyResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(AddAppDependencyResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.AddAppDependencyResult; }
-    }
+    public CallbackType CallbackType => CallbackType.AddAppDependencyResult;
 
     #endregion
 }
@@ -3274,13 +2682,9 @@ struct RemoveAppDependencyResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoveAppDependencyResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.RemoveAppDependencyResult; }
-    }
+    public CallbackType CallbackType => CallbackType.RemoveAppDependencyResult;
 
     #endregion
 }
@@ -3300,13 +2704,9 @@ struct GetAppDependenciesResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GetAppDependenciesResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GetAppDependenciesResult; }
-    }
+    public CallbackType CallbackType => CallbackType.GetAppDependenciesResult;
 
     #endregion
 }
@@ -3320,13 +2720,9 @@ struct DeleteItemResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(DeleteItemResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.DeleteItemResult; }
-    }
+    public CallbackType CallbackType => CallbackType.DeleteItemResult;
 
     #endregion
 }
@@ -3339,13 +2735,9 @@ struct SteamAppInstalled_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamAppInstalled_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamAppInstalled; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamAppInstalled;
 
     #endregion
 }
@@ -3358,13 +2750,9 @@ struct SteamAppUninstalled_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamAppUninstalled_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamAppUninstalled; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamAppUninstalled;
 
     #endregion
 }
@@ -3377,13 +2765,9 @@ struct HTML_BrowserReady_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_BrowserReady_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_BrowserReady; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_BrowserReady;
 
     #endregion
 }
@@ -3407,13 +2791,9 @@ struct HTML_NeedsPaint_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_NeedsPaint_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_NeedsPaint; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_NeedsPaint;
 
     #endregion
 }
@@ -3432,13 +2812,9 @@ struct HTML_StartRequest_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_StartRequest_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_StartRequest; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_StartRequest;
 
     #endregion
 }
@@ -3451,13 +2827,9 @@ struct HTML_CloseBrowser_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_CloseBrowser_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_CloseBrowser; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_CloseBrowser;
 
     #endregion
 }
@@ -3480,13 +2852,9 @@ struct HTML_URLChanged_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_URLChanged_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_URLChanged; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_URLChanged;
 
     #endregion
 }
@@ -3501,13 +2869,9 @@ struct HTML_FinishedRequest_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_FinishedRequest_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_FinishedRequest; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_FinishedRequest;
 
     #endregion
 }
@@ -3521,13 +2885,9 @@ struct HTML_OpenLinkInNewTab_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_OpenLinkInNewTab_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_OpenLinkInNewTab; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_OpenLinkInNewTab;
 
     #endregion
 }
@@ -3541,13 +2901,9 @@ struct HTML_ChangedTitle_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_ChangedTitle_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_ChangedTitle; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_ChangedTitle;
 
     #endregion
 }
@@ -3562,13 +2918,9 @@ struct HTML_SearchResults_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_SearchResults_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_SearchResults; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_SearchResults;
 
     #endregion
 }
@@ -3587,13 +2939,9 @@ struct HTML_CanGoBackAndForward_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_CanGoBackAndForward_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_CanGoBackAndForward; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_CanGoBackAndForward;
 
     #endregion
 }
@@ -3614,13 +2962,9 @@ struct HTML_HorizontalScroll_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_HorizontalScroll_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_HorizontalScroll; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_HorizontalScroll;
 
     #endregion
 }
@@ -3641,13 +2985,9 @@ struct HTML_VerticalScroll_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_VerticalScroll_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_VerticalScroll; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_VerticalScroll;
 
     #endregion
 }
@@ -3669,13 +3009,9 @@ struct HTML_LinkAtPosition_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_LinkAtPosition_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_LinkAtPosition; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_LinkAtPosition;
 
     #endregion
 }
@@ -3689,13 +3025,9 @@ struct HTML_JSAlert_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_JSAlert_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_JSAlert; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_JSAlert;
 
     #endregion
 }
@@ -3709,13 +3041,9 @@ struct HTML_JSConfirm_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_JSConfirm_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_JSConfirm; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_JSConfirm;
 
     #endregion
 }
@@ -3730,13 +3058,9 @@ struct HTML_FileOpenDialog_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_FileOpenDialog_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_FileOpenDialog; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_FileOpenDialog;
 
     #endregion
 }
@@ -3755,13 +3079,9 @@ struct HTML_NewWindow_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_NewWindow_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_NewWindow; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_NewWindow;
 
     #endregion
 }
@@ -3775,13 +3095,9 @@ struct HTML_SetCursor_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_SetCursor_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_SetCursor; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_SetCursor;
 
     #endregion
 }
@@ -3795,13 +3111,9 @@ struct HTML_StatusText_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_StatusText_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_StatusText; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_StatusText;
 
     #endregion
 }
@@ -3815,13 +3127,9 @@ struct HTML_ShowToolTip_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_ShowToolTip_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_ShowToolTip; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_ShowToolTip;
 
     #endregion
 }
@@ -3835,13 +3143,9 @@ struct HTML_UpdateToolTip_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_UpdateToolTip_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_UpdateToolTip; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_UpdateToolTip;
 
     #endregion
 }
@@ -3854,13 +3158,9 @@ struct HTML_HideToolTip_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_HideToolTip_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_HideToolTip; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_HideToolTip;
 
     #endregion
 }
@@ -3874,13 +3174,9 @@ struct HTML_BrowserRestarted_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_BrowserRestarted_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.HTML_BrowserRestarted; }
-    }
+    public CallbackType CallbackType => CallbackType.HTML_BrowserRestarted;
 
     #endregion
 }
@@ -3894,13 +3190,9 @@ struct SteamInventoryResultReady_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamInventoryResultReady_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamInventoryResultReady; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamInventoryResultReady;
 
     #endregion
 }
@@ -3913,13 +3205,9 @@ struct SteamInventoryFullUpdate_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamInventoryFullUpdate_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamInventoryFullUpdate; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamInventoryFullUpdate;
 
     #endregion
 }
@@ -3930,13 +3218,9 @@ struct SteamInventoryDefinitionUpdate_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamInventoryDefinitionUpdate_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamInventoryDefinitionUpdate; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamInventoryDefinitionUpdate;
 
     #endregion
 }
@@ -3954,13 +3238,9 @@ struct SteamInventoryEligiblePromoItemDefIDs_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamInventoryEligiblePromoItemDefIDs_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamInventoryEligiblePromoItemDefIDs; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamInventoryEligiblePromoItemDefIDs;
 
     #endregion
 }
@@ -3975,13 +3255,9 @@ struct SteamInventoryStartPurchaseResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamInventoryStartPurchaseResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamInventoryStartPurchaseResult; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamInventoryStartPurchaseResult;
 
     #endregion
 }
@@ -4001,13 +3277,9 @@ struct SteamInventoryRequestPricesResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamInventoryRequestPricesResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamInventoryRequestPricesResult; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamInventoryRequestPricesResult;
 
     #endregion
 }
@@ -4028,13 +3300,9 @@ struct GetVideoURLResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GetVideoURLResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GetVideoURLResult; }
-    }
+    public CallbackType CallbackType => CallbackType.GetVideoURLResult;
 
     #endregion
 }
@@ -4048,13 +3316,9 @@ struct GetOPFSettingsResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GetOPFSettingsResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GetOPFSettingsResult; }
-    }
+    public CallbackType CallbackType => CallbackType.GetOPFSettingsResult;
 
     #endregion
 }
@@ -4065,13 +3329,9 @@ struct SteamParentalSettingsChanged_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamParentalSettingsChanged_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamParentalSettingsChanged; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamParentalSettingsChanged;
 
     #endregion
 }
@@ -4084,13 +3344,9 @@ struct SteamRemotePlaySessionConnected_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamRemotePlaySessionConnected_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamRemotePlaySessionConnected; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamRemotePlaySessionConnected;
 
     #endregion
 }
@@ -4103,13 +3359,9 @@ struct SteamRemotePlaySessionDisconnected_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamRemotePlaySessionDisconnected_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamRemotePlaySessionDisconnected; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamRemotePlaySessionDisconnected;
 
     #endregion
 }
@@ -4122,13 +3374,9 @@ struct SteamNetworkingMessagesSessionRequest_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamNetworkingMessagesSessionRequest_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamNetworkingMessagesSessionRequest; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamNetworkingMessagesSessionRequest;
 
     #endregion
 }
@@ -4141,13 +3389,9 @@ struct SteamNetworkingMessagesSessionFailed_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamNetworkingMessagesSessionFailed_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamNetworkingMessagesSessionFailed; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamNetworkingMessagesSessionFailed;
 
     #endregion
 }
@@ -4162,13 +3406,9 @@ struct SteamNetConnectionStatusChangedCallback_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamNetConnectionStatusChangedCallback_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamNetConnectionStatusChangedCallback; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamNetConnectionStatusChangedCallback;
 
     #endregion
 }
@@ -4188,13 +3428,9 @@ struct SteamNetAuthenticationStatus_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamNetAuthenticationStatus_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamNetAuthenticationStatus; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamNetAuthenticationStatus;
 
     #endregion
 }
@@ -4217,13 +3453,9 @@ struct SteamRelayNetworkStatus_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamRelayNetworkStatus_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.SteamRelayNetworkStatus; }
-    }
+    public CallbackType CallbackType => CallbackType.SteamRelayNetworkStatus;
 
     #endregion
 }
@@ -4237,13 +3469,9 @@ struct GSClientApprove_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GSClientApprove_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GSClientApprove; }
-    }
+    public CallbackType CallbackType => CallbackType.GSClientApprove;
 
     #endregion
 }
@@ -4264,13 +3492,9 @@ struct GSClientDeny_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GSClientDeny_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GSClientDeny; }
-    }
+    public CallbackType CallbackType => CallbackType.GSClientDeny;
 
     #endregion
 }
@@ -4284,13 +3508,9 @@ struct GSClientKick_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GSClientKick_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GSClientKick; }
-    }
+    public CallbackType CallbackType => CallbackType.GSClientKick;
 
     #endregion
 }
@@ -4313,13 +3533,9 @@ struct GSClientAchievementStatus_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GSClientAchievementStatus_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GSClientAchievementStatus; }
-    }
+    public CallbackType CallbackType => CallbackType.GSClientAchievementStatus;
 
     #endregion
 }
@@ -4332,13 +3548,9 @@ struct GSPolicyResponse_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GSPolicyResponse_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GSPolicyResponse; }
-    }
+    public CallbackType CallbackType => CallbackType.GSPolicyResponse;
 
     #endregion
 }
@@ -4354,13 +3566,9 @@ struct GSGameplayStats_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GSGameplayStats_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GSGameplayStats; }
-    }
+    public CallbackType CallbackType => CallbackType.GSGameplayStats;
 
     #endregion
 }
@@ -4380,13 +3588,9 @@ struct GSClientGroupStatus_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GSClientGroupStatus_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GSClientGroupStatus; }
-    }
+    public CallbackType CallbackType => CallbackType.GSClientGroupStatus;
 
     #endregion
 }
@@ -4408,13 +3612,9 @@ struct GSReputation_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GSReputation_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GSReputation; }
-    }
+    public CallbackType CallbackType => CallbackType.GSReputation;
 
     #endregion
 }
@@ -4427,13 +3627,9 @@ struct AssociateWithClanResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(AssociateWithClanResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.AssociateWithClanResult; }
-    }
+    public CallbackType CallbackType => CallbackType.AssociateWithClanResult;
 
     #endregion
 }
@@ -4450,13 +3646,9 @@ struct ComputeNewPlayerCompatibilityResult_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(ComputeNewPlayerCompatibilityResult_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.ComputeNewPlayerCompatibilityResult; }
-    }
+    public CallbackType CallbackType => CallbackType.ComputeNewPlayerCompatibilityResult;
 
     #endregion
 }
@@ -4470,13 +3662,9 @@ struct GSStatsReceived_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GSStatsReceived_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GSStatsReceived; }
-    }
+    public CallbackType CallbackType => CallbackType.GSStatsReceived;
 
     #endregion
 }
@@ -4490,13 +3678,9 @@ struct GSStatsStored_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GSStatsStored_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GSStatsStored; }
-    }
+    public CallbackType CallbackType => CallbackType.GSStatsStored;
 
     #endregion
 }
@@ -4509,13 +3693,9 @@ struct GSStatsUnloaded_t : ICallbackData {
 
     public static int _datasize = Marshal.SizeOf(typeof(GSStatsUnloaded_t));
 
-    public int DataSize {
-        get { return _datasize; }
-    }
+    public int DataSize => _datasize;
 
-    public CallbackType CallbackType {
-        get { return CallbackType.GSStatsUnloaded; }
-    }
+    public CallbackType CallbackType => CallbackType.GSStatsUnloaded;
 
     #endregion
 }

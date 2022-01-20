@@ -4,9 +4,7 @@ using System.Threading.Tasks;
 namespace Steamworks;
 
 public sealed class SteamServerStats : SteamServerClass<SteamServerStats> {
-    internal static ISteamGameServerStats Internal {
-        get { return Interface as ISteamGameServerStats; }
-    }
+    internal static ISteamGameServerStats Internal => Interface as ISteamGameServerStats;
 
     internal override bool InitializeInterface(bool server) {
         SetInterface(server, new ISteamGameServerStats(server));

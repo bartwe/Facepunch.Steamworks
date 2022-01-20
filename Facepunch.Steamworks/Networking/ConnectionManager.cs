@@ -24,13 +24,13 @@ public class ConnectionManager {
     public ConnectionInfo ConnectionInfo { get; internal set; }
 
     public string ConnectionName {
-        get { return Connection.ConnectionName; }
-        set { Connection.ConnectionName = value; }
+        get => Connection.ConnectionName;
+        set => Connection.ConnectionName = value;
     }
 
     public long UserData {
-        get { return Connection.UserData; }
-        set { Connection.UserData = value; }
+        get => Connection.UserData;
+        set => Connection.UserData = value;
     }
 
     public void Close(bool linger = false, int reasonCode = 0, string debugString = "Closing Connection") {

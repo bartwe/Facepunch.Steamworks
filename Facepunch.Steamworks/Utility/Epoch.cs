@@ -8,9 +8,7 @@ static class Epoch {
     /// <summary>
     ///     Returns the current Unix Epoch
     /// </summary>
-    public static int Current {
-        get { return (int)DateTime.UtcNow.Subtract(epoch).TotalSeconds; }
-    }
+    public static int Current => (int)DateTime.UtcNow.Subtract(epoch).TotalSeconds;
 
     /// <summary>
     ///     Convert an epoch to a datetime

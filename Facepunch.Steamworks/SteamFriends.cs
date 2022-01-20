@@ -13,9 +13,7 @@ public sealed class SteamFriends : SteamClientClass<SteamFriends> {
 
     static bool _listenForFriendsMessages;
 
-    internal static ISteamFriends Internal {
-        get { return Interface as ISteamFriends; }
-    }
+    internal static ISteamFriends Internal => Interface as ISteamFriends;
 
     /// <summary>
     ///     Listens for Steam friends chat messages.
@@ -24,7 +22,7 @@ public sealed class SteamFriends : SteamClientClass<SteamFriends> {
     ///     After enabling this you will receive callbacks when ever the user receives a chat message.
     /// </summary>
     public static bool ListenForFriendsMessages {
-        get { return _listenForFriendsMessages; }
+        get => _listenForFriendsMessages;
 
         set {
             _listenForFriendsMessages = value;

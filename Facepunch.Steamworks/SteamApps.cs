@@ -10,69 +10,51 @@ namespace Steamworks;
 ///     Exposes a wide range of information and actions for applications and Downloadable Content (DLC).
 /// </summary>
 public sealed class SteamApps : SteamSharedClass<SteamApps> {
-    internal static ISteamApps Internal {
-        get { return Interface as ISteamApps; }
-    }
+    internal static ISteamApps Internal => Interface as ISteamApps;
 
     /// <summary>
     ///     Checks if the active user is subscribed to the current App ID
     /// </summary>
-    public static bool IsSubscribed {
-        get { return Internal.BIsSubscribed(); }
-    }
+    public static bool IsSubscribed => Internal.BIsSubscribed();
 
     /// <summary>
     ///     Check if user borrowed this game via Family Sharing, If true, call GetAppOwner() to get the lender SteamID
     /// </summary>
-    public static bool IsSubscribedFromFamilySharing {
-        get { return Internal.BIsSubscribedFromFamilySharing(); }
-    }
+    public static bool IsSubscribedFromFamilySharing => Internal.BIsSubscribedFromFamilySharing();
 
     /// <summary>
     ///     Checks if the license owned by the user provides low violence depots.
     ///     Low violence depots are useful for copies sold in countries that have content restrictions
     /// </summary>
-    public static bool IsLowViolence {
-        get { return Internal.BIsLowViolence(); }
-    }
+    public static bool IsLowViolence => Internal.BIsLowViolence();
 
     /// <summary>
     ///     Checks whether the current App ID license is for Cyber Cafes.
     /// </summary>
-    public static bool IsCybercafe {
-        get { return Internal.BIsCybercafe(); }
-    }
+    public static bool IsCybercafe => Internal.BIsCybercafe();
 
     /// <summary>
     ///     CChecks if the user has a VAC ban on their account
     /// </summary>
-    public static bool IsVACBanned {
-        get { return Internal.BIsVACBanned(); }
-    }
+    public static bool IsVACBanned => Internal.BIsVACBanned();
 
     /// <summary>
     ///     Gets the current language that the user has set.
     ///     This falls back to the Steam UI language if the user hasn't explicitly picked a language for the title.
     /// </summary>
-    public static string GameLanguage {
-        get { return Internal.GetCurrentGameLanguage(); }
-    }
+    public static string GameLanguage => Internal.GetCurrentGameLanguage();
 
     /// <summary>
     ///     Gets a list of the languages the current app supports.
     /// </summary>
-    public static string[] AvailableLanguages {
-        get { return Internal.GetAvailableGameLanguages().Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries); }
-    }
+    public static string[] AvailableLanguages => Internal.GetAvailableGameLanguages().Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
     /// <summary>
     ///     Checks if the user is subscribed to the current app through a free weekend
     ///     This function will return false for users who have a retail or other type of license
     ///     Before using, please ask your Valve technical contact how to package and secure your free weekened
     /// </summary>
-    public static bool IsSubscribedFromFreeWeekend {
-        get { return Internal.BIsSubscribedFromFreeWeekend(); }
-    }
+    public static bool IsSubscribedFromFreeWeekend => Internal.BIsSubscribedFromFreeWeekend();
 
     /// <summary>
     ///     Returns null if we're not on a beta branch, else the name of the branch
@@ -90,17 +72,13 @@ public sealed class SteamApps : SteamSharedClass<SteamApps> {
     ///     Gets the Steam ID of the original owner of the current app. If it's different from the current user then it is
     ///     borrowed..
     /// </summary>
-    public static SteamId AppOwner {
-        get { return Internal.GetAppOwner().Value; }
-    }
+    public static SteamId AppOwner => Internal.GetAppOwner().Value;
 
     /// <summary>
     ///     Gets the buildid of this app, may change at any time based on backend updates to the game.
     ///     Defaults to 0 if you're not running a build downloaded from steam.
     /// </summary>
-    public static int BuildId {
-        get { return Internal.GetAppBuildId(); }
-    }
+    public static int BuildId => Internal.GetAppBuildId();
 
     /// <summary>
     ///     Get command line if game was launched via Steam URL, e.g. steam://run/appid//command line/.

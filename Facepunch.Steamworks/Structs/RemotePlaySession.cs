@@ -22,28 +22,20 @@ public struct RemotePlaySession {
     ///     Returns true if this session was valid when created. This will stay true even
     ///     after disconnection - so be sure to watch SteamRemotePlay.OnSessionDisconnected
     /// </summary>
-    public bool IsValid {
-        get { return Id > 0; }
-    }
+    public bool IsValid => Id > 0;
 
     /// <summary>
     ///     Get the SteamID of the connected user
     /// </summary>
-    public SteamId SteamId {
-        get { return SteamRemotePlay.Internal.GetSessionSteamID(Id); }
-    }
+    public SteamId SteamId => SteamRemotePlay.Internal.GetSessionSteamID(Id);
 
     /// <summary>
     ///     Get the name of the session client device
     /// </summary>
-    public string ClientName {
-        get { return SteamRemotePlay.Internal.GetSessionClientName(Id); }
-    }
+    public string ClientName => SteamRemotePlay.Internal.GetSessionClientName(Id);
 
     /// <summary>
     ///     Get the name of the session client device
     /// </summary>
-    public SteamDeviceFormFactor FormFactor {
-        get { return SteamRemotePlay.Internal.GetSessionClientFormFactor(Id); }
-    }
+    public SteamDeviceFormFactor FormFactor => SteamRemotePlay.Internal.GetSessionClientFormFactor(Id);
 }

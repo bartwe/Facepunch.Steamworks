@@ -28,22 +28,14 @@ public partial struct NetIdentity {
     }
 
 
-    public bool IsSteamId {
-        get { return type == IdentityType.SteamID; }
-    }
+    public bool IsSteamId => type == IdentityType.SteamID;
 
-    public bool IsIpAddress {
-        get { return type == IdentityType.IPAddress; }
-    }
+    public bool IsIpAddress => type == IdentityType.IPAddress;
 
     /// <summary>
     ///     Return true if this identity is localhost
     /// </summary>
-    public bool IsLocalHost {
-        get {
-            return InternalIsLocalHost(ref this);
-        }
-    }
+    public bool IsLocalHost => InternalIsLocalHost(ref this);
 
     /// <summary>
     ///     Convert to a SteamId

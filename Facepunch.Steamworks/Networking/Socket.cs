@@ -27,7 +27,7 @@ public struct Socket {
     }
 
     public SocketManager Manager {
-        get { return SteamNetworkingSockets.GetSocketManager(Id); }
-        set { SteamNetworkingSockets.SetSocketManager(Id, value); }
+        get => SteamNetworkingSockets.GetSocketManager(Id);
+        set => SteamNetworkingSockets.SetSocketManager(Id, value);
     }
 }

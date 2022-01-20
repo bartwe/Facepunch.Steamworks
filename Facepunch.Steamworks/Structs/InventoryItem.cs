@@ -12,53 +12,37 @@ public struct InventoryItem : IEquatable<InventoryItem> {
     internal ushort _quantity;
     internal Dictionary<string, string> _properties;
 
-    public InventoryItemId Id {
-        get { return _id; }
-    }
+    public InventoryItemId Id => _id;
 
-    public InventoryDefId DefId {
-        get { return _def; }
-    }
+    public InventoryDefId DefId => _def;
 
-    public int Quantity {
-        get { return _quantity; }
-    }
+    public int Quantity => _quantity;
 
-    public InventoryDef Def {
-        get { return SteamInventory.FindDefinition(DefId); }
-    }
+    public InventoryDef Def => SteamInventory.FindDefinition(DefId);
 
 
     /// <summary>
     ///     Only available if the result set was created with the getproperties
     /// </summary>
-    public Dictionary<string, string> Properties {
-        get { return _properties; }
-    }
+    public Dictionary<string, string> Properties => _properties;
 
     /// <summary>
     ///     This item is account-locked and cannot be traded or given away.
     ///     This is an item status flag which is permanently attached to specific item instances
     /// </summary>
-    public bool IsNoTrade {
-        get { return _flags.HasFlag(SteamItemFlags.NoTrade); }
-    }
+    public bool IsNoTrade => _flags.HasFlag(SteamItemFlags.NoTrade);
 
     /// <summary>
     ///     The item has been destroyed, traded away, expired, or otherwise invalidated.
     ///     This is an action confirmation flag which is only set one time, as part of a result set.
     /// </summary>
-    public bool IsRemoved {
-        get { return _flags.HasFlag(SteamItemFlags.Removed); }
-    }
+    public bool IsRemoved => _flags.HasFlag(SteamItemFlags.Removed);
 
     /// <summary>
     ///     The item quantity has been decreased by 1 via ConsumeItem API.
     ///     This is an action confirmation flag which is only set one time, as part of a result set.
     /// </summary>
-    public bool IsConsumed {
-        get { return _flags.HasFlag(SteamItemFlags.Consumed); }
-    }
+    public bool IsConsumed => _flags.HasFlag(SteamItemFlags.Consumed);
 
     /// <summary>
     ///     Consumes items from a user's inventory. If the quantity of the given item goes to zero, it is permanently removed.

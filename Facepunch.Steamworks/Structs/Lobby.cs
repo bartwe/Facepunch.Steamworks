@@ -46,9 +46,7 @@ public struct Lobby {
     /// <summary>
     ///     returns the number of users in the specified lobby
     /// </summary>
-    public int MemberCount {
-        get { return SteamMatchmaking.Internal.GetNumLobbyMembers(Id); }
-    }
+    public int MemberCount => SteamMatchmaking.Internal.GetNumLobbyMembers(Id);
 
     /// <summary>
     ///     Returns current members. Need to be in the lobby to see the users.
@@ -160,8 +158,8 @@ public struct Lobby {
     ///     Can only be set by the owner
     /// </summary>
     public int MaxMembers {
-        get { return SteamMatchmaking.Internal.GetLobbyMemberLimit(Id); }
-        set { _ = SteamMatchmaking.Internal.SetLobbyMemberLimit(Id, value); }
+        get => SteamMatchmaking.Internal.GetLobbyMemberLimit(Id);
+        set => _ = SteamMatchmaking.Internal.SetLobbyMemberLimit(Id, value);
     }
 
     public bool SetPublic() {
@@ -220,8 +218,8 @@ public struct Lobby {
     ///     You must be the lobby owner to set the owner
     /// </summary>
     public Friend Owner {
-        get { return new(SteamMatchmaking.Internal.GetLobbyOwner(Id)); }
-        set { _ = SteamMatchmaking.Internal.SetLobbyOwner(Id, value.Id); }
+        get => new(SteamMatchmaking.Internal.GetLobbyOwner(Id));
+        set => _ = SteamMatchmaking.Internal.SetLobbyOwner(Id, value.Id);
     }
 
     /// <summary>

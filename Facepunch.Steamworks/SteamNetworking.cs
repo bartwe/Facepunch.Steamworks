@@ -4,9 +4,7 @@ using Steamworks.Data;
 namespace Steamworks;
 
 public sealed class SteamNetworking : SteamSharedClass<SteamNetworking> {
-    internal static ISteamNetworking Internal {
-        get { return Interface as ISteamNetworking; }
-    }
+    internal static ISteamNetworking Internal => Interface as ISteamNetworking;
 
     internal override bool InitializeInterface(bool server) {
         SetInterface(server, new ISteamNetworking(server));

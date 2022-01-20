@@ -10,65 +10,49 @@ namespace Steamworks;
 public sealed class SteamUtils : SteamSharedClass<SteamUtils> {
     static NotificationPosition overlayNotificationPosition = NotificationPosition.BottomRight;
 
-    internal static ISteamUtils Internal {
-        get { return Interface as ISteamUtils; }
-    }
+    internal static ISteamUtils Internal => Interface as ISteamUtils;
 
     /// <summary>
     ///     Returns the number of seconds since the application was active
     /// </summary>
-    public static uint SecondsSinceAppActive {
-        get { return Internal.GetSecondsSinceAppActive(); }
-    }
+    public static uint SecondsSinceAppActive => Internal.GetSecondsSinceAppActive();
 
     /// <summary>
     ///     Returns the number of seconds since the user last moved the mouse etc
     /// </summary>
-    public static uint SecondsSinceComputerActive {
-        get { return Internal.GetSecondsSinceComputerActive(); }
-    }
+    public static uint SecondsSinceComputerActive => Internal.GetSecondsSinceComputerActive();
 
     // the universe this client is connecting to
-    public static Universe ConnectedUniverse {
-        get { return Internal.GetConnectedUniverse(); }
-    }
+    public static Universe ConnectedUniverse => Internal.GetConnectedUniverse();
 
     /// <summary>
     ///     Steam server time.  Number of seconds since January 1, 1970, GMT (i.e unix time)
     /// </summary>
-    public static DateTime SteamServerTime {
-        get { return Epoch.ToDateTime(Internal.GetServerRealTime()); }
-    }
+    public static DateTime SteamServerTime => Epoch.ToDateTime(Internal.GetServerRealTime());
 
     /// <summary>
     ///     returns the 2 digit ISO 3166-1-alpha-2 format country code this client is running in (as looked up via an
     ///     IP-to-location database)
     ///     e.g "US" or "UK".
     /// </summary>
-    public static string IpCountry {
-        get { return Internal.GetIPCountry(); }
-    }
+    public static string IpCountry => Internal.GetIPCountry();
 
     /// <summary>
     ///     Returns true if we're using a battery (ie, a laptop not plugged in)
     /// </summary>
-    public static bool UsingBatteryPower {
-        get { return Internal.GetCurrentBatteryPower() != 255; }
-    }
+    public static bool UsingBatteryPower => Internal.GetCurrentBatteryPower() != 255;
 
     /// <summary>
     ///     Returns battery power [0-1]
     /// </summary>
-    public static float CurrentBatteryPower {
-        get { return Math.Min(Internal.GetCurrentBatteryPower() / 100, 1.0f); }
-    }
+    public static float CurrentBatteryPower => Math.Min(Internal.GetCurrentBatteryPower() / 100, 1.0f);
 
     /// <summary>
     ///     Sets the position where the overlay instance for the currently calling game should show notifications.
     ///     This position is per-game and if this function is called from outside of a game context it will do nothing.
     /// </summary>
     public static NotificationPosition OverlayNotificationPosition {
-        get { return overlayNotificationPosition; }
+        get => overlayNotificationPosition;
 
         set {
             overlayNotificationPosition = value;
@@ -80,9 +64,7 @@ public sealed class SteamUtils : SteamSharedClass<SteamUtils> {
     ///     Returns true if the overlay is running and the user can access it. The overlay process could take a few seconds to
     ///     start and hook the game process, so this function will initially return false while the overlay is loading.
     /// </summary>
-    public static bool IsOverlayEnabled {
-        get { return Internal.IsOverlayEnabled(); }
-    }
+    public static bool IsOverlayEnabled => Internal.IsOverlayEnabled();
 
     /// <summary>
     ///     Normally this call is unneeded if your game has a constantly running frame loop that calls the
@@ -94,33 +76,25 @@ public sealed class SteamUtils : SteamSharedClass<SteamUtils> {
     ///     in that case, and then you can check for this periodically (roughly 33hz is desirable) and make sure you
     ///     refresh the screen with Present or SwapBuffers to allow the overlay to do it's work.
     /// </summary>
-    public static bool DoesOverlayNeedPresent {
-        get { return Internal.BOverlayNeedsPresent(); }
-    }
+    public static bool DoesOverlayNeedPresent => Internal.BOverlayNeedsPresent();
 
     /// <summary>
     ///     returns the language the steam client is running in, you probably want
     ///     Apps.CurrentGameLanguage instead, this is for very special usage cases
     /// </summary>
-    public static string SteamUILanguage {
-        get { return Internal.GetSteamUILanguage(); }
-    }
+    public static string SteamUILanguage => Internal.GetSteamUILanguage();
 
     /// <summary>
     ///     returns true if Steam itself is running in VR mode
     /// </summary>
-    public static bool IsSteamRunningInVR {
-        get { return Internal.IsSteamRunningInVR(); }
-    }
+    public static bool IsSteamRunningInVR => Internal.IsSteamRunningInVR();
 
     /// <summary>
     ///     returns true if Steam and the Steam Overlay are running in Big Picture mode
     ///     Games much be launched through the Steam client to enable the Big Picture overlay. During development,
     ///     a game can be added as a non-steam game to the developers library to test this feature
     /// </summary>
-    public static bool IsSteamInBigPictureMode {
-        get { return Internal.IsSteamInBigPictureMode(); }
-    }
+    public static bool IsSteamInBigPictureMode => Internal.IsSteamInBigPictureMode();
 
     /// <summary>
     ///     Set whether the HMD content will be streamed via Steam In-Home Streaming
@@ -130,18 +104,16 @@ public sealed class SteamUtils : SteamSharedClass<SteamUtils> {
     ///     (this is useful for games that have asymmetric multiplayer gameplay)
     /// </summary>
     public static bool VrHeadsetStreaming {
-        get { return Internal.IsVRHeadsetStreamingEnabled(); }
+        get => Internal.IsVRHeadsetStreamingEnabled();
 
-        set { Internal.SetVRHeadsetStreamingEnabled(value); }
+        set => Internal.SetVRHeadsetStreamingEnabled(value);
     }
 
 
     /// <summary>
     ///     Returns whether this steam client is a Steam China specific client, vs the global client
     /// </summary>
-    public static bool IsSteamChinaLauncher {
-        get { return Internal.IsSteamChinaLauncher(); }
-    }
+    public static bool IsSteamChinaLauncher => Internal.IsSteamChinaLauncher();
 
     internal override bool InitializeInterface(bool server) {
         SetInterface(server, new ISteamUtils(server));

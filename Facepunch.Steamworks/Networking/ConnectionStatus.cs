@@ -27,74 +27,54 @@ public struct ConnectionStatus {
     /// <summary>
     ///     Current ping (ms)
     /// </summary>
-    public int Ping {
-        get { return ping; }
-    }
+    public int Ping => ping;
 
     /// <summary>
     ///     Outgoing packets per second
     /// </summary>
-    public float OutPacketsPerSec {
-        get { return outPacketsPerSec; }
-    }
+    public float OutPacketsPerSec => outPacketsPerSec;
 
     /// <summary>
     ///     Outgoing bytes per second
     /// </summary>
-    public float OutBytesPerSec {
-        get { return outBytesPerSec; }
-    }
+    public float OutBytesPerSec => outBytesPerSec;
 
     /// <summary>
     ///     Incoming packets per second
     /// </summary>
-    public float InPacketsPerSec {
-        get { return inPacketsPerSec; }
-    }
+    public float InPacketsPerSec => inPacketsPerSec;
 
     /// <summary>
     ///     Incoming bytes per second
     /// </summary>
-    public float InBytesPerSec {
-        get { return inBytesPerSec; }
-    }
+    public float InBytesPerSec => inBytesPerSec;
 
     /// <summary>
     ///     Connection quality measured locally, 0...1 (percentage of packets delivered end-to-end in order).
     /// </summary>
-    public float ConnectionQualityLocal {
-        get { return connectionQualityLocal; }
-    }
+    public float ConnectionQualityLocal => connectionQualityLocal;
 
     /// <summary>
     ///     Packet delivery success rate as observed from remote host, 0...1 (percentage of packets delivered end-to-end in
     ///     order).
     /// </summary>
-    public float ConnectionQualityRemote {
-        get { return connectionQualityRemote; }
-    }
+    public float ConnectionQualityRemote => connectionQualityRemote;
 
     /// <summary>
     ///     Number of bytes unreliable data pending to be sent. This is data that you have recently requested to be sent but
     ///     has not yet actually been put on the wire.
     /// </summary>
-    public int PendingUnreliable {
-        get { return cbPendingUnreliable; }
-    }
+    public int PendingUnreliable => cbPendingUnreliable;
 
     /// <summary>
     ///     Number of bytes reliable data pending to be sent. This is data that you have recently requested to be sent but has
     ///     not yet actually been put on the wire.
     /// </summary>
-    public int PendingReliable {
-        get { return cbPendingReliable; }
-    }
+    public int PendingReliable => cbPendingReliable;
 
     /// <summary>
     ///     Number of bytes of reliable data that has been placed the wire, but for which we have not yet received an
     ///     acknowledgment, and thus we may have to re-transmit.
     /// </summary>
-    public int SentUnackedReliable {
-        get { return cbSentUnackedReliable; }
-    }
+    public int SentUnackedReliable => cbSentUnackedReliable;
 }

@@ -12,35 +12,25 @@ public struct DurationControl {
     /// <summary>
     ///     appid generating playtime
     /// </summary>
-    public AppId Appid {
-        get { return _inner.Appid; }
-    }
+    public AppId Appid => _inner.Appid;
 
     /// <summary>
     ///     is duration control applicable to user + game combination
     /// </summary>
-    public bool Applicable {
-        get { return _inner.Applicable; }
-    }
+    public bool Applicable => _inner.Applicable;
 
     /// <summary>
     ///     playtime since most recent 5 hour gap in playtime, only counting up to regulatory limit of playtime, in seconds
     /// </summary>
-    internal TimeSpan PlaytimeInLastFiveHours {
-        get { return TimeSpan.FromSeconds(_inner.CsecsLast5h); }
-    }
+    internal TimeSpan PlaytimeInLastFiveHours => TimeSpan.FromSeconds(_inner.CsecsLast5h);
 
     /// <summary>
     ///     playtime on current calendar day
     /// </summary>
-    internal TimeSpan PlaytimeToday {
-        get { return TimeSpan.FromSeconds(_inner.CsecsLast5h); }
-    }
+    internal TimeSpan PlaytimeToday => TimeSpan.FromSeconds(_inner.CsecsLast5h);
 
     /// <summary>
     ///     recommended progress
     /// </summary>
-    internal DurationControlProgress Progress {
-        get { return _inner.Progress; }
-    }
+    internal DurationControlProgress Progress => _inner.Progress;
 }

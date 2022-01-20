@@ -7,9 +7,7 @@ namespace Steamworks;
 ///     Undocumented Parental Settings
 /// </summary>
 public sealed class SteamScreenshots : SteamClientClass<SteamScreenshots> {
-    internal static ISteamScreenshots Internal {
-        get { return Interface as ISteamScreenshots; }
-    }
+    internal static ISteamScreenshots Internal => Interface as ISteamScreenshots;
 
     /// <summary>
     ///     Toggles whether the overlay handles screenshots when the user presses the screenshot hotkey, or if the game handles
@@ -20,8 +18,8 @@ public sealed class SteamScreenshots : SteamClientClass<SteamScreenshots> {
     ///     in response.
     /// </summary>
     public static bool Hooked {
-        get { return Internal.IsScreenshotsHooked(); }
-        set { Internal.HookScreenshots(value); }
+        get => Internal.IsScreenshotsHooked();
+        set => Internal.HookScreenshots(value);
     }
 
     internal override bool InitializeInterface(bool server) {

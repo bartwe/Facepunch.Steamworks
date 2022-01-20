@@ -6,9 +6,7 @@ public struct LeaderboardUpdate {
     public int NewGlobalRank;
     public int OldGlobalRank;
 
-    public int RankChange {
-        get { return NewGlobalRank - OldGlobalRank; }
-    }
+    public int RankChange => NewGlobalRank - OldGlobalRank;
 
     internal static LeaderboardUpdate From(LeaderboardScoreUploaded_t e) {
         return new() {

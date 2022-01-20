@@ -26,9 +26,7 @@ public partial struct NetAddress {
     /// <summary>
     ///     The Port. This is redundant documentation.
     /// </summary>
-    public ushort Port {
-        get { return port; }
-    }
+    public ushort Port => port;
 
     /// <summary>
     ///     Any IP, specific port

@@ -21,37 +21,27 @@ public struct Friend {
     /// <summary>
     ///     Returns true if this is the local user
     /// </summary>
-    public bool IsMe {
-        get { return Id == SteamClient.SteamId; }
-    }
+    public bool IsMe => Id == SteamClient.SteamId;
 
     /// <summary>
     ///     Return true if this is a friend
     /// </summary>
-    public bool IsFriend {
-        get { return Relationship == Relationship.Friend; }
-    }
+    public bool IsFriend => Relationship == Relationship.Friend;
 
     /// <summary>
     ///     Returns true if you have this user blocked
     /// </summary>
-    public bool IsBlocked {
-        get { return Relationship == Relationship.Blocked; }
-    }
+    public bool IsBlocked => Relationship == Relationship.Blocked;
 
     /// <summary>
     ///     Return true if this user is playing the game we're running
     /// </summary>
-    public bool IsPlayingThisGame {
-        get { return GameInfo?.GameID == SteamClient.AppId; }
-    }
+    public bool IsPlayingThisGame => GameInfo?.GameID == SteamClient.AppId;
 
     /// <summary>
     ///     Returns true if this friend is online
     /// </summary>
-    public bool IsOnline {
-        get { return State != FriendState.Offline; }
-    }
+    public bool IsOnline => State != FriendState.Offline;
 
     /// <summary>
     ///     Sometimes we don't know the user's name. This will wait until we have
@@ -64,36 +54,24 @@ public struct Friend {
     /// <summary>
     ///     Returns true if this friend is marked as away
     /// </summary>
-    public bool IsAway {
-        get { return State == FriendState.Away; }
-    }
+    public bool IsAway => State == FriendState.Away;
 
     /// <summary>
     ///     Returns true if this friend is marked as busy
     /// </summary>
-    public bool IsBusy {
-        get { return State == FriendState.Busy; }
-    }
+    public bool IsBusy => State == FriendState.Busy;
 
     /// <summary>
     ///     Returns true if this friend is marked as snoozing
     /// </summary>
-    public bool IsSnoozing {
-        get { return State == FriendState.Snooze; }
-    }
+    public bool IsSnoozing => State == FriendState.Snooze;
 
 
-    public Relationship Relationship {
-        get { return SteamFriends.Internal.GetFriendRelationship(Id); }
-    }
+    public Relationship Relationship => SteamFriends.Internal.GetFriendRelationship(Id);
 
-    public FriendState State {
-        get { return SteamFriends.Internal.GetFriendPersonaState(Id); }
-    }
+    public FriendState State => SteamFriends.Internal.GetFriendPersonaState(Id);
 
-    public string Name {
-        get { return SteamFriends.Internal.GetFriendPersonaName(Id); }
-    }
+    public string Name => SteamFriends.Internal.GetFriendPersonaName(Id);
 
     public IEnumerable<string> NameHistory {
         get {
@@ -107,9 +85,7 @@ public struct Friend {
         }
     }
 
-    public int SteamLevel {
-        get { return SteamFriends.Internal.GetFriendSteamLevel(Id); }
-    }
+    public int SteamLevel => SteamFriends.Internal.GetFriendSteamLevel(Id);
 
 
     public FriendGameInfo? GameInfo {
@@ -134,13 +110,9 @@ public struct Friend {
         public int ConnectionPort;
         public int QueryPort;
 
-        public uint IpAddressRaw {
-            get { return GameIP; }
-        }
+        public uint IpAddressRaw => GameIP;
 
-        public IPAddress IpAddress {
-            get { return Utility.Int32ToIp(GameIP); }
-        }
+        public IPAddress IpAddress => Utility.Int32ToIp(GameIP);
 
         public Lobby? Lobby {
             get {

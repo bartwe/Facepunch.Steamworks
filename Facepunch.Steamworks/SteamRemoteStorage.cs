@@ -7,9 +7,7 @@ namespace Steamworks;
 ///     Undocumented Parental Settings
 /// </summary>
 public sealed class SteamRemoteStorage : SteamClientClass<SteamRemoteStorage> {
-    internal static ISteamRemoteStorage Internal {
-        get { return Interface as ISteamRemoteStorage; }
-    }
+    internal static ISteamRemoteStorage Internal => Interface as ISteamRemoteStorage;
 
 
     /// <summary>
@@ -48,17 +46,13 @@ public sealed class SteamRemoteStorage : SteamClientClass<SteamRemoteStorage> {
     /// <summary>
     ///     returns true if IsCloudEnabledForAccount AND IsCloudEnabledForApp
     /// </summary>
-    public static bool IsCloudEnabled {
-        get { return IsCloudEnabledForAccount && IsCloudEnabledForApp; }
-    }
+    public static bool IsCloudEnabled => IsCloudEnabledForAccount && IsCloudEnabledForApp;
 
     /// <summary>
     ///     Checks if the account wide Steam Cloud setting is enabled for this user
     ///     or if they disabled it in the Settings->Cloud dialog.
     /// </summary>
-    public static bool IsCloudEnabledForAccount {
-        get { return Internal.IsCloudEnabledForAccount(); }
-    }
+    public static bool IsCloudEnabledForAccount => Internal.IsCloudEnabledForAccount();
 
     /// <summary>
     ///     Checks if the per game Steam Cloud setting is enabled for this user
@@ -68,16 +62,14 @@ public sealed class SteamRemoteStorage : SteamClientClass<SteamRemoteStorage> {
     ///     a checkbox within your in-game options
     /// </summary>
     public static bool IsCloudEnabledForApp {
-        get { return Internal.IsCloudEnabledForApp(); }
-        set { Internal.SetCloudEnabledForApp(value); }
+        get => Internal.IsCloudEnabledForApp();
+        set => Internal.SetCloudEnabledForApp(value);
     }
 
     /// <summary>
     ///     Gets the total number of local files synchronized by Steam Cloud.
     /// </summary>
-    public static int FileCount {
-        get { return Internal.GetFileCount(); }
-    }
+    public static int FileCount => Internal.GetFileCount();
 
     /// <summary>
     ///     Get a list of filenames synchronized by Steam Cloud

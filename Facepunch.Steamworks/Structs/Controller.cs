@@ -10,13 +10,9 @@ public struct Controller {
         Handle = inputHandle_t;
     }
 
-    public ulong Id {
-        get { return Handle.Value; }
-    }
+    public ulong Id => Handle.Value;
 
-    public InputType InputType {
-        get { return SteamInput.Internal.GetInputTypeForHandle(Handle); }
-    }
+    public InputType InputType => SteamInput.Internal.GetInputTypeForHandle(Handle);
 
     /// <summary>
     ///     Reconfigure the controller to use the specified action set (ie 'Menu', 'Walk' or 'Drive')
@@ -24,7 +20,7 @@ public struct Controller {
     ///     our state loops, instead of trying to place it in all of your state transitions.
     /// </summary>
     public string ActionSet {
-        set { SteamInput.Internal.ActivateActionSet(Handle, SteamInput.Internal.GetActionSetHandle(value)); }
+        set => SteamInput.Internal.ActivateActionSet(Handle, SteamInput.Internal.GetActionSetHandle(value));
     }
 
     public void DeactivateLayer(string layer) {
@@ -88,9 +84,7 @@ public struct AnalogState {
     public float Y; // y float
     internal byte BActive; // bActive byte
 
-    public bool Active {
-        get { return BActive != 0; }
-    }
+    public bool Active => BActive != 0;
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -115,11 +109,7 @@ public struct DigitalState {
     [MarshalAs(UnmanagedType.I1)]
     internal byte BActive; // bActive byte
 
-    public bool Pressed {
-        get { return BState != 0; }
-    }
+    public bool Pressed => BState != 0;
 
-    public bool Active {
-        get { return BActive != 0; }
-    }
+    public bool Active => BActive != 0;
 }

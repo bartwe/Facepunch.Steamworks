@@ -6,9 +6,7 @@ namespace Steamworks;
 ///     Undocumented Parental Settings
 /// </summary>
 public sealed class SteamVideo : SteamClientClass<SteamVideo> {
-    internal static ISteamVideo Internal {
-        get { return Interface as ISteamVideo; }
-    }
+    internal static ISteamVideo Internal => Interface as ISteamVideo;
 
     /// <summary>
     ///     Return true if currently using Steam's live broadcasting
