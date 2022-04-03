@@ -8,40 +8,42 @@ sealed class ISteamMatchmakingRulesResponse : SteamInterface {
         SetupInterface(IsGameServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmakingRulesResponse_RulesResponded", CallingConvention = Platform.CC)]
     static extern void _RulesResponded(
         IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchRule,
-        [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchValue
+        [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
+        string pchValue
     );
 
-    #endregion
+#endregion
 
     internal void RulesResponded(
         [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchRule,
-        [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchValue
+        [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
+        string pchValue
     ) {
         _RulesResponded(Self, pchRule, pchValue);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmakingRulesResponse_RulesFailedToRespond", CallingConvention = Platform.CC)]
     static extern void _RulesFailedToRespond(IntPtr self);
 
-    #endregion
+#endregion
 
     internal void RulesFailedToRespond() {
         _RulesFailedToRespond(Self);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmakingRulesResponse_RulesRefreshComplete", CallingConvention = Platform.CC)]
     static extern void _RulesRefreshComplete(IntPtr self);
 
-    #endregion
+#endregion
 
     internal void RulesRefreshComplete() {
         _RulesRefreshComplete(Self);

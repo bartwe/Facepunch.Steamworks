@@ -173,7 +173,7 @@ public sealed class SteamNetworkingSockets : SteamSharedClass<SteamNetworkingSoc
         return t;
     }
 
-    #region SocketInterface
+#region SocketInterface
 
     static readonly Dictionary<uint, SocketManager> SocketInterfaces = new();
 
@@ -195,9 +195,9 @@ public sealed class SteamNetworkingSockets : SteamSharedClass<SteamNetworkingSoc
         SocketInterfaces[id] = manager;
     }
 
-    #endregion
+#endregion
 
-    #region ConnectionInterface
+#region ConnectionInterface
 
     static readonly Dictionary<uint, ConnectionManager> ConnectionInterfaces = new();
 
@@ -219,5 +219,5 @@ public sealed class SteamNetworkingSockets : SteamSharedClass<SteamNetworkingSoc
         ConnectionInterfaces[id] = manager;
     }
 
-    #endregion
+#endregion
 }

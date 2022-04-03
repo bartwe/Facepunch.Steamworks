@@ -6,7 +6,7 @@ namespace Steamworks.Data;
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct SteamServersConnected_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamServersConnected_t));
 
@@ -14,7 +14,7 @@ struct SteamServersConnected_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamServersConnected;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -24,7 +24,7 @@ struct SteamServerConnectFailure_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool StillRetrying; // m_bStillRetrying bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamServerConnectFailure_t));
 
@@ -32,14 +32,14 @@ struct SteamServerConnectFailure_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamServerConnectFailure;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct SteamServersDisconnected_t : ICallbackData {
     internal Result Result; // m_eResult EResult
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamServersDisconnected_t));
 
@@ -47,7 +47,7 @@ struct SteamServersDisconnected_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamServersDisconnected;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -58,7 +58,7 @@ struct ClientGameServerDeny_t : ICallbackData {
     internal ushort Secure; // m_bSecure uint16
     internal uint Reason; // m_uReason uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(ClientGameServerDeny_t));
 
@@ -66,14 +66,14 @@ struct ClientGameServerDeny_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.ClientGameServerDeny;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct IPCFailure_t : ICallbackData {
     internal byte FailureType; // m_eFailureType uint8
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(IPCFailure_t));
 
@@ -81,7 +81,7 @@ struct IPCFailure_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.IPCFailure;
 
-    #endregion
+#endregion
 
     internal enum EFailureType {
         FlushedCallbackQueue = 0,
@@ -91,7 +91,7 @@ struct IPCFailure_t : ICallbackData {
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct LicensesUpdated_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(LicensesUpdated_t));
 
@@ -99,7 +99,7 @@ struct LicensesUpdated_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.LicensesUpdated;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -108,7 +108,7 @@ struct ValidateAuthTicketResponse_t : ICallbackData {
     internal AuthResponse AuthSessionResponse; // m_eAuthSessionResponse EAuthSessionResponse
     internal ulong OwnerSteamID; // m_OwnerSteamID CSteamID
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(ValidateAuthTicketResponse_t));
 
@@ -116,7 +116,7 @@ struct ValidateAuthTicketResponse_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.ValidateAuthTicketResponse;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -125,7 +125,7 @@ struct MicroTxnAuthorizationResponse_t : ICallbackData {
     internal ulong OrderID; // m_ulOrderID uint64
     internal byte Authorized; // m_bAuthorized uint8
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(MicroTxnAuthorizationResponse_t));
 
@@ -133,14 +133,14 @@ struct MicroTxnAuthorizationResponse_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.MicroTxnAuthorizationResponse;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct EncryptedAppTicketResponse_t : ICallbackData {
     internal Result Result; // m_eResult EResult
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(EncryptedAppTicketResponse_t));
 
@@ -148,7 +148,7 @@ struct EncryptedAppTicketResponse_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.EncryptedAppTicketResponse;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -156,7 +156,7 @@ struct GetAuthSessionTicketResponse_t : ICallbackData {
     internal uint AuthTicket; // m_hAuthTicket HAuthTicket
     internal Result Result; // m_eResult EResult
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GetAuthSessionTicketResponse_t));
 
@@ -164,7 +164,7 @@ struct GetAuthSessionTicketResponse_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GetAuthSessionTicketResponse;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -176,7 +176,7 @@ struct GameWebCallback_t : ICallbackData {
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)] // byte[] m_szURL
     internal byte[] URL; // m_szURL char [256]
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GameWebCallback_t));
 
@@ -184,7 +184,7 @@ struct GameWebCallback_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GameWebCallback;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -196,7 +196,7 @@ struct StoreAuthURLResponse_t : ICallbackData {
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 512)] // byte[] m_szURL
     internal byte[] URL; // m_szURL char [512]
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(StoreAuthURLResponse_t));
 
@@ -204,7 +204,7 @@ struct StoreAuthURLResponse_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.StoreAuthURLResponse;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -217,7 +217,7 @@ struct MarketEligibilityResponse_t : ICallbackData {
     internal int CdaySteamGuardRequiredDays; // m_cdaySteamGuardRequiredDays int
     internal int CdayNewDeviceCooldown; // m_cdayNewDeviceCooldown int
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(MarketEligibilityResponse_t));
 
@@ -225,7 +225,7 @@ struct MarketEligibilityResponse_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.MarketEligibilityResponse;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -242,7 +242,7 @@ struct DurationControl_t : ICallbackData {
     internal int CsecsToday; // m_csecsToday int32
     internal int CsecsRemaining; // m_csecsRemaining int32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(DurationControl_t));
 
@@ -250,7 +250,7 @@ struct DurationControl_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.DurationControl;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -258,7 +258,7 @@ struct PersonaStateChange_t : ICallbackData {
     internal ulong SteamID; // m_ulSteamID uint64
     internal int ChangeFlags; // m_nChangeFlags int
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(PersonaStateChange_t));
 
@@ -266,14 +266,14 @@ struct PersonaStateChange_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.PersonaStateChange;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct GameOverlayActivated_t : ICallbackData {
     internal byte Active; // m_bActive uint8
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GameOverlayActivated_t));
 
@@ -281,7 +281,7 @@ struct GameOverlayActivated_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GameOverlayActivated;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -300,7 +300,7 @@ struct GameServerChangeRequested_t : ICallbackData {
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] // byte[] m_rgchPassword
     internal byte[] Password; // m_rgchPassword char [64]
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GameServerChangeRequested_t));
 
@@ -308,7 +308,7 @@ struct GameServerChangeRequested_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GameServerChangeRequested;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -316,7 +316,7 @@ struct GameLobbyJoinRequested_t : ICallbackData {
     internal ulong SteamIDLobby; // m_steamIDLobby CSteamID
     internal ulong SteamIDFriend; // m_steamIDFriend CSteamID
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GameLobbyJoinRequested_t));
 
@@ -324,7 +324,7 @@ struct GameLobbyJoinRequested_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GameLobbyJoinRequested;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -334,7 +334,7 @@ struct AvatarImageLoaded_t : ICallbackData {
     internal int Wide; // m_iWide int
     internal int Tall; // m_iTall int
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(AvatarImageLoaded_t));
 
@@ -342,7 +342,7 @@ struct AvatarImageLoaded_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.AvatarImageLoaded;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -351,7 +351,7 @@ struct ClanOfficerListResponse_t : ICallbackData {
     internal int COfficers; // m_cOfficers int
     internal byte Success; // m_bSuccess uint8
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(ClanOfficerListResponse_t));
 
@@ -359,7 +359,7 @@ struct ClanOfficerListResponse_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.ClanOfficerListResponse;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -367,7 +367,7 @@ struct FriendRichPresenceUpdate_t : ICallbackData {
     internal ulong SteamIDFriend; // m_steamIDFriend CSteamID
     internal AppId AppID; // m_nAppID AppId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(FriendRichPresenceUpdate_t));
 
@@ -375,7 +375,7 @@ struct FriendRichPresenceUpdate_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.FriendRichPresenceUpdate;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -389,7 +389,7 @@ struct GameRichPresenceJoinRequested_t : ICallbackData {
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)] // byte[] m_rgchConnect
     internal byte[] Connect; // m_rgchConnect char [256]
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GameRichPresenceJoinRequested_t));
 
@@ -397,7 +397,7 @@ struct GameRichPresenceJoinRequested_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GameRichPresenceJoinRequested;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -406,7 +406,7 @@ struct GameConnectedClanChatMsg_t : ICallbackData {
     internal ulong SteamIDUser; // m_steamIDUser CSteamID
     internal int MessageID; // m_iMessageID int
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GameConnectedClanChatMsg_t));
 
@@ -414,7 +414,7 @@ struct GameConnectedClanChatMsg_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GameConnectedClanChatMsg;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -422,7 +422,7 @@ struct GameConnectedChatJoin_t : ICallbackData {
     internal ulong SteamIDClanChat; // m_steamIDClanChat CSteamID
     internal ulong SteamIDUser; // m_steamIDUser CSteamID
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GameConnectedChatJoin_t));
 
@@ -430,7 +430,7 @@ struct GameConnectedChatJoin_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GameConnectedChatJoin;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -444,7 +444,7 @@ struct GameConnectedChatLeave_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool Dropped; // m_bDropped bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GameConnectedChatLeave_t));
 
@@ -452,7 +452,7 @@ struct GameConnectedChatLeave_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GameConnectedChatLeave;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -460,7 +460,7 @@ struct DownloadClanActivityCountsResult_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool Success; // m_bSuccess bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(DownloadClanActivityCountsResult_t));
 
@@ -468,7 +468,7 @@ struct DownloadClanActivityCountsResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.DownloadClanActivityCountsResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -476,7 +476,7 @@ struct JoinClanChatRoomCompletionResult_t : ICallbackData {
     internal ulong SteamIDClanChat; // m_steamIDClanChat CSteamID
     internal RoomEnter ChatRoomEnterResponse; // m_eChatRoomEnterResponse EChatRoomEnterResponse
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(JoinClanChatRoomCompletionResult_t));
 
@@ -484,7 +484,7 @@ struct JoinClanChatRoomCompletionResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.JoinClanChatRoomCompletionResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -492,7 +492,7 @@ struct GameConnectedFriendChatMsg_t : ICallbackData {
     internal ulong SteamIDUser; // m_steamIDUser CSteamID
     internal int MessageID; // m_iMessageID int
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GameConnectedFriendChatMsg_t));
 
@@ -500,7 +500,7 @@ struct GameConnectedFriendChatMsg_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GameConnectedFriendChatMsg;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -509,7 +509,7 @@ struct FriendsGetFollowerCount_t : ICallbackData {
     internal ulong SteamID; // m_steamID CSteamID
     internal int Count; // m_nCount int
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(FriendsGetFollowerCount_t));
 
@@ -517,7 +517,7 @@ struct FriendsGetFollowerCount_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.FriendsGetFollowerCount;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -528,7 +528,7 @@ struct FriendsIsFollowing_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool IsFollowing; // m_bIsFollowing bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(FriendsIsFollowing_t));
 
@@ -536,7 +536,7 @@ struct FriendsIsFollowing_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.FriendsIsFollowing;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -549,7 +549,7 @@ struct FriendsEnumerateFollowingList_t : ICallbackData {
     internal int ResultsReturned; // m_nResultsReturned int32
     internal int TotalResultCount; // m_nTotalResultCount int32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(FriendsEnumerateFollowingList_t));
 
@@ -557,7 +557,7 @@ struct FriendsEnumerateFollowingList_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.FriendsEnumerateFollowingList;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -570,7 +570,7 @@ struct SetPersonaNameResponse_t : ICallbackData {
 
     internal Result Result; // m_result EResult
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SetPersonaNameResponse_t));
 
@@ -578,12 +578,12 @@ struct SetPersonaNameResponse_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SetPersonaNameResponse;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct UnreadChatMessagesChanged_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(UnreadChatMessagesChanged_t));
 
@@ -591,7 +591,7 @@ struct UnreadChatMessagesChanged_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.UnreadChatMessagesChanged;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -603,7 +603,7 @@ struct OverlayBrowserProtocolNavigation_t : ICallbackData {
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 1024)] // byte[] rgchURI
     internal byte[] RgchURI; // rgchURI char [1024]
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(OverlayBrowserProtocolNavigation_t));
 
@@ -611,12 +611,12 @@ struct OverlayBrowserProtocolNavigation_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.OverlayBrowserProtocolNavigation;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct IPCountry_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(IPCountry_t));
 
@@ -624,14 +624,14 @@ struct IPCountry_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.IPCountry;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct LowBatteryPower_t : ICallbackData {
     internal byte MinutesBatteryLeft; // m_nMinutesBatteryLeft uint8
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(LowBatteryPower_t));
 
@@ -639,7 +639,7 @@ struct LowBatteryPower_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.LowBatteryPower;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -648,7 +648,7 @@ struct SteamAPICallCompleted_t : ICallbackData {
     internal int Callback; // m_iCallback int
     internal uint ParamCount; // m_cubParam uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamAPICallCompleted_t));
 
@@ -656,12 +656,12 @@ struct SteamAPICallCompleted_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamAPICallCompleted;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct SteamShutdown_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamShutdown_t));
 
@@ -669,14 +669,14 @@ struct SteamShutdown_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamShutdown;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct CheckFileSignature_t : ICallbackData {
     internal CheckFileSignature CheckFileSignature; // m_eCheckFileSignature ECheckFileSignature
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(CheckFileSignature_t));
 
@@ -684,7 +684,7 @@ struct CheckFileSignature_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.CheckFileSignature;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -694,7 +694,7 @@ struct GamepadTextInputDismissed_t : ICallbackData {
 
     internal uint SubmittedText; // m_unSubmittedText uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GamepadTextInputDismissed_t));
 
@@ -702,7 +702,7 @@ struct GamepadTextInputDismissed_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GamepadTextInputDismissed;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -718,7 +718,7 @@ struct FavoritesListChanged_t : ICallbackData {
 
     internal uint AccountId; // m_unAccountId AccountID_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(FavoritesListChanged_t));
 
@@ -726,7 +726,7 @@ struct FavoritesListChanged_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.FavoritesListChanged;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -735,7 +735,7 @@ struct LobbyInvite_t : ICallbackData {
     internal ulong SteamIDLobby; // m_ulSteamIDLobby uint64
     internal ulong GameID; // m_ulGameID uint64
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(LobbyInvite_t));
 
@@ -743,7 +743,7 @@ struct LobbyInvite_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.LobbyInvite;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -756,7 +756,7 @@ struct LobbyEnter_t : ICallbackData {
 
     internal uint EChatRoomEnterResponse; // m_EChatRoomEnterResponse uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(LobbyEnter_t));
 
@@ -764,7 +764,7 @@ struct LobbyEnter_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.LobbyEnter;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -773,7 +773,7 @@ struct LobbyDataUpdate_t : ICallbackData {
     internal ulong SteamIDMember; // m_ulSteamIDMember uint64
     internal byte Success; // m_bSuccess uint8
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(LobbyDataUpdate_t));
 
@@ -781,7 +781,7 @@ struct LobbyDataUpdate_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.LobbyDataUpdate;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -791,7 +791,7 @@ struct LobbyChatUpdate_t : ICallbackData {
     internal ulong SteamIDMakingChange; // m_ulSteamIDMakingChange uint64
     internal uint GfChatMemberStateChange; // m_rgfChatMemberStateChange uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(LobbyChatUpdate_t));
 
@@ -799,7 +799,7 @@ struct LobbyChatUpdate_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.LobbyChatUpdate;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -809,7 +809,7 @@ struct LobbyChatMsg_t : ICallbackData {
     internal byte ChatEntryType; // m_eChatEntryType uint8
     internal uint ChatID; // m_iChatID uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(LobbyChatMsg_t));
 
@@ -817,7 +817,7 @@ struct LobbyChatMsg_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.LobbyChatMsg;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -827,7 +827,7 @@ struct LobbyGameCreated_t : ICallbackData {
     internal uint IP; // m_unIP uint32
     internal ushort Port; // m_usPort uint16
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(LobbyGameCreated_t));
 
@@ -835,14 +835,14 @@ struct LobbyGameCreated_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.LobbyGameCreated;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct LobbyMatchList_t : ICallbackData {
     internal uint LobbiesMatching; // m_nLobbiesMatching uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(LobbyMatchList_t));
 
@@ -850,7 +850,7 @@ struct LobbyMatchList_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.LobbyMatchList;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -859,7 +859,7 @@ struct LobbyKicked_t : ICallbackData {
     internal ulong SteamIDAdmin; // m_ulSteamIDAdmin uint64
     internal byte KickedDueToDisconnect; // m_bKickedDueToDisconnect uint8
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(LobbyKicked_t));
 
@@ -867,7 +867,7 @@ struct LobbyKicked_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.LobbyKicked;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -875,7 +875,7 @@ struct LobbyCreated_t : ICallbackData {
     internal Result Result; // m_eResult EResult
     internal ulong SteamIDLobby; // m_ulSteamIDLobby uint64
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(LobbyCreated_t));
 
@@ -883,7 +883,7 @@ struct LobbyCreated_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.LobbyCreated;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -893,7 +893,7 @@ struct PSNGameBootInviteResult_t : ICallbackData {
 
     internal ulong SteamIDLobby; // m_steamIDLobby CSteamID
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(PSNGameBootInviteResult_t));
 
@@ -901,14 +901,14 @@ struct PSNGameBootInviteResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.PSNGameBootInviteResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct FavoritesListAccountsUpdated_t : ICallbackData {
     internal Result Result; // m_eResult EResult
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(FavoritesListAccountsUpdated_t));
 
@@ -916,7 +916,7 @@ struct FavoritesListAccountsUpdated_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.FavoritesListAccountsUpdated;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -928,7 +928,7 @@ struct SearchForGameProgressCallback_t : ICallbackData {
     internal int SecondsRemainingEstimate; // m_nSecondsRemainingEstimate int32
     internal int CPlayersSearching; // m_cPlayersSearching int32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SearchForGameProgressCallback_t));
 
@@ -936,7 +936,7 @@ struct SearchForGameProgressCallback_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SearchForGameProgressCallback;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -950,7 +950,7 @@ struct SearchForGameResultCallback_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool FinalCallback; // m_bFinalCallback bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SearchForGameResultCallback_t));
 
@@ -958,7 +958,7 @@ struct SearchForGameResultCallback_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SearchForGameResultCallback;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -966,7 +966,7 @@ struct RequestPlayersForGameProgressCallback_t : ICallbackData {
     internal Result Result; // m_eResult EResult
     internal ulong LSearchID; // m_ullSearchID uint64
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RequestPlayersForGameProgressCallback_t));
 
@@ -974,7 +974,7 @@ struct RequestPlayersForGameProgressCallback_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RequestPlayersForGameProgressCallback;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -990,7 +990,7 @@ struct RequestPlayersForGameResultCallback_t : ICallbackData {
     internal int SuggestedTeamIndex; // m_nSuggestedTeamIndex int32
     internal ulong LUniqueGameID; // m_ullUniqueGameID uint64
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RequestPlayersForGameResultCallback_t));
 
@@ -998,7 +998,7 @@ struct RequestPlayersForGameResultCallback_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RequestPlayersForGameResultCallback;
 
-    #endregion
+#endregion
 
     internal enum PlayerAcceptState_t {
         Unknown = 0,
@@ -1013,7 +1013,7 @@ struct RequestPlayersForGameFinalResultCallback_t : ICallbackData {
     internal ulong LSearchID; // m_ullSearchID uint64
     internal ulong LUniqueGameID; // m_ullUniqueGameID uint64
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RequestPlayersForGameFinalResultCallback_t));
 
@@ -1021,7 +1021,7 @@ struct RequestPlayersForGameFinalResultCallback_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RequestPlayersForGameFinalResultCallback;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -1030,7 +1030,7 @@ struct SubmitPlayerResultResultCallback_t : ICallbackData {
     internal ulong UllUniqueGameID; // ullUniqueGameID uint64
     internal ulong SteamIDPlayer; // steamIDPlayer CSteamID
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SubmitPlayerResultResultCallback_t));
 
@@ -1038,7 +1038,7 @@ struct SubmitPlayerResultResultCallback_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SubmitPlayerResultResultCallback;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1046,7 +1046,7 @@ struct EndGameResultCallback_t : ICallbackData {
     internal Result Result; // m_eResult EResult
     internal ulong UllUniqueGameID; // ullUniqueGameID uint64
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(EndGameResultCallback_t));
 
@@ -1054,7 +1054,7 @@ struct EndGameResultCallback_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.EndGameResultCallback;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -1070,7 +1070,7 @@ struct JoinPartyCallback_t : ICallbackData {
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)] // byte[] m_rgchConnectString
     internal byte[] ConnectString; // m_rgchConnectString char [256]
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(JoinPartyCallback_t));
 
@@ -1078,7 +1078,7 @@ struct JoinPartyCallback_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.JoinPartyCallback;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1086,7 +1086,7 @@ struct CreateBeaconCallback_t : ICallbackData {
     internal Result Result; // m_eResult EResult
     internal ulong BeaconID; // m_ulBeaconID PartyBeaconID_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(CreateBeaconCallback_t));
 
@@ -1094,7 +1094,7 @@ struct CreateBeaconCallback_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.CreateBeaconCallback;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -1102,7 +1102,7 @@ struct ReservationNotificationCallback_t : ICallbackData {
     internal ulong BeaconID; // m_ulBeaconID PartyBeaconID_t
     internal ulong SteamIDJoiner; // m_steamIDJoiner CSteamID
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(ReservationNotificationCallback_t));
 
@@ -1110,14 +1110,14 @@ struct ReservationNotificationCallback_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.ReservationNotificationCallback;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct ChangeNumOpenSlotsCallback_t : ICallbackData {
     internal Result Result; // m_eResult EResult
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(ChangeNumOpenSlotsCallback_t));
 
@@ -1125,12 +1125,12 @@ struct ChangeNumOpenSlotsCallback_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.ChangeNumOpenSlotsCallback;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct AvailableBeaconLocationsUpdated_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(AvailableBeaconLocationsUpdated_t));
 
@@ -1138,12 +1138,12 @@ struct AvailableBeaconLocationsUpdated_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.AvailableBeaconLocationsUpdated;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct ActiveBeaconsUpdated_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(ActiveBeaconsUpdated_t));
 
@@ -1151,7 +1151,7 @@ struct ActiveBeaconsUpdated_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.ActiveBeaconsUpdated;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1160,7 +1160,7 @@ struct RemoteStorageAppSyncedClient_t : ICallbackData {
     internal Result Result; // m_eResult EResult
     internal int NumDownloads; // m_unNumDownloads int
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageAppSyncedClient_t));
 
@@ -1168,7 +1168,7 @@ struct RemoteStorageAppSyncedClient_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageAppSyncedClient;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1177,7 +1177,7 @@ struct RemoteStorageAppSyncedServer_t : ICallbackData {
     internal Result Result; // m_eResult EResult
     internal int NumUploads; // m_unNumUploads int
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageAppSyncedServer_t));
 
@@ -1185,7 +1185,7 @@ struct RemoteStorageAppSyncedServer_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageAppSyncedServer;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1204,7 +1204,7 @@ struct RemoteStorageAppSyncProgress_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool Uploading; // m_bUploading bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageAppSyncProgress_t));
 
@@ -1212,7 +1212,7 @@ struct RemoteStorageAppSyncProgress_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageAppSyncProgress;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1220,7 +1220,7 @@ struct RemoteStorageAppSyncStatusCheck_t : ICallbackData {
     internal AppId AppID; // m_nAppID AppId_t
     internal Result Result; // m_eResult EResult
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageAppSyncStatusCheck_t));
 
@@ -1228,7 +1228,7 @@ struct RemoteStorageAppSyncStatusCheck_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageAppSyncStatusCheck;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1243,7 +1243,7 @@ struct RemoteStorageFileShareResult_t : ICallbackData {
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 260)] // byte[] m_rgchFilename
     internal byte[] Filename; // m_rgchFilename char [260]
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageFileShareResult_t));
 
@@ -1251,7 +1251,7 @@ struct RemoteStorageFileShareResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageFileShareResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1262,7 +1262,7 @@ struct RemoteStoragePublishFileResult_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool UserNeedsToAcceptWorkshopLegalAgreement; // m_bUserNeedsToAcceptWorkshopLegalAgreement bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStoragePublishFileResult_t));
 
@@ -1270,7 +1270,7 @@ struct RemoteStoragePublishFileResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStoragePublishFileResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1278,7 +1278,7 @@ struct RemoteStorageDeletePublishedFileResult_t : ICallbackData {
     internal Result Result; // m_eResult EResult
     internal PublishedFileId PublishedFileId; // m_nPublishedFileId PublishedFileId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageDeletePublishedFileResult_t));
 
@@ -1286,7 +1286,7 @@ struct RemoteStorageDeletePublishedFileResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageDeletePublishedFileResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1298,7 +1298,7 @@ struct RemoteStorageEnumerateUserPublishedFilesResult_t : ICallbackData {
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 50, ArraySubType = UnmanagedType.U8)]
     internal PublishedFileId[] GPublishedFileId; // m_rgPublishedFileId PublishedFileId_t [50]
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageEnumerateUserPublishedFilesResult_t));
 
@@ -1306,7 +1306,7 @@ struct RemoteStorageEnumerateUserPublishedFilesResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageEnumerateUserPublishedFilesResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1314,7 +1314,7 @@ struct RemoteStorageSubscribePublishedFileResult_t : ICallbackData {
     internal Result Result; // m_eResult EResult
     internal PublishedFileId PublishedFileId; // m_nPublishedFileId PublishedFileId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageSubscribePublishedFileResult_t));
 
@@ -1322,7 +1322,7 @@ struct RemoteStorageSubscribePublishedFileResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageSubscribePublishedFileResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1337,7 +1337,7 @@ struct RemoteStorageEnumerateUserSubscribedFilesResult_t : ICallbackData {
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 50, ArraySubType = UnmanagedType.U4)]
     internal uint[] GRTimeSubscribed; // m_rgRTimeSubscribed uint32 [50]
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageEnumerateUserSubscribedFilesResult_t));
 
@@ -1345,7 +1345,7 @@ struct RemoteStorageEnumerateUserSubscribedFilesResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageEnumerateUserSubscribedFilesResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1353,7 +1353,7 @@ struct RemoteStorageUnsubscribePublishedFileResult_t : ICallbackData {
     internal Result Result; // m_eResult EResult
     internal PublishedFileId PublishedFileId; // m_nPublishedFileId PublishedFileId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageUnsubscribePublishedFileResult_t));
 
@@ -1361,7 +1361,7 @@ struct RemoteStorageUnsubscribePublishedFileResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageUnsubscribePublishedFileResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1372,7 +1372,7 @@ struct RemoteStorageUpdatePublishedFileResult_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool UserNeedsToAcceptWorkshopLegalAgreement; // m_bUserNeedsToAcceptWorkshopLegalAgreement bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageUpdatePublishedFileResult_t));
 
@@ -1380,7 +1380,7 @@ struct RemoteStorageUpdatePublishedFileResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageUpdatePublishedFileResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1399,7 +1399,7 @@ struct RemoteStorageDownloadUGCResult_t : ICallbackData {
 
     internal ulong SteamIDOwner; // m_ulSteamIDOwner uint64
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageDownloadUGCResult_t));
 
@@ -1407,7 +1407,7 @@ struct RemoteStorageDownloadUGCResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageDownloadUGCResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1473,7 +1473,7 @@ struct RemoteStorageGetPublishedFileDetailsResult_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool AcceptedForUse; // m_bAcceptedForUse bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageGetPublishedFileDetailsResult_t));
 
@@ -1481,7 +1481,7 @@ struct RemoteStorageGetPublishedFileDetailsResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageGetPublishedFileDetailsResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1499,7 +1499,7 @@ struct RemoteStorageEnumerateWorkshopFilesResult_t : ICallbackData {
     internal AppId AppId; // m_nAppId AppId_t
     internal uint StartIndex; // m_unStartIndex uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageEnumerateWorkshopFilesResult_t));
 
@@ -1507,7 +1507,7 @@ struct RemoteStorageEnumerateWorkshopFilesResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageEnumerateWorkshopFilesResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1519,7 +1519,7 @@ struct RemoteStorageGetPublishedItemVoteDetailsResult_t : ICallbackData {
     internal int Reports; // m_nReports int32
     internal float FScore; // m_fScore float
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageGetPublishedItemVoteDetailsResult_t));
 
@@ -1527,7 +1527,7 @@ struct RemoteStorageGetPublishedItemVoteDetailsResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageGetPublishedItemVoteDetailsResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1535,7 +1535,7 @@ struct RemoteStoragePublishedFileSubscribed_t : ICallbackData {
     internal PublishedFileId PublishedFileId; // m_nPublishedFileId PublishedFileId_t
     internal AppId AppID; // m_nAppID AppId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStoragePublishedFileSubscribed_t));
 
@@ -1543,7 +1543,7 @@ struct RemoteStoragePublishedFileSubscribed_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStoragePublishedFileSubscribed;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1551,7 +1551,7 @@ struct RemoteStoragePublishedFileUnsubscribed_t : ICallbackData {
     internal PublishedFileId PublishedFileId; // m_nPublishedFileId PublishedFileId_t
     internal AppId AppID; // m_nAppID AppId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStoragePublishedFileUnsubscribed_t));
 
@@ -1559,7 +1559,7 @@ struct RemoteStoragePublishedFileUnsubscribed_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStoragePublishedFileUnsubscribed;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1567,7 +1567,7 @@ struct RemoteStoragePublishedFileDeleted_t : ICallbackData {
     internal PublishedFileId PublishedFileId; // m_nPublishedFileId PublishedFileId_t
     internal AppId AppID; // m_nAppID AppId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStoragePublishedFileDeleted_t));
 
@@ -1575,7 +1575,7 @@ struct RemoteStoragePublishedFileDeleted_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStoragePublishedFileDeleted;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1583,7 +1583,7 @@ struct RemoteStorageUpdateUserPublishedItemVoteResult_t : ICallbackData {
     internal Result Result; // m_eResult EResult
     internal PublishedFileId PublishedFileId; // m_nPublishedFileId PublishedFileId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageUpdateUserPublishedItemVoteResult_t));
 
@@ -1591,7 +1591,7 @@ struct RemoteStorageUpdateUserPublishedItemVoteResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageUpdateUserPublishedItemVoteResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1600,7 +1600,7 @@ struct RemoteStorageUserVoteDetails_t : ICallbackData {
     internal PublishedFileId PublishedFileId; // m_nPublishedFileId PublishedFileId_t
     internal WorkshopVote Vote; // m_eVote EWorkshopVote
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageUserVoteDetails_t));
 
@@ -1608,7 +1608,7 @@ struct RemoteStorageUserVoteDetails_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageUserVoteDetails;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1620,7 +1620,7 @@ struct RemoteStorageEnumerateUserSharedWorkshopFilesResult_t : ICallbackData {
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 50, ArraySubType = UnmanagedType.U8)]
     internal PublishedFileId[] GPublishedFileId; // m_rgPublishedFileId PublishedFileId_t [50]
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageEnumerateUserSharedWorkshopFilesResult_t));
 
@@ -1628,7 +1628,7 @@ struct RemoteStorageEnumerateUserSharedWorkshopFilesResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageEnumerateUserSharedWorkshopFilesResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1637,7 +1637,7 @@ struct RemoteStorageSetUserPublishedFileActionResult_t : ICallbackData {
     internal PublishedFileId PublishedFileId; // m_nPublishedFileId PublishedFileId_t
     internal WorkshopFileAction Action; // m_eAction EWorkshopFileAction
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageSetUserPublishedFileActionResult_t));
 
@@ -1645,7 +1645,7 @@ struct RemoteStorageSetUserPublishedFileActionResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageSetUserPublishedFileActionResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1661,7 +1661,7 @@ struct RemoteStorageEnumeratePublishedFilesByUserActionResult_t : ICallbackData 
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 50, ArraySubType = UnmanagedType.U4)]
     internal uint[] GRTimeUpdated; // m_rgRTimeUpdated uint32 [50]
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageEnumeratePublishedFilesByUserActionResult_t));
 
@@ -1669,7 +1669,7 @@ struct RemoteStorageEnumeratePublishedFilesByUserActionResult_t : ICallbackData 
 
     public CallbackType CallbackType => CallbackType.RemoteStorageEnumeratePublishedFilesByUserActionResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1679,7 +1679,7 @@ struct RemoteStoragePublishFileProgress_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool Preview; // m_bPreview bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStoragePublishFileProgress_t));
 
@@ -1687,7 +1687,7 @@ struct RemoteStoragePublishFileProgress_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStoragePublishFileProgress;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1696,7 +1696,7 @@ struct RemoteStoragePublishedFileUpdated_t : ICallbackData {
     internal AppId AppID; // m_nAppID AppId_t
     internal ulong Unused; // m_ulUnused uint64
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStoragePublishedFileUpdated_t));
 
@@ -1704,14 +1704,14 @@ struct RemoteStoragePublishedFileUpdated_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStoragePublishedFileUpdated;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct RemoteStorageFileWriteAsyncComplete_t : ICallbackData {
     internal Result Result; // m_eResult EResult
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageFileWriteAsyncComplete_t));
 
@@ -1719,7 +1719,7 @@ struct RemoteStorageFileWriteAsyncComplete_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageFileWriteAsyncComplete;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1729,7 +1729,7 @@ struct RemoteStorageFileReadAsyncComplete_t : ICallbackData {
     internal uint Offset; // m_nOffset uint32
     internal uint Read; // m_cubRead uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoteStorageFileReadAsyncComplete_t));
 
@@ -1737,7 +1737,7 @@ struct RemoteStorageFileReadAsyncComplete_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoteStorageFileReadAsyncComplete;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -1746,7 +1746,7 @@ struct UserStatsReceived_t : ICallbackData {
     internal Result Result; // m_eResult EResult
     internal ulong SteamIDUser; // m_steamIDUser CSteamID
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(UserStatsReceived_t));
 
@@ -1754,7 +1754,7 @@ struct UserStatsReceived_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.UserStatsReceived;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1762,7 +1762,7 @@ struct UserStatsStored_t : ICallbackData {
     internal ulong GameID; // m_nGameID uint64
     internal Result Result; // m_eResult EResult
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(UserStatsStored_t));
 
@@ -1770,7 +1770,7 @@ struct UserStatsStored_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.UserStatsStored;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1790,7 +1790,7 @@ struct UserAchievementStored_t : ICallbackData {
     internal uint CurProgress; // m_nCurProgress uint32
     internal uint MaxProgress; // m_nMaxProgress uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(UserAchievementStored_t));
 
@@ -1798,7 +1798,7 @@ struct UserAchievementStored_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.UserAchievementStored;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1806,7 +1806,7 @@ struct LeaderboardFindResult_t : ICallbackData {
     internal ulong SteamLeaderboard; // m_hSteamLeaderboard SteamLeaderboard_t
     internal byte LeaderboardFound; // m_bLeaderboardFound uint8
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(LeaderboardFindResult_t));
 
@@ -1814,7 +1814,7 @@ struct LeaderboardFindResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.LeaderboardFindResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1823,7 +1823,7 @@ struct LeaderboardScoresDownloaded_t : ICallbackData {
     internal ulong SteamLeaderboardEntries; // m_hSteamLeaderboardEntries SteamLeaderboardEntries_t
     internal int CEntryCount; // m_cEntryCount int
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(LeaderboardScoresDownloaded_t));
 
@@ -1831,7 +1831,7 @@ struct LeaderboardScoresDownloaded_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.LeaderboardScoresDownloaded;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1843,7 +1843,7 @@ struct LeaderboardScoreUploaded_t : ICallbackData {
     internal int GlobalRankNew; // m_nGlobalRankNew int
     internal int GlobalRankPrevious; // m_nGlobalRankPrevious int
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(LeaderboardScoreUploaded_t));
 
@@ -1851,7 +1851,7 @@ struct LeaderboardScoreUploaded_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.LeaderboardScoreUploaded;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1859,7 +1859,7 @@ struct NumberOfCurrentPlayers_t : ICallbackData {
     internal byte Success; // m_bSuccess uint8
     internal int CPlayers; // m_cPlayers int32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(NumberOfCurrentPlayers_t));
 
@@ -1867,14 +1867,14 @@ struct NumberOfCurrentPlayers_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.NumberOfCurrentPlayers;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct UserStatsUnloaded_t : ICallbackData {
     internal ulong SteamIDUser; // m_steamIDUser CSteamID
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(UserStatsUnloaded_t));
 
@@ -1882,7 +1882,7 @@ struct UserStatsUnloaded_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.UserStatsUnloaded;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1901,7 +1901,7 @@ struct UserAchievementIconFetched_t : ICallbackData {
 
     internal int IconHandle; // m_nIconHandle int
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(UserAchievementIconFetched_t));
 
@@ -1909,7 +1909,7 @@ struct UserAchievementIconFetched_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.UserAchievementIconFetched;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1917,7 +1917,7 @@ struct GlobalAchievementPercentagesReady_t : ICallbackData {
     internal ulong GameID; // m_nGameID uint64
     internal Result Result; // m_eResult EResult
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GlobalAchievementPercentagesReady_t));
 
@@ -1925,7 +1925,7 @@ struct GlobalAchievementPercentagesReady_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GlobalAchievementPercentagesReady;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1933,7 +1933,7 @@ struct LeaderboardUGCSet_t : ICallbackData {
     internal Result Result; // m_eResult EResult
     internal ulong SteamLeaderboard; // m_hSteamLeaderboard SteamLeaderboard_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(LeaderboardUGCSet_t));
 
@@ -1941,7 +1941,7 @@ struct LeaderboardUGCSet_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.LeaderboardUGCSet;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1949,7 +1949,7 @@ struct GlobalStatsReceived_t : ICallbackData {
     internal ulong GameID; // m_nGameID uint64
     internal Result Result; // m_eResult EResult
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GlobalStatsReceived_t));
 
@@ -1957,14 +1957,14 @@ struct GlobalStatsReceived_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GlobalStatsReceived;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct DlcInstalled_t : ICallbackData {
     internal AppId AppID; // m_nAppID AppId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(DlcInstalled_t));
 
@@ -1972,7 +1972,7 @@ struct DlcInstalled_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.DlcInstalled;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -1980,7 +1980,7 @@ struct RegisterActivationCodeResponse_t : ICallbackData {
     internal RegisterActivationCodeResult Result; // m_eResult ERegisterActivationCodeResult
     internal uint PackageRegistered; // m_unPackageRegistered uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RegisterActivationCodeResponse_t));
 
@@ -1988,12 +1988,12 @@ struct RegisterActivationCodeResponse_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RegisterActivationCodeResponse;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct NewUrlLaunchParameters_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(NewUrlLaunchParameters_t));
 
@@ -2001,7 +2001,7 @@ struct NewUrlLaunchParameters_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.NewUrlLaunchParameters;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2017,7 +2017,7 @@ struct AppProofOfPurchaseKeyResponse_t : ICallbackData {
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 240)] // byte[] m_rgchKey
     internal byte[] Key; // m_rgchKey char [240]
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(AppProofOfPurchaseKeyResponse_t));
 
@@ -2025,7 +2025,7 @@ struct AppProofOfPurchaseKeyResponse_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.AppProofOfPurchaseKeyResponse;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2038,7 +2038,7 @@ struct FileDetailsResult_t : ICallbackData {
 
     internal uint Flags; // m_unFlags uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(FileDetailsResult_t));
 
@@ -2046,7 +2046,7 @@ struct FileDetailsResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.FileDetailsResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2059,7 +2059,7 @@ struct TimedTrialStatus_t : ICallbackData {
     internal uint SecondsAllowed; // m_unSecondsAllowed uint32
     internal uint SecondsPlayed; // m_unSecondsPlayed uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(TimedTrialStatus_t));
 
@@ -2067,14 +2067,14 @@ struct TimedTrialStatus_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.TimedTrialStatus;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct P2PSessionRequest_t : ICallbackData {
     internal ulong SteamIDRemote; // m_steamIDRemote CSteamID
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(P2PSessionRequest_t));
 
@@ -2082,7 +2082,7 @@ struct P2PSessionRequest_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.P2PSessionRequest;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2090,7 +2090,7 @@ struct P2PSessionConnectFail_t : ICallbackData {
     internal ulong SteamIDRemote; // m_steamIDRemote CSteamID
     internal byte P2PSessionError; // m_eP2PSessionError uint8
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(P2PSessionConnectFail_t));
 
@@ -2098,7 +2098,7 @@ struct P2PSessionConnectFail_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.P2PSessionConnectFail;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2106,7 +2106,7 @@ struct ScreenshotReady_t : ICallbackData {
     internal uint Local; // m_hLocal ScreenshotHandle
     internal Result Result; // m_eResult EResult
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(ScreenshotReady_t));
 
@@ -2114,12 +2114,12 @@ struct ScreenshotReady_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.ScreenshotReady;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct ScreenshotRequested_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(ScreenshotRequested_t));
 
@@ -2127,12 +2127,12 @@ struct ScreenshotRequested_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.ScreenshotRequested;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct PlaybackStatusHasChanged_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(PlaybackStatusHasChanged_t));
 
@@ -2140,14 +2140,14 @@ struct PlaybackStatusHasChanged_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.PlaybackStatusHasChanged;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct VolumeHasChanged_t : ICallbackData {
     internal float NewVolume; // m_flNewVolume float
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(VolumeHasChanged_t));
 
@@ -2155,12 +2155,12 @@ struct VolumeHasChanged_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.VolumeHasChanged;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct MusicPlayerRemoteWillActivate_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerRemoteWillActivate_t));
 
@@ -2168,12 +2168,12 @@ struct MusicPlayerRemoteWillActivate_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.MusicPlayerRemoteWillActivate;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct MusicPlayerRemoteWillDeactivate_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerRemoteWillDeactivate_t));
 
@@ -2181,12 +2181,12 @@ struct MusicPlayerRemoteWillDeactivate_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.MusicPlayerRemoteWillDeactivate;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct MusicPlayerRemoteToFront_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerRemoteToFront_t));
 
@@ -2194,12 +2194,12 @@ struct MusicPlayerRemoteToFront_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.MusicPlayerRemoteToFront;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct MusicPlayerWillQuit_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerWillQuit_t));
 
@@ -2207,12 +2207,12 @@ struct MusicPlayerWillQuit_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.MusicPlayerWillQuit;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct MusicPlayerWantsPlay_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerWantsPlay_t));
 
@@ -2220,12 +2220,12 @@ struct MusicPlayerWantsPlay_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.MusicPlayerWantsPlay;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct MusicPlayerWantsPause_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerWantsPause_t));
 
@@ -2233,12 +2233,12 @@ struct MusicPlayerWantsPause_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.MusicPlayerWantsPause;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct MusicPlayerWantsPlayPrevious_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerWantsPlayPrevious_t));
 
@@ -2246,12 +2246,12 @@ struct MusicPlayerWantsPlayPrevious_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.MusicPlayerWantsPlayPrevious;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct MusicPlayerWantsPlayNext_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerWantsPlayNext_t));
 
@@ -2259,7 +2259,7 @@ struct MusicPlayerWantsPlayNext_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.MusicPlayerWantsPlayNext;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2267,7 +2267,7 @@ struct MusicPlayerWantsShuffled_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool Shuffled; // m_bShuffled bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerWantsShuffled_t));
 
@@ -2275,7 +2275,7 @@ struct MusicPlayerWantsShuffled_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.MusicPlayerWantsShuffled;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2283,7 +2283,7 @@ struct MusicPlayerWantsLooped_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool Looped; // m_bLooped bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerWantsLooped_t));
 
@@ -2291,14 +2291,14 @@ struct MusicPlayerWantsLooped_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.MusicPlayerWantsLooped;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct MusicPlayerWantsVolume_t : ICallbackData {
     internal float NewVolume; // m_flNewVolume float
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerWantsVolume_t));
 
@@ -2306,14 +2306,14 @@ struct MusicPlayerWantsVolume_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.MusicPlayerWantsVolume;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct MusicPlayerSelectsQueueEntry_t : ICallbackData {
     internal int NID; // nID int
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerSelectsQueueEntry_t));
 
@@ -2321,14 +2321,14 @@ struct MusicPlayerSelectsQueueEntry_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.MusicPlayerSelectsQueueEntry;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct MusicPlayerSelectsPlaylistEntry_t : ICallbackData {
     internal int NID; // nID int
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerSelectsPlaylistEntry_t));
 
@@ -2336,14 +2336,14 @@ struct MusicPlayerSelectsPlaylistEntry_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.MusicPlayerSelectsPlaylistEntry;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct MusicPlayerWantsPlayingRepeatStatus_t : ICallbackData {
     internal int PlayingRepeatStatus; // m_nPlayingRepeatStatus int
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(MusicPlayerWantsPlayingRepeatStatus_t));
 
@@ -2351,7 +2351,7 @@ struct MusicPlayerWantsPlayingRepeatStatus_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.MusicPlayerWantsPlayingRepeatStatus;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2365,7 +2365,7 @@ struct HTTPRequestCompleted_t : ICallbackData {
     internal HTTPStatusCode StatusCode; // m_eStatusCode EHTTPStatusCode
     internal uint BodySize; // m_unBodySize uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTTPRequestCompleted_t));
 
@@ -2373,7 +2373,7 @@ struct HTTPRequestCompleted_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTTPRequestCompleted;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2381,7 +2381,7 @@ struct HTTPRequestHeadersReceived_t : ICallbackData {
     internal uint Request; // m_hRequest HTTPRequestHandle
     internal ulong ContextValue; // m_ulContextValue uint64
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTTPRequestHeadersReceived_t));
 
@@ -2389,7 +2389,7 @@ struct HTTPRequestHeadersReceived_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTTPRequestHeadersReceived;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2399,7 +2399,7 @@ struct HTTPRequestDataReceived_t : ICallbackData {
     internal uint COffset; // m_cOffset uint32
     internal uint CBytesReceived; // m_cBytesReceived uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTTPRequestDataReceived_t));
 
@@ -2407,7 +2407,7 @@ struct HTTPRequestDataReceived_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTTPRequestDataReceived;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2427,7 +2427,7 @@ struct SteamUGCQueryCompleted_t : ICallbackData {
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)] // byte[] m_rgchNextCursor
     internal byte[] NextCursor; // m_rgchNextCursor char [256]
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamUGCQueryCompleted_t));
 
@@ -2435,7 +2435,7 @@ struct SteamUGCQueryCompleted_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamUGCQueryCompleted;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2445,7 +2445,7 @@ struct SteamUGCRequestUGCDetailsResult_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool CachedData; // m_bCachedData bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamUGCRequestUGCDetailsResult_t));
 
@@ -2453,7 +2453,7 @@ struct SteamUGCRequestUGCDetailsResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamUGCRequestUGCDetailsResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2464,7 +2464,7 @@ struct CreateItemResult_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool UserNeedsToAcceptWorkshopLegalAgreement; // m_bUserNeedsToAcceptWorkshopLegalAgreement bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(CreateItemResult_t));
 
@@ -2472,7 +2472,7 @@ struct CreateItemResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.CreateItemResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2484,7 +2484,7 @@ struct SubmitItemUpdateResult_t : ICallbackData {
 
     internal PublishedFileId PublishedFileId; // m_nPublishedFileId PublishedFileId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SubmitItemUpdateResult_t));
 
@@ -2492,7 +2492,7 @@ struct SubmitItemUpdateResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SubmitItemUpdateResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2500,7 +2500,7 @@ struct ItemInstalled_t : ICallbackData {
     internal AppId AppID; // m_unAppID AppId_t
     internal PublishedFileId PublishedFileId; // m_nPublishedFileId PublishedFileId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(ItemInstalled_t));
 
@@ -2508,7 +2508,7 @@ struct ItemInstalled_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.ItemInstalled;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2517,7 +2517,7 @@ struct DownloadItemResult_t : ICallbackData {
     internal PublishedFileId PublishedFileId; // m_nPublishedFileId PublishedFileId_t
     internal Result Result; // m_eResult EResult
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(DownloadItemResult_t));
 
@@ -2525,7 +2525,7 @@ struct DownloadItemResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.DownloadItemResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2536,7 +2536,7 @@ struct UserFavoriteItemsListChanged_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool WasAddRequest; // m_bWasAddRequest bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(UserFavoriteItemsListChanged_t));
 
@@ -2544,7 +2544,7 @@ struct UserFavoriteItemsListChanged_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.UserFavoriteItemsListChanged;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2555,7 +2555,7 @@ struct SetUserItemVoteResult_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool VoteUp; // m_bVoteUp bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SetUserItemVoteResult_t));
 
@@ -2563,7 +2563,7 @@ struct SetUserItemVoteResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SetUserItemVoteResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2580,7 +2580,7 @@ struct GetUserItemVoteResult_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool VoteSkipped; // m_bVoteSkipped bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GetUserItemVoteResult_t));
 
@@ -2588,14 +2588,14 @@ struct GetUserItemVoteResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GetUserItemVoteResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct StartPlaytimeTrackingResult_t : ICallbackData {
     internal Result Result; // m_eResult EResult
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(StartPlaytimeTrackingResult_t));
 
@@ -2603,14 +2603,14 @@ struct StartPlaytimeTrackingResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.StartPlaytimeTrackingResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct StopPlaytimeTrackingResult_t : ICallbackData {
     internal Result Result; // m_eResult EResult
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(StopPlaytimeTrackingResult_t));
 
@@ -2618,7 +2618,7 @@ struct StopPlaytimeTrackingResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.StopPlaytimeTrackingResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2627,7 +2627,7 @@ struct AddUGCDependencyResult_t : ICallbackData {
     internal PublishedFileId PublishedFileId; // m_nPublishedFileId PublishedFileId_t
     internal PublishedFileId ChildPublishedFileId; // m_nChildPublishedFileId PublishedFileId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(AddUGCDependencyResult_t));
 
@@ -2635,7 +2635,7 @@ struct AddUGCDependencyResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.AddUGCDependencyResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2644,7 +2644,7 @@ struct RemoveUGCDependencyResult_t : ICallbackData {
     internal PublishedFileId PublishedFileId; // m_nPublishedFileId PublishedFileId_t
     internal PublishedFileId ChildPublishedFileId; // m_nChildPublishedFileId PublishedFileId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoveUGCDependencyResult_t));
 
@@ -2652,7 +2652,7 @@ struct RemoveUGCDependencyResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoveUGCDependencyResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2661,7 +2661,7 @@ struct AddAppDependencyResult_t : ICallbackData {
     internal PublishedFileId PublishedFileId; // m_nPublishedFileId PublishedFileId_t
     internal AppId AppID; // m_nAppID AppId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(AddAppDependencyResult_t));
 
@@ -2669,7 +2669,7 @@ struct AddAppDependencyResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.AddAppDependencyResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2678,7 +2678,7 @@ struct RemoveAppDependencyResult_t : ICallbackData {
     internal PublishedFileId PublishedFileId; // m_nPublishedFileId PublishedFileId_t
     internal AppId AppID; // m_nAppID AppId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(RemoveAppDependencyResult_t));
 
@@ -2686,7 +2686,7 @@ struct RemoveAppDependencyResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.RemoveAppDependencyResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2700,7 +2700,7 @@ struct GetAppDependenciesResult_t : ICallbackData {
     internal uint NumAppDependencies; // m_nNumAppDependencies uint32
     internal uint TotalNumAppDependencies; // m_nTotalNumAppDependencies uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GetAppDependenciesResult_t));
 
@@ -2708,7 +2708,7 @@ struct GetAppDependenciesResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GetAppDependenciesResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2716,7 +2716,7 @@ struct DeleteItemResult_t : ICallbackData {
     internal Result Result; // m_eResult EResult
     internal PublishedFileId PublishedFileId; // m_nPublishedFileId PublishedFileId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(DeleteItemResult_t));
 
@@ -2724,14 +2724,14 @@ struct DeleteItemResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.DeleteItemResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct SteamAppInstalled_t : ICallbackData {
     internal AppId AppID; // m_nAppID AppId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamAppInstalled_t));
 
@@ -2739,14 +2739,14 @@ struct SteamAppInstalled_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamAppInstalled;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct SteamAppUninstalled_t : ICallbackData {
     internal AppId AppID; // m_nAppID AppId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamAppUninstalled_t));
 
@@ -2754,14 +2754,14 @@ struct SteamAppUninstalled_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamAppUninstalled;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct HTML_BrowserReady_t : ICallbackData {
     internal uint UnBrowserHandle; // unBrowserHandle HHTMLBrowser
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_BrowserReady_t));
 
@@ -2769,7 +2769,7 @@ struct HTML_BrowserReady_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_BrowserReady;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2787,7 +2787,7 @@ struct HTML_NeedsPaint_t : ICallbackData {
     internal float FlPageScale; // flPageScale float
     internal uint UnPageSerial; // unPageSerial uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_NeedsPaint_t));
 
@@ -2795,7 +2795,7 @@ struct HTML_NeedsPaint_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_NeedsPaint;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2808,7 +2808,7 @@ struct HTML_StartRequest_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool BIsRedirect; // bIsRedirect bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_StartRequest_t));
 
@@ -2816,14 +2816,14 @@ struct HTML_StartRequest_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_StartRequest;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct HTML_CloseBrowser_t : ICallbackData {
     internal uint UnBrowserHandle; // unBrowserHandle HHTMLBrowser
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_CloseBrowser_t));
 
@@ -2831,7 +2831,7 @@ struct HTML_CloseBrowser_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_CloseBrowser;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2848,7 +2848,7 @@ struct HTML_URLChanged_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool BNewNavigation; // bNewNavigation bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_URLChanged_t));
 
@@ -2856,7 +2856,7 @@ struct HTML_URLChanged_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_URLChanged;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2865,7 +2865,7 @@ struct HTML_FinishedRequest_t : ICallbackData {
     internal string PchURL; // pchURL const char *
     internal string PchPageTitle; // pchPageTitle const char *
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_FinishedRequest_t));
 
@@ -2873,7 +2873,7 @@ struct HTML_FinishedRequest_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_FinishedRequest;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2881,7 +2881,7 @@ struct HTML_OpenLinkInNewTab_t : ICallbackData {
     internal uint UnBrowserHandle; // unBrowserHandle HHTMLBrowser
     internal string PchURL; // pchURL const char *
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_OpenLinkInNewTab_t));
 
@@ -2889,7 +2889,7 @@ struct HTML_OpenLinkInNewTab_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_OpenLinkInNewTab;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2897,7 +2897,7 @@ struct HTML_ChangedTitle_t : ICallbackData {
     internal uint UnBrowserHandle; // unBrowserHandle HHTMLBrowser
     internal string PchTitle; // pchTitle const char *
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_ChangedTitle_t));
 
@@ -2905,7 +2905,7 @@ struct HTML_ChangedTitle_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_ChangedTitle;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2914,7 +2914,7 @@ struct HTML_SearchResults_t : ICallbackData {
     internal uint UnResults; // unResults uint32
     internal uint UnCurrentMatch; // unCurrentMatch uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_SearchResults_t));
 
@@ -2922,7 +2922,7 @@ struct HTML_SearchResults_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_SearchResults;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2935,7 +2935,7 @@ struct HTML_CanGoBackAndForward_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool BCanGoForward; // bCanGoForward bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_CanGoBackAndForward_t));
 
@@ -2943,7 +2943,7 @@ struct HTML_CanGoBackAndForward_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_CanGoBackAndForward;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2958,7 +2958,7 @@ struct HTML_HorizontalScroll_t : ICallbackData {
 
     internal uint UnPageSize; // unPageSize uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_HorizontalScroll_t));
 
@@ -2966,7 +2966,7 @@ struct HTML_HorizontalScroll_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_HorizontalScroll;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -2981,7 +2981,7 @@ struct HTML_VerticalScroll_t : ICallbackData {
 
     internal uint UnPageSize; // unPageSize uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_VerticalScroll_t));
 
@@ -2989,7 +2989,7 @@ struct HTML_VerticalScroll_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_VerticalScroll;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3005,7 +3005,7 @@ struct HTML_LinkAtPosition_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool BLiveLink; // bLiveLink bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_LinkAtPosition_t));
 
@@ -3013,7 +3013,7 @@ struct HTML_LinkAtPosition_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_LinkAtPosition;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3021,7 +3021,7 @@ struct HTML_JSAlert_t : ICallbackData {
     internal uint UnBrowserHandle; // unBrowserHandle HHTMLBrowser
     internal string PchMessage; // pchMessage const char *
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_JSAlert_t));
 
@@ -3029,7 +3029,7 @@ struct HTML_JSAlert_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_JSAlert;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3037,7 +3037,7 @@ struct HTML_JSConfirm_t : ICallbackData {
     internal uint UnBrowserHandle; // unBrowserHandle HHTMLBrowser
     internal string PchMessage; // pchMessage const char *
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_JSConfirm_t));
 
@@ -3045,7 +3045,7 @@ struct HTML_JSConfirm_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_JSConfirm;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3054,7 +3054,7 @@ struct HTML_FileOpenDialog_t : ICallbackData {
     internal string PchTitle; // pchTitle const char *
     internal string PchInitialFile; // pchInitialFile const char *
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_FileOpenDialog_t));
 
@@ -3062,7 +3062,7 @@ struct HTML_FileOpenDialog_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_FileOpenDialog;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3075,7 +3075,7 @@ struct HTML_NewWindow_t : ICallbackData {
     internal uint UnTall; // unTall uint32
     internal uint UnNewWindow_BrowserHandle_IGNORE; // unNewWindow_BrowserHandle_IGNORE HHTMLBrowser
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_NewWindow_t));
 
@@ -3083,7 +3083,7 @@ struct HTML_NewWindow_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_NewWindow;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3091,7 +3091,7 @@ struct HTML_SetCursor_t : ICallbackData {
     internal uint UnBrowserHandle; // unBrowserHandle HHTMLBrowser
     internal uint EMouseCursor; // eMouseCursor uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_SetCursor_t));
 
@@ -3099,7 +3099,7 @@ struct HTML_SetCursor_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_SetCursor;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3107,7 +3107,7 @@ struct HTML_StatusText_t : ICallbackData {
     internal uint UnBrowserHandle; // unBrowserHandle HHTMLBrowser
     internal string PchMsg; // pchMsg const char *
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_StatusText_t));
 
@@ -3115,7 +3115,7 @@ struct HTML_StatusText_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_StatusText;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3123,7 +3123,7 @@ struct HTML_ShowToolTip_t : ICallbackData {
     internal uint UnBrowserHandle; // unBrowserHandle HHTMLBrowser
     internal string PchMsg; // pchMsg const char *
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_ShowToolTip_t));
 
@@ -3131,7 +3131,7 @@ struct HTML_ShowToolTip_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_ShowToolTip;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3139,7 +3139,7 @@ struct HTML_UpdateToolTip_t : ICallbackData {
     internal uint UnBrowserHandle; // unBrowserHandle HHTMLBrowser
     internal string PchMsg; // pchMsg const char *
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_UpdateToolTip_t));
 
@@ -3147,14 +3147,14 @@ struct HTML_UpdateToolTip_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_UpdateToolTip;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct HTML_HideToolTip_t : ICallbackData {
     internal uint UnBrowserHandle; // unBrowserHandle HHTMLBrowser
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_HideToolTip_t));
 
@@ -3162,7 +3162,7 @@ struct HTML_HideToolTip_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_HideToolTip;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3170,7 +3170,7 @@ struct HTML_BrowserRestarted_t : ICallbackData {
     internal uint UnBrowserHandle; // unBrowserHandle HHTMLBrowser
     internal uint UnOldBrowserHandle; // unOldBrowserHandle HHTMLBrowser
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(HTML_BrowserRestarted_t));
 
@@ -3178,7 +3178,7 @@ struct HTML_BrowserRestarted_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.HTML_BrowserRestarted;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3186,7 +3186,7 @@ struct SteamInventoryResultReady_t : ICallbackData {
     internal int Handle; // m_handle SteamInventoryResult_t
     internal Result Result; // m_result EResult
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamInventoryResultReady_t));
 
@@ -3194,14 +3194,14 @@ struct SteamInventoryResultReady_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamInventoryResultReady;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct SteamInventoryFullUpdate_t : ICallbackData {
     internal int Handle; // m_handle SteamInventoryResult_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamInventoryFullUpdate_t));
 
@@ -3209,12 +3209,12 @@ struct SteamInventoryFullUpdate_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamInventoryFullUpdate;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct SteamInventoryDefinitionUpdate_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamInventoryDefinitionUpdate_t));
 
@@ -3222,7 +3222,7 @@ struct SteamInventoryDefinitionUpdate_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamInventoryDefinitionUpdate;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -3234,7 +3234,7 @@ struct SteamInventoryEligiblePromoItemDefIDs_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool CachedData; // m_bCachedData bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamInventoryEligiblePromoItemDefIDs_t));
 
@@ -3242,7 +3242,7 @@ struct SteamInventoryEligiblePromoItemDefIDs_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamInventoryEligiblePromoItemDefIDs;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3251,7 +3251,7 @@ struct SteamInventoryStartPurchaseResult_t : ICallbackData {
     internal ulong OrderID; // m_ulOrderID uint64
     internal ulong TransID; // m_ulTransID uint64
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamInventoryStartPurchaseResult_t));
 
@@ -3259,7 +3259,7 @@ struct SteamInventoryStartPurchaseResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamInventoryStartPurchaseResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3273,7 +3273,7 @@ struct SteamInventoryRequestPricesResult_t : ICallbackData {
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)] // byte[] m_rgchCurrency
     internal byte[] Currency; // m_rgchCurrency char [4]
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamInventoryRequestPricesResult_t));
 
@@ -3281,7 +3281,7 @@ struct SteamInventoryRequestPricesResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamInventoryRequestPricesResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3296,7 +3296,7 @@ struct GetVideoURLResult_t : ICallbackData {
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)] // byte[] m_rgchURL
     internal byte[] URL; // m_rgchURL char [256]
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GetVideoURLResult_t));
 
@@ -3304,7 +3304,7 @@ struct GetVideoURLResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GetVideoURLResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3312,7 +3312,7 @@ struct GetOPFSettingsResult_t : ICallbackData {
     internal Result Result; // m_eResult EResult
     internal AppId VideoAppID; // m_unVideoAppID AppId_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GetOPFSettingsResult_t));
 
@@ -3320,12 +3320,12 @@ struct GetOPFSettingsResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GetOPFSettingsResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct SteamParentalSettingsChanged_t : ICallbackData {
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamParentalSettingsChanged_t));
 
@@ -3333,14 +3333,14 @@ struct SteamParentalSettingsChanged_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamParentalSettingsChanged;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct SteamRemotePlaySessionConnected_t : ICallbackData {
     internal uint SessionID; // m_unSessionID RemotePlaySessionID_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamRemotePlaySessionConnected_t));
 
@@ -3348,14 +3348,14 @@ struct SteamRemotePlaySessionConnected_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamRemotePlaySessionConnected;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct SteamRemotePlaySessionDisconnected_t : ICallbackData {
     internal uint SessionID; // m_unSessionID RemotePlaySessionID_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamRemotePlaySessionDisconnected_t));
 
@@ -3363,14 +3363,14 @@ struct SteamRemotePlaySessionDisconnected_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamRemotePlaySessionDisconnected;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct SteamNetworkingMessagesSessionRequest_t : ICallbackData {
     internal NetIdentity DentityRemote; // m_identityRemote SteamNetworkingIdentity
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamNetworkingMessagesSessionRequest_t));
 
@@ -3378,14 +3378,14 @@ struct SteamNetworkingMessagesSessionRequest_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamNetworkingMessagesSessionRequest;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct SteamNetworkingMessagesSessionFailed_t : ICallbackData {
     internal ConnectionInfo Nfo; // m_info SteamNetConnectionInfo_t
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamNetworkingMessagesSessionFailed_t));
 
@@ -3393,7 +3393,7 @@ struct SteamNetworkingMessagesSessionFailed_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamNetworkingMessagesSessionFailed;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3402,7 +3402,7 @@ struct SteamNetConnectionStatusChangedCallback_t : ICallbackData {
     internal ConnectionInfo Nfo; // m_info SteamNetConnectionInfo_t
     internal ConnectionState OldState; // m_eOldState ESteamNetworkingConnectionState
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamNetConnectionStatusChangedCallback_t));
 
@@ -3410,7 +3410,7 @@ struct SteamNetConnectionStatusChangedCallback_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamNetConnectionStatusChangedCallback;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3424,7 +3424,7 @@ struct SteamNetAuthenticationStatus_t : ICallbackData {
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)] // byte[] m_debugMsg
     internal byte[] DebugMsg; // m_debugMsg char [256]
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamNetAuthenticationStatus_t));
 
@@ -3432,7 +3432,7 @@ struct SteamNetAuthenticationStatus_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamNetAuthenticationStatus;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3449,7 +3449,7 @@ struct SteamRelayNetworkStatus_t : ICallbackData {
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)] // byte[] m_debugMsg
     internal byte[] DebugMsg; // m_debugMsg char [256]
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(SteamRelayNetworkStatus_t));
 
@@ -3457,7 +3457,7 @@ struct SteamRelayNetworkStatus_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.SteamRelayNetworkStatus;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -3465,7 +3465,7 @@ struct GSClientApprove_t : ICallbackData {
     internal ulong SteamID; // m_SteamID CSteamID
     internal ulong OwnerSteamID; // m_OwnerSteamID CSteamID
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GSClientApprove_t));
 
@@ -3473,7 +3473,7 @@ struct GSClientApprove_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GSClientApprove;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3488,7 +3488,7 @@ struct GSClientDeny_t : ICallbackData {
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] // byte[] m_rgchOptionalText
     internal byte[] OptionalText; // m_rgchOptionalText char [128]
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GSClientDeny_t));
 
@@ -3496,7 +3496,7 @@ struct GSClientDeny_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GSClientDeny;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3504,7 +3504,7 @@ struct GSClientKick_t : ICallbackData {
     internal ulong SteamID; // m_SteamID CSteamID
     internal DenyReason DenyReason; // m_eDenyReason EDenyReason
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GSClientKick_t));
 
@@ -3512,7 +3512,7 @@ struct GSClientKick_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GSClientKick;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3529,7 +3529,7 @@ struct GSClientAchievementStatus_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool Unlocked; // m_bUnlocked bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GSClientAchievementStatus_t));
 
@@ -3537,14 +3537,14 @@ struct GSClientAchievementStatus_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GSClientAchievementStatus;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct GSPolicyResponse_t : ICallbackData {
     internal byte Secure; // m_bSecure uint8
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GSPolicyResponse_t));
 
@@ -3552,7 +3552,7 @@ struct GSPolicyResponse_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GSPolicyResponse;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3562,7 +3562,7 @@ struct GSGameplayStats_t : ICallbackData {
     internal uint TotalConnects; // m_unTotalConnects uint32
     internal uint TotalMinutesPlayed; // m_unTotalMinutesPlayed uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GSGameplayStats_t));
 
@@ -3570,7 +3570,7 @@ struct GSGameplayStats_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GSGameplayStats;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -3584,7 +3584,7 @@ struct GSClientGroupStatus_t : ICallbackData {
     [MarshalAs(UnmanagedType.I1)]
     internal bool Officer; // m_bOfficer bool
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GSClientGroupStatus_t));
 
@@ -3592,7 +3592,7 @@ struct GSClientGroupStatus_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GSClientGroupStatus;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
@@ -3608,7 +3608,7 @@ struct GSReputation_t : ICallbackData {
     internal ulong BannedGameID; // m_ulBannedGameID uint64
     internal uint BanExpires; // m_unBanExpires uint32
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GSReputation_t));
 
@@ -3616,14 +3616,14 @@ struct GSReputation_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GSReputation;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct AssociateWithClanResult_t : ICallbackData {
     internal Result Result; // m_eResult EResult
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(AssociateWithClanResult_t));
 
@@ -3631,7 +3631,7 @@ struct AssociateWithClanResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.AssociateWithClanResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -3642,7 +3642,7 @@ struct ComputeNewPlayerCompatibilityResult_t : ICallbackData {
     internal int CClanPlayersThatDontLikeCandidate; // m_cClanPlayersThatDontLikeCandidate int
     internal ulong SteamIDCandidate; // m_SteamIDCandidate CSteamID
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(ComputeNewPlayerCompatibilityResult_t));
 
@@ -3650,7 +3650,7 @@ struct ComputeNewPlayerCompatibilityResult_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.ComputeNewPlayerCompatibilityResult;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -3658,7 +3658,7 @@ struct GSStatsReceived_t : ICallbackData {
     internal Result Result; // m_eResult EResult
     internal ulong SteamIDUser; // m_steamIDUser CSteamID
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GSStatsReceived_t));
 
@@ -3666,7 +3666,7 @@ struct GSStatsReceived_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GSStatsReceived;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPackSize)]
@@ -3674,7 +3674,7 @@ struct GSStatsStored_t : ICallbackData {
     internal Result Result; // m_eResult EResult
     internal ulong SteamIDUser; // m_steamIDUser CSteamID
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GSStatsStored_t));
 
@@ -3682,14 +3682,14 @@ struct GSStatsStored_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GSStatsStored;
 
-    #endregion
+#endregion
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize)]
 struct GSStatsUnloaded_t : ICallbackData {
     internal ulong SteamIDUser; // m_steamIDUser CSteamID
 
-    #region SteamCallback
+#region SteamCallback
 
     public static int _datasize = Marshal.SizeOf(typeof(GSStatsUnloaded_t));
 
@@ -3697,5 +3697,5 @@ struct GSStatsUnloaded_t : ICallbackData {
 
     public CallbackType CallbackType => CallbackType.GSStatsUnloaded;
 
-    #endregion
+#endregion
 }

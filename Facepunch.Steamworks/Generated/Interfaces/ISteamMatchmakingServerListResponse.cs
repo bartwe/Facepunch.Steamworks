@@ -9,34 +9,34 @@ sealed class ISteamMatchmakingServerListResponse : SteamInterface {
         SetupInterface(IsGameServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmakingServerListResponse_ServerResponded", CallingConvention = Platform.CC)]
     static extern void _ServerResponded(IntPtr self, HServerListRequest hRequest, int iServer);
 
-    #endregion
+#endregion
 
     internal void ServerResponded(HServerListRequest hRequest, int iServer) {
         _ServerResponded(Self, hRequest, iServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmakingServerListResponse_ServerFailedToRespond", CallingConvention = Platform.CC)]
     static extern void _ServerFailedToRespond(IntPtr self, HServerListRequest hRequest, int iServer);
 
-    #endregion
+#endregion
 
     internal void ServerFailedToRespond(HServerListRequest hRequest, int iServer) {
         _ServerFailedToRespond(Self, hRequest, iServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmakingServerListResponse_RefreshComplete", CallingConvention = Platform.CC)]
     static extern void _RefreshComplete(IntPtr self, HServerListRequest hRequest, MatchMakingServerResponse response);
 
-    #endregion
+#endregion
 
     internal void RefreshComplete(HServerListRequest hRequest, MatchMakingServerResponse response) {
         _RefreshComplete(Self, hRequest, response);

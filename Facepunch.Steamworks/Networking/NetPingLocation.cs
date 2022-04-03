@@ -36,21 +36,21 @@ public struct NetPingLocation {
     /// the relay network.  For most basic relayed connections, this ping time
     /// will be pretty accurate, since it will be based on the route likely to
     /// be actually used.
-    ///
+    /// 
     /// If a direct IP route is used (perhaps via NAT traversal), then the route
     /// will be different, and the ping time might be better.  Or it might actually
     /// be a bit worse!  Standard IP routing is frequently suboptimal!
-    ///
+    /// 
     /// But even in this case, the estimate obtained using this method is a
     /// reasonable upper bound on the ping time.  (Also it has the advantage
     /// of returning immediately and not sending any packets.)
-    ///
+    /// 
     /// In a few cases we might not able to estimate the route.  In this case
     /// a negative value is returned.  k_nSteamNetworkingPing_Failed means
     /// the reason was because of some networking difficulty.  (Failure to
     /// ping, etc)  k_nSteamNetworkingPing_Unknown is returned if we cannot
     /// currently answer the question for some other reason.
-    ///
+    /// 
     /// Do you need to be able to do this from a backend/matchmaking server?
     /// You are looking for the "ticketgen" library.
     public int EstimatePingTo(NetPingLocation target) {

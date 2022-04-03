@@ -25,9 +25,7 @@ public struct InventoryRecipe : IEquatable<InventoryRecipe> {
         public int Count;
 
         internal static Ingredient FromString(string part) {
-            var i = new Ingredient {
-                Count = 1
-            };
+            var i = new Ingredient { Count = 1 };
 
             try {
                 if (part.Contains('x')) {

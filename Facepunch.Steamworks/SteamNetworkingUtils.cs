@@ -260,7 +260,7 @@ public sealed class SteamNetworkingUtils : SteamSharedClass<SteamNetworkingUtils
         public string Msg;
     }
 
-    #region Config Internals
+#region Config Internals
 
     internal static unsafe bool SetConfigInt(NetConfig type, int value) {
         var ptr = &value;
@@ -345,5 +345,5 @@ public sealed class SteamNetworkingUtils : SteamSharedClass<SteamNetworkingUtils
         }
     }*/
 
-    #endregion
+#endregion
 }

@@ -149,7 +149,7 @@ public static class Dispatch {
             if (spaces < 0)
                 spaces = 0;
 
-            str += $"{new string(' ', spaces)}{field.Name}: {field.GetValue(strct)}\n";
+            str += $"{new(' ', spaces)}{field.Name}: {field.GetValue(strct)}\n";
         }
 
         return str.Trim('\n');
@@ -264,7 +264,7 @@ public static class Dispatch {
         public bool server;
     }
 
-    #region interop
+#region interop
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ManualDispatch_Init", CallingConvention = CallingConvention.Cdecl)]
     internal static extern void SteamAPI_ManualDispatch_Init();
@@ -274,7 +274,7 @@ public static class Dispatch {
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ManualDispatch_GetNextCallback", CallingConvention = CallingConvention.Cdecl)]
     [return: MarshalAs(UnmanagedType.I1)]
-    internal static extern bool SteamAPI_ManualDispatch_GetNextCallback(HSteamPipe pipe, [In][Out] ref CallbackMsg_t msg);
+    internal static extern bool SteamAPI_ManualDispatch_GetNextCallback(HSteamPipe pipe, [In] [Out] ref CallbackMsg_t msg);
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ManualDispatch_FreeLastCallback", CallingConvention = CallingConvention.Cdecl)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -288,5 +288,5 @@ public static class Dispatch {
         public int DataSize; // Size of the data pointed to by m_pubParam
     }
 
-    #endregion
+#endregion
 }

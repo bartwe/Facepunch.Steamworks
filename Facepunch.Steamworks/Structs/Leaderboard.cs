@@ -80,7 +80,7 @@ public struct Leaderboard {
         if (offset <= 0)
             throw new ArgumentException("Should be 1+", nameof(offset));
 
-        var r = await SteamUserStats.Internal.DownloadLeaderboardEntries(Id, LeaderboardDataRequest.Global, offset, offset + count - 1);
+        var r = await SteamUserStats.Internal.DownloadLeaderboardEntries(Id, LeaderboardDataRequest.Global, offset, (offset + count) - 1);
         if (!r.HasValue)
             return null;
 
@@ -113,7 +113,7 @@ public struct Leaderboard {
         return await LeaderboardResultToEntries(r.Value);
     }
 
-    #region util
+#region util
 
     internal static async Task<LeaderboardEntry[]> LeaderboardResultToEntries(LeaderboardScoresDownloaded_t r) {
         if (r.CEntryCount <= 0)
@@ -151,5 +151,5 @@ public struct Leaderboard {
         }
     }
 
-    #endregion
+#endregion
 }

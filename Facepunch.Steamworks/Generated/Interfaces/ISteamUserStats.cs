@@ -17,72 +17,72 @@ sealed class ISteamUserStats : SteamInterface {
     }
 
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_RequestCurrentStats", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _RequestCurrentStats(IntPtr self);
 
-    #endregion
+#endregion
 
     internal bool RequestCurrentStats() {
         var returnValue = _RequestCurrentStats(Self);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetStatInt32", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _GetStat(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref int pData);
 
-    #endregion
+#endregion
 
     internal bool GetStat([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref int pData) {
         var returnValue = _GetStat(Self, pchName, ref pData);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetStatFloat", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _GetStat(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref float pData);
 
-    #endregion
+#endregion
 
     internal bool GetStat([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref float pData) {
         var returnValue = _GetStat(Self, pchName, ref pData);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_SetStatInt32", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _SetStat(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, int nData);
 
-    #endregion
+#endregion
 
     internal bool SetStat([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, int nData) {
         var returnValue = _SetStat(Self, pchName, nData);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_SetStatFloat", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _SetStat(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, float fData);
 
-    #endregion
+#endregion
 
     internal bool SetStat([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, float fData) {
         var returnValue = _SetStat(Self, pchName, fData);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_UpdateAvgRateStat", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -90,14 +90,14 @@ sealed class ISteamUserStats : SteamInterface {
         IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, float flCountThisSession, double dSessionLength
     );
 
-    #endregion
+#endregion
 
     internal bool UpdateAvgRateStat([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, float flCountThisSession, double dSessionLength) {
         var returnValue = _UpdateAvgRateStat(Self, pchName, flCountThisSession, dSessionLength);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetAchievement", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -105,40 +105,40 @@ sealed class ISteamUserStats : SteamInterface {
         IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, [MarshalAs(UnmanagedType.U1)] ref bool pbAchieved
     );
 
-    #endregion
+#endregion
 
     internal bool GetAchievement([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, [MarshalAs(UnmanagedType.U1)] ref bool pbAchieved) {
         var returnValue = _GetAchievement(Self, pchName, ref pbAchieved);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_SetAchievement", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _SetAchievement(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName);
 
-    #endregion
+#endregion
 
     internal bool SetAchievement([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName) {
         var returnValue = _SetAchievement(Self, pchName);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_ClearAchievement", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _ClearAchievement(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName);
 
-    #endregion
+#endregion
 
     internal bool ClearAchievement([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName) {
         var returnValue = _ClearAchievement(Self, pchName);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetAchievementAndUnlockTime", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -147,7 +147,7 @@ sealed class ISteamUserStats : SteamInterface {
         ref uint punUnlockTime
     );
 
-    #endregion
+#endregion
 
     internal bool GetAchievementAndUnlockTime(
         [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, [MarshalAs(UnmanagedType.U1)] ref bool pbAchieved, ref uint punUnlockTime
@@ -156,50 +156,52 @@ sealed class ISteamUserStats : SteamInterface {
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_StoreStats", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _StoreStats(IntPtr self);
 
-    #endregion
+#endregion
 
     internal bool StoreStats() {
         var returnValue = _StoreStats(Self);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetAchievementIcon", CallingConvention = Platform.CC)]
     static extern int _GetAchievementIcon(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName);
 
-    #endregion
+#endregion
 
     internal int GetAchievementIcon([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName) {
         var returnValue = _GetAchievementIcon(Self, pchName);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetAchievementDisplayAttribute", CallingConvention = Platform.CC)]
     static extern Utf8StringPointer _GetAchievementDisplayAttribute(
         IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName,
-        [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKey
+        [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
+        string pchKey
     );
 
-    #endregion
+#endregion
 
     internal string GetAchievementDisplayAttribute(
         [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName,
-        [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchKey
+        [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
+        string pchKey
     ) {
         var returnValue = _GetAchievementDisplayAttribute(Self, pchName, pchKey);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_IndicateAchievementProgress", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -207,76 +209,76 @@ sealed class ISteamUserStats : SteamInterface {
         IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, uint nCurProgress, uint nMaxProgress
     );
 
-    #endregion
+#endregion
 
     internal bool IndicateAchievementProgress([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, uint nCurProgress, uint nMaxProgress) {
         var returnValue = _IndicateAchievementProgress(Self, pchName, nCurProgress, nMaxProgress);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetNumAchievements", CallingConvention = Platform.CC)]
     static extern uint _GetNumAchievements(IntPtr self);
 
-    #endregion
+#endregion
 
     internal uint GetNumAchievements() {
         var returnValue = _GetNumAchievements(Self);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetAchievementName", CallingConvention = Platform.CC)]
     static extern Utf8StringPointer _GetAchievementName(IntPtr self, uint iAchievement);
 
-    #endregion
+#endregion
 
     internal string GetAchievementName(uint iAchievement) {
         var returnValue = _GetAchievementName(Self, iAchievement);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_RequestUserStats", CallingConvention = Platform.CC)]
     static extern SteamAPICall_t _RequestUserStats(IntPtr self, SteamId steamIDUser);
 
-    #endregion
+#endregion
 
     internal CallResult<UserStatsReceived_t> RequestUserStats(SteamId steamIDUser) {
         var returnValue = _RequestUserStats(Self, steamIDUser);
         return new(returnValue, IsServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetUserStatInt32", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _GetUserStat(IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref int pData);
 
-    #endregion
+#endregion
 
     internal bool GetUserStat(SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref int pData) {
         var returnValue = _GetUserStat(Self, steamIDUser, pchName, ref pData);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetUserStatFloat", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _GetUserStat(IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref float pData);
 
-    #endregion
+#endregion
 
     internal bool GetUserStat(SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref float pData) {
         var returnValue = _GetUserStat(Self, steamIDUser, pchName, ref pData);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetUserAchievement", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -284,7 +286,7 @@ sealed class ISteamUserStats : SteamInterface {
         IntPtr self, SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, [MarshalAs(UnmanagedType.U1)] ref bool pbAchieved
     );
 
-    #endregion
+#endregion
 
     internal bool GetUserAchievement(
         SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, [MarshalAs(UnmanagedType.U1)] ref bool pbAchieved
@@ -293,7 +295,7 @@ sealed class ISteamUserStats : SteamInterface {
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetUserAchievementAndUnlockTime", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -302,7 +304,7 @@ sealed class ISteamUserStats : SteamInterface {
         ref uint punUnlockTime
     );
 
-    #endregion
+#endregion
 
     internal bool GetUserAchievementAndUnlockTime(
         SteamId steamIDUser, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, [MarshalAs(UnmanagedType.U1)] ref bool pbAchieved,
@@ -312,20 +314,20 @@ sealed class ISteamUserStats : SteamInterface {
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_ResetAllStats", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _ResetAllStats(IntPtr self, [MarshalAs(UnmanagedType.U1)] bool bAchievementsToo);
 
-    #endregion
+#endregion
 
     internal bool ResetAllStats([MarshalAs(UnmanagedType.U1)] bool bAchievementsToo) {
         var returnValue = _ResetAllStats(Self, bAchievementsToo);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_FindOrCreateLeaderboard", CallingConvention = Platform.CC)]
     static extern SteamAPICall_t _FindOrCreateLeaderboard(
@@ -333,7 +335,7 @@ sealed class ISteamUserStats : SteamInterface {
         LeaderboardDisplay eLeaderboardDisplayType
     );
 
-    #endregion
+#endregion
 
     internal CallResult<LeaderboardFindResult_t> FindOrCreateLeaderboard(
         [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchLeaderboardName, LeaderboardSort eLeaderboardSortMethod,
@@ -343,72 +345,72 @@ sealed class ISteamUserStats : SteamInterface {
         return new(returnValue, IsServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_FindLeaderboard", CallingConvention = Platform.CC)]
     static extern SteamAPICall_t _FindLeaderboard(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchLeaderboardName);
 
-    #endregion
+#endregion
 
     internal CallResult<LeaderboardFindResult_t> FindLeaderboard([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchLeaderboardName) {
         var returnValue = _FindLeaderboard(Self, pchLeaderboardName);
         return new(returnValue, IsServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetLeaderboardName", CallingConvention = Platform.CC)]
     static extern Utf8StringPointer _GetLeaderboardName(IntPtr self, SteamLeaderboard_t hSteamLeaderboard);
 
-    #endregion
+#endregion
 
     internal string GetLeaderboardName(SteamLeaderboard_t hSteamLeaderboard) {
         var returnValue = _GetLeaderboardName(Self, hSteamLeaderboard);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetLeaderboardEntryCount", CallingConvention = Platform.CC)]
     static extern int _GetLeaderboardEntryCount(IntPtr self, SteamLeaderboard_t hSteamLeaderboard);
 
-    #endregion
+#endregion
 
     internal int GetLeaderboardEntryCount(SteamLeaderboard_t hSteamLeaderboard) {
         var returnValue = _GetLeaderboardEntryCount(Self, hSteamLeaderboard);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetLeaderboardSortMethod", CallingConvention = Platform.CC)]
     static extern LeaderboardSort _GetLeaderboardSortMethod(IntPtr self, SteamLeaderboard_t hSteamLeaderboard);
 
-    #endregion
+#endregion
 
     internal LeaderboardSort GetLeaderboardSortMethod(SteamLeaderboard_t hSteamLeaderboard) {
         var returnValue = _GetLeaderboardSortMethod(Self, hSteamLeaderboard);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetLeaderboardDisplayType", CallingConvention = Platform.CC)]
     static extern LeaderboardDisplay _GetLeaderboardDisplayType(IntPtr self, SteamLeaderboard_t hSteamLeaderboard);
 
-    #endregion
+#endregion
 
     internal LeaderboardDisplay GetLeaderboardDisplayType(SteamLeaderboard_t hSteamLeaderboard) {
         var returnValue = _GetLeaderboardDisplayType(Self, hSteamLeaderboard);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_DownloadLeaderboardEntries", CallingConvention = Platform.CC)]
     static extern SteamAPICall_t _DownloadLeaderboardEntries(IntPtr self, SteamLeaderboard_t hSteamLeaderboard, LeaderboardDataRequest eLeaderboardDataRequest, int nRangeStart, int nRangeEnd);
 
-    #endregion
+#endregion
 
     internal CallResult<LeaderboardScoresDownloaded_t> DownloadLeaderboardEntries(
         SteamLeaderboard_t hSteamLeaderboard, LeaderboardDataRequest eLeaderboardDataRequest, int nRangeStart, int nRangeEnd
@@ -417,97 +419,95 @@ sealed class ISteamUserStats : SteamInterface {
         return new(returnValue, IsServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_DownloadLeaderboardEntriesForUsers", CallingConvention = Platform.CC)]
-    static extern SteamAPICall_t _DownloadLeaderboardEntriesForUsers(IntPtr self, SteamLeaderboard_t hSteamLeaderboard, [In][Out] SteamId[] prgUsers, int cUsers);
+    static extern SteamAPICall_t _DownloadLeaderboardEntriesForUsers(IntPtr self, SteamLeaderboard_t hSteamLeaderboard, [In] [Out] SteamId[] prgUsers, int cUsers);
 
-    #endregion
+#endregion
 
     /// <summary>
     ///     Downloads leaderboard entries for an arbitrary set of users - ELeaderboardDataRequest is
     ///     k_ELeaderboardDataRequestUsers
     /// </summary>
-    internal CallResult<LeaderboardScoresDownloaded_t> DownloadLeaderboardEntriesForUsers(SteamLeaderboard_t hSteamLeaderboard, [In][Out] SteamId[] prgUsers, int cUsers) {
+    internal CallResult<LeaderboardScoresDownloaded_t> DownloadLeaderboardEntriesForUsers(SteamLeaderboard_t hSteamLeaderboard, [In] [Out] SteamId[] prgUsers, int cUsers) {
         var returnValue = _DownloadLeaderboardEntriesForUsers(Self, hSteamLeaderboard, prgUsers, cUsers);
         return new(returnValue, IsServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetDownloadedLeaderboardEntry", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _GetDownloadedLeaderboardEntry(
-        IntPtr self, SteamLeaderboardEntries_t hSteamLeaderboardEntries, int index, ref LeaderboardEntry_t pLeaderboardEntry, [In][Out] int[] pDetails, int cDetailsMax
+        IntPtr self, SteamLeaderboardEntries_t hSteamLeaderboardEntries, int index, ref LeaderboardEntry_t pLeaderboardEntry, [In] [Out] int[] pDetails, int cDetailsMax
     );
 
-    #endregion
+#endregion
 
-    internal bool GetDownloadedLeaderboardEntry(
-        SteamLeaderboardEntries_t hSteamLeaderboardEntries, int index, ref LeaderboardEntry_t pLeaderboardEntry, [In][Out] int[] pDetails, int cDetailsMax
-    ) {
+    internal bool GetDownloadedLeaderboardEntry(SteamLeaderboardEntries_t hSteamLeaderboardEntries, int index, ref LeaderboardEntry_t pLeaderboardEntry, [In] [Out] int[] pDetails, int cDetailsMax) {
         var returnValue = _GetDownloadedLeaderboardEntry(Self, hSteamLeaderboardEntries, index, ref pLeaderboardEntry, pDetails, cDetailsMax);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_UploadLeaderboardScore", CallingConvention = Platform.CC)]
     static extern SteamAPICall_t _UploadLeaderboardScore(
-        IntPtr self, SteamLeaderboard_t hSteamLeaderboard, LeaderboardUploadScoreMethod eLeaderboardUploadScoreMethod, int nScore, [In][Out] int[] pScoreDetails, int cScoreDetailsCount
+        IntPtr self, SteamLeaderboard_t hSteamLeaderboard, LeaderboardUploadScoreMethod eLeaderboardUploadScoreMethod, int nScore, [In] [Out] int[] pScoreDetails, int cScoreDetailsCount
     );
 
-    #endregion
+#endregion
 
     internal CallResult<LeaderboardScoreUploaded_t> UploadLeaderboardScore(
-        SteamLeaderboard_t hSteamLeaderboard, LeaderboardUploadScoreMethod eLeaderboardUploadScoreMethod, int nScore, [In][Out] int[] pScoreDetails, int cScoreDetailsCount
+        SteamLeaderboard_t hSteamLeaderboard, LeaderboardUploadScoreMethod eLeaderboardUploadScoreMethod, int nScore, [In] [Out] int[] pScoreDetails, int cScoreDetailsCount
     ) {
         var returnValue = _UploadLeaderboardScore(Self, hSteamLeaderboard, eLeaderboardUploadScoreMethod, nScore, pScoreDetails, cScoreDetailsCount);
         return new(returnValue, IsServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_AttachLeaderboardUGC", CallingConvention = Platform.CC)]
     static extern SteamAPICall_t _AttachLeaderboardUGC(IntPtr self, SteamLeaderboard_t hSteamLeaderboard, UGCHandle_t hUGC);
 
-    #endregion
+#endregion
 
     internal CallResult<LeaderboardUGCSet_t> AttachLeaderboardUGC(SteamLeaderboard_t hSteamLeaderboard, UGCHandle_t hUGC) {
         var returnValue = _AttachLeaderboardUGC(Self, hSteamLeaderboard, hUGC);
         return new(returnValue, IsServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetNumberOfCurrentPlayers", CallingConvention = Platform.CC)]
     static extern SteamAPICall_t _GetNumberOfCurrentPlayers(IntPtr self);
 
-    #endregion
+#endregion
 
     internal CallResult<NumberOfCurrentPlayers_t> GetNumberOfCurrentPlayers() {
         var returnValue = _GetNumberOfCurrentPlayers(Self);
         return new(returnValue, IsServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_RequestGlobalAchievementPercentages", CallingConvention = Platform.CC)]
     static extern SteamAPICall_t _RequestGlobalAchievementPercentages(IntPtr self);
 
-    #endregion
+#endregion
 
     internal CallResult<GlobalAchievementPercentagesReady_t> RequestGlobalAchievementPercentages() {
         var returnValue = _RequestGlobalAchievementPercentages(Self);
         return new(returnValue, IsServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetMostAchievedAchievementInfo", CallingConvention = Platform.CC)]
     static extern int _GetMostAchievedAchievementInfo(IntPtr self, IntPtr pchName, uint unNameBufLen, ref float pflPercent, [MarshalAs(UnmanagedType.U1)] ref bool pbAchieved);
 
-    #endregion
+#endregion
 
     internal int GetMostAchievedAchievementInfo(out string pchName, ref float pflPercent, [MarshalAs(UnmanagedType.U1)] ref bool pbAchieved) {
         var mempchName = Helpers.TakeMemory();
@@ -516,14 +516,14 @@ sealed class ISteamUserStats : SteamInterface {
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetNextMostAchievedAchievementInfo", CallingConvention = Platform.CC)]
     static extern int _GetNextMostAchievedAchievementInfo(
         IntPtr self, int iIteratorPrevious, IntPtr pchName, uint unNameBufLen, ref float pflPercent, [MarshalAs(UnmanagedType.U1)] ref bool pbAchieved
     );
 
-    #endregion
+#endregion
 
     internal int GetNextMostAchievedAchievementInfo(int iIteratorPrevious, out string pchName, ref float pflPercent, [MarshalAs(UnmanagedType.U1)] ref bool pbAchieved) {
         var mempchName = Helpers.TakeMemory();
@@ -532,86 +532,86 @@ sealed class ISteamUserStats : SteamInterface {
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetAchievementAchievedPercent", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _GetAchievementAchievedPercent(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref float pflPercent);
 
-    #endregion
+#endregion
 
     internal bool GetAchievementAchievedPercent([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref float pflPercent) {
         var returnValue = _GetAchievementAchievedPercent(Self, pchName, ref pflPercent);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_RequestGlobalStats", CallingConvention = Platform.CC)]
     static extern SteamAPICall_t _RequestGlobalStats(IntPtr self, int nHistoryDays);
 
-    #endregion
+#endregion
 
     internal CallResult<GlobalStatsReceived_t> RequestGlobalStats(int nHistoryDays) {
         var returnValue = _RequestGlobalStats(Self, nHistoryDays);
         return new(returnValue, IsServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetGlobalStatInt64", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _GetGlobalStat(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchStatName, ref long pData);
 
-    #endregion
+#endregion
 
     internal bool GetGlobalStat([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchStatName, ref long pData) {
         var returnValue = _GetGlobalStat(Self, pchStatName, ref pData);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetGlobalStatDouble", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _GetGlobalStat(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchStatName, ref double pData);
 
-    #endregion
+#endregion
 
     internal bool GetGlobalStat([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchStatName, ref double pData) {
         var returnValue = _GetGlobalStat(Self, pchStatName, ref pData);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetGlobalStatHistoryInt64", CallingConvention = Platform.CC)]
     static extern int _GetGlobalStatHistory(
-        IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchStatName, [In][Out] long[] pData, uint cubData
+        IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchStatName, [In] [Out] long[] pData, uint cubData
     );
 
-    #endregion
+#endregion
 
-    internal int GetGlobalStatHistory([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchStatName, [In][Out] long[] pData, uint cubData) {
+    internal int GetGlobalStatHistory([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchStatName, [In] [Out] long[] pData, uint cubData) {
         var returnValue = _GetGlobalStatHistory(Self, pchStatName, pData, cubData);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetGlobalStatHistoryDouble", CallingConvention = Platform.CC)]
     static extern int _GetGlobalStatHistory(
-        IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchStatName, [In][Out] double[] pData, uint cubData
+        IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchStatName, [In] [Out] double[] pData, uint cubData
     );
 
-    #endregion
+#endregion
 
-    internal int GetGlobalStatHistory([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchStatName, [In][Out] double[] pData, uint cubData) {
+    internal int GetGlobalStatHistory([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchStatName, [In] [Out] double[] pData, uint cubData) {
         var returnValue = _GetGlobalStatHistory(Self, pchStatName, pData, cubData);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetAchievementProgressLimitsInt32", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -619,16 +619,14 @@ sealed class ISteamUserStats : SteamInterface {
         IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref int pnMinProgress, ref int pnMaxProgress
     );
 
-    #endregion
+#endregion
 
-    internal bool GetAchievementProgressLimits(
-        [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref int pnMinProgress, ref int pnMaxProgress
-    ) {
+    internal bool GetAchievementProgressLimits([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref int pnMinProgress, ref int pnMaxProgress) {
         var returnValue = _GetAchievementProgressLimits(Self, pchName, ref pnMinProgress, ref pnMaxProgress);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUserStats_GetAchievementProgressLimitsFloat", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -636,7 +634,7 @@ sealed class ISteamUserStats : SteamInterface {
         IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref float pfMinProgress, ref float pfMaxProgress
     );
 
-    #endregion
+#endregion
 
     internal bool GetAchievementProgressLimits(
         [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchName, ref float pfMinProgress, ref float pfMaxProgress

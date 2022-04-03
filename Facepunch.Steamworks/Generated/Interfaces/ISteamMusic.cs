@@ -16,105 +16,105 @@ sealed class ISteamMusic : SteamInterface {
     }
 
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMusic_BIsEnabled", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _BIsEnabled(IntPtr self);
 
-    #endregion
+#endregion
 
     internal bool BIsEnabled() {
         var returnValue = _BIsEnabled(Self);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMusic_BIsPlaying", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _BIsPlaying(IntPtr self);
 
-    #endregion
+#endregion
 
     internal bool BIsPlaying() {
         var returnValue = _BIsPlaying(Self);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMusic_GetPlaybackStatus", CallingConvention = Platform.CC)]
     static extern MusicStatus _GetPlaybackStatus(IntPtr self);
 
-    #endregion
+#endregion
 
     internal MusicStatus GetPlaybackStatus() {
         var returnValue = _GetPlaybackStatus(Self);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMusic_Play", CallingConvention = Platform.CC)]
     static extern void _Play(IntPtr self);
 
-    #endregion
+#endregion
 
     internal void Play() {
         _Play(Self);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMusic_Pause", CallingConvention = Platform.CC)]
     static extern void _Pause(IntPtr self);
 
-    #endregion
+#endregion
 
     internal void Pause() {
         _Pause(Self);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMusic_PlayPrevious", CallingConvention = Platform.CC)]
     static extern void _PlayPrevious(IntPtr self);
 
-    #endregion
+#endregion
 
     internal void PlayPrevious() {
         _PlayPrevious(Self);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMusic_PlayNext", CallingConvention = Platform.CC)]
     static extern void _PlayNext(IntPtr self);
 
-    #endregion
+#endregion
 
     internal void PlayNext() {
         _PlayNext(Self);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMusic_SetVolume", CallingConvention = Platform.CC)]
     static extern void _SetVolume(IntPtr self, float flVolume);
 
-    #endregion
+#endregion
 
     internal void SetVolume(float flVolume) {
         _SetVolume(Self, flVolume);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMusic_GetVolume", CallingConvention = Platform.CC)]
     static extern float _GetVolume(IntPtr self);
 
-    #endregion
+#endregion
 
     internal float GetVolume() {
         var returnValue = _GetVolume(Self);

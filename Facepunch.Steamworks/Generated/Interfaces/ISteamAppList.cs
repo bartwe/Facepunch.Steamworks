@@ -16,36 +16,36 @@ sealed class ISteamAppList : SteamInterface {
     }
 
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamAppList_GetNumInstalledApps", CallingConvention = Platform.CC)]
     static extern uint _GetNumInstalledApps(IntPtr self);
 
-    #endregion
+#endregion
 
     internal uint GetNumInstalledApps() {
         var returnValue = _GetNumInstalledApps(Self);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamAppList_GetInstalledApps", CallingConvention = Platform.CC)]
-    static extern uint _GetInstalledApps(IntPtr self, [In][Out] AppId[] pvecAppID, uint unMaxAppIDs);
+    static extern uint _GetInstalledApps(IntPtr self, [In] [Out] AppId[] pvecAppID, uint unMaxAppIDs);
 
-    #endregion
+#endregion
 
-    internal uint GetInstalledApps([In][Out] AppId[] pvecAppID, uint unMaxAppIDs) {
+    internal uint GetInstalledApps([In] [Out] AppId[] pvecAppID, uint unMaxAppIDs) {
         var returnValue = _GetInstalledApps(Self, pvecAppID, unMaxAppIDs);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamAppList_GetAppName", CallingConvention = Platform.CC)]
     static extern int _GetAppName(IntPtr self, AppId nAppID, IntPtr pchName, int cchNameMax);
 
-    #endregion
+#endregion
 
     internal int GetAppName(AppId nAppID, out string pchName) {
         var mempchName = Helpers.TakeMemory();
@@ -54,12 +54,12 @@ sealed class ISteamAppList : SteamInterface {
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamAppList_GetAppInstallDir", CallingConvention = Platform.CC)]
     static extern int _GetAppInstallDir(IntPtr self, AppId nAppID, IntPtr pchDirectory, int cchNameMax);
 
-    #endregion
+#endregion
 
     internal int GetAppInstallDir(AppId nAppID, out string pchDirectory) {
         var mempchDirectory = Helpers.TakeMemory();
@@ -68,12 +68,12 @@ sealed class ISteamAppList : SteamInterface {
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamAppList_GetAppBuildId", CallingConvention = Platform.CC)]
     static extern int _GetAppBuildId(IntPtr self, AppId nAppID);
 
-    #endregion
+#endregion
 
     internal int GetAppBuildId(AppId nAppID) {
         var returnValue = _GetAppBuildId(Self, nAppID);

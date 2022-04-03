@@ -86,10 +86,7 @@ public struct InventoryItem : IEquatable<InventoryItem> {
 
     internal static InventoryItem From(SteamItemDetails_t details) {
         var i = new InventoryItem {
-            _id = details.ItemId,
-            _def = details.Definition,
-            _flags = (SteamItemFlags)details.Flags,
-            _quantity = details.Quantity,
+            _id = details.ItemId, _def = details.Definition, _flags = (SteamItemFlags)details.Flags, _quantity = details.Quantity,
         };
 
         return i;

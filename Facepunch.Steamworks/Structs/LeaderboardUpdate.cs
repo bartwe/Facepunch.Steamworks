@@ -10,10 +10,7 @@ public struct LeaderboardUpdate {
 
     internal static LeaderboardUpdate From(LeaderboardScoreUploaded_t e) {
         return new() {
-            Score = e.Score,
-            Changed = e.ScoreChanged == 1,
-            NewGlobalRank = e.GlobalRankNew,
-            OldGlobalRank = e.GlobalRankPrevious,
+            Score = e.Score, Changed = e.ScoreChanged == 1, NewGlobalRank = e.GlobalRankNew, OldGlobalRank = e.GlobalRankPrevious,
         };
     }
 }

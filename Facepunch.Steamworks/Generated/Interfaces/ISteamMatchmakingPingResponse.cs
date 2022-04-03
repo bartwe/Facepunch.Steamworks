@@ -9,23 +9,23 @@ sealed class ISteamMatchmakingPingResponse : SteamInterface {
         SetupInterface(IsGameServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmakingPingResponse_ServerResponded", CallingConvention = Platform.CC)]
     static extern void _ServerResponded(IntPtr self, ref gameserveritem_t server);
 
-    #endregion
+#endregion
 
     internal void ServerResponded(ref gameserveritem_t server) {
         _ServerResponded(Self, ref server);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmakingPingResponse_ServerFailedToRespond", CallingConvention = Platform.CC)]
     static extern void _ServerFailedToRespond(IntPtr self);
 
-    #endregion
+#endregion
 
     internal void ServerFailedToRespond() {
         _ServerFailedToRespond(Self);

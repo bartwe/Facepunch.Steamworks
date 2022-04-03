@@ -8,8 +8,8 @@ static class Helpers {
     public const int MemoryBufferSize = 1024 * 32;
 
     static readonly IntPtr[] MemoryPool = {
-            Marshal.AllocHGlobal(MemoryBufferSize), Marshal.AllocHGlobal(MemoryBufferSize), Marshal.AllocHGlobal(MemoryBufferSize), Marshal.AllocHGlobal(MemoryBufferSize),
-        };
+        Marshal.AllocHGlobal(MemoryBufferSize), Marshal.AllocHGlobal(MemoryBufferSize), Marshal.AllocHGlobal(MemoryBufferSize), Marshal.AllocHGlobal(MemoryBufferSize),
+    };
 
     static int MemoryPoolIndex;
 

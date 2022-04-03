@@ -17,123 +17,127 @@ sealed class ISteamScreenshots : SteamInterface {
     }
 
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamScreenshots_WriteScreenshot", CallingConvention = Platform.CC)]
     static extern ScreenshotHandle _WriteScreenshot(IntPtr self, IntPtr pubRGB, uint cubRGB, int nWidth, int nHeight);
 
-    #endregion
+#endregion
 
     internal ScreenshotHandle WriteScreenshot(IntPtr pubRGB, uint cubRGB, int nWidth, int nHeight) {
         var returnValue = _WriteScreenshot(Self, pubRGB, cubRGB, nWidth, nHeight);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamScreenshots_AddScreenshotToLibrary", CallingConvention = Platform.CC)]
     static extern ScreenshotHandle _AddScreenshotToLibrary(
         IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchFilename,
-        [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchThumbnailFilename, int nWidth, int nHeight
+        [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
+        string pchThumbnailFilename, int nWidth, int nHeight
     );
 
-    #endregion
+#endregion
 
     internal ScreenshotHandle AddScreenshotToLibrary(
         [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchFilename,
-        [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchThumbnailFilename, int nWidth, int nHeight
+        [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
+        string pchThumbnailFilename, int nWidth, int nHeight
     ) {
         var returnValue = _AddScreenshotToLibrary(Self, pchFilename, pchThumbnailFilename, nWidth, nHeight);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamScreenshots_TriggerScreenshot", CallingConvention = Platform.CC)]
     static extern void _TriggerScreenshot(IntPtr self);
 
-    #endregion
+#endregion
 
     internal void TriggerScreenshot() {
         _TriggerScreenshot(Self);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamScreenshots_HookScreenshots", CallingConvention = Platform.CC)]
     static extern void _HookScreenshots(IntPtr self, [MarshalAs(UnmanagedType.U1)] bool bHook);
 
-    #endregion
+#endregion
 
     internal void HookScreenshots([MarshalAs(UnmanagedType.U1)] bool bHook) {
         _HookScreenshots(Self, bHook);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamScreenshots_SetLocation", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _SetLocation(IntPtr self, ScreenshotHandle hScreenshot, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchLocation);
 
-    #endregion
+#endregion
 
     internal bool SetLocation(ScreenshotHandle hScreenshot, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchLocation) {
         var returnValue = _SetLocation(Self, hScreenshot, pchLocation);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamScreenshots_TagUser", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _TagUser(IntPtr self, ScreenshotHandle hScreenshot, SteamId steamID);
 
-    #endregion
+#endregion
 
     internal bool TagUser(ScreenshotHandle hScreenshot, SteamId steamID) {
         var returnValue = _TagUser(Self, hScreenshot, steamID);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamScreenshots_TagPublishedFile", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _TagPublishedFile(IntPtr self, ScreenshotHandle hScreenshot, PublishedFileId unPublishedFileID);
 
-    #endregion
+#endregion
 
     internal bool TagPublishedFile(ScreenshotHandle hScreenshot, PublishedFileId unPublishedFileID) {
         var returnValue = _TagPublishedFile(Self, hScreenshot, unPublishedFileID);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamScreenshots_IsScreenshotsHooked", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _IsScreenshotsHooked(IntPtr self);
 
-    #endregion
+#endregion
 
     internal bool IsScreenshotsHooked() {
         var returnValue = _IsScreenshotsHooked(Self);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamScreenshots_AddVRScreenshotToLibrary", CallingConvention = Platform.CC)]
     static extern ScreenshotHandle _AddVRScreenshotToLibrary(
         IntPtr self, VRScreenshotType eType, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchFilename,
-        [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchVRFilename
+        [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
+        string pchVRFilename
     );
 
-    #endregion
+#endregion
 
     internal ScreenshotHandle AddVRScreenshotToLibrary(
         VRScreenshotType eType, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchFilename,
-        [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchVRFilename
+        [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))]
+        string pchVRFilename
     ) {
         var returnValue = _AddVRScreenshotToLibrary(Self, eType, pchFilename, pchVRFilename);
         return returnValue;

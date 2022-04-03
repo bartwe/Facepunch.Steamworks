@@ -11,9 +11,7 @@ struct SteamParamStringArray : IDisposable {
     IntPtr NativeArray;
 
     public static SteamParamStringArray From(string[] array) {
-        var a = new SteamParamStringArray {
-            NativeStrings = new IntPtr[array.Length]
-        };
+        var a = new SteamParamStringArray { NativeStrings = new IntPtr[array.Length] };
         for (var i = 0; i < a.NativeStrings.Length; i++) {
             a.NativeStrings[i] = Marshal.StringToHGlobalAnsi(array[i]);
         }

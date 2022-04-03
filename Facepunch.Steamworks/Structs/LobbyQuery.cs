@@ -8,7 +8,7 @@ public struct LobbyQuery {
     // AddRequestLobbyListStringFilter
     // - WithoutKeyValue
 
-    #region Distance Filter
+#region Distance Filter
 
     internal LobbyDistanceFilter? distance;
 
@@ -36,9 +36,9 @@ public struct LobbyQuery {
         return this;
     }
 
-    #endregion
+#endregion
 
-    #region String key/value filter
+#region String key/value filter
 
     internal Dictionary<string, string> stringFilters;
 
@@ -60,9 +60,9 @@ public struct LobbyQuery {
         return this;
     }
 
-    #endregion
+#endregion
 
-    #region Numerical filters
+#region Numerical filters
 
     internal List<NumericalFilter> numericalFilters;
 
@@ -114,9 +114,9 @@ public struct LobbyQuery {
         numericalFilters.Add(new(key, value, compare));
     }
 
-    #endregion
+#endregion
 
-    #region Near value filter
+#region Near value filter
 
     internal Dictionary<string, int> nearValFilters;
 
@@ -139,9 +139,9 @@ public struct LobbyQuery {
         return this;
     }
 
-    #endregion
+#endregion
 
-    #region Slots Filter
+#region Slots Filter
 
     internal int? slotsAvailable;
 
@@ -153,9 +153,9 @@ public struct LobbyQuery {
         return this;
     }
 
-    #endregion
+#endregion
 
-    #region Max results filter
+#region Max results filter
 
     internal int? maxResults;
 
@@ -167,7 +167,7 @@ public struct LobbyQuery {
         return this;
     }
 
-    #endregion
+#endregion
 
     void ApplyFilters() {
         if (distance.HasValue) {

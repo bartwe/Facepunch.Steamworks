@@ -27,11 +27,11 @@ public abstract class Base : IDisposable {
         AppId = SteamClient.AppId; // Default AppId is this 
     }
 
-    #region ISteamMatchmakingServers
+#region ISteamMatchmakingServers
 
     internal static ISteamMatchmakingServers Internal => SteamMatchmakingServers.Internal;
 
-    #endregion
+#endregion
 
 
     /// <summary>
@@ -171,7 +171,7 @@ public abstract class Base : IDisposable {
         Unresponsive.Add(serverInfo);
     }
 
-    #region Filters
+#region Filters
 
     internal List<MatchMakingKeyValuePair> filters = new();
 
@@ -183,5 +183,5 @@ public abstract class Base : IDisposable {
         filters.Add(new() { Key = key, Value = value });
     }
 
-    #endregion
+#endregion
 }

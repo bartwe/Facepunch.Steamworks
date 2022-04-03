@@ -24,75 +24,75 @@ sealed class ISteamNetworkingMessages : SteamInterface {
     }
 
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamNetworkingMessages_SendMessageToUser", CallingConvention = Platform.CC)]
-    static extern Result _SendMessageToUser(IntPtr self, ref NetIdentity identityRemote, [In][Out] IntPtr[] pubData, uint cubData, int nSendFlags, int nRemoteChannel);
+    static extern Result _SendMessageToUser(IntPtr self, ref NetIdentity identityRemote, [In] [Out] IntPtr[] pubData, uint cubData, int nSendFlags, int nRemoteChannel);
 
-    #endregion
+#endregion
 
-    internal Result SendMessageToUser(ref NetIdentity identityRemote, [In][Out] IntPtr[] pubData, uint cubData, int nSendFlags, int nRemoteChannel) {
+    internal Result SendMessageToUser(ref NetIdentity identityRemote, [In] [Out] IntPtr[] pubData, uint cubData, int nSendFlags, int nRemoteChannel) {
         var returnValue = _SendMessageToUser(Self, ref identityRemote, pubData, cubData, nSendFlags, nRemoteChannel);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamNetworkingMessages_ReceiveMessagesOnChannel", CallingConvention = Platform.CC)]
     static extern int _ReceiveMessagesOnChannel(IntPtr self, int nLocalChannel, IntPtr ppOutMessages, int nMaxMessages);
 
-    #endregion
+#endregion
 
     internal int ReceiveMessagesOnChannel(int nLocalChannel, IntPtr ppOutMessages, int nMaxMessages) {
         var returnValue = _ReceiveMessagesOnChannel(Self, nLocalChannel, ppOutMessages, nMaxMessages);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamNetworkingMessages_AcceptSessionWithUser", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _AcceptSessionWithUser(IntPtr self, ref NetIdentity identityRemote);
 
-    #endregion
+#endregion
 
     internal bool AcceptSessionWithUser(ref NetIdentity identityRemote) {
         var returnValue = _AcceptSessionWithUser(Self, ref identityRemote);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamNetworkingMessages_CloseSessionWithUser", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _CloseSessionWithUser(IntPtr self, ref NetIdentity identityRemote);
 
-    #endregion
+#endregion
 
     internal bool CloseSessionWithUser(ref NetIdentity identityRemote) {
         var returnValue = _CloseSessionWithUser(Self, ref identityRemote);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamNetworkingMessages_CloseChannelWithUser", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _CloseChannelWithUser(IntPtr self, ref NetIdentity identityRemote, int nLocalChannel);
 
-    #endregion
+#endregion
 
     internal bool CloseChannelWithUser(ref NetIdentity identityRemote, int nLocalChannel) {
         var returnValue = _CloseChannelWithUser(Self, ref identityRemote, nLocalChannel);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamNetworkingMessages_GetSessionConnectionInfo", CallingConvention = Platform.CC)]
     static extern ConnectionState _GetSessionConnectionInfo(IntPtr self, ref NetIdentity identityRemote, ref ConnectionInfo pConnectionInfo, ref ConnectionStatus pQuickStatus);
 
-    #endregion
+#endregion
 
     internal ConnectionState GetSessionConnectionInfo(ref NetIdentity identityRemote, ref ConnectionInfo pConnectionInfo, ref ConnectionStatus pQuickStatus) {
         var returnValue = _GetSessionConnectionInfo(Self, ref identityRemote, ref pConnectionInfo, ref pQuickStatus);

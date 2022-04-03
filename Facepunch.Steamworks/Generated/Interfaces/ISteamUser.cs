@@ -17,88 +17,86 @@ sealed class ISteamUser : SteamInterface {
     }
 
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_GetHSteamUser", CallingConvention = Platform.CC)]
     static extern HSteamUser _GetHSteamUser(IntPtr self);
 
-    #endregion
+#endregion
 
     internal HSteamUser GetHSteamUser() {
         var returnValue = _GetHSteamUser(Self);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_BLoggedOn", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _BLoggedOn(IntPtr self);
 
-    #endregion
+#endregion
 
     internal bool BLoggedOn() {
         var returnValue = _BLoggedOn(Self);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_GetSteamID", CallingConvention = Platform.CC)]
     static extern SteamId _GetSteamID(IntPtr self);
 
-    #endregion
+#endregion
 
     internal SteamId GetSteamID() {
         var returnValue = _GetSteamID(Self);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_InitiateGameConnection", CallingConvention = Platform.CC)]
     static extern int _InitiateGameConnection(
         IntPtr self, IntPtr pAuthBlob, int cbMaxAuthBlob, SteamId steamIDGameServer, uint unIPServer, ushort usPortServer, [MarshalAs(UnmanagedType.U1)] bool bSecure
     );
 
-    #endregion
+#endregion
 
     internal int InitiateGameConnection(IntPtr pAuthBlob, int cbMaxAuthBlob, SteamId steamIDGameServer, uint unIPServer, ushort usPortServer, [MarshalAs(UnmanagedType.U1)] bool bSecure) {
         var returnValue = _InitiateGameConnection(Self, pAuthBlob, cbMaxAuthBlob, steamIDGameServer, unIPServer, usPortServer, bSecure);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_TerminateGameConnection", CallingConvention = Platform.CC)]
     static extern void _TerminateGameConnection(IntPtr self, uint unIPServer, ushort usPortServer);
 
-    #endregion
+#endregion
 
     internal void TerminateGameConnection(uint unIPServer, ushort usPortServer) {
         _TerminateGameConnection(Self, unIPServer, usPortServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_TrackAppUsageEvent", CallingConvention = Platform.CC)]
-    static extern void _TrackAppUsageEvent(
-        IntPtr self, GameId gameID, int eAppUsageEvent, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchExtraInfo
-    );
+    static extern void _TrackAppUsageEvent(IntPtr self, GameId gameID, int eAppUsageEvent, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchExtraInfo);
 
-    #endregion
+#endregion
 
     internal void TrackAppUsageEvent(GameId gameID, int eAppUsageEvent, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchExtraInfo) {
         _TrackAppUsageEvent(Self, gameID, eAppUsageEvent, pchExtraInfo);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_GetUserDataFolder", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _GetUserDataFolder(IntPtr self, IntPtr pchBuffer, int cubBuffer);
 
-    #endregion
+#endregion
 
     internal bool GetUserDataFolder(out string pchBuffer) {
         var mempchBuffer = Helpers.TakeMemory();
@@ -107,41 +105,41 @@ sealed class ISteamUser : SteamInterface {
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_StartVoiceRecording", CallingConvention = Platform.CC)]
     static extern void _StartVoiceRecording(IntPtr self);
 
-    #endregion
+#endregion
 
     internal void StartVoiceRecording() {
         _StartVoiceRecording(Self);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_StopVoiceRecording", CallingConvention = Platform.CC)]
     static extern void _StopVoiceRecording(IntPtr self);
 
-    #endregion
+#endregion
 
     internal void StopVoiceRecording() {
         _StopVoiceRecording(Self);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_GetAvailableVoice", CallingConvention = Platform.CC)]
     static extern VoiceResult _GetAvailableVoice(IntPtr self, ref uint pcbCompressed, ref uint pcbUncompressed_Deprecated, uint nUncompressedVoiceDesiredSampleRate_Deprecated);
 
-    #endregion
+#endregion
 
     internal VoiceResult GetAvailableVoice(ref uint pcbCompressed, ref uint pcbUncompressed_Deprecated, uint nUncompressedVoiceDesiredSampleRate_Deprecated) {
         var returnValue = _GetAvailableVoice(Self, ref pcbCompressed, ref pcbUncompressed_Deprecated, nUncompressedVoiceDesiredSampleRate_Deprecated);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_GetVoice", CallingConvention = Platform.CC)]
     static extern VoiceResult _GetVoice(
@@ -150,7 +148,7 @@ sealed class ISteamUser : SteamInterface {
         ref uint nUncompressBytesWritten_Deprecated, uint nUncompressedVoiceDesiredSampleRate_Deprecated
     );
 
-    #endregion
+#endregion
 
     internal VoiceResult GetVoice(
         [MarshalAs(UnmanagedType.U1)] bool bWantCompressed, IntPtr pDestBuffer, uint cbDestBufferSize, ref uint nBytesWritten, [MarshalAs(UnmanagedType.U1)] bool bWantUncompressed_Deprecated,
@@ -163,256 +161,256 @@ sealed class ISteamUser : SteamInterface {
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_DecompressVoice", CallingConvention = Platform.CC)]
     static extern VoiceResult _DecompressVoice(IntPtr self, IntPtr pCompressed, uint cbCompressed, IntPtr pDestBuffer, uint cbDestBufferSize, ref uint nBytesWritten, uint nDesiredSampleRate);
 
-    #endregion
+#endregion
 
     internal VoiceResult DecompressVoice(IntPtr pCompressed, uint cbCompressed, IntPtr pDestBuffer, uint cbDestBufferSize, ref uint nBytesWritten, uint nDesiredSampleRate) {
         var returnValue = _DecompressVoice(Self, pCompressed, cbCompressed, pDestBuffer, cbDestBufferSize, ref nBytesWritten, nDesiredSampleRate);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_GetVoiceOptimalSampleRate", CallingConvention = Platform.CC)]
     static extern uint _GetVoiceOptimalSampleRate(IntPtr self);
 
-    #endregion
+#endregion
 
     internal uint GetVoiceOptimalSampleRate() {
         var returnValue = _GetVoiceOptimalSampleRate(Self);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_GetAuthSessionTicket", CallingConvention = Platform.CC)]
     static extern HAuthTicket _GetAuthSessionTicket(IntPtr self, IntPtr pTicket, int cbMaxTicket, ref uint pcbTicket);
 
-    #endregion
+#endregion
 
     internal HAuthTicket GetAuthSessionTicket(IntPtr pTicket, int cbMaxTicket, ref uint pcbTicket) {
         var returnValue = _GetAuthSessionTicket(Self, pTicket, cbMaxTicket, ref pcbTicket);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_BeginAuthSession", CallingConvention = Platform.CC)]
     static extern BeginAuthResult _BeginAuthSession(IntPtr self, IntPtr pAuthTicket, int cbAuthTicket, SteamId steamID);
 
-    #endregion
+#endregion
 
     internal BeginAuthResult BeginAuthSession(IntPtr pAuthTicket, int cbAuthTicket, SteamId steamID) {
         var returnValue = _BeginAuthSession(Self, pAuthTicket, cbAuthTicket, steamID);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_EndAuthSession", CallingConvention = Platform.CC)]
     static extern void _EndAuthSession(IntPtr self, SteamId steamID);
 
-    #endregion
+#endregion
 
     internal void EndAuthSession(SteamId steamID) {
         _EndAuthSession(Self, steamID);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_CancelAuthTicket", CallingConvention = Platform.CC)]
     static extern void _CancelAuthTicket(IntPtr self, HAuthTicket hAuthTicket);
 
-    #endregion
+#endregion
 
     internal void CancelAuthTicket(HAuthTicket hAuthTicket) {
         _CancelAuthTicket(Self, hAuthTicket);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_UserHasLicenseForApp", CallingConvention = Platform.CC)]
     static extern UserHasLicenseForAppResult _UserHasLicenseForApp(IntPtr self, SteamId steamID, AppId appID);
 
-    #endregion
+#endregion
 
     internal UserHasLicenseForAppResult UserHasLicenseForApp(SteamId steamID, AppId appID) {
         var returnValue = _UserHasLicenseForApp(Self, steamID, appID);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_BIsBehindNAT", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _BIsBehindNAT(IntPtr self);
 
-    #endregion
+#endregion
 
     internal bool BIsBehindNAT() {
         var returnValue = _BIsBehindNAT(Self);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_AdvertiseGame", CallingConvention = Platform.CC)]
     static extern void _AdvertiseGame(IntPtr self, SteamId steamIDGameServer, uint unIPServer, ushort usPortServer);
 
-    #endregion
+#endregion
 
     internal void AdvertiseGame(SteamId steamIDGameServer, uint unIPServer, ushort usPortServer) {
         _AdvertiseGame(Self, steamIDGameServer, unIPServer, usPortServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_RequestEncryptedAppTicket", CallingConvention = Platform.CC)]
     static extern SteamAPICall_t _RequestEncryptedAppTicket(IntPtr self, IntPtr pDataToInclude, int cbDataToInclude);
 
-    #endregion
+#endregion
 
     internal CallResult<EncryptedAppTicketResponse_t> RequestEncryptedAppTicket(IntPtr pDataToInclude, int cbDataToInclude) {
         var returnValue = _RequestEncryptedAppTicket(Self, pDataToInclude, cbDataToInclude);
         return new(returnValue, IsServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_GetEncryptedAppTicket", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _GetEncryptedAppTicket(IntPtr self, IntPtr pTicket, int cbMaxTicket, ref uint pcbTicket);
 
-    #endregion
+#endregion
 
     internal bool GetEncryptedAppTicket(IntPtr pTicket, int cbMaxTicket, ref uint pcbTicket) {
         var returnValue = _GetEncryptedAppTicket(Self, pTicket, cbMaxTicket, ref pcbTicket);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_GetGameBadgeLevel", CallingConvention = Platform.CC)]
     static extern int _GetGameBadgeLevel(IntPtr self, int nSeries, [MarshalAs(UnmanagedType.U1)] bool bFoil);
 
-    #endregion
+#endregion
 
     internal int GetGameBadgeLevel(int nSeries, [MarshalAs(UnmanagedType.U1)] bool bFoil) {
         var returnValue = _GetGameBadgeLevel(Self, nSeries, bFoil);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_GetPlayerSteamLevel", CallingConvention = Platform.CC)]
     static extern int _GetPlayerSteamLevel(IntPtr self);
 
-    #endregion
+#endregion
 
     internal int GetPlayerSteamLevel() {
         var returnValue = _GetPlayerSteamLevel(Self);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_RequestStoreAuthURL", CallingConvention = Platform.CC)]
     static extern SteamAPICall_t _RequestStoreAuthURL(IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchRedirectURL);
 
-    #endregion
+#endregion
 
     internal CallResult<StoreAuthURLResponse_t> RequestStoreAuthURL([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative))] string pchRedirectURL) {
         var returnValue = _RequestStoreAuthURL(Self, pchRedirectURL);
         return new(returnValue, IsServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_BIsPhoneVerified", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _BIsPhoneVerified(IntPtr self);
 
-    #endregion
+#endregion
 
     internal bool BIsPhoneVerified() {
         var returnValue = _BIsPhoneVerified(Self);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_BIsTwoFactorEnabled", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _BIsTwoFactorEnabled(IntPtr self);
 
-    #endregion
+#endregion
 
     internal bool BIsTwoFactorEnabled() {
         var returnValue = _BIsTwoFactorEnabled(Self);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_BIsPhoneIdentifying", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _BIsPhoneIdentifying(IntPtr self);
 
-    #endregion
+#endregion
 
     internal bool BIsPhoneIdentifying() {
         var returnValue = _BIsPhoneIdentifying(Self);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_BIsPhoneRequiringVerification", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _BIsPhoneRequiringVerification(IntPtr self);
 
-    #endregion
+#endregion
 
     internal bool BIsPhoneRequiringVerification() {
         var returnValue = _BIsPhoneRequiringVerification(Self);
         return returnValue;
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_GetMarketEligibility", CallingConvention = Platform.CC)]
     static extern SteamAPICall_t _GetMarketEligibility(IntPtr self);
 
-    #endregion
+#endregion
 
     internal CallResult<MarketEligibilityResponse_t> GetMarketEligibility() {
         var returnValue = _GetMarketEligibility(Self);
         return new(returnValue, IsServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_GetDurationControl", CallingConvention = Platform.CC)]
     static extern SteamAPICall_t _GetDurationControl(IntPtr self);
 
-    #endregion
+#endregion
 
     internal CallResult<DurationControl_t> GetDurationControl() {
         var returnValue = _GetDurationControl(Self);
         return new(returnValue, IsServer);
     }
 
-    #region FunctionMeta
+#region FunctionMeta
 
     [DllImport(Platform.LibraryName, EntryPoint = "SteamAPI_ISteamUser_BSetDurationControlOnlineState", CallingConvention = Platform.CC)]
     [return: MarshalAs(UnmanagedType.I1)]
     static extern bool _BSetDurationControlOnlineState(IntPtr self, DurationControlOnlineState eNewState);
 
-    #endregion
+#endregion
 
     internal bool BSetDurationControlOnlineState(DurationControlOnlineState eNewState) {
         var returnValue = _BSetDurationControlOnlineState(Self, eNewState);

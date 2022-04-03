@@ -81,7 +81,7 @@ public static class Utility {
             "TWD" => $"NT$ {decimaled}",
             "UAH" => $"₴{decimaled}",
             "USD" => $"${decimaled}",
-            "UYU" => $"$U {decimaled}",// yes the U goes after $
+            "UYU" => $"$U {decimaled}", // yes the U goes after $
             "VND" => $"₫{decimaled}",
             "ZAR" => $"R {decimaled}",
             _ => $"{decimaled} {currency}",

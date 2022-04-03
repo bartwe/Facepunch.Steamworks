@@ -141,7 +141,7 @@ public struct Query {
         return this;
     }
 
-    #region UserQuery
+#region UserQuery
 
     SteamId? steamid;
 
@@ -250,9 +250,9 @@ public struct Query {
         return this;
     }
 
-    #endregion
+#endregion
 
-    #region Files
+#region Files
 
     PublishedFileId[] Files;
 
@@ -261,7 +261,7 @@ public struct Query {
         return this;
     }
 
-    #endregion
+#endregion
 
     public async Task<ResultPage?> GetPageAsync(int page) {
         if (page <= 0)
@@ -312,7 +312,7 @@ public struct Query {
         };
     }
 
-    #region SharedConstraints
+#region SharedConstraints
 
     public QueryType WithType(UgcType type) {
         matchingType = type;
@@ -411,9 +411,9 @@ public struct Query {
         }
     }
 
-    #endregion
+#endregion
 
-    #region ReturnValues
+#region ReturnValues
 
     bool? WantsReturnOnlyIDs;
 
@@ -511,9 +511,9 @@ public struct Query {
         }
     }
 
-    #endregion
+#endregion
 
-    #region LoadingBehaviour
+#region LoadingBehaviour
 
     bool? WantsDefaultStats; //true by default
 
@@ -528,5 +528,5 @@ public struct Query {
         return this;
     }
 
-    #endregion
+#endregion
 }

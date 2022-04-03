@@ -12,10 +12,7 @@ public struct LeaderboardEntry {
 
     internal static LeaderboardEntry From(LeaderboardEntry_t e, int[] detailsBuffer) {
         var r = new LeaderboardEntry {
-            User = new(e.SteamIDUser),
-            GlobalRank = e.GlobalRank,
-            Score = e.Score,
-            Details = null,
+            User = new(e.SteamIDUser), GlobalRank = e.GlobalRank, Score = e.Score, Details = null,
         };
 
         if (e.CDetails > 0) {
