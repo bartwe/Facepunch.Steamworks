@@ -27,7 +27,3 @@ public struct Image {
         return $"{Width}x{Height} ({Data.Length}bytes)";
     }
 }
-
-public struct Color {
-    public byte r, g, b, a;
-}

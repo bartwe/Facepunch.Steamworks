@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using Steamworks.Data;
+﻿using Steamworks.Data;
 
 namespace Steamworks;
 
@@ -75,41 +74,4 @@ public struct Controller {
     public bool Equals(Controller p) {
         return p.Handle == Handle;
     }
-}
-
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public struct AnalogState {
-    public InputSourceMode EMode; // eMode EInputSourceMode
-    public float X; // x float
-    public float Y; // y float
-    internal byte BActive; // bActive byte
-
-    public bool Active => BActive != 0;
-}
-
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-struct MotionState {
-    public float RotQuatX; // rotQuatX float
-    public float RotQuatY; // rotQuatY float
-    public float RotQuatZ; // rotQuatZ float
-    public float RotQuatW; // rotQuatW float
-    public float PosAccelX; // posAccelX float
-    public float PosAccelY; // posAccelY float
-    public float PosAccelZ; // posAccelZ float
-    public float RotVelX; // rotVelX float
-    public float RotVelY; // rotVelY float
-    public float RotVelZ; // rotVelZ float
-}
-
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public struct DigitalState {
-    [MarshalAs(UnmanagedType.I1)]
-    internal byte BState; // bState byte
-
-    [MarshalAs(UnmanagedType.I1)]
-    internal byte BActive; // bActive byte
-
-    public bool Pressed => BState != 0;
-
-    public bool Active => BActive != 0;
 }
