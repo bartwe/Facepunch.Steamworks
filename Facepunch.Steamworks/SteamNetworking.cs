@@ -141,7 +141,7 @@ public sealed class SteamNetworking : SteamSharedClass<SteamNetworking> {
             length = data.Length;
 
         fixed (byte* p = data) {
-            return Internal.SendP2PPacket(steamid, (IntPtr)p, (uint)length, sendType, nChannel);
+            return Internal.SendP2PPacket(steamid, (IntPtr)p, checked((uint)length), sendType, nChannel);
         }
     }
 

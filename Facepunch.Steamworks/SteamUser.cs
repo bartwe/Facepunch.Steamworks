@@ -300,7 +300,7 @@ public sealed class SteamUser : SteamClientClass<SteamUser> {
 
         uint szWritten = 0;
 
-        if (Internal.DecompressVoice(from, (uint)length, to, (uint)bufferSize, ref szWritten, SampleRate) != VoiceResult.OK)
+        if (Internal.DecompressVoice(from, checked((uint)length), to, checked((uint)bufferSize), ref szWritten, SampleRate) != VoiceResult.OK)
             return 0;
 
         return (int)szWritten;
