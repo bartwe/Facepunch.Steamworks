@@ -36,8 +36,10 @@ namespace Steamworks
 
         static public uint IpToInt32( this IPAddress ipAddress )
         {
-            return Swap( (uint) ipAddress.Address );
-        }
+#pragma warning disable CS0618 // Type or member is obsolete
+			return Swap( (uint) ipAddress.Address );
+#pragma warning restore CS0618 // Type or member is obsolete
+		}
 
         static public IPAddress Int32ToIp( uint ipAddress )
         {

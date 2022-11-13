@@ -273,7 +273,7 @@ namespace Steamworks
 			fixed ( byte* frm = from )
 			fixed ( byte* dst = to )
 			{
-				if ( Internal.DecompressVoice( (IntPtr)frm, (uint)from.Length, (IntPtr)dst, (uint)to.Length, ref szWritten, SampleRate ) != VoiceResult.OK )
+				if ( Internal.DecompressVoice( (IntPtr)frm, checked((uint)from.Length), (IntPtr)dst, checked((uint)to.Length), ref szWritten, SampleRate ) != VoiceResult.OK )
 					return 0;
 			}
 
@@ -297,7 +297,7 @@ namespace Steamworks
 
 			uint szWritten = 0;
 
-			if ( Internal.DecompressVoice( from, (uint) length, to, (uint)bufferSize, ref szWritten, SampleRate ) != VoiceResult.OK )
+			if ( Internal.DecompressVoice( from, checked((uint) length), to, checked((uint)bufferSize), ref szWritten, SampleRate ) != VoiceResult.OK )
 				return 0;
 			
 			return (int)szWritten;
@@ -340,7 +340,7 @@ namespace Steamworks
 
 			void f( GetAuthSessionTicketResponse_t t )
 			{
-				if ( t.AuthTicket != ticket.Handle ) return;
+				if ( t.AuthTicket != ticket!.Handle ) return;
 				result = t.Result;
 			}
 

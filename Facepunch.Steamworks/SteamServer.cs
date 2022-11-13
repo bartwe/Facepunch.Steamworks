@@ -287,7 +287,9 @@ namespace Steamworks
 		public static void LogOnAnonymous()
 		{
 			Internal.LogOnAnonymous();
+#pragma warning disable CS0618 // Type or member is obsolete
 			ForceHeartbeat();
+#pragma warning restore CS0618 // Type or member is obsolete
 		}
 
 		/// <summary>

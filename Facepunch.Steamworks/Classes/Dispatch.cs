@@ -290,7 +290,7 @@ namespace Steamworks
 		internal static void Install<T>( Action<T> p, bool server = false ) where T : ICallbackData
 		{
 			var t = default( T );
-			var type = t.CallbackType;
+			var type = t!.CallbackType;
 
 			if ( !Callbacks.TryGetValue( type, out var list ) )
 			{
