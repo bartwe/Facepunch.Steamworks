@@ -141,7 +141,7 @@ namespace Steamworks
 
 			fixed ( byte* p = data )
 			{
-				return Internal.SendP2PPacket( steamid, (IntPtr)p, (uint)length, (P2PSend)sendType, nChannel );
+				return Internal.SendP2PPacket( steamid, (IntPtr)p, checked((uint)length), (P2PSend)sendType, nChannel );
 			}
 		}
 
@@ -152,7 +152,7 @@ namespace Steamworks
 		/// </summary>
 		public static unsafe bool SendP2PPacket( SteamId steamid, byte* data, uint length, int nChannel = 1, P2PSend sendType = P2PSend.Reliable )
 		{ 
-			return Internal.SendP2PPacket( steamid, (IntPtr)data, (uint)length, (P2PSend)sendType, nChannel );
+			return Internal.SendP2PPacket( steamid, (IntPtr)data, checked((uint)length), (P2PSend)sendType, nChannel );
 		}
 
 	}
