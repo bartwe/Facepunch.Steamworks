@@ -778,7 +778,9 @@ namespace Steamworks
 	internal enum WorkshopFileType : int
 	{
 		First = 0,
+#pragma warning disable CA1069 // Enums values should not be duplicated
 		Community = 0,
+#pragma warning restore CA1069 // Enums values should not be duplicated
 		Microtransaction = 1,
 		Collection = 2,
 		Art = 3,
@@ -2257,10 +2259,14 @@ namespace Steamworks
 	{
 		Invalid = 0,
 		App_Min = 1000,
+#pragma warning disable CA1069 // Enums values should not be duplicated
 		App_Generic = 1000,
+#pragma warning restore CA1069 // Enums values should not be duplicated
 		App_Max = 1999,
 		AppException_Min = 2000,
+#pragma warning disable CA1069 // Enums values should not be duplicated
 		AppException_Generic = 2000,
+#pragma warning restore CA1069 // Enums values should not be duplicated
 		AppException_Max = 2999,
 		Local_Min = 3000,
 		Local_OfflineMode = 3001,
