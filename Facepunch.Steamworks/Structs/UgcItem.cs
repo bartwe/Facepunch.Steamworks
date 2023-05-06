@@ -229,7 +229,7 @@ namespace Steamworks.Ugc
 
 		private ItemState State => (ItemState) SteamUGC.Internal.GetItemState( Id );
 
-		public static async Task<Item?> GetAsync( PublishedFileId id, int maxageseconds = 60 * 30 )
+		public static async Task<Item?> GetAsync( PublishedFileId id, int maxAgeSeconds = 60 * 30 )
 		{
 			var file = await Steamworks.Ugc.Query.All
 											.WithFileId( id )
