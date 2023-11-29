@@ -2103,7 +2103,8 @@ namespace Steamworks
 	//
 	// EItemState
 	//
-	internal enum ItemState : int
+	[Flags]
+	public enum ItemState : int
 	{
 		None = 0,
 		Subscribed = 1,

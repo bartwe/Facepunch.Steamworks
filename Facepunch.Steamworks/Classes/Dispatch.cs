@@ -235,6 +235,8 @@ namespace Steamworks
 		/// </summary>
 		internal static async void LoopClientAsync()
 		{
+			// force SynchronizationContext transfer
+			await Task.Delay( 1 );
 			while ( ClientPipe != 0 )
 			{
 				Frame( ClientPipe );

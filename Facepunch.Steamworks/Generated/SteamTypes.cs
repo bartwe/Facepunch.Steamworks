@@ -40,6 +40,8 @@ namespace Steamworks.Data
 	
 	internal struct SteamAPICall_t : IEquatable<SteamAPICall_t>, IComparable<SteamAPICall_t>
 	{
+		public static SteamAPICall_t Invalid = 0x0ul;
+
 		// Name: SteamAPICall_t, Type: unsigned long long
 		public ulong Value;
 		
@@ -488,6 +490,7 @@ namespace Steamworks.Data
 	
 	internal struct UGCQueryHandle_t : IEquatable<UGCQueryHandle_t>, IComparable<UGCQueryHandle_t>
 	{
+		public static readonly UGCQueryHandle_t Invalid = 0xfffffffffffffffful;
 		// Name: UGCQueryHandle_t, Type: unsigned long long
 		public ulong Value;
 		
