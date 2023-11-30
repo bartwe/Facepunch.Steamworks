@@ -74,6 +74,7 @@ namespace Steamworks.Ugc
 		/// </summary>
 		public DateTime Updated => Epoch.ToDateTime( details.TimeUpdated );
 
+		public RemoteStoragePublishedFileVisibility Visibility => details.Visibility;
 		/// <summary>
 		/// True if this is publically visible
 		/// </summary>
