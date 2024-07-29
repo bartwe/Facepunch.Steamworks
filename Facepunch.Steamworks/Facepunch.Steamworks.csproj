@@ -33,14 +33,14 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugLinuxArm32|AnyCPU'">
 		<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
-		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<DefineConstants>DEBUG;TRACE;PLATFORM_POSIX</DefineConstants>
 		<Optimize>true</Optimize>
 		<NoWarn>1701;1702;IDE0060;IDE0161;IDE1006;IDE0046;IDE0090</NoWarn>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugLinuxX64|AnyCPU'">
 		<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
-		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<DefineConstants>DEBUG;TRACE;PLATFORM_POSIX</DefineConstants>
 		<Optimize>true</Optimize>
 		<NoWarn>1701;1702;IDE0060;IDE0161;IDE1006;IDE0046;IDE0090</NoWarn>
 	</PropertyGroup>
