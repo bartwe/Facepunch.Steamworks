@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using Steamworks.Data;
 
 namespace Steamworks
@@ -39,8 +35,8 @@ namespace Steamworks
 			InstallEvents( server );
 			return true;
 		}
-	
-#region SocketInterface
+
+		#region SocketInterface
 
 		static readonly Dictionary<uint, SocketManager> SocketInterfaces = new Dictionary<uint, SocketManager>();
 
@@ -60,9 +56,9 @@ namespace Steamworks
 			if ( id == 0 ) throw new System.ArgumentException( "Invalid Socket" );
 			SocketInterfaces[id] = manager;
 		}
-#endregion
+		#endregion
 
-#region ConnectionInterface
+		#region ConnectionInterface
 		static readonly Dictionary<uint, ConnectionManager> ConnectionInterfaces = new Dictionary<uint, ConnectionManager>();
 
 		internal static ConnectionManager GetConnectionManager( uint id )
@@ -81,7 +77,7 @@ namespace Steamworks
 			if ( id == 0 ) throw new System.ArgumentException( "Invalid Connection" );
 			ConnectionInterfaces[id] = manager;
 		}
-#endregion
+		#endregion
 
 
 

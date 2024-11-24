@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using Steamworks.Data;
 
@@ -80,7 +78,7 @@ namespace Steamworks
 		{
 			get
 			{
-				for( int i=0; i<32; i++ )
+				for ( int i = 0; i < 32; i++ )
 				{
 					var n = SteamFriends.Internal.GetFriendPersonaNameHistory( Id, i );
 					if ( string.IsNullOrEmpty( n ) )
@@ -241,8 +239,8 @@ namespace Steamworks
 				return defult;
 
 			return val;
-		}		
-		
+		}
+
 		/// <summary>
 		/// Gets a the time this achievement was unlocked.
 		/// </summary>

@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Steamworks.Data;
-
-using QueryType = Steamworks.Ugc.Query;
 
 namespace Steamworks.Ugc
 {
@@ -47,7 +44,7 @@ namespace Steamworks.Ugc
 		/// <summary>
 		/// Workshop item that is meant to be managed by the game. It is queryable by the API, but isn't visible on the web browser.
 		/// </summary>
-		public static Editor NewGameManagedFile => new Editor(WorkshopFileType.GameManagedItem);
+		public static Editor NewGameManagedFile => new Editor( WorkshopFileType.GameManagedItem );
 
 		public Editor ForAppId( AppId id ) { this.consumerAppId = id; return this; }
 
@@ -99,9 +96,9 @@ namespace Steamworks.Ugc
 		/// Both keys and values cannot exceed 255 characters in length. Key-value tags are searchable by exact match only.
 		/// To replace all values associated to one key use RemoveKeyValueTags then AddKeyValueTag.
 		/// </summary>
-		public Editor AddKeyValueTag(string key, string value)
+		public Editor AddKeyValueTag( string key, string value )
 		{
-			if (KeyValueTags == null) 
+			if ( KeyValueTags == null )
 				KeyValueTags = new Dictionary<string, List<string>>();
 
 			if ( KeyValueTags.TryGetValue( key, out var list ) )
@@ -198,7 +195,7 @@ namespace Steamworks.Ugc
 					}
 				}
 
-				if ( KeyValueTagsToRemove != null)
+				if ( KeyValueTagsToRemove != null )
 				{
 					foreach ( var key in KeyValueTagsToRemove )
 						SteamUGC.Internal.RemoveItemKeyValueTags( handle, key );
@@ -219,7 +216,7 @@ namespace Steamworks.Ugc
 				if ( ChangeLog == null )
 					ChangeLog = "";
 
-			   var updating = SteamUGC.Internal.SubmitItemUpdate( handle, ChangeLog );
+				var updating = SteamUGC.Internal.SubmitItemUpdate( handle, ChangeLog );
 
 				while ( !updating.IsCompleted )
 				{

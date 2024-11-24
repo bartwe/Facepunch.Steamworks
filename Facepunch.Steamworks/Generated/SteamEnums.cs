@@ -1,8 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
-using System.Linq;
-using Steamworks.Data;
-using System.Threading.Tasks;
 
 namespace Steamworks
 {
@@ -14,7 +10,7 @@ namespace Steamworks
 		Type4 = 0,
 		Type6 = 1,
 	}
-	
+
 	//
 	// EUniverse
 	//
@@ -27,7 +23,7 @@ namespace Steamworks
 		Dev = 4,
 		Max = 5,
 	}
-	
+
 	//
 	// EResult
 	//
@@ -161,7 +157,7 @@ namespace Steamworks
 		CachedCredentialInvalid = 126,
 		K_EResultPhoneNumberIsVOIP = 127,
 	}
-	
+
 	//
 	// EVoiceResult
 	//
@@ -178,7 +174,7 @@ namespace Steamworks
 		ReceiverOutOfDate = 8,
 		ReceiverDidNotAnswer = 9,
 	}
-	
+
 	//
 	// EDenyReason
 	//
@@ -201,7 +197,7 @@ namespace Steamworks
 		SteamValidationStalled = 14,
 		SteamOwnerLeftGuestUser = 15,
 	}
-	
+
 	//
 	// EBeginAuthSessionResult
 	//
@@ -214,7 +210,7 @@ namespace Steamworks
 		GameMismatch = 4,
 		ExpiredTicket = 5,
 	}
-	
+
 	//
 	// EAuthSessionResponse
 	//
@@ -231,7 +227,7 @@ namespace Steamworks
 		AuthTicketInvalid = 8,
 		PublisherIssuedBan = 9,
 	}
-	
+
 	//
 	// EUserHasLicenseForAppResult
 	//
@@ -241,7 +237,7 @@ namespace Steamworks
 		DoesNotHaveLicense = 1,
 		NoAuth = 2,
 	}
-	
+
 	//
 	// EAccountType
 	//
@@ -260,7 +256,7 @@ namespace Steamworks
 		AnonUser = 10,
 		Max = 11,
 	}
-	
+
 	//
 	// EChatEntryType
 	//
@@ -279,7 +275,7 @@ namespace Steamworks
 		HistoricalChat = 11,
 		LinkBlocked = 14,
 	}
-	
+
 	//
 	// EChatRoomEnterResponse
 	//
@@ -298,7 +294,7 @@ namespace Steamworks
 		YouBlockedMember = 11,
 		RatelimitExceeded = 15,
 	}
-	
+
 	//
 	// EChatSteamIDInstanceFlags
 	//
@@ -309,7 +305,7 @@ namespace Steamworks
 		InstanceFlagLobby = 262144,
 		InstanceFlagMMSLobby = 131072,
 	}
-	
+
 	//
 	// ENotificationPosition
 	//
@@ -320,7 +316,7 @@ namespace Steamworks
 		BottomLeft = 2,
 		BottomRight = 3,
 	}
-	
+
 	//
 	// EBroadcastUploadResult
 	//
@@ -351,7 +347,7 @@ namespace Steamworks
 		VideoInitFailed = 22,
 		AudioInitFailed = 23,
 	}
-	
+
 	//
 	// EMarketNotAllowedReasonFlags
 	//
@@ -375,7 +371,7 @@ namespace Steamworks
 		NoRecentPurchases = 16384,
 		AcceptedWalletGift = 32768,
 	}
-	
+
 	//
 	// EDurationControlProgress
 	//
@@ -388,7 +384,7 @@ namespace Steamworks
 		ExitSoon_5h = 4,
 		ExitSoon_Night = 5,
 	}
-	
+
 	//
 	// EDurationControlNotification
 	//
@@ -403,7 +399,7 @@ namespace Steamworks
 		ExitSoon_5h = 6,
 		ExitSoon_Night = 7,
 	}
-	
+
 	//
 	// EDurationControlOnlineState
 	//
@@ -414,7 +410,7 @@ namespace Steamworks
 		Online = 2,
 		OnlineHighPri = 3,
 	}
-	
+
 	//
 	// EGameSearchErrorCode_t
 	//
@@ -430,7 +426,7 @@ namespace Steamworks
 		Failed_NotAuthorized = 8,
 		Failed_Unknown_Error = 9,
 	}
-	
+
 	//
 	// EPlayerResult_t
 	//
@@ -442,7 +438,7 @@ namespace Steamworks
 		Incomplete = 4,
 		Completed = 5,
 	}
-	
+
 	//
 	// ESteamIPv6ConnectivityProtocol
 	//
@@ -452,7 +448,7 @@ namespace Steamworks
 		HTTP = 1,
 		UDP = 2,
 	}
-	
+
 	//
 	// ESteamIPv6ConnectivityState
 	//
@@ -462,7 +458,7 @@ namespace Steamworks
 		Good = 1,
 		Bad = 2,
 	}
-	
+
 	//
 	// EFriendRelationship
 	//
@@ -478,7 +474,7 @@ namespace Steamworks
 		Suggested_DEPRECATED = 7,
 		Max = 8,
 	}
-	
+
 	//
 	// EPersonaState
 	//
@@ -494,7 +490,7 @@ namespace Steamworks
 		Invisible = 7,
 		Max = 8,
 	}
-	
+
 	//
 	// EFriendFlags
 	//
@@ -513,7 +509,7 @@ namespace Steamworks
 		ChatMember = 4096,
 		All = 65535,
 	}
-	
+
 	//
 	// EUserRestriction
 	//
@@ -528,7 +524,7 @@ namespace Steamworks
 		GameInvites = 32,
 		Trading = 64,
 	}
-	
+
 	//
 	// EOverlayToStoreFlag
 	//
@@ -538,7 +534,7 @@ namespace Steamworks
 		AddToCart = 1,
 		AddToCartAndShow = 2,
 	}
-	
+
 	//
 	// EActivateGameOverlayToWebPageMode
 	//
@@ -547,7 +543,7 @@ namespace Steamworks
 		Default = 0,
 		Modal = 1,
 	}
-	
+
 	//
 	// ECommunityProfileItemType
 	//
@@ -559,7 +555,7 @@ namespace Steamworks
 		ProfileBackground = 3,
 		MiniProfileBackground = 4,
 	}
-	
+
 	//
 	// ECommunityProfileItemProperty
 	//
@@ -578,7 +574,7 @@ namespace Steamworks
 		MovieWebMSmall = 10,
 		MovieMP4Small = 11,
 	}
-	
+
 	//
 	// EPersonaChange
 	//
@@ -600,7 +596,7 @@ namespace Steamworks
 		SteamLevel = 8192,
 		RichPresence = 16384,
 	}
-	
+
 	//
 	// ESteamAPICallFailure
 	//
@@ -612,7 +608,7 @@ namespace Steamworks
 		InvalidHandle = 2,
 		MismatchedCallback = 3,
 	}
-	
+
 	//
 	// EGamepadTextInputMode
 	//
@@ -621,7 +617,7 @@ namespace Steamworks
 		Normal = 0,
 		Password = 1,
 	}
-	
+
 	//
 	// EGamepadTextInputLineMode
 	//
@@ -630,7 +626,7 @@ namespace Steamworks
 		SingleLine = 0,
 		MultipleLines = 1,
 	}
-	
+
 	//
 	// EFloatingGamepadTextInputMode
 	//
@@ -641,7 +637,7 @@ namespace Steamworks
 		Email = 2,
 		Numeric = 3,
 	}
-	
+
 	//
 	// ETextFilteringContext
 	//
@@ -652,7 +648,7 @@ namespace Steamworks
 		Chat = 2,
 		Name = 3,
 	}
-	
+
 	//
 	// ECheckFileSignature
 	//
@@ -664,7 +660,7 @@ namespace Steamworks
 		NoSignaturesFoundForThisApp = 3,
 		NoSignaturesFoundForThisFile = 4,
 	}
-	
+
 	//
 	// EMatchMakingServerResponse
 	//
@@ -674,7 +670,7 @@ namespace Steamworks
 		ServerFailedToRespond = 1,
 		NoServersListedOnMasterServer = 2,
 	}
-	
+
 	//
 	// ELobbyType
 	//
@@ -686,7 +682,7 @@ namespace Steamworks
 		Invisible = 3,
 		PrivateUnique = 4,
 	}
-	
+
 	//
 	// ELobbyComparison
 	//
@@ -699,7 +695,7 @@ namespace Steamworks
 		EqualToOrGreaterThan = 2,
 		NotEqual = 3,
 	}
-	
+
 	//
 	// ELobbyDistanceFilter
 	//
@@ -710,7 +706,7 @@ namespace Steamworks
 		Far = 2,
 		Worldwide = 3,
 	}
-	
+
 	//
 	// EChatMemberStateChange
 	//
@@ -722,7 +718,7 @@ namespace Steamworks
 		Kicked = 8,
 		Banned = 16,
 	}
-	
+
 	//
 	// ESteamPartyBeaconLocationType
 	//
@@ -732,7 +728,7 @@ namespace Steamworks
 		ChatGroup = 1,
 		Max = 2,
 	}
-	
+
 	//
 	// ESteamPartyBeaconLocationData
 	//
@@ -744,7 +740,7 @@ namespace Steamworks
 		IconURLMedium = 3,
 		IconURLLarge = 4,
 	}
-	
+
 	//
 	// ERemoteStoragePlatform
 	//
@@ -760,7 +756,7 @@ namespace Steamworks
 		IOS = 64,
 		All = -1,
 	}
-	
+
 	//
 	// ERemoteStoragePublishedFileVisibility
 	//
@@ -771,7 +767,7 @@ namespace Steamworks
 		Private = 2,
 		Unlisted = 3,
 	}
-	
+
 	//
 	// EWorkshopFileType
 	//
@@ -798,7 +794,7 @@ namespace Steamworks
 		GameManagedItem = 15,
 		Max = 16,
 	}
-	
+
 	//
 	// EWorkshopVote
 	//
@@ -809,7 +805,7 @@ namespace Steamworks
 		Against = 2,
 		Later = 3,
 	}
-	
+
 	//
 	// EWorkshopFileAction
 	//
@@ -818,7 +814,7 @@ namespace Steamworks
 		Played = 0,
 		Completed = 1,
 	}
-	
+
 	//
 	// EWorkshopEnumerationType
 	//
@@ -832,7 +828,7 @@ namespace Steamworks
 		ContentByFriends = 5,
 		RecentFromFollowedUsers = 6,
 	}
-	
+
 	//
 	// EWorkshopVideoProvider
 	//
@@ -841,7 +837,7 @@ namespace Steamworks
 		None = 0,
 		Youtube = 1,
 	}
-	
+
 	//
 	// EUGCReadAction
 	//
@@ -851,7 +847,7 @@ namespace Steamworks
 		ontinueReading = 1,
 		lose = 2,
 	}
-	
+
 	//
 	// ERemoteStorageLocalFileChange
 	//
@@ -861,7 +857,7 @@ namespace Steamworks
 		FileUpdated = 1,
 		FileDeleted = 2,
 	}
-	
+
 	//
 	// ERemoteStorageFilePathType
 	//
@@ -871,7 +867,7 @@ namespace Steamworks
 		Absolute = 1,
 		APIFilename = 2,
 	}
-	
+
 	//
 	// ELeaderboardDataRequest
 	//
@@ -882,7 +878,7 @@ namespace Steamworks
 		Friends = 2,
 		Users = 3,
 	}
-	
+
 	//
 	// ELeaderboardSortMethod
 	//
@@ -898,7 +894,7 @@ namespace Steamworks
 		KeepBest = 1,
 		ForceUpdate = 2,
 	}
-	
+
 	//
 	// ERegisterActivationCodeResult
 	//
@@ -910,7 +906,7 @@ namespace Steamworks
 		ResultTimeout = 3,
 		AlreadyOwned = 4,
 	}
-	
+
 	//
 	// EP2PSessionError
 	//
@@ -923,7 +919,7 @@ namespace Steamworks
 		DestinationNotLoggedIn_DELETED = 3,
 		Max = 5,
 	}
-	
+
 	//
 	// EP2PSend
 	//
@@ -934,7 +930,7 @@ namespace Steamworks
 		Reliable = 2,
 		ReliableWithBuffering = 3,
 	}
-	
+
 	//
 	// ESNetSocketState
 	//
@@ -953,7 +949,7 @@ namespace Steamworks
 		MonoPanorama = 4,
 		StereoPanorama = 5,
 	}
-	
+
 	//
 	// AudioPlayback_Status
 	//
@@ -964,7 +960,7 @@ namespace Steamworks
 		Paused = 2,
 		Idle = 3,
 	}
-	
+
 	//
 	// EHTTPMethod
 	//
@@ -979,7 +975,7 @@ namespace Steamworks
 		OPTIONS = 6,
 		PATCH = 7,
 	}
-	
+
 	//
 	// EHTTPStatusCode
 	//
@@ -1031,7 +1027,7 @@ namespace Steamworks
 		Code505HTTPVersionNotSupported = 505,
 		Code5xxUnknown = 599,
 	}
-	
+
 	//
 	// EInputSourceMode
 	//
@@ -1055,7 +1051,7 @@ namespace Steamworks
 		SingleButton = 15,
 		Switches = 16,
 	}
-	
+
 	//
 	// EInputActionOrigin
 	//
@@ -1470,7 +1466,7 @@ namespace Steamworks
 		Count = 406,
 		MaximumPossibleValue = 32767,
 	}
-	
+
 	//
 	// EXboxOrigin
 	//
@@ -1506,7 +1502,7 @@ namespace Steamworks
 		DPad_East = 27,
 		Count = 28,
 	}
-	
+
 	//
 	// ESteamControllerPad
 	//
@@ -1515,7 +1511,7 @@ namespace Steamworks
 		Left = 0,
 		Right = 1,
 	}
-	
+
 	//
 	// EControllerHapticLocation
 	//
@@ -1525,7 +1521,7 @@ namespace Steamworks
 		Right = 2,
 		Both = 3,
 	}
-	
+
 	//
 	// EControllerHapticType
 	//
@@ -1535,7 +1531,7 @@ namespace Steamworks
 		Tick = 1,
 		Click = 2,
 	}
-	
+
 	//
 	// ESteamInputType
 	//
@@ -1559,7 +1555,7 @@ namespace Steamworks
 		Count = 15,
 		MaximumPossibleValue = 255,
 	}
-	
+
 	//
 	// ESteamInputConfigurationEnableType
 	//
@@ -1571,7 +1567,7 @@ namespace Steamworks
 		Generic = 4,
 		Switch = 8,
 	}
-	
+
 	//
 	// ESteamInputLEDFlag
 	//
@@ -1580,7 +1576,7 @@ namespace Steamworks
 		SetColor = 0,
 		RestoreUserDefault = 1,
 	}
-	
+
 	//
 	// ESteamInputGlyphSize
 	//
@@ -1591,7 +1587,7 @@ namespace Steamworks
 		Large = 2,
 		Count = 3,
 	}
-	
+
 	//
 	// ESteamInputGlyphStyle
 	//
@@ -1603,7 +1599,7 @@ namespace Steamworks
 		NeutralColorABXY = 16,
 		SolidABXY = 32,
 	}
-	
+
 	//
 	// ESteamInputActionEventType
 	//
@@ -1612,7 +1608,7 @@ namespace Steamworks
 		DigitalAction = 0,
 		AnalogAction = 1,
 	}
-	
+
 	//
 	// EControllerActionOrigin
 	//
@@ -1999,7 +1995,7 @@ namespace Steamworks
 		Count = 378,
 		MaximumPossibleValue = 32767,
 	}
-	
+
 	//
 	// ESteamControllerLEDFlag
 	//
@@ -2008,7 +2004,7 @@ namespace Steamworks
 		SetColor = 0,
 		RestoreUserDefault = 1,
 	}
-	
+
 	//
 	// EUGCMatchingUGCType
 	//
@@ -2029,7 +2025,7 @@ namespace Steamworks
 		GameManagedItems = 12,
 		All = -1,
 	}
-	
+
 	//
 	// EUserUGCList
 	//
@@ -2045,7 +2041,7 @@ namespace Steamworks
 		UsedOrPlayed = 7,
 		Followed = 8,
 	}
-	
+
 	//
 	// EUserUGCListSortOrder
 	//
@@ -2059,7 +2055,7 @@ namespace Steamworks
 		VoteScoreDesc = 5,
 		ForModeration = 6,
 	}
-	
+
 	//
 	// EUGCQuery
 	//
@@ -2086,7 +2082,7 @@ namespace Steamworks
 		RankedByLifetimePlaytimeSessions = 18,
 		RankedByLastUpdatedDate = 19,
 	}
-	
+
 	//
 	// EItemUpdateStatus
 	//
@@ -2099,7 +2095,7 @@ namespace Steamworks
 		UploadingPreviewFile = 4,
 		CommittingChanges = 5,
 	}
-	
+
 	//
 	// EItemState
 	//
@@ -2114,7 +2110,7 @@ namespace Steamworks
 		Downloading = 16,
 		DownloadPending = 32,
 	}
-	
+
 	//
 	// EItemStatistic
 	//
@@ -2134,7 +2130,7 @@ namespace Steamworks
 		NumSecondsPlayedDuringTimePeriod = 11,
 		NumPlaytimeSessionsDuringTimePeriod = 12,
 	}
-	
+
 	//
 	// EItemPreviewType
 	//
@@ -2147,7 +2143,7 @@ namespace Steamworks
 		EnvironmentMap_LatLong = 4,
 		ReservedMax = 255,
 	}
-	
+
 	//
 	// ESteamItemFlags
 	//
@@ -2157,7 +2153,7 @@ namespace Steamworks
 		Removed = 256,
 		Consumed = 512,
 	}
-	
+
 	//
 	// EParentalFeature
 	//
@@ -2179,7 +2175,7 @@ namespace Steamworks
 		SiteLicense = 13,
 		Max = 14,
 	}
-	
+
 	//
 	// ESteamDeviceFormFactor
 	//
@@ -2191,7 +2187,7 @@ namespace Steamworks
 		Computer = 3,
 		TV = 4,
 	}
-	
+
 	//
 	// ESteamNetworkingAvailability
 	//
@@ -2208,7 +2204,7 @@ namespace Steamworks
 		Unknown = 0,
 		Force32bit = 2147483647,
 	}
-	
+
 	//
 	// ESteamNetworkingIdentityType
 	//
@@ -2225,7 +2221,7 @@ namespace Steamworks
 		UnknownType = 4,
 		Force32bit = 2147483647,
 	}
-	
+
 	//
 	// ESteamNetworkingFakeIPType
 	//
@@ -2236,7 +2232,7 @@ namespace Steamworks
 		GlobalIPv4 = 2,
 		LocalIPv4 = 3,
 	}
-	
+
 	//
 	// ESteamNetworkingConnectionState
 	//
@@ -2252,7 +2248,7 @@ namespace Steamworks
 		Linger = -2,
 		Dead = -3,
 	}
-	
+
 	//
 	// ESteamNetConnectionEnd
 	//
@@ -2295,7 +2291,7 @@ namespace Steamworks
 		Misc_PeerSentNoConnection = 5010,
 		Misc_Max = 5999,
 	}
-	
+
 	//
 	// ESteamNetworkingConfigScope
 	//
@@ -2306,7 +2302,7 @@ namespace Steamworks
 		ListenSocket = 3,
 		Connection = 4,
 	}
-	
+
 	//
 	// ESteamNetworkingConfigDataType
 	//
@@ -2318,7 +2314,7 @@ namespace Steamworks
 		String = 4,
 		Ptr = 5,
 	}
-	
+
 	//
 	// ESteamNetworkingConfigValue
 	//
@@ -2386,7 +2382,7 @@ namespace Steamworks
 		LogLevel_SDRRelayPings = 18,
 		DELETED_EnumerateDevVars = 35,
 	}
-	
+
 	//
 	// ESteamNetworkingGetConfigValueResult
 	//
@@ -2398,7 +2394,7 @@ namespace Steamworks
 		OK = 1,
 		OKInherited = 2,
 	}
-	
+
 	//
 	// ESteamNetworkingSocketsDebugOutputType
 	//
@@ -2414,7 +2410,7 @@ namespace Steamworks
 		Debug = 7,
 		Everything = 8,
 	}
-	
+
 	//
 	// EServerMode
 	//
@@ -2425,5 +2421,5 @@ namespace Steamworks
 		Authentication = 2,
 		AuthenticationAndSecure = 3,
 	}
-	
+
 }

@@ -6,7 +6,7 @@
 		public int Value { get; internal set; }
 		public LobbyComparison Comparer { get; internal set; }
 
-		internal NumericalFilter ( string k, int v, LobbyComparison c )
+		internal NumericalFilter( string k, int v, LobbyComparison c )
 		{
 			Key = k;
 			Value = v;

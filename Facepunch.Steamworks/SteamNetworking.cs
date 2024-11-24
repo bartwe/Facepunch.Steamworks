@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using Steamworks.Data;
 
 namespace Steamworks
@@ -28,7 +23,7 @@ namespace Steamworks
 		internal static void InstallEvents( bool server )
 		{
 			Dispatch.Install<P2PSessionRequest_t>( x => OnP2PSessionRequest?.Invoke( x.SteamIDRemote ), server );
-			Dispatch.Install<P2PSessionConnectFail_t>( x => OnP2PConnectionFailed?.Invoke( x.SteamIDRemote, (P2PSessionError) x.P2PSessionError ), server );
+			Dispatch.Install<P2PSessionConnectFail_t>( x => OnP2PConnectionFailed?.Invoke( x.SteamIDRemote, (P2PSessionError)x.P2PSessionError ), server );
 		}
 
 		/// <summary>
@@ -72,7 +67,7 @@ namespace Steamworks
 			uint _ = 0;
 			return Internal.IsP2PPacketAvailable( ref _, channel );
 		}
-		
+
 		/// <summary>
 		/// Checks if a P2P packet is available to read, and gets the size of the message if there is one.
 		/// </summary>
@@ -92,13 +87,13 @@ namespace Steamworks
 			if ( !Internal.IsP2PPacketAvailable( ref size, channel ) )
 				return null;
 
-			var buffer = Helpers.TakeBuffer( (int) size );
+			var buffer = Helpers.TakeBuffer( (int)size );
 
 			fixed ( byte* p = buffer )
 			{
 				SteamId steamid = 1;
-				if ( !Internal.ReadP2PPacket( (IntPtr)p, (uint) buffer.Length, ref size, ref steamid, channel ) || size == 0 )
-				    return null;
+				if ( !Internal.ReadP2PPacket( (IntPtr)p, (uint)buffer.Length, ref size, ref steamid, channel ) || size == 0 )
+					return null;
 
 				var data = new byte[size];
 				Array.Copy( buffer, 0, data, 0, size );
@@ -116,7 +111,8 @@ namespace Steamworks
 		/// </summary>
 		public unsafe static bool ReadP2PPacket( byte[] buffer, ref uint size, ref SteamId steamid, int channel = 0 )
 		{
-			fixed (byte* p = buffer) {
+			fixed ( byte* p = buffer )
+			{
 				return Internal.ReadP2PPacket( (IntPtr)p, (uint)buffer.Length, ref size, ref steamid, channel );
 			}
 		}
@@ -151,7 +147,7 @@ namespace Steamworks
 		/// NOTE: The first packet send may be delayed as the NAT-traversal code runs.
 		/// </summary>
 		public static unsafe bool SendP2PPacket( SteamId steamid, byte* data, uint length, int nChannel = 1, P2PSend sendType = P2PSend.Reliable )
-		{ 
+		{
 			return Internal.SendP2PPacket( steamid, (IntPtr)data, checked((uint)length), (P2PSend)sendType, nChannel );
 		}
 

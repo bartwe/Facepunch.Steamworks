@@ -91,7 +91,7 @@ namespace Steamworks
 			{
 				_id = details.ItemId,
 				_def = details.Definition,
-				_flags = (SteamItemFlags) details.Flags,
+				_flags = (SteamItemFlags)details.Flags,
 				_quantity = details.Quantity
 			};
 
@@ -100,7 +100,7 @@ namespace Steamworks
 
 		internal static Dictionary<string, string> GetProperties( SteamInventoryResult_t result, int index )
 		{
-			var strlen = (uint) Helpers.MemoryBufferSize;
+			var strlen = (uint)Helpers.MemoryBufferSize;
 
 			if ( !SteamInventory.Internal.GetResultItemProperty( result, (uint)index, null, out var propNames, ref strlen ) )
 				return null;
@@ -156,7 +156,7 @@ namespace Steamworks
 			get
 			{
 				if ( Properties == null ) return null;
-				
+
 				if ( Properties.TryGetValue( "origin", out var str ) )
 					return str;
 

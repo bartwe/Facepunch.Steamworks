@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Steamworks.Data
 {
@@ -197,7 +197,7 @@ namespace Steamworks.Data
 				}
 			}
 
-			if( numericalFilters != null )
+			if ( numericalFilters != null )
 			{
 				foreach ( var n in numericalFilters )
 				{
@@ -205,9 +205,9 @@ namespace Steamworks.Data
 				}
 			}
 
-			if( nearValFilters != null )
+			if ( nearValFilters != null )
 			{
-				foreach (var v in nearValFilters )
+				foreach ( var v in nearValFilters )
 				{
 					SteamMatchmaking.Internal.AddRequestLobbyListNearValueFilter( v.Key, v.Value );
 				}

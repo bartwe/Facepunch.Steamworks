@@ -144,7 +144,7 @@ namespace Steamworks.Data
 				if ( IsIPv4 )
 				{
 					NetAddress self = this;
-					var ip = InternalGetIPv4( ref self  );
+					var ip = InternalGetIPv4( ref self );
 					return Utility.Int32ToIp( ip );
 				}
 

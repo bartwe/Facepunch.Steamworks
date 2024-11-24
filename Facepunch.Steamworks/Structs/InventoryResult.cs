@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Steamworks.Data;
 
@@ -8,7 +7,7 @@ namespace Steamworks
 	public struct InventoryResult : IDisposable
 	{
 		internal SteamInventoryResult_t _id;
-		
+
 		public bool Expired { get; internal set; }
 
 		internal InventoryResult( SteamInventoryResult_t id, bool expired )
@@ -26,7 +25,7 @@ namespace Steamworks
 				if ( !SteamInventory.Internal.GetResultItems( _id, null, ref cnt ) )
 					return 0;
 
-				return (int) cnt;
+				return (int)cnt;
 			}
 		}
 
@@ -41,7 +40,7 @@ namespace Steamworks
 
 		public InventoryItem[] GetItems( bool includeProperties = false )
 		{
-			uint cnt = (uint) ItemCount;
+			uint cnt = (uint)ItemCount;
 			if ( cnt <= 0 ) return null;
 
 			var pOutItemsArray = new SteamItemDetails_t[cnt];
@@ -51,7 +50,7 @@ namespace Steamworks
 
 			var items = new InventoryItem[cnt];
 
-			for( int i=0; i< cnt; i++ )
+			for ( int i = 0; i < cnt; i++ )
 			{
 				var item = InventoryItem.From( pOutItemsArray[i] );
 
@@ -62,7 +61,7 @@ namespace Steamworks
 			}
 
 
-			return items;			
+			return items;
 		}
 
 		public void Dispose()

@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using Steamworks.Data;
 
 namespace Steamworks
 {
@@ -34,7 +30,7 @@ namespace Steamworks
 		{
 			fixed ( byte* ptr = data )
 			{
-				return Internal.FileWrite( filename, (IntPtr) ptr, data.Length );
+				return Internal.FileWrite( filename, (IntPtr)ptr, data.Length );
 			}
 		}
 
@@ -176,7 +172,7 @@ namespace Steamworks
 			get
 			{
 				int _ = 0;
-				for( int i=0; i<FileCount; i++ )
+				for ( int i = 0; i < FileCount; i++ )
 				{
 					var filename = Internal.GetFileNameAndSize( i, ref _ );
 					yield return filename;

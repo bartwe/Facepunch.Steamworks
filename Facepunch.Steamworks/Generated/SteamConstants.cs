@@ -1,9 +1,3 @@
-using System;
-using System.Runtime.InteropServices;
-using System.Linq;
-using Steamworks.Data;
-using System.Threading.Tasks;
-
 namespace Steamworks.Data
 {
 	internal static class Defines
@@ -19,7 +13,7 @@ namespace Steamworks.Data
 		internal static readonly int k_cchGameExtraInfoMax = 64;
 		internal static readonly int k_cchMaxFriendsGroupName = 64;
 		internal static readonly int k_cFriendsGroupLimit = 100;
-		internal static readonly FriendsGroupID_t k_FriendsGroupID_Invalid = - 1;
+		internal static readonly FriendsGroupID_t k_FriendsGroupID_Invalid = -1;
 		internal static readonly int k_cEnumerateFollowersMax = 50;
 		internal static readonly uint k_cubChatMetadataMax = 8192;
 		internal static readonly int k_cbMaxGameServerGameDir = 32;
@@ -55,8 +49,8 @@ namespace Steamworks.Data
 		internal static readonly uint kNumUGCResultsPerPage = 50;
 		internal static readonly uint k_cchDeveloperMetadataMax = 5000;
 		internal static readonly uint INVALID_HTMLBROWSER = 0;
-		internal static readonly InventoryItemId k_SteamItemInstanceIDInvalid = ~default(ulong);
-		internal static readonly SteamInventoryResult_t k_SteamInventoryResultInvalid = - 1;
+		internal static readonly InventoryItemId k_SteamItemInstanceIDInvalid = ~default( ulong );
+		internal static readonly SteamInventoryResult_t k_SteamInventoryResultInvalid = -1;
 		internal static readonly SteamInventoryUpdateHandle_t k_SteamInventoryUpdateHandleInvalid = 0xffffffffffffffff;
 		internal static readonly Connection k_HSteamNetConnection_Invalid = 0;
 		internal static readonly Socket k_HSteamListenSocket_Invalid = 0;
@@ -82,15 +76,15 @@ namespace Steamworks.Data
 		internal static readonly int k_nSteamNetworkingSend_UseCurrentThread = 16;
 		internal static readonly int k_nSteamNetworkingSend_AutoRestartBrokenSession = 32;
 		internal static readonly int k_cchMaxSteamNetworkingPingLocationString = 1024;
-		internal static readonly int k_nSteamNetworkingPing_Failed = - 1;
-		internal static readonly int k_nSteamNetworkingPing_Unknown = - 2;
-		internal static readonly int k_nSteamNetworkingConfig_P2P_Transport_ICE_Enable_Default = - 1;
+		internal static readonly int k_nSteamNetworkingPing_Failed = -1;
+		internal static readonly int k_nSteamNetworkingPing_Unknown = -2;
+		internal static readonly int k_nSteamNetworkingConfig_P2P_Transport_ICE_Enable_Default = -1;
 		internal static readonly int k_nSteamNetworkingConfig_P2P_Transport_ICE_Enable_Disable = 0;
 		internal static readonly int k_nSteamNetworkingConfig_P2P_Transport_ICE_Enable_Relay = 1;
 		internal static readonly int k_nSteamNetworkingConfig_P2P_Transport_ICE_Enable_Private = 2;
 		internal static readonly int k_nSteamNetworkingConfig_P2P_Transport_ICE_Enable_Public = 4;
 		internal static readonly int k_nSteamNetworkingConfig_P2P_Transport_ICE_Enable_All = 0x7fffffff;
-		internal static readonly SteamNetworkingPOPID k_SteamDatagramPOPID_dev = ( ( uint ) 'd' << 16 ) | ( ( uint ) 'e' << 8 ) | ( uint ) 'v';
+		internal static readonly SteamNetworkingPOPID k_SteamDatagramPOPID_dev = ((uint)'d' << 16) | ((uint)'e' << 8) | (uint)'v';
 		internal static readonly ushort STEAMGAMESERVER_QUERY_PORT_SHARED = 0xffff;
 		internal static readonly ushort MASTERSERVERUPDATERPORT_USEGAMESOCKETSHARE = STEAMGAMESERVER_QUERY_PORT_SHARED;
 		internal static readonly uint k_cbSteamDatagramMaxSerializedTicket = 512;

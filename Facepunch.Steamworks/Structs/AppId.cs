@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
-
-
-namespace Steamworks
+﻿namespace Steamworks
 {
 	/// <summary>
 	/// Represents the ID of a Steam application.
@@ -17,12 +11,12 @@ namespace Steamworks
 
 		public static implicit operator AppId( uint value )
 		{
-			return new AppId{ Value = value };
+			return new AppId { Value = value };
 		}
 
 		public static implicit operator AppId( int value )
 		{
-			return new AppId { Value = (uint) value };
+			return new AppId { Value = (uint)value };
 		}
 
 		public static implicit operator uint( AppId value )

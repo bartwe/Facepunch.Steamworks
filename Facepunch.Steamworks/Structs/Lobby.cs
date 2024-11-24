@@ -27,7 +27,7 @@ namespace Steamworks.Data
 			var result = await SteamMatchmaking.Internal.JoinLobby( Id );
 			if ( !result.HasValue ) return RoomEnter.Error;
 
-			return (RoomEnter) result.Value.EChatRoomEnterResponse;
+			return (RoomEnter)result.Value.EChatRoomEnterResponse;
 		}
 
 		/// <summary>
@@ -61,7 +61,7 @@ namespace Steamworks.Data
 		{
 			get
 			{
-				for( int i = 0; i < MemberCount; i++ )
+				for ( int i = 0; i < MemberCount; i++ )
 				{
 					yield return new Friend( SteamMatchmaking.Internal.GetLobbyMemberByIndex( Id, i ) );
 				}
@@ -105,7 +105,7 @@ namespace Steamworks.Data
 			{
 				var cnt = SteamMatchmaking.Internal.GetLobbyDataCount( Id );
 
-				for ( int i =0; i<cnt; i++)
+				for ( int i = 0; i < cnt; i++ )
 				{
 					if ( SteamMatchmaking.Internal.GetLobbyDataByIndex( Id, i, out var a, out var b ) )
 					{

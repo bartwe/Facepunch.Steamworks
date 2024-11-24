@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Steamworks.Data;
@@ -283,9 +281,9 @@ namespace Steamworks
 		}
 
 		internal static void LogDebugMessage( NetDebugOutput type, string message )
-        {
+		{
 			debugMessages.Enqueue( new DebugMessage { Type = type, Msg = message } );
-        }
+		}
 
 		/// <summary>
 		/// Called regularly from the Dispatch loop so we can provide a timely
@@ -302,10 +300,10 @@ namespace Steamworks
 			}
 		}
 
-        internal static unsafe NetMsg* AllocateMessage()
-        {
-            return Internal.AllocateMessage(0);
-        }
+		internal static unsafe NetMsg* AllocateMessage()
+		{
+			return Internal.AllocateMessage( 0 );
+		}
 
 		#region Config Internals
 
@@ -321,7 +319,7 @@ namespace Steamworks
 			NetConfigType dtype = NetConfigType.Int32;
 			int* ptr = &value;
 			UIntPtr size = new UIntPtr( sizeof( int ) );
-			var result = Internal.GetConfigValue( type, NetConfigScope.Global, IntPtr.Zero, ref dtype, (IntPtr) ptr, ref size );
+			var result = Internal.GetConfigValue( type, NetConfigScope.Global, IntPtr.Zero, ref dtype, (IntPtr)ptr, ref size );
 			if ( result != NetConfigResult.OK )
 				return 0;
 
@@ -400,6 +398,6 @@ namespace Steamworks
 			}
 		}*/
 
-#endregion
+		#endregion
 	}
 }

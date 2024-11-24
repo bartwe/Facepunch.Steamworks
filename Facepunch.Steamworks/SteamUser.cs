@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using Steamworks.Data;
 
@@ -149,7 +148,7 @@ namespace Steamworks
 			}
 		}
 
-		static byte[] readBuffer = new byte[1024*128];
+		static byte[] readBuffer = new byte[1024 * 128];
 
 		/// <summary>
 		/// Reads the voice data and returns the number of bytes written.
@@ -175,9 +174,9 @@ namespace Steamworks
 			if ( szWritten == 0 )
 				return 0;
 
-			stream.Write( readBuffer, 0, (int) szWritten );
+			stream.Write( readBuffer, 0, (int)szWritten );
 
-			return (int) szWritten;
+			return (int)szWritten;
 		}
 
 		/// <summary>
@@ -212,7 +211,7 @@ namespace Steamworks
 		public static uint SampleRate
 		{
 			get => sampleRate;
-			
+
 			set
 			{
 				if ( SampleRate < 11025 ) throw new System.Exception( "Sample Rate must be between 11025 and 48000" );
@@ -247,7 +246,7 @@ namespace Steamworks
 			fixed ( byte* frm = from )
 			fixed ( byte* dst = to )
 			{
-				if ( Internal.DecompressVoice( (IntPtr) frm, (uint) length, (IntPtr)dst, (uint)to.Length, ref szWritten, SampleRate ) != VoiceResult.OK )
+				if ( Internal.DecompressVoice( (IntPtr)frm, (uint)length, (IntPtr)dst, (uint)to.Length, ref szWritten, SampleRate ) != VoiceResult.OK )
 					return 0;
 			}
 
@@ -297,9 +296,9 @@ namespace Steamworks
 
 			uint szWritten = 0;
 
-			if ( Internal.DecompressVoice( from, checked((uint) length), to, checked((uint)bufferSize), ref szWritten, SampleRate ) != VoiceResult.OK )
+			if ( Internal.DecompressVoice( from, checked((uint)length), to, checked((uint)bufferSize), ref szWritten, SampleRate ) != VoiceResult.OK )
 				return 0;
-			
+
 			return (int)szWritten;
 		}
 
@@ -379,7 +378,7 @@ namespace Steamworks
 		{
 			fixed ( byte* ptr = ticketData )
 			{
-				return Internal.BeginAuthSession( (IntPtr) ptr, ticketData.Length, steamid );
+				return Internal.BeginAuthSession( (IntPtr)ptr, ticketData.Length, steamid );
 			}
 		}
 
@@ -458,7 +457,7 @@ namespace Steamworks
 				if ( Internal.GetEncryptedAppTicket( ticketData, 1024, ref outSize ) )
 				{
 					data = new byte[outSize];
-					Marshal.Copy( ticketData, data, 0, (int) outSize );
+					Marshal.Copy( ticketData, data, 0, (int)outSize );
 				}
 
 				Marshal.FreeHGlobal( ticketData );

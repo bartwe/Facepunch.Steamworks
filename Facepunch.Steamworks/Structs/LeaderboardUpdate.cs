@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace Steamworks.Data
+﻿namespace Steamworks.Data
 {
 	public struct LeaderboardUpdate
 	{

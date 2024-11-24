@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using Steamworks.Data;
 
@@ -25,7 +24,7 @@ namespace Steamworks
 
 			return true;
 		}
-	
+
 		internal static void InstallEvents( bool server )
 		{
 			if ( !server )
@@ -121,7 +120,7 @@ namespace Steamworks
 			if ( _defMap == null )
 				return null;
 
-			if ( _defMap.TryGetValue( defId, out var val  ) )
+			if ( _defMap.TryGetValue( defId, out var val ) )
 				return val;
 
 			return null;
@@ -250,7 +249,7 @@ namespace Steamworks
 			var givec = new uint[] { 1 };
 
 			var sell = list.Select( x => x.Item.Id ).ToArray();
-			var sellc = list.Select( x => (uint) x.Quantity ).ToArray();
+			var sellc = list.Select( x => (uint)x.Quantity ).ToArray();
 
 			if ( !Internal.ExchangeItems( ref sresult, give, givec, 1, sell, sellc, (uint)sell.Length ) )
 				return null;
@@ -291,7 +290,7 @@ namespace Steamworks
 				if ( !Internal.DeserializeResult( ref sresult, (IntPtr)ptr, (uint)dataLength, false ) )
 					return null;
 
-				
+
 
 				return await InventoryResult.GetAsync( sresult.Value );
 			}
@@ -350,7 +349,7 @@ namespace Steamworks
 		/// </summary>
 		public static async Task<InventoryPurchaseResult?> StartPurchaseAsync( InventoryDef[] items )
 		{
-			var d = items.GroupBy( x => x._id ).ToDictionary( x => x.Key, x => (uint) x.Count() );
+			var d = items.GroupBy( x => x._id ).ToDictionary( x => x.Key, x => (uint)x.Count() );
 			var item_i = d.Keys.ToArray();
 			var item_q = d.Values.ToArray();
 

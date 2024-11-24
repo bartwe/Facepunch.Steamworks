@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using Steamworks.Data;
 
 namespace Steamworks
@@ -46,7 +43,7 @@ namespace Steamworks
 		/// <summary>
 		/// Gets the amount of beacons that are active.
 		/// </summary>
-		public static int ActiveBeaconCount => (int) Internal.GetNumActiveBeacons();
+		public static int ActiveBeaconCount => (int)Internal.GetNumActiveBeacons();
 
 		/// <summary>
 		/// Gets an <see cref="IEnumerable{T}"/> of active beacons.

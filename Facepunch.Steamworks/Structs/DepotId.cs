@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
-
-
-namespace Steamworks.Data
+﻿namespace Steamworks.Data
 {
 	public struct DepotId
 	{
@@ -17,7 +11,7 @@ namespace Steamworks.Data
 
 		public static implicit operator DepotId( int value )
 		{
-			return new DepotId { Value = (uint) value };
+			return new DepotId { Value = (uint)value };
 		}
 
 		public static implicit operator uint( DepotId value )

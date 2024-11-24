@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using Steamworks.Data;
 
@@ -101,7 +99,7 @@ namespace Steamworks
 			if ( appid == 0 )
 				appid = SteamClient.AppId;
 
-			return Epoch.ToDateTime(Internal.GetEarliestPurchaseUnixTime(appid.Value ) );
+			return Epoch.ToDateTime( Internal.GetEarliestPurchaseUnixTime( appid.Value ) );
 		}
 
 		/// <summary>
@@ -179,7 +177,7 @@ namespace Steamworks
 				appid = SteamClient.AppId;
 
 			var depots = new DepotId_t[32];
-			uint count = Internal.GetInstalledDepots( appid.Value, depots, (uint) depots.Length );
+			uint count = Internal.GetInstalledDepots( appid.Value, depots, (uint)depots.Length );
 
 			for ( int i = 0; i < count; i++ )
 			{
@@ -290,7 +288,7 @@ namespace Steamworks
 		/// <param name="secondsAllowed">The amount of seconds left on the timed trial.</param>
 		/// <param name="secondsPlayed">The amount of seconds played on the timed trial.</param>
 		public static bool IsTimedTrial( out int secondsAllowed, out int secondsPlayed )
-        {
+		{
 			uint a = 0;
 			uint b = 0;
 			secondsAllowed = 0;
@@ -299,11 +297,11 @@ namespace Steamworks
 			if ( !Internal.BIsTimedTrial( ref a, ref b ) )
 				return false;
 
-			secondsAllowed = (int) a;
-			secondsPlayed = (int) b;
+			secondsAllowed = (int)a;
+			secondsPlayed = (int)b;
 
 			return true;
-        }
+		}
 
 	}
 }

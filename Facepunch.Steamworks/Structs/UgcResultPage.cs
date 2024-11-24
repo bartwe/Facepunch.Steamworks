@@ -24,7 +24,7 @@ namespace Steamworks.Ugc
 			{
 
 				var details = default( SteamUGCDetails_t );
-				for ( uint i=0; i< ResultCount; i++ )
+				for ( uint i = 0; i < ResultCount; i++ )
 				{
 					if ( SteamUGC.Internal.GetQueryUGCResult( Handle, i, ref details ) )
 					{
@@ -66,10 +66,10 @@ namespace Steamworks.Ugc
 							}
 						}
 
-						if (ReturnsMetadata)
+						if ( ReturnsMetadata )
 						{
 							string metadata;
-							if (SteamUGC.Internal.GetQueryUGCMetadata(Handle, i, out metadata))
+							if ( SteamUGC.Internal.GetQueryUGCMetadata( Handle, i, out metadata ) )
 							{
 								item.Metadata = metadata;
 							}
@@ -99,7 +99,7 @@ namespace Steamworks.Ugc
 									if ( SteamUGC.Internal.GetQueryUGCAdditionalPreview(
 										Handle, i, j, out previewUrlOrVideo, out originalFileName, ref previewType ) )
 									{
-										item.AdditionalPreviews[j] = new UgcAdditionalPreview( 
+										item.AdditionalPreviews[j] = new UgcAdditionalPreview(
 											previewUrlOrVideo, originalFileName, previewType );
 									}
 								}

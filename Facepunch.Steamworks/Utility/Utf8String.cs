@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -10,7 +6,7 @@ namespace Steamworks
 {
 	internal unsafe class Utf8StringToNative : ICustomMarshaler
 	{
-		public IntPtr MarshalManagedToNative(object managedObj)
+		public IntPtr MarshalManagedToNative( object managedObj )
 		{
 			if ( managedObj == null )
 				return IntPtr.Zero;
@@ -24,7 +20,7 @@ namespace Steamworks
 
 					var wlen = System.Text.Encoding.UTF8.GetBytes( strPtr, str.Length, (byte*)mem, len + 1 );
 
-					( (byte*)mem )[wlen] = 0;
+					((byte*)mem)[wlen] = 0;
 
 					return mem;
 				}
@@ -33,13 +29,13 @@ namespace Steamworks
 			return IntPtr.Zero;
 		}
 
-		public object MarshalNativeToManaged(IntPtr pNativeData) => throw new System.NotImplementedException();
-		public void CleanUpNativeData(IntPtr pNativeData) => Marshal.FreeHGlobal( pNativeData );
-		public void CleanUpManagedData(object managedObj) => throw new System.NotImplementedException();
+		public object MarshalNativeToManaged( IntPtr pNativeData ) => throw new System.NotImplementedException();
+		public void CleanUpNativeData( IntPtr pNativeData ) => Marshal.FreeHGlobal( pNativeData );
+		public void CleanUpManagedData( object managedObj ) => throw new System.NotImplementedException();
 		public int GetNativeDataSize() => -1;
 
 		[Preserve]
-		public static ICustomMarshaler GetInstance(string cookie) => new Utf8StringToNative();
+		public static ICustomMarshaler GetInstance( string cookie ) => new Utf8StringToNative();
 	}
 
 	internal struct Utf8StringPointer

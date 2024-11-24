@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Steamworks.Data
@@ -17,7 +13,7 @@ namespace Steamworks.Data
 		public string Name => SteamUserStats.Internal.GetLeaderboardName( Id );
 		public LeaderboardSort Sort => SteamUserStats.Internal.GetLeaderboardSortMethod( Id );
 		public LeaderboardDisplay Display => SteamUserStats.Internal.GetLeaderboardDisplayType( Id );
-		public int EntryCount => SteamUserStats.Internal.GetLeaderboardEntryCount(Id);
+		public int EntryCount => SteamUserStats.Internal.GetLeaderboardEntryCount( Id );
 
 		static int[] detailsBuffer = new int[64];
 		static int[] noDetails = Array.Empty<int>();
@@ -137,7 +133,7 @@ namespace Steamworks.Data
 			return output;
 		}
 
-		internal static async Task WaitForUserNames( LeaderboardEntry[] entries)
+		internal static async Task WaitForUserNames( LeaderboardEntry[] entries )
 		{
 			bool gotAll = false;
 			while ( !gotAll )

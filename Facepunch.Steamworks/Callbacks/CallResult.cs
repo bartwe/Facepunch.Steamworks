@@ -1,10 +1,7 @@
-﻿using Steamworks.Data;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Threading;
-using System.Threading.Tasks;
+using Steamworks.Data;
 
 namespace Steamworks
 {
@@ -35,10 +32,10 @@ namespace Steamworks
 		/// </summary>
 		public void OnCompleted( Action continuation )
 		{
-			if (IsCompleted)
+			if ( IsCompleted )
 				continuation();
 			else
-				Dispatch.OnCallComplete<T>(call, continuation, server);
+				Dispatch.OnCallComplete<T>( call, continuation, server );
 		}
 
 		/// <summary>

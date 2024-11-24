@@ -31,7 +31,7 @@ namespace Steamworks.Ugc
 				NumStrings = array.Length
 			};
 
-			return a;			
+			return a;
 		}
 
 		public void Dispose()

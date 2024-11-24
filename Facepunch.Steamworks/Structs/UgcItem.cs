@@ -5,8 +5,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Steamworks.Data;
 
-using QueryType = Steamworks.Ugc.Query;
-
 namespace Steamworks.Ugc
 {
 	public struct Item
@@ -42,7 +40,7 @@ namespace Steamworks.Ugc
 		/// <summary>
 		/// A dictionary of key value tags for this item, only available from queries WithKeyValueTags(true)
 		/// </summary>
-		public Dictionary<string,string> KeyValueTags { get; internal set; }
+		public Dictionary<string, string> KeyValueTags { get; internal set; }
 
 		/// <summary>
 		/// App Id of the app that created this item
@@ -89,7 +87,7 @@ namespace Steamworks.Ugc
 		/// True if this is only visible to the creator
 		/// </summary>
 		public bool IsPrivate => details.Visibility == RemoteStoragePublishedFileVisibility.Private;
-		
+
 		/// <summary>
 		/// True if this item has been banned
 		/// </summary>
@@ -100,15 +98,15 @@ namespace Steamworks.Ugc
 		/// </summary>
 		public bool IsAcceptedForUse => details.AcceptedForUse;
 
-        /// <summary>
-        /// The number of upvotes of this item
-        /// </summary>
-        public uint VotesUp => details.VotesUp;
+		/// <summary>
+		/// The number of upvotes of this item
+		/// </summary>
+		public uint VotesUp => details.VotesUp;
 
-        /// <summary>
-        /// The number of downvotes of this item
-        /// </summary>
-        public uint VotesDown => details.VotesDown;
+		/// <summary>
+		/// The number of downvotes of this item
+		/// </summary>
+		public uint VotesDown => details.VotesDown;
 		/// <summary>
 		/// Dependencies/children of this item or collection, available only from WithDependencies(true) queries
 		/// </summary>
@@ -119,13 +117,13 @@ namespace Steamworks.Ugc
 		/// </summary>
 		public UgcAdditionalPreview[] AdditionalPreviews { get; internal set; }
 
-        public bool IsInstalled => (State & ItemState.Installed) == ItemState.Installed;
+		public bool IsInstalled => (State & ItemState.Installed) == ItemState.Installed;
 		public bool IsDownloading => (State & ItemState.Downloading) == ItemState.Downloading;
 		public bool IsDownloadPending => (State & ItemState.DownloadPending) == ItemState.DownloadPending;
 		public bool IsSubscribed => (State & ItemState.Subscribed) == ItemState.Subscribed;
 		public bool NeedsUpdate => (State & ItemState.NeedsUpdate) == ItemState.NeedsUpdate;
 
-		public string Directory 
+		public string Directory
 		{
 			get
 			{
@@ -161,7 +159,7 @@ namespace Steamworks.Ugc
 				ulong downloaded = 0;
 				ulong total = 0;
 				if ( SteamUGC.Internal.GetItemDownloadInfo( Id, ref downloaded, ref total ) )
-					return (long) total;
+					return (long)total;
 
 				return -1;
 			}
@@ -201,7 +199,7 @@ namespace Steamworks.Ugc
 				if ( !SteamUGC.Internal.GetItemInstallInfo( Id, ref size, out _, ref ts ) )
 					return 0;
 
-				return (long) size;
+				return (long)size;
 			}
 		}
 
@@ -228,7 +226,7 @@ namespace Steamworks.Ugc
 			}
 		}
 
-		public ItemState State => (ItemState) SteamUGC.Internal.GetItemState( Id );
+		public ItemState State => (ItemState)SteamUGC.Internal.GetItemState( Id );
 
 		public static async Task<Item?> GetAsync( PublishedFileId id, int maxAgeSeconds = 60 * 30 )
 		{
@@ -270,14 +268,14 @@ namespace Steamworks.Ugc
 			return Tags.Contains( find, StringComparer.OrdinalIgnoreCase );
 		}
 
-        /// <summary>
-        /// Allows the user to subscribe to this item
-        /// </summary>
-        public async Task<bool> Subscribe ()
-        {
-            var result = await SteamUGC.Internal.SubscribeItem( _id );
-            return result?.Result == Result.OK;
-        }
+		/// <summary>
+		/// Allows the user to subscribe to this item
+		/// </summary>
+		public async Task<bool> Subscribe()
+		{
+			var result = await SteamUGC.Internal.SubscribeItem( _id );
+			return result?.Result == Result.OK;
+		}
 
 		/// <summary>
 		/// Allows the user to subscribe to download this item asyncronously
@@ -292,54 +290,54 @@ namespace Steamworks.Ugc
 		/// <summary>
 		/// Allows the user to unsubscribe from this item
 		/// </summary>
-		public async Task<bool> Unsubscribe ()
-        {
-            var result = await SteamUGC.Internal.UnsubscribeItem( _id );
-            return result?.Result == Result.OK;
-        }
+		public async Task<bool> Unsubscribe()
+		{
+			var result = await SteamUGC.Internal.UnsubscribeItem( _id );
+			return result?.Result == Result.OK;
+		}
 
-        /// <summary>
-        /// Adds item to user favorite list
-        /// </summary>
-	    public async Task<bool> AddFavorite()
-	    {
-	        var result = await SteamUGC.Internal.AddItemToFavorites(details.ConsumerAppID, _id);
-	        return result?.Result == Result.OK;
-	    }
+		/// <summary>
+		/// Adds item to user favorite list
+		/// </summary>
+		public async Task<bool> AddFavorite()
+		{
+			var result = await SteamUGC.Internal.AddItemToFavorites( details.ConsumerAppID, _id );
+			return result?.Result == Result.OK;
+		}
 
-	    /// <summary>
-	    /// Removes item from user favorite list
-	    /// </summary>
-        public async Task<bool> RemoveFavorite()
-	    {
-	        var result = await SteamUGC.Internal.RemoveItemFromFavorites(details.ConsumerAppID, _id);
-	        return result?.Result == Result.OK;
-	    }
+		/// <summary>
+		/// Removes item from user favorite list
+		/// </summary>
+		public async Task<bool> RemoveFavorite()
+		{
+			var result = await SteamUGC.Internal.RemoveItemFromFavorites( details.ConsumerAppID, _id );
+			return result?.Result == Result.OK;
+		}
 
-        /// <summary>
-        /// Allows the user to rate a workshop item up or down.
-        /// </summary>
-        public async Task<Result?> Vote( bool up )
+		/// <summary>
+		/// Allows the user to rate a workshop item up or down.
+		/// </summary>
+		public async Task<Result?> Vote( bool up )
 		{
 			var r = await SteamUGC.Internal.SetUserItemVote( Id, up );
 			return r?.Result;
 		}
 
-        /// <summary>
-        /// Gets the current users vote on the item
-        /// </summary>
-	    public async Task<UserItemVote?> GetUserVote()
-	    {
-	        var result = await SteamUGC.Internal.GetUserItemVote(_id);
-	        if (!result.HasValue)
-	            return null;
-	        return UserItemVote.From(result.Value);
-	    }
+		/// <summary>
+		/// Gets the current users vote on the item
+		/// </summary>
+		public async Task<UserItemVote?> GetUserVote()
+		{
+			var result = await SteamUGC.Internal.GetUserItemVote( _id );
+			if ( !result.HasValue )
+				return null;
+			return UserItemVote.From( result.Value );
+		}
 
-        /// <summary>
-        /// Return a URL to view this item online
-        /// </summary>
-        public string Url => $"http://steamcommunity.com/sharedfiles/filedetails/?source=Facepunch.Steamworks&id={Id}";
+		/// <summary>
+		/// Return a URL to view this item online
+		/// </summary>
+		public string Url => $"http://steamcommunity.com/sharedfiles/filedetails/?source=Facepunch.Steamworks&id={Id}";
 
 		/// <summary>
 		/// The URl to view this item's changelog

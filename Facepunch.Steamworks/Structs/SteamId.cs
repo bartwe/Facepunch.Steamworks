@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
-
-
-namespace Steamworks
+﻿namespace Steamworks
 {
 	/// <summary>
 	/// Represents the ID of a user or steam lobby.
@@ -25,7 +19,7 @@ namespace Steamworks
 
 		public override string ToString() => Value.ToString();
 
-		public uint AccountId => (uint) (Value & 0xFFFFFFFFul);
+		public uint AccountId => (uint)(Value & 0xFFFFFFFFul);
 
 		public bool IsValid => Value != default;
 	}

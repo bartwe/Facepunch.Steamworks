@@ -1,6 +1,3 @@
-
-using Steamworks.Data;
-
 namespace Steamworks.Data
 {
 	internal unsafe struct NetErrorMessage

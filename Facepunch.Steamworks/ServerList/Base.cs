@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using Steamworks.Data;
 
@@ -148,12 +146,12 @@ namespace Steamworks.ServerList
 		{
 			var count = Count;
 			if ( count == LastCount ) return;
-			
+
 			for ( int i = LastCount; i < count; i++ )
 			{
 				watchList.Add( i );
 			}
-			
+
 			LastCount = count;
 		}
 
@@ -190,7 +188,7 @@ namespace Steamworks.ServerList
 				OnResponsiveServer?.Invoke( serverInfo );
 				return;
 			}
-			
+
 			Unresponsive.Add( serverInfo );
 		}
 	}

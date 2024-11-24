@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Steamworks.Data;
-using Steamworks;
-using System.Linq;
 
 namespace Steamworks
 {
@@ -48,8 +47,8 @@ namespace Steamworks
 
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ManualDispatch_FreeLastCallback", CallingConvention = CallingConvention.Cdecl )]
 		[return: MarshalAs( UnmanagedType.I1 )]
-		internal static extern bool SteamAPI_ManualDispatch_FreeLastCallback( HSteamPipe pipe );		
-		
+		internal static extern bool SteamAPI_ManualDispatch_FreeLastCallback( HSteamPipe pipe );
+
 		[StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 		internal struct CallbackMsg_t
 		{

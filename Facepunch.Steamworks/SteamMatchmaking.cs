@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using Steamworks.Data;
 
@@ -23,7 +21,7 @@ namespace Steamworks
 
 			return true;
 		}
-	
+
 		/// <summary>
 		/// Maximum number of characters a lobby metadata key can be
 		/// </summary>
@@ -176,7 +174,7 @@ namespace Steamworks
 		{
 			var count = Internal.GetFavoriteGameCount();
 
-			for( int i=0; i<count; i++ )
+			for ( int i = 0; i < count; i++ )
 			{
 				uint timeplayed = 0;
 				uint flags = 0;

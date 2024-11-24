@@ -95,17 +95,17 @@ namespace Steamworks
 		/// </summary>
 		public string GetProperty( string name )
 		{
-			if ( _properties!= null && _properties.TryGetValue( name, out string val ) )
+			if ( _properties != null && _properties.TryGetValue( name, out string val ) )
 				return val;
 
 			uint _ = (uint)Helpers.MemoryBufferSize;
 
 			if ( !SteamInventory.Internal.GetItemDefinitionProperty( Id, name, out var vl, ref _ ) )
 				return null;
-				
-			if (name == null) //return keys string
+
+			if ( name == null ) //return keys string
 				return vl;
-				
+
 			if ( _properties == null )
 				_properties = new Dictionary<string, string>();
 
@@ -177,7 +177,7 @@ namespace Steamworks
 				if ( !SteamInventory.Internal.GetItemPrice( Id, ref curprice, ref baseprice ) )
 					return 0;
 
-				return (int) curprice;
+				return (int)curprice;
 			}
 		}
 
@@ -214,7 +214,7 @@ namespace Steamworks
 
 			var allRec = SteamInventory.Definitions
 							.Select( x => x.GetRecipes() )
-							.Where( x => x != null ) 
+							.Where( x => x != null )
 							.SelectMany( x => x );
 
 			_recContaining = allRec.Where( x => x.ContainsIngredient( this ) ).ToArray();

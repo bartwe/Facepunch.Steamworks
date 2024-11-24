@@ -1,5 +1,5 @@
-﻿using Steamworks.Data;
-using System;
+﻿using System;
+using Steamworks.Data;
 
 namespace Steamworks
 {
@@ -29,7 +29,7 @@ namespace Steamworks
 			set => Connection.ConnectionName = value;
 		}
 
-		public long UserData 
+		public long UserData
 		{
 			get => Connection.UserData;
 			set => Connection.UserData = value;
@@ -114,7 +114,7 @@ namespace Steamworks
 
 			int totalProcessed = 0;
 			NetMsg** messageBuffer = stackalloc NetMsg*[bufferSize];
-			
+
 			while ( true )
 			{
 				int processed = SteamNetworkingSockets.Internal.ReceiveMessagesOnConnection( Connection, new IntPtr( &messageBuffer[0] ), bufferSize );
@@ -139,7 +139,7 @@ namespace Steamworks
 
 					throw;
 				}
-				
+
 
 				//
 				// Keep going if receiveToEnd and we filled the buffer
@@ -200,14 +200,14 @@ namespace Steamworks
 
 			SteamNetworkingSockets.Internal.SendMessages( connectionCount, messages, messageNumberOrResults );
 
-			if (results == null)
+			if ( results == null )
 				return;
 
 			for ( var i = 0; i < connectionCount; i++ )
 			{
 				if ( messageNumberOrResults[i] < 0 )
 				{
-					results[i] = (Result)( -messageNumberOrResults[i] );
+					results[i] = (Result)(-messageNumberOrResults[i]);
 				}
 				else
 				{

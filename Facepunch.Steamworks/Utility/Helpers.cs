@@ -1,7 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Collections.Generic;
 
 namespace Steamworks
 {
@@ -16,14 +16,14 @@ namespace Steamworks
 
 			public IntPtr Ptr { get; private set; }
 
-			public static implicit operator IntPtr(in Memory m) => m.Ptr;
+			public static implicit operator IntPtr( in Memory m ) => m.Ptr;
 
 			internal static unsafe Memory Take()
 			{
 				IntPtr ptr;
-				lock (BufferBag)
+				lock ( BufferBag )
 				{
-					ptr = BufferBag.Count > 0 ? BufferBag.Dequeue() : Marshal.AllocHGlobal(MemoryBufferSize);
+					ptr = BufferBag.Count > 0 ? BufferBag.Dequeue() : Marshal.AllocHGlobal( MemoryBufferSize );
 				}
 				((byte*)ptr)[0] = 0;
 				return new Memory
@@ -34,16 +34,16 @@ namespace Steamworks
 
 			public void Dispose()
 			{
-				if (Ptr == IntPtr.Zero) { return; }
-				lock (BufferBag)
+				if ( Ptr == IntPtr.Zero ) { return; }
+				lock ( BufferBag )
 				{
-					if (BufferBag.Count < MaxBagSize)
+					if ( BufferBag.Count < MaxBagSize )
 					{
-						BufferBag.Enqueue(Ptr);
+						BufferBag.Enqueue( Ptr );
 					}
 					else
 					{
-						Marshal.FreeHGlobal(Ptr);
+						Marshal.FreeHGlobal( Ptr );
 					}
 				}
 				Ptr = IntPtr.Zero;
@@ -65,14 +65,14 @@ namespace Steamworks
 		/// </summary>
 		public static byte[] TakeBuffer( int minSize )
 		{
-			lock ( BufferPool  )
+			lock ( BufferPool )
 			{
 				BufferPoolIndex++;
 
 				if ( BufferPoolIndex >= BufferPool.Length )
 					BufferPoolIndex = 0;
 
-				if ( BufferPool[BufferPoolIndex] == null ) 
+				if ( BufferPool[BufferPoolIndex] == null )
 					BufferPool[BufferPoolIndex] = new byte[1024 * 256];
 
 				if ( BufferPool[BufferPoolIndex].Length < minSize )
@@ -88,7 +88,7 @@ namespace Steamworks
 		{
 			var len = 0;
 
-			for( len = 0; len < MemoryBufferSize; len++ )
+			for ( len = 0; len < MemoryBufferSize; len++ )
 			{
 				if ( ((byte*)ptr)[len] == 0 )
 					break;

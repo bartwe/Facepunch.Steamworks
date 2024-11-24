@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using Steamworks.Data;
 
@@ -35,7 +33,7 @@ namespace Steamworks
 			} );
 
 			Dispatch.Install<UserStatsStored_t>( x => OnUserStatsStored?.Invoke( x.Result ) );
-			Dispatch.Install<UserAchievementStored_t>( x => OnAchievementProgress?.Invoke( new Achievement( x.AchievementNameUTF8() ), (int) x.CurProgress, (int)x.MaxProgress ) );
+			Dispatch.Install<UserAchievementStored_t>( x => OnAchievementProgress?.Invoke( new Achievement( x.AchievementNameUTF8() ), (int)x.CurProgress, (int)x.MaxProgress ) );
 			Dispatch.Install<UserStatsUnloaded_t>( x => OnUserStatsUnloaded?.Invoke( x.SteamIDUser ) );
 			Dispatch.Install<UserAchievementIconFetched_t>( x => OnAchievementIconFetched?.Invoke( x.AchievementNameUTF8(), x.IconHandle ) );
 		}
@@ -77,9 +75,9 @@ namespace Steamworks
 		{
 			get
 			{
-				for( int i=0; i< Internal.GetNumAchievements(); i++  )
+				for ( int i = 0; i < Internal.GetNumAchievements(); i++ )
 				{
-					yield return new Achievement( Internal.GetAchievementName( (uint) i ) );
+					yield return new Achievement( Internal.GetAchievementName( (uint)i ) );
 				}
 			}
 		}

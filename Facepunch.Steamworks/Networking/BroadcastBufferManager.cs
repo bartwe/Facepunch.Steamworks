@@ -26,8 +26,8 @@ namespace Steamworks
 				Pointer = ptr;
 				Size = size;
 
-				var prevCount = Interlocked.Exchange(ref _count, referenceCount);
-				if (prevCount != 0)
+				var prevCount = Interlocked.Exchange( ref _count, referenceCount );
+				if ( prevCount != 0 )
 				{
 #if DEBUG
 					SteamNetworkingUtils.LogDebugMessage( NetDebugOutput.Warning, $"{nameof( BufferManager )} set reference count when current count was not 0" );
@@ -40,7 +40,7 @@ namespace Steamworks
 				var newCount = Interlocked.Decrement( ref _count );
 				if ( newCount < 0 )
 				{
-					SteamNetworkingUtils.LogDebugMessage( NetDebugOutput.Bug, $"Prevented double free of {nameof(BufferManager)} pointer" );
+					SteamNetworkingUtils.LogDebugMessage( NetDebugOutput.Bug, $"Prevented double free of {nameof( BufferManager )} pointer" );
 					return false;
 				}
 
@@ -87,7 +87,7 @@ namespace Steamworks
 
 			return ptr;
 		}
-		
+
 		[MonoPInvokeCallback]
 		private static void Free( NetMsg* msg )
 		{
@@ -97,7 +97,7 @@ namespace Steamworks
 			{
 				if ( !ReferenceCounters.TryGetValue( ptr, out var counter ) )
 				{
-					SteamNetworkingUtils.LogDebugMessage( NetDebugOutput.Bug, $"Attempt to free pointer not tracked by {nameof(BufferManager)}: {ptr.ToInt64():X8}" );
+					SteamNetworkingUtils.LogDebugMessage( NetDebugOutput.Bug, $"Attempt to free pointer not tracked by {nameof( BufferManager )}: {ptr.ToInt64():X8}" );
 					return;
 				}
 
@@ -138,7 +138,7 @@ namespace Steamworks
 				var counter = ReferenceCounterPool.Count > 0
 					? ReferenceCounterPool.Pop()
 					: new ReferenceCounter();
-				
+
 				counter.Set( ptr, size, referenceCount );
 				return counter;
 			}
@@ -240,7 +240,7 @@ namespace Steamworks
 				}
 
 				bucketPool.Push( ptr );
-				
+
 #if DEBUG
 				SteamNetworkingUtils.LogDebugMessage( NetDebugOutput.Verbose,
 					$"{nameof( BufferManager )} returned pointer to pool {ptr.ToInt64():X8} (size={size})" );

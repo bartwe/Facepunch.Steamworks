@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Steamworks.Data;
@@ -39,7 +36,7 @@ namespace Steamworks
 		/// Invoked after an item is downloaded.
 		/// </summary>
 		public static event Action<Result> OnDownloadItemResult;
-		
+
 		/// <summary>
 		/// Invoked when a new item is subscribed.
 		/// </summary>
@@ -96,7 +93,7 @@ namespace Steamworks
 				try
 				{
 					var downloadStarted = false;
-					
+
 					onDownloadStarted = r => downloadStarted = true;
 					OnDownloadItemResult += onDownloadStarted;
 
@@ -158,18 +155,18 @@ namespace Steamworks
 			return item;
 		}
 
-		public static async Task<bool> StartPlaytimeTracking(PublishedFileId fileId)
+		public static async Task<bool> StartPlaytimeTracking( PublishedFileId fileId )
 		{
-			var result = await Internal.StartPlaytimeTracking(new[] {fileId}, 1);
+			var result = await Internal.StartPlaytimeTracking( new[] { fileId }, 1 );
 			return result.Value.Result == Result.OK;
 		}
-		
-		public static async Task<bool> StopPlaytimeTracking(PublishedFileId fileId)
+
+		public static async Task<bool> StopPlaytimeTracking( PublishedFileId fileId )
 		{
-			var result = await Internal.StopPlaytimeTracking(new[] {fileId}, 1);
+			var result = await Internal.StopPlaytimeTracking( new[] { fileId }, 1 );
 			return result.Value.Result == Result.OK;
 		}
-		
+
 		public static async Task<bool> StopPlaytimeTrackingForAllItems()
 		{
 			var result = await Internal.StopPlaytimeTrackingForAllItems();
@@ -180,12 +177,12 @@ namespace Steamworks
 		/// Suspends all workshop downloads.
 		/// Downloads will be suspended until you resume them by calling <see cref="ResumeDownloads"/> or when the game ends.
 		/// </summary>
-		public static void SuspendDownloads() => Internal.SuspendDownloads(true);
+		public static void SuspendDownloads() => Internal.SuspendDownloads( true );
 
 		/// <summary>
 		/// Resumes all workshop downloads.
 		/// </summary>
-		public static void ResumeDownloads() => Internal.SuspendDownloads(false);
+		public static void ResumeDownloads() => Internal.SuspendDownloads( false );
 
 		/// <summary>
 		/// Show the app's latest Workshop EULA to the user in an overlay window, where they can accept it or not.

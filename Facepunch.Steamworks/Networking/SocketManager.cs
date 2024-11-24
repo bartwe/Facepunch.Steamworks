@@ -95,7 +95,7 @@ namespace Steamworks
 			else
 			{
 				connection.Accept();
-			}			
+			}
 		}
 
 		/// <summary>
@@ -141,7 +141,7 @@ namespace Steamworks
 			{
 				Marshal.FreeHGlobal( messageBuffer );
 			}
-			
+
 
 			//
 			// Overwhelmed our buffer, keep going
@@ -164,7 +164,7 @@ namespace Steamworks
 				//
 				// Releases the message
 				//
-				NetMsg.InternalRelease( (NetMsg*) msgPtr );
+				NetMsg.InternalRelease( (NetMsg*)msgPtr );
 			}
 		}
 

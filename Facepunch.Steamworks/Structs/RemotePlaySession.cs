@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Steamworks.Data
+﻿namespace Steamworks.Data
 {
 	/// <summary>
 	/// Represents a RemotePlaySession from the SteamRemotePlay interface

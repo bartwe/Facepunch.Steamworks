@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Steamworks.Data
@@ -52,12 +47,12 @@ namespace Steamworks.Data
 		public async Task<long[]> GetGlobalIntDaysAsync( int days )
 		{
 			var result = await SteamUserStats.Internal.RequestGlobalStats( days );
-			if ( result?.Result != Result.OK  ) return null;
+			if ( result?.Result != Result.OK ) return null;
 
 			var r = new long[days];
 
-			var rows = SteamUserStats.Internal.GetGlobalStatHistory( Name, r, (uint) r.Length * sizeof(long) );
-			
+			var rows = SteamUserStats.Internal.GetGlobalStatHistory( Name, r, (uint)r.Length * sizeof( long ) );
+
 			if ( days != rows )
 				r = r.Take( rows ).ToArray();
 

@@ -13,8 +13,8 @@ namespace Steamworks
 		/// <summary>
 		/// Called when the connection is fully connected and can start being communicated with
 		/// </summary>
-		void OnConnected( Connection connection, ConnectionInfo info );			
-			
+		void OnConnected( Connection connection, ConnectionInfo info );
+
 		/// <summary>
 		/// Called when the connection leaves. Must call Close on the connection
 		/// </summary>

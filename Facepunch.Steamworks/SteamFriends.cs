@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using Steamworks.Data;
 
@@ -31,7 +29,7 @@ namespace Steamworks
 		internal void InstallEvents()
 		{
 			Dispatch.Install<PersonaStateChange_t>( x => OnPersonaStateChange?.Invoke( new Friend( x.SteamID ) ) );
-			Dispatch.Install<GameRichPresenceJoinRequested_t>( x => OnGameRichPresenceJoinRequested?.Invoke( new Friend( x.SteamIDFriend), x.ConnectUTF8() ) );
+			Dispatch.Install<GameRichPresenceJoinRequested_t>( x => OnGameRichPresenceJoinRequested?.Invoke( new Friend( x.SteamIDFriend ), x.ConnectUTF8() ) );
 			Dispatch.Install<GameConnectedFriendChatMsg_t>( OnFriendChatMessage );
 			Dispatch.Install<GameConnectedClanChatMsg_t>( OnGameConnectedClanChatMessage );
 			Dispatch.Install<GameOverlayActivated_t>( x => OnGameOverlayActivated?.Invoke( x.Active != 0 ) );
@@ -135,9 +133,9 @@ namespace Steamworks
 			OnClanChatMessage( friend, typeName, message );
 		}
 
-		private static IEnumerable<Friend> GetFriendsWithFlag(FriendFlags flag)
+		private static IEnumerable<Friend> GetFriendsWithFlag( FriendFlags flag )
 		{
-			for ( int i=0; i<Internal.GetFriendCount( (int)flag); i++ )
+			for ( int i = 0; i < Internal.GetFriendCount( (int)flag ); i++ )
 			{
 				yield return new Friend( Internal.GetFriendByIndex( i, (int)flag ) );
 			}
@@ -149,7 +147,7 @@ namespace Steamworks
 		/// <returns>An <see cref="IEnumerable{T}"/> of friends.</returns>
 		public static IEnumerable<Friend> GetFriends()
 		{
-			return GetFriendsWithFlag(FriendFlags.Immediate);
+			return GetFriendsWithFlag( FriendFlags.Immediate );
 		}
 
 		/// <summary>
@@ -158,7 +156,7 @@ namespace Steamworks
 		/// <returns>An <see cref="IEnumerable{T}"/> of blocked users.</returns>
 		public static IEnumerable<Friend> GetBlocked()
 		{
-			return GetFriendsWithFlag(FriendFlags.Blocked);
+			return GetFriendsWithFlag( FriendFlags.Blocked );
 		}
 
 		/// <summary>
@@ -195,15 +193,15 @@ namespace Steamworks
 
 		public static IEnumerable<Friend> GetFromSource( SteamId steamid )
 		{
-		    for ( int i = 0; i < Internal.GetFriendCountFromSource( steamid ); i++ )
-		    {
-		        yield return new Friend( Internal.GetFriendFromSourceByIndex( steamid, i ) );
-		    }
+			for ( int i = 0; i < Internal.GetFriendCountFromSource( steamid ); i++ )
+			{
+				yield return new Friend( Internal.GetFriendFromSourceByIndex( steamid, i ) );
+			}
 		}
 
 		public static IEnumerable<Clan> GetClans()
 		{
-			for (int i = 0; i < Internal.GetClanCount(); i++)
+			for ( int i = 0; i < Internal.GetClanCount(); i++ )
 			{
 				yield return new Clan( Internal.GetClanByIndex( i ) );
 			}
@@ -343,7 +341,7 @@ namespace Steamworks
 		{
 			bool success = Internal.SetRichPresence( key, value );
 
-			if ( success ) 
+			if ( success )
 				richPresence[key] = value;
 
 			return success;
@@ -368,7 +366,7 @@ namespace Steamworks
 		public static bool ListenForFriendsMessages
 		{
 			get => _listenForFriendsMessages;
-				
+
 			set
 			{
 				_listenForFriendsMessages = value;
@@ -381,46 +379,46 @@ namespace Steamworks
 		/// </summary>
 		/// <param name="steamID">The <see cref="SteamId"/> to check.</param>
 		/// <returns>Boolean.</returns>
-		public static async Task<bool> IsFollowing(SteamId steamID)
+		public static async Task<bool> IsFollowing( SteamId steamID )
 		{
-			var r = await Internal.IsFollowing(steamID);
+			var r = await Internal.IsFollowing( steamID );
 			return r.Value.IsFollowing;
 		}
 
-		public static async Task<int> GetFollowerCount(SteamId steamID)
+		public static async Task<int> GetFollowerCount( SteamId steamID )
 		{
-			var r = await Internal.GetFollowerCount(steamID);
+			var r = await Internal.GetFollowerCount( steamID );
 			return r.Value.Count;
 		}
 
-        public static async Task<SteamId[]> GetFollowingList()
-        {
-            int resultCount = 0;
-            var steamIds = new List<SteamId>();
+		public static async Task<SteamId[]> GetFollowingList()
+		{
+			int resultCount = 0;
+			var steamIds = new List<SteamId>();
 
-            FriendsEnumerateFollowingList_t? result;
+			FriendsEnumerateFollowingList_t? result;
 
-            do
-            {
-                if ( (result = await Internal.EnumerateFollowingList((uint)resultCount)) != null)
-                {
-                    resultCount += result.Value.ResultsReturned;
+			do
+			{
+				if ( (result = await Internal.EnumerateFollowingList( (uint)resultCount )) != null )
+				{
+					resultCount += result.Value.ResultsReturned;
 
-                    Array.ForEach(result.Value.GSteamID, id => { if (id > 0) steamIds.Add(id); });
-                }
-            } while (result != null && resultCount < result.Value.TotalResultCount);
+					Array.ForEach( result.Value.GSteamID, id => { if ( id > 0 ) steamIds.Add( id ); } );
+				}
+			} while ( result != null && resultCount < result.Value.TotalResultCount );
 
-            return steamIds.ToArray();
-        }
+			return steamIds.ToArray();
+		}
 
 		/// <summary>
 		/// Call this before calling ActivateGameOverlayToWebPage() to have the Steam Overlay Browser block navigations
 		///  to your specified protocol (scheme) uris and instead dispatch a OverlayBrowserProtocolNavigation callback to your game.
 		/// </summary>
 		public static bool RegisterProtocolInOverlayBrowser( string protocol )
-        {
+		{
 			return Internal.RegisterProtocolInOverlayBrowser( protocol );
-        }
+		}
 
 		public static async Task<bool> JoinClanChatRoom( SteamId chatId )
 		{
@@ -428,7 +426,7 @@ namespace Steamworks
 			if ( !result.HasValue )
 				return false;
 
-			return result.Value.ChatRoomEnterResponse == RoomEnter.Success ;
+			return result.Value.ChatRoomEnterResponse == RoomEnter.Success;
 		}
 
 		public static bool SendClanChatRoomMessage( SteamId chatId, string message )
