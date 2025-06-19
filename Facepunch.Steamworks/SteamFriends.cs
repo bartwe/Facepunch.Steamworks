@@ -382,13 +382,13 @@ namespace Steamworks
 		public static async Task<bool> IsFollowing( SteamId steamID )
 		{
 			var r = await Internal.IsFollowing( steamID );
-			return r.Value.IsFollowing;
+			return r!.Value.IsFollowing;
 		}
 
 		public static async Task<int> GetFollowerCount( SteamId steamID )
 		{
 			var r = await Internal.GetFollowerCount( steamID );
-			return r.Value.Count;
+			return r!.Value.Count;
 		}
 
 		public static async Task<SteamId[]> GetFollowingList()
