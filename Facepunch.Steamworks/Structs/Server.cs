@@ -132,12 +132,23 @@ namespace Steamworks.Data
 
 		public bool Equals( ServerInfo other )
 		{
-			return this.GetHashCode() == other.GetHashCode();
+			return AddressRaw == other.AddressRaw
+				&& SteamId == other.SteamId
+				&& ConnectionPort == other.ConnectionPort
+				&& QueryPort == other.QueryPort;
 		}
 
 		public override int GetHashCode()
 		{
-			return Address.GetHashCode() + SteamId.GetHashCode() + ConnectionPort.GetHashCode() + QueryPort.GetHashCode();
+			unchecked
+			{
+				var hash = 17;
+				hash = hash * 23 + AddressRaw.GetHashCode();
+				hash = hash * 23 + SteamId.GetHashCode();
+				hash = hash * 23 + ConnectionPort.GetHashCode();
+				hash = hash * 23 + QueryPort.GetHashCode();
+				return hash;
+			}
 		}
 	}
 }
