@@ -68,7 +68,7 @@ namespace Generator
 					WriteLine( $"public static implicit operator {ToManagedType( o.Type )}( {typeName} value ) => value.Value;" );
 					WriteLine( $"public override string ToString() => Value.ToString();" );
 					WriteLine( $"public override int GetHashCode() => Value.GetHashCode();" );
-					WriteLine( $"public override bool Equals( object p ) => this.Equals( ({typeName}) p );" );
+					WriteLine( $"public override bool Equals( object p ) => p is {typeName} other && Equals( other );" );
 					WriteLine( $"public bool Equals( {typeName} p ) => p.Value == Value;" );
 					WriteLine( $"public static bool operator ==( {typeName} a, {typeName} b ) => a.Equals( b );" );
 					WriteLine( $"public static bool operator !=( {typeName} a, {typeName} b ) => !a.Equals( b );" );
