@@ -131,15 +131,16 @@ namespace Steamworks
 		[TestMethod]
 		public async Task Items()
 		{
-			SteamInventory.GetAllItems();
 			await SteamInventory.WaitForDefinitions();
+			Assert.IsTrue( SteamInventory.GetAllItems(), "SteamInventory.GetAllItems() failed." );
 			
-			while ( SteamInventory.Items == null )
+			var sw = System.Diagnostics.Stopwatch.StartNew();
+			while ( SteamInventory.Items == null && sw.Elapsed.TotalSeconds < 10 )
 			{
 				await Task.Delay( 10 );
 			}
 
-			Assert.IsNotNull( SteamInventory.Items );
+			Assert.IsNotNull( SteamInventory.Items, "Timed out waiting for SteamInventory.Items to be populated." );
 
 			foreach ( var item in SteamInventory.Items )
 			{
