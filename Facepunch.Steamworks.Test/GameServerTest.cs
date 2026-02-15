@@ -19,12 +19,16 @@ namespace Steamworks
         [TestMethod]
         public async Task PublicIp()
         {
+			var timeoutAt = DateTime.UtcNow.AddSeconds( 10 );
             while ( true )
             {
                 var ip = SteamServer.PublicIp;
 
                 if ( ip == null )
                 {
+					if ( DateTime.UtcNow > timeoutAt )
+						Assert.Fail( "Timed out waiting for SteamServer.PublicIp to be assigned" );
+
 					await Task.Delay( 10 );
                     continue;
                 }
