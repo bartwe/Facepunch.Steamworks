@@ -16,14 +16,18 @@ namespace Steamworks
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmakingRulesResponse_RulesResponded",
 			CallingConvention = Platform.CC )]
 		private static extern void _RulesResponded( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchRule,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchValue );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchRule,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchValue );
 
 		#endregion
 
 		internal void RulesResponded(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchRule,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchValue )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchRule,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchValue )
 		{
 			_RulesResponded( Self, pchRule, pchValue );
 		}

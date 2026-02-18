@@ -107,13 +107,15 @@ namespace Steamworks
 			CallingConvention = Platform.CC )]
 		[return: MarshalAs( UnmanagedType.I1 )]
 		private static extern bool _CloseConnection( IntPtr self, Connection hPeer, int nReason,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pszDebug,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pszDebug,
 			[MarshalAs( UnmanagedType.U1 )] bool bEnableLinger );
 
 		#endregion
 
 		internal bool CloseConnection( Connection hPeer, int nReason,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pszDebug,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pszDebug,
 			[MarshalAs( UnmanagedType.U1 )] bool bEnableLinger )
 		{
 			var returnValue = _CloseConnection( Self, hPeer, nReason, pszDebug, bEnableLinger );
@@ -169,12 +171,14 @@ namespace Steamworks
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamNetworkingSockets_SetConnectionName",
 			CallingConvention = Platform.CC )]
 		private static extern void _SetConnectionName( IntPtr self, Connection hPeer,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pszName );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pszName );
 
 		#endregion
 
 		internal void SetConnectionName( Connection hPeer,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pszName )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pszName )
 		{
 			_SetConnectionName( Self, hPeer, pszName );
 		}

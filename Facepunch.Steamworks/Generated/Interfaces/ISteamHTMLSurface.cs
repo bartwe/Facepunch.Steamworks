@@ -91,7 +91,8 @@ namespace Steamworks
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamHTMLSurface_LoadURL",
 			CallingConvention = Platform.CC )]
 		private static extern void _LoadURL( IntPtr self, HHTMLBrowser unBrowserHandle,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchURL,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchURL,
 			[MarshalAs( UnmanagedType.CustomMarshaler,
 				MarshalTypeRef = typeof(Utf8StringToNative) )]
 			string pchPostData );
@@ -99,7 +100,8 @@ namespace Steamworks
 		#endregion
 
 		internal void LoadURL( HHTMLBrowser unBrowserHandle,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchURL,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchURL,
 			[MarshalAs( UnmanagedType.CustomMarshaler,
 				MarshalTypeRef = typeof(Utf8StringToNative) )]
 			string pchPostData )
@@ -177,14 +179,18 @@ namespace Steamworks
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamHTMLSurface_AddHeader",
 			CallingConvention = Platform.CC )]
 		private static extern void _AddHeader( IntPtr self, HHTMLBrowser unBrowserHandle,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchKey,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchValue );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchKey,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchValue );
 
 		#endregion
 
 		internal void AddHeader( HHTMLBrowser unBrowserHandle,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchKey,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchValue )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchKey,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchValue )
 		{
 			_AddHeader( Self, unBrowserHandle, pchKey, pchValue );
 		}
@@ -201,7 +207,8 @@ namespace Steamworks
 		#endregion
 
 		internal void ExecuteJavascript( HHTMLBrowser unBrowserHandle,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchScript )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchScript )
 		{
 			_ExecuteJavascript( Self, unBrowserHandle, pchScript );
 		}
@@ -448,9 +455,12 @@ namespace Steamworks
 			[MarshalAs( UnmanagedType.CustomMarshaler,
 				MarshalTypeRef = typeof(Utf8StringToNative) )]
 			string pchHostname,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchKey,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchValue,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchPath,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchKey,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchValue,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchPath,
 			RTime32 nExpires, [MarshalAs( UnmanagedType.U1 )] bool bSecure,
 			[MarshalAs( UnmanagedType.U1 )] bool bHTTPOnly );
 
@@ -460,9 +470,12 @@ namespace Steamworks
 			[MarshalAs( UnmanagedType.CustomMarshaler,
 				MarshalTypeRef = typeof(Utf8StringToNative) )]
 			string pchHostname,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchKey,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchValue,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchPath,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchKey,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchValue,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchPath,
 			RTime32 nExpires, [MarshalAs( UnmanagedType.U1 )] bool bSecure,
 			[MarshalAs( UnmanagedType.U1 )] bool bHTTPOnly )
 		{

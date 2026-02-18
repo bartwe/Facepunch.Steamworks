@@ -16,7 +16,8 @@ namespace Steamworks.Data
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_gameserveritem_t_SetName",
 			CallingConvention = Platform.CC )]
 		internal static extern void InternalSetName( ref gameserveritem_t self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pName );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pName );
 	}
 
 	internal partial struct MatchMakingKeyValuePair
@@ -124,7 +125,8 @@ namespace Steamworks.Data
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_SteamNetworkingConfigValue_t_SetString",
 			CallingConvention = Platform.CC )]
 		internal static extern void InternalSetString( ref NetKeyValue self, NetConfig eVal,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string data );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string data );
 	}
 
 	public partial struct NetIdentity
@@ -250,7 +252,8 @@ namespace Steamworks.Data
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_SteamNetworkingIdentity_ParseString",
 			CallingConvention = Platform.CC )]
 		internal static extern bool InternalParseString( ref NetIdentity self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pszStr );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pszStr );
 	}
 
 	public partial struct NetAddress
@@ -299,7 +302,8 @@ namespace Steamworks.Data
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_SteamNetworkingIPAddr_ParseString",
 			CallingConvention = Platform.CC )]
 		internal static extern bool InternalParseString( ref NetAddress self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pszStr );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pszStr );
 
 		[return: MarshalAs( UnmanagedType.I1 )]
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_SteamNetworkingIPAddr_IsEqualTo",

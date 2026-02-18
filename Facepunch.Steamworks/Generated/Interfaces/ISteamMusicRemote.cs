@@ -24,12 +24,14 @@ namespace Steamworks
 			CallingConvention = Platform.CC )]
 		[return: MarshalAs( UnmanagedType.I1 )]
 		private static extern bool _RegisterSteamMusicRemote( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchName );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchName );
 
 		#endregion
 
 		internal bool RegisterSteamMusicRemote(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchName )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchName )
 		{
 			var returnValue = _RegisterSteamMusicRemote( Self, pchName );
 			return returnValue;
@@ -301,12 +303,14 @@ namespace Steamworks
 			CallingConvention = Platform.CC )]
 		[return: MarshalAs( UnmanagedType.I1 )]
 		private static extern bool _UpdateCurrentEntryText( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchText );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchText );
 
 		#endregion
 
 		internal bool UpdateCurrentEntryText(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchText )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchText )
 		{
 			var returnValue = _UpdateCurrentEntryText( Self, pchText );
 			return returnValue;

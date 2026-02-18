@@ -67,7 +67,8 @@ namespace Steamworks
 		#endregion
 
 		internal void SetModDir(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pszModDir )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pszModDir )
 		{
 			_SetModDir( Self, pszModDir );
 		}
@@ -90,12 +91,14 @@ namespace Steamworks
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamGameServer_LogOn",
 			CallingConvention = Platform.CC )]
 		private static extern void _LogOn( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pszToken );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pszToken );
 
 		#endregion
 
 		internal void LogOn(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pszToken )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pszToken )
 		{
 			_LogOn( Self, pszToken );
 		}
@@ -309,14 +312,18 @@ namespace Steamworks
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamGameServer_SetKeyValue",
 			CallingConvention = Platform.CC )]
 		private static extern void _SetKeyValue( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pKey,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pValue );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pKey,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pValue );
 
 		#endregion
 
 		internal void SetKeyValue(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pKey,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pValue )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pKey,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pValue )
 		{
 			_SetKeyValue( Self, pKey, pValue );
 		}
@@ -371,7 +378,8 @@ namespace Steamworks
 		#endregion
 
 		internal void SetRegion(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pszRegion )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pszRegion )
 		{
 			_SetRegion( Self, pszRegion );
 		}

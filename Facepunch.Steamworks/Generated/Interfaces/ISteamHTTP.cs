@@ -358,8 +358,10 @@ namespace Steamworks
 			CallingConvention = Platform.CC )]
 		[return: MarshalAs( UnmanagedType.I1 )]
 		private static extern bool _SetCookie( IntPtr self, HTTPCookieContainerHandle hCookieContainer,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchHost,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchUrl,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchHost,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchUrl,
 			[MarshalAs( UnmanagedType.CustomMarshaler,
 				MarshalTypeRef = typeof(Utf8StringToNative) )]
 			string pchCookie );
@@ -367,9 +369,12 @@ namespace Steamworks
 		#endregion
 
 		internal bool SetCookie( HTTPCookieContainerHandle hCookieContainer,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchHost,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchUrl,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchCookie )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchHost,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchUrl,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchCookie )
 		{
 			var returnValue = _SetCookie( Self, hCookieContainer, pchHost, pchUrl, pchCookie );
 			return returnValue;

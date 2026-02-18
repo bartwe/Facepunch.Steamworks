@@ -437,7 +437,8 @@ namespace Steamworks
 		#endregion
 
 		internal void ActivateGameOverlay(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchDialog )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchDialog )
 		{
 			_ActivateGameOverlay( Self, pchDialog );
 		}
@@ -447,13 +448,15 @@ namespace Steamworks
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamFriends_ActivateGameOverlayToUser",
 			CallingConvention = Platform.CC )]
 		private static extern void _ActivateGameOverlayToUser( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchDialog,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchDialog,
 			SteamId steamID );
 
 		#endregion
 
 		internal void ActivateGameOverlayToUser(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchDialog,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchDialog,
 			SteamId steamID )
 		{
 			_ActivateGameOverlayToUser( Self, pchDialog, steamID );
@@ -464,13 +467,15 @@ namespace Steamworks
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamFriends_ActivateGameOverlayToWebPage",
 			CallingConvention = Platform.CC )]
 		private static extern void _ActivateGameOverlayToWebPage( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchURL,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchURL,
 			ActivateGameOverlayToWebPageMode eMode );
 
 		#endregion
 
 		internal void ActivateGameOverlayToWebPage(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchURL,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchURL,
 			ActivateGameOverlayToWebPageMode eMode )
 		{
 			_ActivateGameOverlayToWebPage( Self, pchURL, eMode );
@@ -650,14 +655,18 @@ namespace Steamworks
 			CallingConvention = Platform.CC )]
 		[return: MarshalAs( UnmanagedType.I1 )]
 		private static extern bool _SetRichPresence( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchKey,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchValue );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchKey,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchValue );
 
 		#endregion
 
 		internal bool SetRichPresence(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchKey,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchValue )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchKey,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchValue )
 		{
 			var returnValue = _SetRichPresence( Self, pchKey, pchValue );
 			return returnValue;
@@ -681,12 +690,14 @@ namespace Steamworks
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamFriends_GetFriendRichPresence",
 			CallingConvention = Platform.CC )]
 		private static extern Utf8StringPointer _GetFriendRichPresence( IntPtr self, SteamId steamIDFriend,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchKey );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchKey );
 
 		#endregion
 
 		internal string GetFriendRichPresence( SteamId steamIDFriend,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchKey )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchKey )
 		{
 			var returnValue = _GetFriendRichPresence( Self, steamIDFriend, pchKey );
 			return returnValue;
@@ -872,12 +883,14 @@ namespace Steamworks
 			CallingConvention = Platform.CC )]
 		[return: MarshalAs( UnmanagedType.I1 )]
 		private static extern bool _SendClanChatMessage( IntPtr self, SteamId steamIDClanChat,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchText );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchText );
 
 		#endregion
 
 		internal bool SendClanChatMessage( SteamId steamIDClanChat,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchText )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchText )
 		{
 			var returnValue = _SendClanChatMessage( Self, steamIDClanChat, pchText );
 			return returnValue;

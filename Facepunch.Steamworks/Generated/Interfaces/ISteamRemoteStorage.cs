@@ -25,13 +25,15 @@ namespace Steamworks
 			CallingConvention = Platform.CC )]
 		[return: MarshalAs( UnmanagedType.I1 )]
 		private static extern bool _FileWrite( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile,
 			IntPtr pvData, int cubData );
 
 		#endregion
 
 		internal bool FileWrite(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile,
 			IntPtr pvData, int cubData )
 		{
 			var returnValue = _FileWrite( Self, pchFile, pvData, cubData );
@@ -43,13 +45,15 @@ namespace Steamworks
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_FileRead",
 			CallingConvention = Platform.CC )]
 		private static extern int _FileRead( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile,
 			IntPtr pvData, int cubDataToRead );
 
 		#endregion
 
 		internal int FileRead(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile,
 			IntPtr pvData, int cubDataToRead )
 		{
 			var returnValue = _FileRead( Self, pchFile, pvData, cubDataToRead );
@@ -61,13 +65,15 @@ namespace Steamworks
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_FileWriteAsync",
 			CallingConvention = Platform.CC )]
 		private static extern SteamAPICall_t _FileWriteAsync( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile,
 			IntPtr pvData, uint cubData );
 
 		#endregion
 
 		internal CallResult<RemoteStorageFileWriteAsyncComplete_t> FileWriteAsync(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile,
 			IntPtr pvData, uint cubData )
 		{
 			var returnValue = _FileWriteAsync( Self, pchFile, pvData, cubData );
@@ -79,13 +85,15 @@ namespace Steamworks
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_FileReadAsync",
 			CallingConvention = Platform.CC )]
 		private static extern SteamAPICall_t _FileReadAsync( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile,
 			uint nOffset, uint cubToRead );
 
 		#endregion
 
 		internal CallResult<RemoteStorageFileReadAsyncComplete_t> FileReadAsync(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile,
 			uint nOffset, uint cubToRead )
 		{
 			var returnValue = _FileReadAsync( Self, pchFile, nOffset, cubToRead );
@@ -114,12 +122,14 @@ namespace Steamworks
 			CallingConvention = Platform.CC )]
 		[return: MarshalAs( UnmanagedType.I1 )]
 		private static extern bool _FileForget( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile );
 
 		#endregion
 
 		internal bool FileForget(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile )
 		{
 			var returnValue = _FileForget( Self, pchFile );
 			return returnValue;
@@ -131,12 +141,14 @@ namespace Steamworks
 			CallingConvention = Platform.CC )]
 		[return: MarshalAs( UnmanagedType.I1 )]
 		private static extern bool _FileDelete( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile );
 
 		#endregion
 
 		internal bool FileDelete(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile )
 		{
 			var returnValue = _FileDelete( Self, pchFile );
 			return returnValue;
@@ -147,12 +159,14 @@ namespace Steamworks
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_FileShare",
 			CallingConvention = Platform.CC )]
 		private static extern SteamAPICall_t _FileShare( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile );
 
 		#endregion
 
 		internal CallResult<RemoteStorageFileShareResult_t> FileShare(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile )
 		{
 			var returnValue = _FileShare( Self, pchFile );
 			return new CallResult<RemoteStorageFileShareResult_t>( returnValue, IsServer );
@@ -164,13 +178,15 @@ namespace Steamworks
 			CallingConvention = Platform.CC )]
 		[return: MarshalAs( UnmanagedType.I1 )]
 		private static extern bool _SetSyncPlatforms( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile,
 			RemoteStoragePlatform eRemoteStoragePlatform );
 
 		#endregion
 
 		internal bool SetSyncPlatforms(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile,
 			RemoteStoragePlatform eRemoteStoragePlatform )
 		{
 			var returnValue = _SetSyncPlatforms( Self, pchFile, eRemoteStoragePlatform );
@@ -182,12 +198,14 @@ namespace Steamworks
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_FileWriteStreamOpen",
 			CallingConvention = Platform.CC )]
 		private static extern UGCFileWriteStreamHandle_t _FileWriteStreamOpen( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile );
 
 		#endregion
 
 		internal UGCFileWriteStreamHandle_t FileWriteStreamOpen(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile )
 		{
 			var returnValue = _FileWriteStreamOpen( Self, pchFile );
 			return returnValue;
@@ -245,12 +263,14 @@ namespace Steamworks
 			CallingConvention = Platform.CC )]
 		[return: MarshalAs( UnmanagedType.I1 )]
 		private static extern bool _FileExists( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile );
 
 		#endregion
 
 		internal bool FileExists(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile )
 		{
 			var returnValue = _FileExists( Self, pchFile );
 			return returnValue;
@@ -262,12 +282,14 @@ namespace Steamworks
 			CallingConvention = Platform.CC )]
 		[return: MarshalAs( UnmanagedType.I1 )]
 		private static extern bool _FilePersisted( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile );
 
 		#endregion
 
 		internal bool FilePersisted(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile )
 		{
 			var returnValue = _FilePersisted( Self, pchFile );
 			return returnValue;
@@ -278,12 +300,14 @@ namespace Steamworks
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_GetFileSize",
 			CallingConvention = Platform.CC )]
 		private static extern int _GetFileSize( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile );
 
 		#endregion
 
 		internal int GetFileSize(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile )
 		{
 			var returnValue = _GetFileSize( Self, pchFile );
 			return returnValue;
@@ -294,12 +318,14 @@ namespace Steamworks
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_GetFileTimestamp",
 			CallingConvention = Platform.CC )]
 		private static extern long _GetFileTimestamp( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile );
 
 		#endregion
 
 		internal long GetFileTimestamp(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile )
 		{
 			var returnValue = _GetFileTimestamp( Self, pchFile );
 			return returnValue;
@@ -310,12 +336,14 @@ namespace Steamworks
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_GetSyncPlatforms",
 			CallingConvention = Platform.CC )]
 		private static extern RemoteStoragePlatform _GetSyncPlatforms( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile );
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile );
 
 		#endregion
 
 		internal RemoteStoragePlatform GetSyncPlatforms(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchFile )
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchFile )
 		{
 			var returnValue = _GetSyncPlatforms( Self, pchFile );
 			return returnValue;

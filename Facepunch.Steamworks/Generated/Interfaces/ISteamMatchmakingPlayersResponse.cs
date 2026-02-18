@@ -16,13 +16,15 @@ namespace Steamworks
 		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamMatchmakingPlayersResponse_AddPlayerToList",
 			CallingConvention = Platform.CC )]
 		private static extern void _AddPlayerToList( IntPtr self,
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchName,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchName,
 			int nScore, float flTimePlayed );
 
 		#endregion
 
 		internal void AddPlayerToList(
-			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )] string pchName,
+			[MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(Utf8StringToNative) )]
+			string pchName,
 			int nScore, float flTimePlayed )
 		{
 			_AddPlayerToList( Self, pchName, nScore, flTimePlayed );
