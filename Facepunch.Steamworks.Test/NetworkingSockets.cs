@@ -136,7 +136,20 @@ namespace Steamworks
 			await Task.Delay( 1000 );
 
 			Console.WriteLine( $"----- Retrieving Fake IP.." );
-			SteamNetworkingSockets.GetFakeIP( 0, out NetAddress address );
+			var sw = System.Diagnostics.Stopwatch.StartNew();
+			var fakeIpResult = Result.Pending;
+			var address = default( NetAddress );
+
+			while ( sw.Elapsed.TotalSeconds < 10 )
+			{
+				fakeIpResult = SteamNetworkingSockets.GetFakeIP( 0, out address );
+				if ( fakeIpResult == Result.OK )
+					break;
+
+				await Task.Delay( 100 );
+			}
+
+			Assert.AreEqual( Result.OK, fakeIpResult, $"GetFakeIP did not succeed: {fakeIpResult}" );
 
 			Console.WriteLine( $"----- Connecting To Socket via Fake IP ({address})" );
 			var connection = SteamNetworkingSockets.ConnectNormal<TestConnectionInterface>( address );
