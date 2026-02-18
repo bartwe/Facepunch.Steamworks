@@ -46,35 +46,92 @@ namespace Steamworks.Ugc
 		/// </summary>
 		public static Editor NewGameManagedFile => new Editor( WorkshopFileType.GameManagedItem );
 
-		public Editor ForAppId( AppId id ) { this.consumerAppId = id; return this; }
+		public Editor ForAppId( AppId id )
+		{
+			this.consumerAppId = id;
+			return this;
+		}
 
 		string Title;
-		public Editor WithTitle( string t ) { this.Title = t; return this; }
+
+		public Editor WithTitle( string t )
+		{
+			this.Title = t;
+			return this;
+		}
 
 		string Description;
-		public Editor WithDescription( string t ) { this.Description = t; return this; }
+
+		public Editor WithDescription( string t )
+		{
+			this.Description = t;
+			return this;
+		}
 
 		string MetaData;
-		public Editor WithMetaData( string t ) { this.MetaData = t; return this; }
+
+		public Editor WithMetaData( string t )
+		{
+			this.MetaData = t;
+			return this;
+		}
 
 		string ChangeLog;
-		public Editor WithChangeLog( string t ) { this.ChangeLog = t; return this; }
+
+		public Editor WithChangeLog( string t )
+		{
+			this.ChangeLog = t;
+			return this;
+		}
 
 		string Language;
-		public Editor InLanguage( string t ) { this.Language = t; return this; }
+
+		public Editor InLanguage( string t )
+		{
+			this.Language = t;
+			return this;
+		}
 
 		string PreviewFile;
-		public Editor WithPreviewFile( string t ) { this.PreviewFile = t; return this; }
+
+		public Editor WithPreviewFile( string t )
+		{
+			this.PreviewFile = t;
+			return this;
+		}
 
 		System.IO.DirectoryInfo ContentFolder;
-		public Editor WithContent( System.IO.DirectoryInfo t ) { this.ContentFolder = t; return this; }
-		public Editor WithContent( string folderName ) { return WithContent( new System.IO.DirectoryInfo( folderName ) ); }
+
+		public Editor WithContent( System.IO.DirectoryInfo t )
+		{
+			this.ContentFolder = t;
+			return this;
+		}
+
+		public Editor WithContent( string folderName )
+		{
+			return WithContent( new System.IO.DirectoryInfo( folderName ) );
+		}
 
 		RemoteStoragePublishedFileVisibility? Visibility;
 
-		public Editor WithPublicVisibility() { Visibility = RemoteStoragePublishedFileVisibility.Public; return this; }
-		public Editor WithFriendsOnlyVisibility() { Visibility = RemoteStoragePublishedFileVisibility.FriendsOnly; return this; }
-		public Editor WithPrivateVisibility() { Visibility = RemoteStoragePublishedFileVisibility.Private; return this; }
+		public Editor WithPublicVisibility()
+		{
+			Visibility = RemoteStoragePublishedFileVisibility.Public;
+			return this;
+		}
+
+		public Editor WithFriendsOnlyVisibility()
+		{
+			Visibility = RemoteStoragePublishedFileVisibility.FriendsOnly;
+			return this;
+		}
+
+		public Editor WithPrivateVisibility()
+		{
+			Visibility = RemoteStoragePublishedFileVisibility.Private;
+			return this;
+		}
 
 		List<string> Tags;
 		Dictionary<string, List<string>> KeyValueTags;
@@ -123,9 +180,10 @@ namespace Steamworks.Ugc
 			return this;
 		}
 
-		public async Task<PublishResult> SubmitAsync( IProgress<float> progress = null, Action<PublishResult> onItemCreated = null )
+		public async Task<PublishResult> SubmitAsync( IProgress<float> progress = null,
+			Action<PublishResult> onItemCreated = null )
 		{
-			var result = default( PublishResult );
+			var result = default(PublishResult);
 
 			progress?.Report( 0 );
 
@@ -138,7 +196,8 @@ namespace Steamworks.Ugc
 			if ( ContentFolder != null )
 			{
 				if ( !System.IO.Directory.Exists( ContentFolder.FullName ) )
-					throw new System.Exception( $"UgcEditor - Content Folder doesn't exist ({ContentFolder.FullName})" );
+					throw new System.Exception(
+						$"UgcEditor - Content Folder doesn't exist ({ContentFolder.FullName})" );
 
 				if ( !ContentFolder.EnumerateFiles( "*", System.IO.SearchOption.AllDirectories ).Any() )
 					throw new System.Exception( $"UgcEditor - Content Folder is empty" );
@@ -275,7 +334,6 @@ namespace Steamworks.Ugc
 
 				result.NeedsWorkshopAgreement = updated.Value.UserNeedsToAcceptWorkshopLegalAgreement;
 				result.FileId = fileId;
-
 			}
 
 			return result;

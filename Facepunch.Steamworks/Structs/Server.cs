@@ -88,14 +88,14 @@ namespace Steamworks.Data
 		internal const uint k_unFavoriteFlagHistory = 0x02; // this game favorite entry is for the history list
 
 
-
 		/// <summary>
 		/// Add this server to our history list
 		/// If we're already in the history list, weill set the last played time to now
 		/// </summary>
 		public void AddToHistory()
 		{
-			SteamMatchmaking.Internal.AddFavoriteGame( SteamClient.AppId, AddressRaw, (ushort)ConnectionPort, (ushort)QueryPort, k_unFavoriteFlagHistory, (uint)Epoch.Current );
+			SteamMatchmaking.Internal.AddFavoriteGame( SteamClient.AppId, AddressRaw, (ushort)ConnectionPort,
+				(ushort)QueryPort, k_unFavoriteFlagHistory, (uint)Epoch.Current );
 		}
 
 		/// <summary>
@@ -111,7 +111,8 @@ namespace Steamworks.Data
 		/// </summary>
 		public void RemoveFromHistory()
 		{
-			SteamMatchmaking.Internal.RemoveFavoriteGame( SteamClient.AppId, AddressRaw, (ushort)ConnectionPort, (ushort)QueryPort, k_unFavoriteFlagHistory );
+			SteamMatchmaking.Internal.RemoveFavoriteGame( SteamClient.AppId, AddressRaw, (ushort)ConnectionPort,
+				(ushort)QueryPort, k_unFavoriteFlagHistory );
 		}
 
 		/// <summary>
@@ -119,7 +120,8 @@ namespace Steamworks.Data
 		/// </summary>
 		public void AddToFavourites()
 		{
-			SteamMatchmaking.Internal.AddFavoriteGame( SteamClient.AppId, AddressRaw, (ushort)ConnectionPort, (ushort)QueryPort, k_unFavoriteFlagFavorite, (uint)Epoch.Current );
+			SteamMatchmaking.Internal.AddFavoriteGame( SteamClient.AppId, AddressRaw, (ushort)ConnectionPort,
+				(ushort)QueryPort, k_unFavoriteFlagFavorite, (uint)Epoch.Current );
 		}
 
 		/// <summary>
@@ -127,15 +129,16 @@ namespace Steamworks.Data
 		/// </summary>
 		public void RemoveFromFavourites()
 		{
-			SteamMatchmaking.Internal.RemoveFavoriteGame( SteamClient.AppId, AddressRaw, (ushort)ConnectionPort, (ushort)QueryPort, k_unFavoriteFlagFavorite );
+			SteamMatchmaking.Internal.RemoveFavoriteGame( SteamClient.AppId, AddressRaw, (ushort)ConnectionPort,
+				(ushort)QueryPort, k_unFavoriteFlagFavorite );
 		}
 
 		public bool Equals( ServerInfo other )
 		{
 			return AddressRaw == other.AddressRaw
-				&& SteamId == other.SteamId
-				&& ConnectionPort == other.ConnectionPort
-				&& QueryPort == other.QueryPort;
+			       && SteamId == other.SteamId
+			       && ConnectionPort == other.ConnectionPort
+			       && QueryPort == other.QueryPort;
 		}
 
 		public override int GetHashCode()

@@ -70,10 +70,10 @@ namespace Steamworks
 		public bool IsSnoozing => State == FriendState.Snooze;
 
 
-
 		public Relationship Relationship => SteamFriends.Internal.GetFriendRelationship( Id );
 		public FriendState State => SteamFriends.Internal.GetFriendPersonaState( Id );
 		public string Name => SteamFriends.Internal.GetFriendPersonaName( Id );
+
 		public IEnumerable<string> NameHistory
 		{
 			get
@@ -90,7 +90,6 @@ namespace Steamworks
 		}
 
 		public int SteamLevel => SteamFriends.Internal.GetFriendSteamLevel( Id );
-
 
 
 		public FriendGameInfo? GameInfo
@@ -256,6 +255,5 @@ namespace Steamworks
 
 			return Epoch.ToDateTime( time );
 		}
-
 	}
 }

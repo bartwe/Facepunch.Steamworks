@@ -12,9 +12,7 @@ namespace Steamworks.Ugc
 		{
 			return new UserItemVote
 			{
-				VotedUp = result.VotedUp,
-				VotedDown = result.VotedDown,
-				VoteSkipped = result.VoteSkipped
+				VotedUp = result.VotedUp, VotedDown = result.VotedDown, VoteSkipped = result.VoteSkipped
 			};
 		}
 	}

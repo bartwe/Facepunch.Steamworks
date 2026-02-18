@@ -38,7 +38,6 @@ namespace Steamworks
 		/// and then filtering it by hand because a lot of energy is used by creating the strings
 		/// and your frame rate will tank and you won't know why.
 		/// </summary>
-
 		public static event Action<NetDebugOutput, string> OnDebugOutput;
 
 		/// <summary>
@@ -269,7 +268,8 @@ namespace Steamworks
 			public string Msg;
 		}
 
-		private static System.Collections.Concurrent.ConcurrentQueue<DebugMessage> debugMessages = new System.Collections.Concurrent.ConcurrentQueue<DebugMessage>();
+		private static System.Collections.Concurrent.ConcurrentQueue<DebugMessage> debugMessages =
+			new System.Collections.Concurrent.ConcurrentQueue<DebugMessage>();
 
 		/// <summary>
 		/// This can be called from other threads - so we're going to queue these up and process them in a safe place.
@@ -310,7 +310,8 @@ namespace Steamworks
 		internal unsafe static bool SetConfigInt( NetConfig type, int value )
 		{
 			int* ptr = &value;
-			return Internal.SetConfigValue( type, NetConfigScope.Global, IntPtr.Zero, NetConfigType.Int32, (IntPtr)ptr );
+			return Internal.SetConfigValue( type, NetConfigScope.Global, IntPtr.Zero, NetConfigType.Int32,
+				(IntPtr)ptr );
 		}
 
 		internal unsafe static int GetConfigInt( NetConfig type )
@@ -318,8 +319,9 @@ namespace Steamworks
 			int value = 0;
 			NetConfigType dtype = NetConfigType.Int32;
 			int* ptr = &value;
-			UIntPtr size = new UIntPtr( sizeof( int ) );
-			var result = Internal.GetConfigValue( type, NetConfigScope.Global, IntPtr.Zero, ref dtype, (IntPtr)ptr, ref size );
+			UIntPtr size = new UIntPtr( sizeof(int) );
+			var result = Internal.GetConfigValue( type, NetConfigScope.Global, IntPtr.Zero, ref dtype, (IntPtr)ptr,
+				ref size );
 			if ( result != NetConfigResult.OK )
 				return 0;
 
@@ -329,7 +331,8 @@ namespace Steamworks
 		internal unsafe static bool SetConfigFloat( NetConfig type, float value )
 		{
 			float* ptr = &value;
-			return Internal.SetConfigValue( type, NetConfigScope.Global, IntPtr.Zero, NetConfigType.Float, (IntPtr)ptr );
+			return Internal.SetConfigValue( type, NetConfigScope.Global, IntPtr.Zero, NetConfigType.Float,
+				(IntPtr)ptr );
 		}
 
 		internal unsafe static float GetConfigFloat( NetConfig type )
@@ -337,8 +340,9 @@ namespace Steamworks
 			float value = 0;
 			NetConfigType dtype = NetConfigType.Float;
 			float* ptr = &value;
-			UIntPtr size = new UIntPtr( sizeof( float ) );
-			var result = Internal.GetConfigValue( type, NetConfigScope.Global, IntPtr.Zero, ref dtype, (IntPtr)ptr, ref size );
+			UIntPtr size = new UIntPtr( sizeof(float) );
+			var result = Internal.GetConfigValue( type, NetConfigScope.Global, IntPtr.Zero, ref dtype, (IntPtr)ptr,
+				ref size );
 			if ( result != NetConfigResult.OK )
 				return 0;
 
@@ -351,7 +355,8 @@ namespace Steamworks
 
 			fixed ( byte* ptr = bytes )
 			{
-				return Internal.SetConfigValue( type, NetConfigScope.Global, IntPtr.Zero, NetConfigType.String, (IntPtr)ptr );
+				return Internal.SetConfigValue( type, NetConfigScope.Global, IntPtr.Zero, NetConfigType.String,
+					(IntPtr)ptr );
 			}
 		}
 

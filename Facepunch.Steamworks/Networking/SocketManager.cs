@@ -59,6 +59,7 @@ namespace Steamworks
 
 						OnConnecting( connection, info );
 					}
+
 					break;
 				case ConnectionState.Connected:
 					if ( Connecting.Contains( connection ) && !Connected.Contains( connection ) )
@@ -68,6 +69,7 @@ namespace Steamworks
 
 						OnConnected( connection, info );
 					}
+
 					break;
 				case ConnectionState.ClosedByPeer:
 				case ConnectionState.ProblemDetectedLocally:
@@ -79,6 +81,7 @@ namespace Steamworks
 
 						OnDisconnected( connection, info );
 					}
+
 					break;
 			}
 		}
@@ -130,7 +133,8 @@ namespace Steamworks
 
 			try
 			{
-				processed = SteamNetworkingSockets.Internal.ReceiveMessagesOnPollGroup( pollGroup, messageBuffer, bufferSize );
+				processed = SteamNetworkingSockets.Internal.ReceiveMessagesOnPollGroup( pollGroup, messageBuffer,
+					bufferSize );
 
 				for ( int i = 0; i < processed; i++ )
 				{
@@ -157,7 +161,8 @@ namespace Steamworks
 			var msg = Marshal.PtrToStructure<NetMsg>( msgPtr );
 			try
 			{
-				OnMessage( msg.Connection, msg.Identity, msg.DataPtr, msg.DataSize, msg.RecvTime, msg.MessageNumber, msg.Channel );
+				OnMessage( msg.Connection, msg.Identity, msg.DataPtr, msg.DataSize, msg.RecvTime, msg.MessageNumber,
+					msg.Channel );
 			}
 			finally
 			{
@@ -168,7 +173,8 @@ namespace Steamworks
 			}
 		}
 
-		public virtual void OnMessage( Connection connection, NetIdentity identity, IntPtr data, int size, long messageNum, long recvTime, int channel )
+		public virtual void OnMessage( Connection connection, NetIdentity identity, IntPtr data, int size,
+			long messageNum, long recvTime, int channel )
 		{
 			Interface?.OnMessage( connection, identity, data, size, messageNum, recvTime, channel );
 		}

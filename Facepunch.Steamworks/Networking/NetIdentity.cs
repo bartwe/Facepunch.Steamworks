@@ -5,17 +5,13 @@ namespace Steamworks.Data
 	[StructLayout( LayoutKind.Explicit, Size = 136, Pack = 1 )]
 	public partial struct NetIdentity
 	{
-		[FieldOffset( 0 )]
-		internal IdentityType type;
+		[FieldOffset( 0 )] internal IdentityType type;
 
-		[FieldOffset( 4 )]
-		internal int size;
+		[FieldOffset( 4 )] internal int size;
 
-		[FieldOffset( 8 )]
-		internal ulong steamid;
+		[FieldOffset( 8 )] internal ulong steamid;
 
-		[FieldOffset( 8 )]
-		internal NetAddress netaddress;
+		[FieldOffset( 8 )] internal NetAddress netaddress;
 
 		/// <summary>
 		/// Return a NetIdentity that represents LocalHost

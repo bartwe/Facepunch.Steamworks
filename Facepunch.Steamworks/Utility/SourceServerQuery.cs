@@ -12,6 +12,7 @@ namespace Steamworks
 	internal static class SourceServerQuery
 	{
 		private static readonly byte[] A2S_SERVERQUERY_GETCHALLENGE = { 0x55, 0xFF, 0xFF, 0xFF, 0xFF };
+
 		//      private static readonly byte A2S_PLAYER = 0x55;
 		private const byte A2S_RULES = 0x56;
 
@@ -89,7 +90,6 @@ namespace Steamworks
 		}
 
 
-
 		static async Task<byte[]> Receive( UdpClient client )
 		{
 			byte[][] packets = null;
@@ -128,8 +128,7 @@ namespace Steamworks
 					Buffer.BlockCopy( buffer, (int)br.BaseStream.Position, data, 0, data.Length );
 					packets[packetNumber] = data;
 				}
-			}
-			while ( packets.Any( p => p == null ) );
+			} while ( packets.Any( p => p == null ) );
 
 			var combinedData = Combine( packets );
 			return combinedData;
@@ -170,8 +169,8 @@ namespace Steamworks
 				Buffer.BlockCopy( array, 0, rv, offset, array.Length );
 				offset += array.Length;
 			}
+
 			return rv;
 		}
 	};
-
 }

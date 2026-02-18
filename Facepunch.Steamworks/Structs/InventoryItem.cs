@@ -102,7 +102,8 @@ namespace Steamworks
 		{
 			var strlen = (uint)Helpers.MemoryBufferSize;
 
-			if ( !SteamInventory.Internal.GetResultItemProperty( result, (uint)index, null, out var propNames, ref strlen ) )
+			if ( !SteamInventory.Internal.GetResultItemProperty( result, (uint)index, null, out var propNames,
+				    ref strlen ) )
 				return null;
 
 			var props = new Dictionary<string, string>();
@@ -111,7 +112,8 @@ namespace Steamworks
 			{
 				strlen = (uint)Helpers.MemoryBufferSize;
 
-				if ( SteamInventory.Internal.GetResultItemProperty( result, (uint)index, propertyName, out var strVal, ref strlen ) )
+				if ( SteamInventory.Internal.GetResultItemProperty( result, (uint)index, propertyName, out var strVal,
+					    ref strlen ) )
 				{
 					props.Add( propertyName, strVal );
 				}

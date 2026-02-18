@@ -38,8 +38,10 @@ namespace Steamworks
 			Dispatch.Install<SteamServersDisconnected_t>( x => OnSteamServersDisconnected?.Invoke() );
 			Dispatch.Install<ClientGameServerDeny_t>( x => OnClientGameServerDeny?.Invoke() );
 			Dispatch.Install<LicensesUpdated_t>( x => OnLicensesUpdated?.Invoke() );
-			Dispatch.Install<ValidateAuthTicketResponse_t>( x => OnValidateAuthTicketResponse?.Invoke( x.SteamID, x.OwnerSteamID, x.AuthSessionResponse ) );
-			Dispatch.Install<MicroTxnAuthorizationResponse_t>( x => OnMicroTxnAuthorizationResponse?.Invoke( x.AppID, x.OrderID, x.Authorized != 0 ) );
+			Dispatch.Install<ValidateAuthTicketResponse_t>( x =>
+				OnValidateAuthTicketResponse?.Invoke( x.SteamID, x.OwnerSteamID, x.AuthSessionResponse ) );
+			Dispatch.Install<MicroTxnAuthorizationResponse_t>( x =>
+				OnMicroTxnAuthorizationResponse?.Invoke( x.AppID, x.OrderID, x.Authorized != 0 ) );
 			Dispatch.Install<GameWebCallback_t>( x => OnGameWebCallback?.Invoke( x.URLUTF8() ) );
 			Dispatch.Install<GetAuthSessionTicketResponse_t>( x => OnGetAuthSessionTicketResponse?.Invoke( x ) );
 			Dispatch.Install<DurationControl_t>( x => OnDurationControl?.Invoke( new DurationControl { _inner = x } ) );
@@ -167,7 +169,8 @@ namespace Steamworks
 
 			fixed ( byte* b = readBuffer )
 			{
-				if ( Internal.GetVoice( true, (IntPtr)b, (uint)readBuffer.Length, ref szWritten, false, IntPtr.Zero, 0, ref deprecated, 0 ) != VoiceResult.OK )
+				if ( Internal.GetVoice( true, (IntPtr)b, (uint)readBuffer.Length, ref szWritten, false, IntPtr.Zero, 0,
+					    ref deprecated, 0 ) != VoiceResult.OK )
 					return 0;
 			}
 
@@ -194,7 +197,8 @@ namespace Steamworks
 
 			fixed ( byte* b = readBuffer )
 			{
-				if ( Internal.GetVoice( true, (IntPtr)b, (uint)readBuffer.Length, ref szWritten, false, IntPtr.Zero, 0, ref deprecated, 0 ) != VoiceResult.OK )
+				if ( Internal.GetVoice( true, (IntPtr)b, (uint)readBuffer.Length, ref szWritten, false, IntPtr.Zero, 0,
+					    ref deprecated, 0 ) != VoiceResult.OK )
 					return null;
 			}
 
@@ -246,7 +250,8 @@ namespace Steamworks
 			fixed ( byte* frm = from )
 			fixed ( byte* dst = to )
 			{
-				if ( Internal.DecompressVoice( (IntPtr)frm, (uint)length, (IntPtr)dst, (uint)to.Length, ref szWritten, SampleRate ) != VoiceResult.OK )
+				if ( Internal.DecompressVoice( (IntPtr)frm, (uint)length, (IntPtr)dst, (uint)to.Length, ref szWritten,
+					    SampleRate ) != VoiceResult.OK )
 					return 0;
 			}
 
@@ -272,7 +277,8 @@ namespace Steamworks
 			fixed ( byte* frm = from )
 			fixed ( byte* dst = to )
 			{
-				if ( Internal.DecompressVoice( (IntPtr)frm, checked((uint)from.Length), (IntPtr)dst, checked((uint)to.Length), ref szWritten, SampleRate ) != VoiceResult.OK )
+				if ( Internal.DecompressVoice( (IntPtr)frm, checked((uint)from.Length), (IntPtr)dst,
+					    checked((uint)to.Length), ref szWritten, SampleRate ) != VoiceResult.OK )
 					return 0;
 			}
 
@@ -296,7 +302,8 @@ namespace Steamworks
 
 			uint szWritten = 0;
 
-			if ( Internal.DecompressVoice( from, checked((uint)length), to, checked((uint)bufferSize), ref szWritten, SampleRate ) != VoiceResult.OK )
+			if ( Internal.DecompressVoice( from, checked((uint)length), to, checked((uint)bufferSize), ref szWritten,
+				    SampleRate ) != VoiceResult.OK )
 				return 0;
 
 			return (int)szWritten;
@@ -317,11 +324,7 @@ namespace Steamworks
 				if ( ticket == 0 )
 					return null;
 
-				return new AuthTicket()
-				{
-					Data = data.Take( (int)ticketLength ).ToArray(),
-					Handle = ticket
-				};
+				return new AuthTicket() { Data = data.Take( (int)ticketLength ).ToArray(), Handle = ticket };
 			}
 		}
 
@@ -494,7 +497,6 @@ namespace Steamworks
 			Marshal.FreeHGlobal( ticketData );
 
 			return data;
-
 		}
 
 

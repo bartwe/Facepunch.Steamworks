@@ -139,7 +139,7 @@ namespace Steamworks
 
 			try
 			{
-				return (T)Convert.ChangeType( val, typeof( T ) );
+				return (T)Convert.ChangeType( val, typeof(T) );
 			}
 			catch ( System.Exception )
 			{
@@ -213,9 +213,9 @@ namespace Steamworks
 			if ( _recContaining != null ) return _recContaining;
 
 			var allRec = SteamInventory.Definitions
-							.Select( x => x.GetRecipes() )
-							.Where( x => x != null )
-							.SelectMany( x => x );
+				.Select( x => x.GetRecipes() )
+				.Where( x => x != null )
+				.SelectMany( x => x );
 
 			_recContaining = allRec.Where( x => x.ContainsIngredient( this ) ).ToArray();
 			return _recContaining;
@@ -228,14 +228,15 @@ namespace Steamworks
 
 			return a.Equals( b );
 		}
+
 		public static bool operator !=( InventoryDef a, InventoryDef b ) => !(a == b);
 		public override bool Equals( object p ) => this.Equals( (InventoryDef)p );
 		public override int GetHashCode() => Id.GetHashCode();
+
 		public bool Equals( InventoryDef p )
 		{
 			if ( p == null ) return false;
 			return p.Id == Id;
 		}
-
 	}
 }

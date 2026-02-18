@@ -35,17 +35,23 @@ namespace Steamworks
 		public static Action<Exception> OnException;
 
 		#region interop
-		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ManualDispatch_Init", CallingConvention = CallingConvention.Cdecl )]
+
+		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ManualDispatch_Init",
+			CallingConvention = CallingConvention.Cdecl )]
 		internal static extern void SteamAPI_ManualDispatch_Init();
 
-		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ManualDispatch_RunFrame", CallingConvention = CallingConvention.Cdecl )]
+		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ManualDispatch_RunFrame",
+			CallingConvention = CallingConvention.Cdecl )]
 		internal static extern void SteamAPI_ManualDispatch_RunFrame( HSteamPipe pipe );
 
-		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ManualDispatch_GetNextCallback", CallingConvention = CallingConvention.Cdecl )]
+		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ManualDispatch_GetNextCallback",
+			CallingConvention = CallingConvention.Cdecl )]
 		[return: MarshalAs( UnmanagedType.I1 )]
-		internal static extern bool SteamAPI_ManualDispatch_GetNextCallback( HSteamPipe pipe, [In, Out] ref CallbackMsg_t msg );
+		internal static extern bool SteamAPI_ManualDispatch_GetNextCallback( HSteamPipe pipe,
+			[In, Out] ref CallbackMsg_t msg );
 
-		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ManualDispatch_FreeLastCallback", CallingConvention = CallingConvention.Cdecl )]
+		[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ManualDispatch_FreeLastCallback",
+			CallingConvention = CallingConvention.Cdecl )]
 		[return: MarshalAs( UnmanagedType.I1 )]
 		internal static extern bool SteamAPI_ManualDispatch_FreeLastCallback( HSteamPipe pipe );
 
@@ -53,7 +59,10 @@ namespace Steamworks
 		internal struct CallbackMsg_t
 		{
 			public HSteamUser m_hSteamUser; // Specific user to whom this callback applies.
-			public CallbackType Type; // Callback identifier.  (Corresponds to the k_iCallback enum in the callback structure.)
+
+			public CallbackType
+				Type; // Callback identifier.  (Corresponds to the k_iCallback enum in the callback structure.)
+
 			public IntPtr Data; // Points to the callback structure
 			public int DataSize; // Size of the data pointed to by m_pubParam
 		};
@@ -173,7 +182,8 @@ namespace Steamworks
 
 			var str = "";
 
-			var fields = t.GetFields( System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic );
+			var fields = t.GetFields( System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public |
+			                          System.Reflection.BindingFlags.NonPublic );
 
 			if ( fields.Length == 0 )
 				return "[no fields]";
@@ -268,13 +278,10 @@ namespace Steamworks
 		/// <summary>
 		/// Watch for a steam api call
 		/// </summary>
-		internal static void OnCallComplete<T>( SteamAPICall_t call, Action continuation, bool server ) where T : struct, ICallbackData
+		internal static void OnCallComplete<T>( SteamAPICall_t call, Action continuation, bool server )
+			where T : struct, ICallbackData
 		{
-			ResultCallbacks[call.Value] = new ResultCallback
-			{
-				continuation = continuation,
-				server = server
-			};
+			ResultCallbacks[call.Value] = new ResultCallback { continuation = continuation, server = server };
 		}
 
 		struct Callback
@@ -290,7 +297,7 @@ namespace Steamworks
 		/// </summary>
 		internal static void Install<T>( Action<T> p, bool server = false ) where T : ICallbackData
 		{
-			var t = default( T );
+			var t = default(T);
 			var type = t!.CallbackType;
 
 			if ( !Callbacks.TryGetValue( type, out var list ) )
@@ -299,11 +306,7 @@ namespace Steamworks
 				Callbacks[type] = list;
 			}
 
-			list.Add( new Callback
-			{
-				action = x => p( x.ToType<T>() ),
-				server = server
-			} );
+			list.Add( new Callback { action = x => p( x.ToType<T>() ), server = server } );
 		}
 
 		internal static void ShutdownServer()
@@ -316,7 +319,7 @@ namespace Steamworks
 			}
 
 			ResultCallbacks = ResultCallbacks.Where( x => !x.Value.server )
-											 .ToDictionary( x => x.Key, x => x.Value );
+				.ToDictionary( x => x.Key, x => x.Value );
 		}
 
 		internal static void ShutdownClient()
@@ -329,7 +332,7 @@ namespace Steamworks
 			}
 
 			ResultCallbacks = ResultCallbacks.Where( x => x.Value.server )
-											 .ToDictionary( x => x.Key, x => x.Value );
+				.ToDictionary( x => x.Key, x => x.Value );
 		}
 	}
 }

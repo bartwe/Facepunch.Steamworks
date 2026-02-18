@@ -13,7 +13,7 @@ namespace Steamworks
 			if ( ptr == IntPtr.Zero )
 				return default;
 
-			return (T)Marshal.PtrToStructure( ptr, typeof( T ) );
+			return (T)Marshal.PtrToStructure( ptr, typeof(T) );
 		}
 
 		static internal object ToType( this IntPtr ptr, System.Type t )
@@ -27,9 +27,9 @@ namespace Steamworks
 		static internal uint Swap( uint x )
 		{
 			return ((x & 0x000000ff) << 24) +
-				   ((x & 0x0000ff00) << 8) +
-				   ((x & 0x00ff0000) >> 8) +
-				   ((x & 0xff000000) >> 24);
+			       ((x & 0x0000ff00) << 8) +
+			       ((x & 0x00ff0000) >> 8) +
+			       ((x & 0xff000000) >> 24);
 		}
 
 		static public uint IpToInt32( this IPAddress ipAddress )

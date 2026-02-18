@@ -29,14 +29,19 @@ namespace Steamworks
 		internal void InstallEvents()
 		{
 			Dispatch.Install<PersonaStateChange_t>( x => OnPersonaStateChange?.Invoke( new Friend( x.SteamID ) ) );
-			Dispatch.Install<GameRichPresenceJoinRequested_t>( x => OnGameRichPresenceJoinRequested?.Invoke( new Friend( x.SteamIDFriend ), x.ConnectUTF8() ) );
+			Dispatch.Install<GameRichPresenceJoinRequested_t>( x =>
+				OnGameRichPresenceJoinRequested?.Invoke( new Friend( x.SteamIDFriend ), x.ConnectUTF8() ) );
 			Dispatch.Install<GameConnectedFriendChatMsg_t>( OnFriendChatMessage );
 			Dispatch.Install<GameConnectedClanChatMsg_t>( OnGameConnectedClanChatMessage );
 			Dispatch.Install<GameOverlayActivated_t>( x => OnGameOverlayActivated?.Invoke( x.Active != 0 ) );
-			Dispatch.Install<GameServerChangeRequested_t>( x => OnGameServerChangeRequested?.Invoke( x.ServerUTF8(), x.PasswordUTF8() ) );
-			Dispatch.Install<GameLobbyJoinRequested_t>( x => OnGameLobbyJoinRequested?.Invoke( new Lobby( x.SteamIDLobby ), x.SteamIDFriend ) );
-			Dispatch.Install<FriendRichPresenceUpdate_t>( x => OnFriendRichPresenceUpdate?.Invoke( new Friend( x.SteamIDFriend ) ) );
-			Dispatch.Install<OverlayBrowserProtocolNavigation_t>( x => OnOverlayBrowserProtocol?.Invoke( x.RgchURIUTF8() ) );
+			Dispatch.Install<GameServerChangeRequested_t>( x =>
+				OnGameServerChangeRequested?.Invoke( x.ServerUTF8(), x.PasswordUTF8() ) );
+			Dispatch.Install<GameLobbyJoinRequested_t>( x =>
+				OnGameLobbyJoinRequested?.Invoke( new Lobby( x.SteamIDLobby ), x.SteamIDFriend ) );
+			Dispatch.Install<FriendRichPresenceUpdate_t>( x =>
+				OnFriendRichPresenceUpdate?.Invoke( new Friend( x.SteamIDFriend ) ) );
+			Dispatch.Install<OverlayBrowserProtocolNavigation_t>( x =>
+				OnOverlayBrowserProtocol?.Invoke( x.RgchURIUTF8() ) );
 		}
 
 		/// <summary>
@@ -101,7 +106,8 @@ namespace Steamworks
 			using var buffer = Helpers.TakeMemory();
 			var type = ChatEntryType.ChatMsg;
 
-			var len = Internal.GetFriendMessage( data.SteamIDUser, data.MessageID, buffer, Helpers.MemoryBufferSize, ref type );
+			var len = Internal.GetFriendMessage( data.SteamIDUser, data.MessageID, buffer, Helpers.MemoryBufferSize,
+				ref type );
 
 			if ( len == 0 && type == ChatEntryType.Invalid )
 				return;
@@ -122,7 +128,8 @@ namespace Steamworks
 			var type = ChatEntryType.ChatMsg;
 			SteamId chatter = data.SteamIDUser;
 
-			var len = Internal.GetClanChatMessage( data.SteamIDClanChat, data.MessageID, buffer, Helpers.MemoryBufferSize, ref type, ref chatter );
+			var len = Internal.GetClanChatMessage( data.SteamIDClanChat, data.MessageID, buffer,
+				Helpers.MemoryBufferSize, ref type, ref chatter );
 
 			if ( len == 0 && type == ChatEntryType.Invalid )
 				return;
@@ -235,12 +242,15 @@ namespace Steamworks
 		/// <summary>
 		/// Activates the Steam Overlay to the Steam store page for the provided app.
 		/// </summary>
-		public static void OpenStoreOverlay( AppId id, OverlayToStoreFlag overlayToStoreFlag = OverlayToStoreFlag.None ) => Internal.ActivateGameOverlayToStore( id.Value, overlayToStoreFlag );
+		public static void
+			OpenStoreOverlay( AppId id, OverlayToStoreFlag overlayToStoreFlag = OverlayToStoreFlag.None ) =>
+			Internal.ActivateGameOverlayToStore( id.Value, overlayToStoreFlag );
 
 		/// <summary>
 		/// Activates Steam Overlay web browser directly to the specified URL.
 		/// </summary>
-		public static void OpenWebOverlay( string url, bool modal = false ) => Internal.ActivateGameOverlayToWebPage( url, modal ? ActivateGameOverlayToWebPageMode.Modal : ActivateGameOverlayToWebPageMode.Default );
+		public static void OpenWebOverlay( string url, bool modal = false ) => Internal.ActivateGameOverlayToWebPage(
+			url, modal ? ActivateGameOverlayToWebPageMode.Modal : ActivateGameOverlayToWebPageMode.Default );
 
 		/// <summary>
 		/// Activates the Steam Overlay to open the invite dialog. Invitations sent from this dialog will be for the provided lobby.
@@ -258,7 +268,8 @@ namespace Steamworks
 		/// NOTE: It's a lot slower to download avatars and churns the local cache, so if you don't need avatars, don't request them.
 		/// returns true if we're fetching the data, false if we already have it
 		/// </summary>
-		public static bool RequestUserInformation( SteamId steamid, bool nameonly = true ) => Internal.RequestUserInformation( steamid, nameonly );
+		public static bool RequestUserInformation( SteamId steamid, bool nameonly = true ) =>
+			Internal.RequestUserInformation( steamid, nameonly );
 
 
 		internal static async Task CacheUserInformationAsync( SteamId steamid, bool nameonly )
@@ -404,7 +415,10 @@ namespace Steamworks
 				{
 					resultCount += result.Value.ResultsReturned;
 
-					Array.ForEach( result.Value.GSteamID, id => { if ( id > 0 ) steamIds.Add( id ); } );
+					Array.ForEach( result.Value.GSteamID, id =>
+					{
+						if ( id > 0 ) steamIds.Add( id );
+					} );
 				}
 			} while ( result != null && resultCount < result.Value.TotalResultCount );
 

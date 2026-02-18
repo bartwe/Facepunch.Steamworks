@@ -11,5 +11,4 @@ namespace Steamworks.Data
 		[MarshalAs( UnmanagedType.ByValTStr, SizeConst = 256 )]
 		internal string Value;
 	}
-
 }

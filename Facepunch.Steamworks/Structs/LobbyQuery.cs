@@ -10,6 +10,7 @@ namespace Steamworks.Data
 		// - WithoutKeyValue
 
 		#region Distance Filter
+
 		internal LobbyDistanceFilter? distance;
 
 		/// <summary>
@@ -38,9 +39,11 @@ namespace Steamworks.Data
 			distance = LobbyDistanceFilter.Worldwide;
 			return this;
 		}
+
 		#endregion
 
 		#region String key/value filter
+
 		internal Dictionary<string, string> stringFilters;
 
 		/// <summary>
@@ -49,10 +52,12 @@ namespace Steamworks.Data
 		public LobbyQuery WithKeyValue( string key, string value )
 		{
 			if ( string.IsNullOrEmpty( key ) )
-				throw new System.ArgumentException( "Key string provided for LobbyQuery filter is null or empty", nameof( key ) );
+				throw new System.ArgumentException( "Key string provided for LobbyQuery filter is null or empty",
+					nameof(key) );
 
 			if ( key.Length > SteamMatchmaking.MaxLobbyKeyLength )
-				throw new System.ArgumentException( $"Key length is longer than {SteamMatchmaking.MaxLobbyKeyLength}", nameof( key ) );
+				throw new System.ArgumentException( $"Key length is longer than {SteamMatchmaking.MaxLobbyKeyLength}",
+					nameof(key) );
 
 			if ( stringFilters == null )
 				stringFilters = new Dictionary<string, string>();
@@ -61,9 +66,11 @@ namespace Steamworks.Data
 
 			return this;
 		}
+
 		#endregion
 
 		#region Numerical filters
+
 		internal List<NumericalFilter> numericalFilters;
 
 		/// <summary>
@@ -108,19 +115,23 @@ namespace Steamworks.Data
 		internal void AddNumericalFilter( string key, int value, LobbyComparison compare )
 		{
 			if ( string.IsNullOrEmpty( key ) )
-				throw new System.ArgumentException( "Key string provided for LobbyQuery filter is null or empty", nameof( key ) );
+				throw new System.ArgumentException( "Key string provided for LobbyQuery filter is null or empty",
+					nameof(key) );
 
 			if ( key.Length > SteamMatchmaking.MaxLobbyKeyLength )
-				throw new System.ArgumentException( $"Key length is longer than {SteamMatchmaking.MaxLobbyKeyLength}", nameof( key ) );
+				throw new System.ArgumentException( $"Key length is longer than {SteamMatchmaking.MaxLobbyKeyLength}",
+					nameof(key) );
 
 			if ( numericalFilters == null )
 				numericalFilters = new List<NumericalFilter>();
 
 			numericalFilters.Add( new NumericalFilter( key, value, compare ) );
 		}
+
 		#endregion
 
 		#region Near value filter
+
 		internal Dictionary<string, int> nearValFilters;
 
 		/// <summary>
@@ -130,10 +141,12 @@ namespace Steamworks.Data
 		public LobbyQuery OrderByNear( string key, int value )
 		{
 			if ( string.IsNullOrEmpty( key ) )
-				throw new System.ArgumentException( "Key string provided for LobbyQuery filter is null or empty", nameof( key ) );
+				throw new System.ArgumentException( "Key string provided for LobbyQuery filter is null or empty",
+					nameof(key) );
 
 			if ( key.Length > SteamMatchmaking.MaxLobbyKeyLength )
-				throw new System.ArgumentException( $"Key length is longer than {SteamMatchmaking.MaxLobbyKeyLength}", nameof( key ) );
+				throw new System.ArgumentException( $"Key length is longer than {SteamMatchmaking.MaxLobbyKeyLength}",
+					nameof(key) );
 
 			if ( nearValFilters == null )
 				nearValFilters = new Dictionary<string, int>();
@@ -142,9 +155,11 @@ namespace Steamworks.Data
 
 			return this;
 		}
+
 		#endregion
 
 		#region Slots Filter
+
 		internal int? slotsAvailable;
 
 		/// <summary>
@@ -159,6 +174,7 @@ namespace Steamworks.Data
 		#endregion
 
 		#region Max results filter
+
 		internal int? maxResults;
 
 		/// <summary>

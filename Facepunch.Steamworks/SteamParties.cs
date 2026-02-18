@@ -54,10 +54,7 @@ namespace Steamworks
 			{
 				for ( uint i = 0; i < ActiveBeaconCount; i++ )
 				{
-					yield return new PartyBeacon
-					{
-						Id = Internal.GetBeaconByIndex( i )
-					};
+					yield return new PartyBeacon { Id = Internal.GetBeaconByIndex( i ) };
 				}
 			}
 		}

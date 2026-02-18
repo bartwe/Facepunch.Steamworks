@@ -27,9 +27,12 @@ namespace Steamworks
 		internal static void InstallEvents( bool server )
 		{
 			Dispatch.Install<DownloadItemResult_t>( x => OnDownloadItemResult?.Invoke( x.Result ), server );
-			Dispatch.Install<RemoteStoragePublishedFileSubscribed_t>( x => OnItemSubscribed?.Invoke( x.AppID.Value, x.PublishedFileId ), server );
-			Dispatch.Install<RemoteStoragePublishedFileUnsubscribed_t>( x => OnItemUnsubscribed?.Invoke( x.AppID.Value, x.PublishedFileId ), server );
-			Dispatch.Install<ItemInstalled_t>( x => OnItemInstalled?.Invoke( x.AppID.Value, x.PublishedFileId ), server );
+			Dispatch.Install<RemoteStoragePublishedFileSubscribed_t>(
+				x => OnItemSubscribed?.Invoke( x.AppID.Value, x.PublishedFileId ), server );
+			Dispatch.Install<RemoteStoragePublishedFileUnsubscribed_t>(
+				x => OnItemUnsubscribed?.Invoke( x.AppID.Value, x.PublishedFileId ), server );
+			Dispatch.Install<ItemInstalled_t>( x => OnItemInstalled?.Invoke( x.AppID.Value, x.PublishedFileId ),
+				server );
 		}
 
 		/// <summary>
@@ -41,6 +44,7 @@ namespace Steamworks
 		/// Invoked when a new item is subscribed.
 		/// </summary>
 		public static event Action<AppId, PublishedFileId> OnItemSubscribed;
+
 		public static event Action<AppId, PublishedFileId> OnItemUnsubscribed;
 		public static event Action<AppId, PublishedFileId> OnItemInstalled;
 
@@ -69,7 +73,8 @@ namespace Steamworks
 		/// <param name="ct">Allows to send a message to cancel the download anywhere during the process.</param>
 		/// <param name="milisecondsUpdateDelay">How often to call the progress function.</param>
 		/// <returns><see langword="true"/> if downloaded and installed properly.</returns>
-		public static async Task<bool> DownloadAsync( PublishedFileId fileId, Action<float> progress = null, int milisecondsUpdateDelay = 60, CancellationToken ct = default )
+		public static async Task<bool> DownloadAsync( PublishedFileId fileId, Action<float> progress = null,
+			int milisecondsUpdateDelay = 60, CancellationToken ct = default )
 		{
 			var item = new Steamworks.Ugc.Item( fileId );
 
@@ -142,8 +147,8 @@ namespace Steamworks
 		public static async Task<Ugc.Item?> QueryFileAsync( PublishedFileId fileId )
 		{
 			var result = await Ugc.Query.All
-									.WithFileId( fileId )
-									.GetPageAsync( 1 );
+				.WithFileId( fileId )
+				.GetPageAsync( 1 );
 
 			if ( !result.HasValue || result.Value.ResultCount != 1 )
 				return null;
@@ -200,6 +205,5 @@ namespace Steamworks
 			var status = await Internal.GetWorkshopEULAStatus();
 			return status?.Accepted;
 		}
-
 	}
 }

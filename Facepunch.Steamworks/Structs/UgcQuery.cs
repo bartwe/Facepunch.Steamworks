@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Steamworks.Data;
-
 using QueryType = Steamworks.Ugc.Query;
 
 namespace Steamworks.Ugc
@@ -36,25 +35,119 @@ namespace Steamworks.Ugc
 		public static Query GameManagedItems => new Query( UgcType.GameManagedItems );
 
 
-		public Query RankedByVote() { queryType = UGCQuery.RankedByVote; return this; }
-		public Query RankedByPublicationDate() { queryType = UGCQuery.RankedByPublicationDate; return this; }
-		public Query RankedByAcceptanceDate() { queryType = UGCQuery.AcceptedForGameRankedByAcceptanceDate; return this; }
-		public Query RankedByTrend() { queryType = UGCQuery.RankedByTrend; return this; }
-		public Query FavoritedByFriends() { queryType = UGCQuery.FavoritedByFriendsRankedByPublicationDate; return this; }
-		public Query CreatedByFriends() { queryType = UGCQuery.CreatedByFriendsRankedByPublicationDate; return this; }
-		public Query RankedByNumTimesReported() { queryType = UGCQuery.RankedByNumTimesReported; return this; }
-		public Query CreatedByFollowedUsers() { queryType = UGCQuery.CreatedByFollowedUsersRankedByPublicationDate; return this; }
-		public Query NotYetRated() { queryType = UGCQuery.NotYetRated; return this; }
-		public Query RankedByTotalVotesAsc() { queryType = UGCQuery.RankedByTotalVotesAsc; return this; }
-		public Query RankedByVotesUp() { queryType = UGCQuery.RankedByVotesUp; return this; }
-		public Query RankedByTextSearch() { queryType = UGCQuery.RankedByTextSearch; return this; }
-		public Query RankedByTotalUniqueSubscriptions() { queryType = UGCQuery.RankedByTotalUniqueSubscriptions; return this; }
-		public Query RankedByPlaytimeTrend() { queryType = UGCQuery.RankedByPlaytimeTrend; return this; }
-		public Query RankedByTotalPlaytime() { queryType = UGCQuery.RankedByTotalPlaytime; return this; }
-		public Query RankedByAveragePlaytimeTrend() { queryType = UGCQuery.RankedByAveragePlaytimeTrend; return this; }
-		public Query RankedByLifetimeAveragePlaytime() { queryType = UGCQuery.RankedByLifetimeAveragePlaytime; return this; }
-		public Query RankedByPlaytimeSessionsTrend() { queryType = UGCQuery.RankedByPlaytimeSessionsTrend; return this; }
-		public Query RankedByLifetimePlaytimeSessions() { queryType = UGCQuery.RankedByLifetimePlaytimeSessions; return this; }
+		public Query RankedByVote()
+		{
+			queryType = UGCQuery.RankedByVote;
+			return this;
+		}
+
+		public Query RankedByPublicationDate()
+		{
+			queryType = UGCQuery.RankedByPublicationDate;
+			return this;
+		}
+
+		public Query RankedByAcceptanceDate()
+		{
+			queryType = UGCQuery.AcceptedForGameRankedByAcceptanceDate;
+			return this;
+		}
+
+		public Query RankedByTrend()
+		{
+			queryType = UGCQuery.RankedByTrend;
+			return this;
+		}
+
+		public Query FavoritedByFriends()
+		{
+			queryType = UGCQuery.FavoritedByFriendsRankedByPublicationDate;
+			return this;
+		}
+
+		public Query CreatedByFriends()
+		{
+			queryType = UGCQuery.CreatedByFriendsRankedByPublicationDate;
+			return this;
+		}
+
+		public Query RankedByNumTimesReported()
+		{
+			queryType = UGCQuery.RankedByNumTimesReported;
+			return this;
+		}
+
+		public Query CreatedByFollowedUsers()
+		{
+			queryType = UGCQuery.CreatedByFollowedUsersRankedByPublicationDate;
+			return this;
+		}
+
+		public Query NotYetRated()
+		{
+			queryType = UGCQuery.NotYetRated;
+			return this;
+		}
+
+		public Query RankedByTotalVotesAsc()
+		{
+			queryType = UGCQuery.RankedByTotalVotesAsc;
+			return this;
+		}
+
+		public Query RankedByVotesUp()
+		{
+			queryType = UGCQuery.RankedByVotesUp;
+			return this;
+		}
+
+		public Query RankedByTextSearch()
+		{
+			queryType = UGCQuery.RankedByTextSearch;
+			return this;
+		}
+
+		public Query RankedByTotalUniqueSubscriptions()
+		{
+			queryType = UGCQuery.RankedByTotalUniqueSubscriptions;
+			return this;
+		}
+
+		public Query RankedByPlaytimeTrend()
+		{
+			queryType = UGCQuery.RankedByPlaytimeTrend;
+			return this;
+		}
+
+		public Query RankedByTotalPlaytime()
+		{
+			queryType = UGCQuery.RankedByTotalPlaytime;
+			return this;
+		}
+
+		public Query RankedByAveragePlaytimeTrend()
+		{
+			queryType = UGCQuery.RankedByAveragePlaytimeTrend;
+			return this;
+		}
+
+		public Query RankedByLifetimeAveragePlaytime()
+		{
+			queryType = UGCQuery.RankedByLifetimeAveragePlaytime;
+			return this;
+		}
+
+		public Query RankedByPlaytimeSessionsTrend()
+		{
+			queryType = UGCQuery.RankedByPlaytimeSessionsTrend;
+			return this;
+		}
+
+		public Query RankedByLifetimePlaytimeSessions()
+		{
+			queryType = UGCQuery.RankedByLifetimePlaytimeSessions;
+			return this;
+		}
 
 		#region UserQuery
 
@@ -72,29 +165,121 @@ namespace Steamworks.Ugc
 			return this;
 		}
 
-		public Query WhereUserPublished( SteamId user = default ) { userType = UserUGCList.Published; LimitUser( user ); return this; }
-		public Query WhereUserVotedOn( SteamId user = default ) { userType = UserUGCList.VotedOn; LimitUser( user ); return this; }
-		public Query WhereUserVotedUp( SteamId user = default ) { userType = UserUGCList.VotedUp; LimitUser( user ); return this; }
-		public Query WhereUserVotedDown( SteamId user = default ) { userType = UserUGCList.VotedDown; LimitUser( user ); return this; }
-		public Query WhereUserWillVoteLater( SteamId user = default ) { userType = UserUGCList.WillVoteLater; LimitUser( user ); return this; }
-		public Query WhereUserFavorited( SteamId user = default ) { userType = UserUGCList.Favorited; LimitUser( user ); return this; }
-		public Query WhereUserSubscribed( SteamId user = default ) { userType = UserUGCList.Subscribed; LimitUser( user ); return this; }
-		public Query WhereUserUsedOrPlayed( SteamId user = default ) { userType = UserUGCList.UsedOrPlayed; LimitUser( user ); return this; }
-		public Query WhereUserFollowed( SteamId user = default ) { userType = UserUGCList.Followed; LimitUser( user ); return this; }
+		public Query WhereUserPublished( SteamId user = default )
+		{
+			userType = UserUGCList.Published;
+			LimitUser( user );
+			return this;
+		}
 
-		public Query SortByCreationDate() { userSort = UserUGCListSortOrder.CreationOrderDesc; return this; }
-		public Query SortByCreationDateAsc() { userSort = UserUGCListSortOrder.CreationOrderAsc; return this; }
-		public Query SortByTitleAsc() { userSort = UserUGCListSortOrder.TitleAsc; return this; }
-		public Query SortByUpdateDate() { userSort = UserUGCListSortOrder.LastUpdatedDesc; return this; }
-		public Query SortBySubscriptionDate() { userSort = UserUGCListSortOrder.SubscriptionDateDesc; return this; }
-		public Query SortByVoteScore() { userSort = UserUGCListSortOrder.VoteScoreDesc; return this; }
-		public Query SortByModeration() { userSort = UserUGCListSortOrder.ForModeration; return this; }
+		public Query WhereUserVotedOn( SteamId user = default )
+		{
+			userType = UserUGCList.VotedOn;
+			LimitUser( user );
+			return this;
+		}
 
-		public Query WhereSearchText( string searchText ) { this.searchText = searchText; return this; }
+		public Query WhereUserVotedUp( SteamId user = default )
+		{
+			userType = UserUGCList.VotedUp;
+			LimitUser( user );
+			return this;
+		}
+
+		public Query WhereUserVotedDown( SteamId user = default )
+		{
+			userType = UserUGCList.VotedDown;
+			LimitUser( user );
+			return this;
+		}
+
+		public Query WhereUserWillVoteLater( SteamId user = default )
+		{
+			userType = UserUGCList.WillVoteLater;
+			LimitUser( user );
+			return this;
+		}
+
+		public Query WhereUserFavorited( SteamId user = default )
+		{
+			userType = UserUGCList.Favorited;
+			LimitUser( user );
+			return this;
+		}
+
+		public Query WhereUserSubscribed( SteamId user = default )
+		{
+			userType = UserUGCList.Subscribed;
+			LimitUser( user );
+			return this;
+		}
+
+		public Query WhereUserUsedOrPlayed( SteamId user = default )
+		{
+			userType = UserUGCList.UsedOrPlayed;
+			LimitUser( user );
+			return this;
+		}
+
+		public Query WhereUserFollowed( SteamId user = default )
+		{
+			userType = UserUGCList.Followed;
+			LimitUser( user );
+			return this;
+		}
+
+		public Query SortByCreationDate()
+		{
+			userSort = UserUGCListSortOrder.CreationOrderDesc;
+			return this;
+		}
+
+		public Query SortByCreationDateAsc()
+		{
+			userSort = UserUGCListSortOrder.CreationOrderAsc;
+			return this;
+		}
+
+		public Query SortByTitleAsc()
+		{
+			userSort = UserUGCListSortOrder.TitleAsc;
+			return this;
+		}
+
+		public Query SortByUpdateDate()
+		{
+			userSort = UserUGCListSortOrder.LastUpdatedDesc;
+			return this;
+		}
+
+		public Query SortBySubscriptionDate()
+		{
+			userSort = UserUGCListSortOrder.SubscriptionDateDesc;
+			return this;
+		}
+
+		public Query SortByVoteScore()
+		{
+			userSort = UserUGCListSortOrder.VoteScoreDesc;
+			return this;
+		}
+
+		public Query SortByModeration()
+		{
+			userSort = UserUGCListSortOrder.ForModeration;
+			return this;
+		}
+
+		public Query WhereSearchText( string searchText )
+		{
+			this.searchText = searchText;
+			return this;
+		}
 
 		#endregion
 
 		#region Files
+
 		PublishedFileId[] Files;
 
 		public Query WithFileId( params PublishedFileId[] files )
@@ -102,6 +287,7 @@ namespace Steamworks.Ugc
 			Files = files;
 			return this;
 		}
+
 		#endregion
 
 		public async Task<ResultPage?> GetPageAsync( int page )
@@ -119,11 +305,13 @@ namespace Steamworks.Ugc
 			}
 			else if ( steamid.HasValue )
 			{
-				handle = SteamUGC.Internal.CreateQueryUserUGCRequest( steamid.Value.AccountId, userType, matchingType, userSort, creatorApp.Value, consumerApp.Value, (uint)page );
+				handle = SteamUGC.Internal.CreateQueryUserUGCRequest( steamid.Value.AccountId, userType, matchingType,
+					userSort, creatorApp.Value, consumerApp.Value, (uint)page );
 			}
 			else
 			{
-				handle = SteamUGC.Internal.CreateQueryAllUGCRequest( queryType, matchingType, creatorApp.Value, consumerApp.Value, (uint)page );
+				handle = SteamUGC.Internal.CreateQueryAllUGCRequest( queryType, matchingType, creatorApp.Value,
+					consumerApp.Value, (uint)page );
 			}
 
 			ApplyReturns( handle );
@@ -157,14 +345,36 @@ namespace Steamworks.Ugc
 		}
 
 		#region SharedConstraints
-		public QueryType WithType( UgcType type ) { matchingType = type; return this; }
+
+		public QueryType WithType( UgcType type )
+		{
+			matchingType = type;
+			return this;
+		}
+
 		int? maxCacheAge;
-		public QueryType AllowCachedResponse( int maxSecondsAge ) { maxCacheAge = maxSecondsAge; return this; }
+
+		public QueryType AllowCachedResponse( int maxSecondsAge )
+		{
+			maxCacheAge = maxSecondsAge;
+			return this;
+		}
+
 		string language;
-		public QueryType InLanguage( string lang ) { language = lang; return this; }
+
+		public QueryType InLanguage( string lang )
+		{
+			language = lang;
+			return this;
+		}
 
 		int? trendDays;
-		public QueryType WithTrendDays( int days ) { trendDays = days; return this; }
+
+		public QueryType WithTrendDays( int days )
+		{
+			trendDays = days;
+			return this;
+		}
 
 		List<string> requiredTags;
 		bool? matchAnyTag;
@@ -174,12 +384,20 @@ namespace Steamworks.Ugc
 		/// <summary>
 		/// Found items must have at least one of the defined tags
 		/// </summary>
-		public QueryType MatchAnyTag() { matchAnyTag = true; return this; }
+		public QueryType MatchAnyTag()
+		{
+			matchAnyTag = true;
+			return this;
+		}
 
 		/// <summary>
 		/// Found items must have all defined tags
 		/// </summary>
-		public QueryType MatchAllTags() { matchAnyTag = false; return this; }
+		public QueryType MatchAllTags()
+		{
+			matchAnyTag = false;
+			return this;
+		}
 
 		public QueryType WithTag( string tag )
 		{
@@ -243,23 +461,75 @@ namespace Steamworks.Ugc
 		#region ReturnValues
 
 		bool? WantsReturnOnlyIDs;
-		public QueryType WithOnlyIDs( bool b ) { WantsReturnOnlyIDs = b; return this; }
+
+		public QueryType WithOnlyIDs( bool b )
+		{
+			WantsReturnOnlyIDs = b;
+			return this;
+		}
+
 		bool? WantsReturnKeyValueTags;
-		public QueryType WithKeyValueTags( bool b ) { WantsReturnKeyValueTags = b; return this; }
+
+		public QueryType WithKeyValueTags( bool b )
+		{
+			WantsReturnKeyValueTags = b;
+			return this;
+		}
+
 		[Obsolete( "Renamed to WithKeyValueTags" )]
-		public QueryType WithKeyValueTag( bool b ) { WantsReturnKeyValueTags = b; return this; }
+		public QueryType WithKeyValueTag( bool b )
+		{
+			WantsReturnKeyValueTags = b;
+			return this;
+		}
+
 		bool? WantsReturnLongDescription;
-		public QueryType WithLongDescription( bool b ) { WantsReturnLongDescription = b; return this; }
+
+		public QueryType WithLongDescription( bool b )
+		{
+			WantsReturnLongDescription = b;
+			return this;
+		}
+
 		bool? WantsReturnMetadata;
-		public QueryType WithMetadata( bool b ) { WantsReturnMetadata = b; return this; }
+
+		public QueryType WithMetadata( bool b )
+		{
+			WantsReturnMetadata = b;
+			return this;
+		}
+
 		bool? WantsReturnChildren;
-		public QueryType WithChildren( bool b ) { WantsReturnChildren = b; return this; }
+
+		public QueryType WithChildren( bool b )
+		{
+			WantsReturnChildren = b;
+			return this;
+		}
+
 		bool? WantsReturnAdditionalPreviews;
-		public QueryType WithAdditionalPreviews( bool b ) { WantsReturnAdditionalPreviews = b; return this; }
+
+		public QueryType WithAdditionalPreviews( bool b )
+		{
+			WantsReturnAdditionalPreviews = b;
+			return this;
+		}
+
 		bool? WantsReturnTotalOnly;
-		public QueryType WithTotalOnly( bool b ) { WantsReturnTotalOnly = b; return this; }
+
+		public QueryType WithTotalOnly( bool b )
+		{
+			WantsReturnTotalOnly = b;
+			return this;
+		}
+
 		uint? WantsReturnPlaytimeStats;
-		public QueryType WithPlaytimeStats( uint unDays ) { WantsReturnPlaytimeStats = unDays; return this; }
+
+		public QueryType WithPlaytimeStats( uint unDays )
+		{
+			WantsReturnPlaytimeStats = unDays;
+			return this;
+		}
 
 		private void ApplyReturns( UGCQueryHandle_t handle )
 		{
@@ -309,10 +579,15 @@ namespace Steamworks.Ugc
 		#region LoadingBehaviour
 
 		bool? WantsDefaultStats; //true by default
+
 		/// <summary>
 		/// Set to false to disable, by default following stats are loaded: NumSubscriptions, NumFavorites, NumFollowers, NumUniqueSubscriptions, NumUniqueFavorites, NumUniqueFollowers, NumUniqueWebsiteViews, ReportScore, NumSecondsPlayed, NumPlaytimeSessions, NumComments, NumSecondsPlayedDuringTimePeriod, NumPlaytimeSessionsDuringTimePeriod
 		/// </summary>
-		public QueryType WithDefaultStats( bool b ) { WantsDefaultStats = b; return this; }
+		public QueryType WithDefaultStats( bool b )
+		{
+			WantsDefaultStats = b;
+			return this;
+		}
 
 		#endregion
 	}

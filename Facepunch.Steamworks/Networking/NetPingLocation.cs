@@ -24,7 +24,7 @@ namespace Steamworks.Data
 	{
 		public static NetPingLocation? TryParseFromString( string str )
 		{
-			var result = default( NetPingLocation );
+			var result = default(NetPingLocation);
 			if ( !SteamNetworkingUtils.Internal.ParsePingLocationString( str, ref result ) )
 				return null;
 

@@ -56,10 +56,13 @@ namespace Steamworks
 			if ( id == 0 ) throw new System.ArgumentException( "Invalid Socket" );
 			SocketInterfaces[id] = manager;
 		}
+
 		#endregion
 
 		#region ConnectionInterface
-		static readonly Dictionary<uint, ConnectionManager> ConnectionInterfaces = new Dictionary<uint, ConnectionManager>();
+
+		static readonly Dictionary<uint, ConnectionManager> ConnectionInterfaces =
+			new Dictionary<uint, ConnectionManager>();
 
 		internal static ConnectionManager GetConnectionManager( uint id )
 		{
@@ -77,8 +80,8 @@ namespace Steamworks
 			if ( id == 0 ) throw new System.ArgumentException( "Invalid Connection" );
 			ConnectionInterfaces[id] = manager;
 		}
-		#endregion
 
+		#endregion
 
 
 		internal void InstallEvents( bool server )
@@ -155,11 +158,7 @@ namespace Steamworks
 			var options = Array.Empty<NetKeyValue>();
 			var socket = Internal.CreateListenSocketIP( ref address, options.Length, options );
 
-			var t = new SocketManager
-			{
-				Socket = socket,
-				Interface = intrface
-			};
+			var t = new SocketManager { Socket = socket, Interface = intrface };
 
 			t.Initialize();
 
@@ -187,11 +186,7 @@ namespace Steamworks
 			var options = Array.Empty<NetKeyValue>();
 			var connection = Internal.ConnectByIPAddress( ref address, options.Length, options );
 
-			var t = new ConnectionManager
-			{
-				Connection = connection,
-				Interface = iface
-			};
+			var t = new ConnectionManager { Connection = connection, Interface = iface };
 
 			SetConnectionManager( t.Connection.Id, t );
 			return t;
@@ -226,11 +221,7 @@ namespace Steamworks
 			var options = Array.Empty<NetKeyValue>();
 			var socket = Internal.CreateListenSocketP2P( virtualport, options.Length, options );
 
-			var t = new SocketManager
-			{
-				Socket = socket,
-				Interface = intrface
-			};
+			var t = new SocketManager { Socket = socket, Interface = intrface };
 
 			t.Initialize();
 
@@ -260,11 +251,7 @@ namespace Steamworks
 			var options = Array.Empty<NetKeyValue>();
 			var connection = Internal.ConnectP2P( ref identity, virtualport, options.Length, options );
 
-			var t = new ConnectionManager
-			{
-				Connection = connection,
-				Interface = iface
-			};
+			var t = new ConnectionManager { Connection = connection, Interface = iface };
 
 			SetConnectionManager( t.Connection.Id, t );
 			return t;
@@ -289,7 +276,7 @@ namespace Steamworks
 		/// </summary>
 		public static Result GetFakeIP( int fakePortIndex, out NetAddress address )
 		{
-			var pInfo = default( SteamNetworkingFakeIPResult_t );
+			var pInfo = default(SteamNetworkingFakeIPResult_t);
 
 			Internal.GetFakeIP( 0, ref pInfo );
 
@@ -326,11 +313,7 @@ namespace Steamworks
 			var options = Array.Empty<NetKeyValue>();
 			var socket = Internal.CreateListenSocketP2PFakeIP( 0, options.Length, options );
 
-			var t = new SocketManager
-			{
-				Socket = socket,
-				Interface = intrface
-			};
+			var t = new SocketManager { Socket = socket, Interface = intrface };
 
 			t.Initialize();
 

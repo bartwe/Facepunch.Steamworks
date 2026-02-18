@@ -7,9 +7,10 @@ namespace Steamworks.ServerList
 {
 	public abstract class Base : IDisposable
 	{
-
 		#region ISteamMatchmakingServers
+
 		internal static ISteamMatchmakingServers Internal => SteamMatchmakingServers.Internal;
+
 		#endregion
 
 

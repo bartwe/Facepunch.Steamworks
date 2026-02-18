@@ -8,7 +8,8 @@ namespace Steamworks
 	internal delegate void NetDebugFunc( [In] NetDebugOutput nType, [In] IntPtr pszMsg );
 
 	[UnmanagedFunctionPointer( Platform.CC )]
-	internal unsafe delegate void FnSteamNetConnectionStatusChanged( ref SteamNetConnectionStatusChangedCallback_t arg );
+	internal unsafe delegate void
+		FnSteamNetConnectionStatusChanged( ref SteamNetConnectionStatusChangedCallback_t arg );
 
 	[UnmanagedFunctionPointer( Platform.CC )]
 	internal delegate void FnSteamNetAuthenticationStatusChanged( ref SteamNetAuthenticationStatus_t arg );

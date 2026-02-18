@@ -33,9 +33,12 @@ namespace Steamworks
 			} );
 
 			Dispatch.Install<UserStatsStored_t>( x => OnUserStatsStored?.Invoke( x.Result ) );
-			Dispatch.Install<UserAchievementStored_t>( x => OnAchievementProgress?.Invoke( new Achievement( x.AchievementNameUTF8() ), (int)x.CurProgress, (int)x.MaxProgress ) );
+			Dispatch.Install<UserAchievementStored_t>( x =>
+				OnAchievementProgress?.Invoke( new Achievement( x.AchievementNameUTF8() ), (int)x.CurProgress,
+					(int)x.MaxProgress ) );
 			Dispatch.Install<UserStatsUnloaded_t>( x => OnUserStatsUnloaded?.Invoke( x.SteamIDUser ) );
-			Dispatch.Install<UserAchievementIconFetched_t>( x => OnAchievementIconFetched?.Invoke( x.AchievementNameUTF8(), x.IconHandle ) );
+			Dispatch.Install<UserAchievementIconFetched_t>( x =>
+				OnAchievementIconFetched?.Invoke( x.AchievementNameUTF8(), x.IconHandle ) );
 		}
 
 
@@ -94,7 +97,8 @@ namespace Steamworks
 				throw new ArgumentNullException( "Achievement string is null or empty" );
 
 			if ( curProg >= maxProg )
-				throw new ArgumentException( $" Current progress [{curProg}] arguement toward achievement greater than or equal to max [{maxProg}]" );
+				throw new ArgumentException(
+					$" Current progress [{curProg}] arguement toward achievement greater than or equal to max [{maxProg}]" );
 
 			return Internal.IndicateAchievementProgress( achName, (uint)curProg, (uint)maxProg );
 		}
@@ -162,7 +166,8 @@ namespace Steamworks
 		/// the Steamworks website and using FindLeaderboard unless you're expected to have a large amount of
 		/// dynamically created leaderboards.
 		/// </summary>
-		public static async Task<Leaderboard?> FindOrCreateLeaderboardAsync( string name, LeaderboardSort sort, LeaderboardDisplay display )
+		public static async Task<Leaderboard?> FindOrCreateLeaderboardAsync( string name, LeaderboardSort sort,
+			LeaderboardDisplay display )
 		{
 			var result = await Internal.FindOrCreateLeaderboard( name, sort, display );
 			if ( !result.HasValue || result.Value.LeaderboardFound == 0 )
@@ -180,7 +185,6 @@ namespace Steamworks
 
 			return new Leaderboard { Id = result.Value.SteamLeaderboard };
 		}
-
 
 
 		/// <summary>

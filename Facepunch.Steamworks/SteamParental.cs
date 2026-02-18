@@ -59,6 +59,7 @@ namespace Steamworks
 		/// <summary>
 		/// 
 		/// </summary>
-		public static bool BIsFeatureInBlockList( ParentalFeature feature ) => Internal.BIsFeatureInBlockList( feature );
+		public static bool BIsFeatureInBlockList( ParentalFeature feature ) =>
+			Internal.BIsFeatureInBlockList( feature );
 	}
 }

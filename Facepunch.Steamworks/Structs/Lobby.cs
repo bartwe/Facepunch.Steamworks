@@ -82,8 +82,9 @@ namespace Steamworks.Data
 		/// </summary>
 		public bool SetData( string key, string value )
 		{
-			if ( key.Length > 255 ) throw new System.ArgumentException( "Key should be < 255 chars", nameof( key ) );
-			if ( value.Length > 8192 ) throw new System.ArgumentException( "Value should be < 8192 chars", nameof( key ) );
+			if ( key.Length > 255 ) throw new System.ArgumentException( "Key should be < 255 chars", nameof(key) );
+			if ( value.Length > 8192 )
+				throw new System.ArgumentException( "Value should be < 8192 chars", nameof(key) );
 
 			return SteamMatchmaking.Internal.SetLobbyData( Id, key, value );
 		}

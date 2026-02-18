@@ -75,7 +75,8 @@ namespace Steamworks
 		/// <summary>
 		/// Gets a list of the languages the current app supports.
 		/// </summary>
-		public static string[] AvailableLanguages => Internal.GetAvailableGameLanguages().Split( new[] { ',' }, StringSplitOptions.RemoveEmptyEntries );
+		public static string[] AvailableLanguages => Internal.GetAvailableGameLanguages()
+			.Split( new[] { ',' }, StringSplitOptions.RemoveEmptyEntries );
 
 		/// <summary>
 		/// Gets whether or not the active user is subscribed to a specified App ID.
@@ -114,7 +115,7 @@ namespace Steamworks
 		/// </summary>
 		public static IEnumerable<DlcInformation> DlcInformation()
 		{
-			var appid = default( AppId );
+			var appid = default(AppId);
 			var available = false;
 
 			for ( int i = 0; i < Internal.GetDLCCount(); i++ )
@@ -122,12 +123,7 @@ namespace Steamworks
 				if ( !Internal.BGetDLCDataByIndex( i, ref appid, ref available, out var strVal ) )
 					continue;
 
-				yield return new DlcInformation
-				{
-					AppId = appid.Value,
-					Name = strVal,
-					Available = available
-				};
+				yield return new DlcInformation { AppId = appid.Value, Name = strVal, Available = available };
 			}
 		}
 
@@ -165,7 +161,8 @@ namespace Steamworks
 		/// </para>
 		/// </summary>
 		/// <param name="missingFilesOnly">Whether or not to only verify missing files.</param>
-		public static void MarkContentCorrupt( bool missingFilesOnly ) => Internal.MarkContentCorrupt( missingFilesOnly );
+		public static void MarkContentCorrupt( bool missingFilesOnly ) =>
+			Internal.MarkContentCorrupt( missingFilesOnly );
 
 		/// <summary>
 		/// Gets a list of all installed depots for a given App ID in mount order.
@@ -236,7 +233,10 @@ namespace Steamworks
 			if ( !Internal.GetDlcDownloadProgress( appid.Value, ref punBytesDownloaded, ref punBytesTotal ) )
 				return default;
 
-			return new DownloadProgress { BytesDownloaded = punBytesDownloaded, BytesTotal = punBytesTotal, Active = true };
+			return new DownloadProgress
+			{
+				BytesDownloaded = punBytesDownloaded, BytesTotal = punBytesTotal, Active = true
+			};
 		}
 
 		/// <summary>
@@ -302,6 +302,5 @@ namespace Steamworks
 
 			return true;
 		}
-
 	}
 }

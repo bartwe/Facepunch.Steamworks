@@ -13,6 +13,7 @@ namespace Steamworks.Data
 		internal int cbSentUnackedReliable; // m_cbSentUnackedReliable int
 		internal int _reservePad1; // _reservePad1 int
 		internal long ecQueueTime; // m_usecQueueTime SteamNetworkingMicroseconds
+
 		[MarshalAs( UnmanagedType.ByValArray, SizeConst = 10, ArraySubType = UnmanagedType.U4 )]
 		internal uint[] reserved; // reserved uint32 [10]
 

@@ -25,16 +25,15 @@ namespace Steamworks
 				{
 					ptr = BufferBag.Count > 0 ? BufferBag.Dequeue() : Marshal.AllocHGlobal( MemoryBufferSize );
 				}
+
 				((byte*)ptr)[0] = 0;
-				return new Memory
-				{
-					Ptr = ptr
-				};
+				return new Memory { Ptr = ptr };
 			}
 
 			public void Dispose()
 			{
 				if ( Ptr == IntPtr.Zero ) { return; }
+
 				lock ( BufferBag )
 				{
 					if ( BufferBag.Count < MaxBagSize )
@@ -46,6 +45,7 @@ namespace Steamworks
 						Marshal.FreeHGlobal( Ptr );
 					}
 				}
+
 				Ptr = IntPtr.Zero;
 			}
 		}
@@ -110,5 +110,7 @@ namespace Steamworks
 	/// Prevent unity from stripping shit we depend on
 	/// https://docs.unity3d.com/Manual/ManagedCodeStripping.html
 	/// </summary>
-	internal class PreserveAttribute : System.Attribute { }
+	internal class PreserveAttribute : System.Attribute
+	{
+	}
 }

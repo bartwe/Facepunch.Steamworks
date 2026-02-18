@@ -17,8 +17,10 @@ namespace Steamworks.Data
 		internal SteamNetworkingPOPID popRelay;
 		internal ConnectionState state;
 		internal int endReason;
+
 		[MarshalAs( UnmanagedType.ByValTStr, SizeConst = 128 )]
 		internal string endDebug;
+
 		[MarshalAs( UnmanagedType.ByValTStr, SizeConst = 128 )]
 		internal string connectionDescription;
 

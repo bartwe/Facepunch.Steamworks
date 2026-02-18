@@ -30,13 +30,15 @@ namespace Steamworks
 
 		internal static void InstallEvents()
 		{
-			Dispatch.Install<LobbyInvite_t>( x => OnLobbyInvite?.Invoke( new Friend( x.SteamIDUser ), new Lobby( x.SteamIDLobby ) ) );
+			Dispatch.Install<LobbyInvite_t>( x =>
+				OnLobbyInvite?.Invoke( new Friend( x.SteamIDUser ), new Lobby( x.SteamIDLobby ) ) );
 
 			Dispatch.Install<LobbyEnter_t>( x => OnLobbyEntered?.Invoke( new Lobby( x.SteamIDLobby ) ) );
 
 			Dispatch.Install<LobbyCreated_t>( x => OnLobbyCreated?.Invoke( x.Result, new Lobby( x.SteamIDLobby ) ) );
 
-			Dispatch.Install<LobbyGameCreated_t>( x => OnLobbyGameCreated?.Invoke( new Lobby( x.SteamIDLobby ), x.IP, x.Port, x.SteamIDGameServer ) );
+			Dispatch.Install<LobbyGameCreated_t>( x =>
+				OnLobbyGameCreated?.Invoke( new Lobby( x.SteamIDLobby ), x.IP, x.Port, x.SteamIDGameServer ) );
 
 			Dispatch.Install<LobbyDataUpdate_t>( x =>
 			{
@@ -57,13 +59,16 @@ namespace Steamworks
 					OnLobbyMemberLeave?.Invoke( new Lobby( x.SteamIDLobby ), new Friend( x.SteamIDUserChanged ) );
 
 				if ( (x.GfChatMemberStateChange & (int)ChatMemberStateChange.Disconnected) != 0 )
-					OnLobbyMemberDisconnected?.Invoke( new Lobby( x.SteamIDLobby ), new Friend( x.SteamIDUserChanged ) );
+					OnLobbyMemberDisconnected?.Invoke( new Lobby( x.SteamIDLobby ),
+						new Friend( x.SteamIDUserChanged ) );
 
 				if ( (x.GfChatMemberStateChange & (int)ChatMemberStateChange.Kicked) != 0 )
-					OnLobbyMemberKicked?.Invoke( new Lobby( x.SteamIDLobby ), new Friend( x.SteamIDUserChanged ), new Friend( x.SteamIDMakingChange ) );
+					OnLobbyMemberKicked?.Invoke( new Lobby( x.SteamIDLobby ), new Friend( x.SteamIDUserChanged ),
+						new Friend( x.SteamIDMakingChange ) );
 
 				if ( (x.GfChatMemberStateChange & (int)ChatMemberStateChange.Banned) != 0 )
-					OnLobbyMemberBanned?.Invoke( new Lobby( x.SteamIDLobby ), new Friend( x.SteamIDUserChanged ), new Friend( x.SteamIDMakingChange ) );
+					OnLobbyMemberBanned?.Invoke( new Lobby( x.SteamIDLobby ), new Friend( x.SteamIDUserChanged ),
+						new Friend( x.SteamIDMakingChange ) );
 			} );
 
 			Dispatch.Install<LobbyChatMsg_t>( OnLobbyChatMessageRecievedAPI );
@@ -75,11 +80,13 @@ namespace Steamworks
 			ChatEntryType chatEntryType = default;
 			using var buffer = Helpers.TakeMemory();
 
-			var readData = Internal.GetLobbyChatEntry( callback.SteamIDLobby, (int)callback.ChatID, ref steamid, buffer, Helpers.MemoryBufferSize, ref chatEntryType );
+			var readData = Internal.GetLobbyChatEntry( callback.SteamIDLobby, (int)callback.ChatID, ref steamid, buffer,
+				Helpers.MemoryBufferSize, ref chatEntryType );
 
 			if ( readData > 0 )
 			{
-				OnChatMessage?.Invoke( new Lobby( callback.SteamIDLobby ), new Friend( steamid ), Helpers.MemoryToString( buffer ) );
+				OnChatMessage?.Invoke( new Lobby( callback.SteamIDLobby ), new Friend( steamid ),
+					Helpers.MemoryToString( buffer ) );
 			}
 		}
 
@@ -214,6 +221,5 @@ namespace Steamworks
 				}
 			}
 		}
-
 	}
 }

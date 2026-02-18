@@ -22,8 +22,7 @@ namespace Steamworks.Ugc
 		{
 			get
 			{
-
-				var details = default( SteamUGCDetails_t );
+				var details = default(SteamUGCDetails_t);
 				for ( uint i = 0; i < ResultCount; i++ )
 				{
 					if ( SteamUGC.Internal.GetQueryUGCResult( Handle, i, ref details ) )
@@ -44,8 +43,10 @@ namespace Steamworks.Ugc
 							item.NumSecondsPlayed = GetStat( i, ItemStatistic.NumSecondsPlayed );
 							item.NumPlaytimeSessions = GetStat( i, ItemStatistic.NumPlaytimeSessions );
 							item.NumComments = GetStat( i, ItemStatistic.NumComments );
-							item.NumSecondsPlayedDuringTimePeriod = GetStat( i, ItemStatistic.NumSecondsPlayedDuringTimePeriod );
-							item.NumPlaytimeSessionsDuringTimePeriod = GetStat( i, ItemStatistic.NumPlaytimeSessionsDuringTimePeriod );
+							item.NumSecondsPlayedDuringTimePeriod =
+								GetStat( i, ItemStatistic.NumSecondsPlayedDuringTimePeriod );
+							item.NumPlaytimeSessionsDuringTimePeriod =
+								GetStat( i, ItemStatistic.NumPlaytimeSessionsDuringTimePeriod );
 						}
 
 						if ( SteamUGC.Internal.GetQueryUGCPreviewURL( Handle, i, out string preview ) )
@@ -97,7 +98,8 @@ namespace Steamworks.Ugc
 									string originalFileName; //what is this???
 									ItemPreviewType previewType = default;
 									if ( SteamUGC.Internal.GetQueryUGCAdditionalPreview(
-										Handle, i, j, out previewUrlOrVideo, out originalFileName, ref previewType ) )
+										    Handle, i, j, out previewUrlOrVideo, out originalFileName,
+										    ref previewType ) )
 									{
 										item.AdditionalPreviews[j] = new UgcAdditionalPreview(
 											previewUrlOrVideo, originalFileName, previewType );

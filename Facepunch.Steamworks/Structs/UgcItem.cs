@@ -73,6 +73,7 @@ namespace Steamworks.Ugc
 		public DateTime Updated => Epoch.ToDateTime( details.TimeUpdated );
 
 		public RemoteStoragePublishedFileVisibility Visibility => details.Visibility;
+
 		/// <summary>
 		/// True if this is publically visible
 		/// </summary>
@@ -107,6 +108,7 @@ namespace Steamworks.Ugc
 		/// The number of downvotes of this item
 		/// </summary>
 		public uint VotesDown => details.VotesDown;
+
 		/// <summary>
 		/// Dependencies/children of this item or collection, available only from WithDependencies(true) queries
 		/// </summary>
@@ -231,9 +233,9 @@ namespace Steamworks.Ugc
 		public static async Task<Item?> GetAsync( PublishedFileId id, int maxAgeSeconds = 60 * 30 )
 		{
 			var file = await Steamworks.Ugc.Query.All
-											.WithFileId( id )
-											.WithLongDescription( true )
-											.GetPageAsync( 1 );
+				.WithFileId( id )
+				.WithLongDescription( true )
+				.GetPageAsync( 1 );
 
 			if ( !file.HasValue ) return null;
 			using ( file.Value )
@@ -282,7 +284,8 @@ namespace Steamworks.Ugc
 		/// If CancellationToken is default then there is 60 seconds timeout
 		/// Progress will be set to 0-1
 		/// </summary>
-		public async Task<bool> DownloadAsync( Action<float> progress = null, int milisecondsUpdateDelay = 60, CancellationToken ct = default )
+		public async Task<bool> DownloadAsync( Action<float> progress = null, int milisecondsUpdateDelay = 60,
+			CancellationToken ct = default )
 		{
 			return await SteamUGC.DownloadAsync( Id, progress, milisecondsUpdateDelay, ct );
 		}

@@ -26,7 +26,8 @@ namespace Steamworks
 			Dispatch.Install<IPCountry_t>( x => OnIpCountryChanged?.Invoke(), server );
 			Dispatch.Install<LowBatteryPower_t>( x => OnLowBatteryPower?.Invoke( x.MinutesBatteryLeft ), server );
 			Dispatch.Install<SteamShutdown_t>( x => SteamClosed(), server );
-			Dispatch.Install<GamepadTextInputDismissed_t>( x => OnGamepadTextInputDismissed?.Invoke( x.Submitted ), server );
+			Dispatch.Install<GamepadTextInputDismissed_t>( x => OnGamepadTextInputDismissed?.Invoke( x.Submitted ),
+				server );
 		}
 
 		private static void SteamClosed()
@@ -183,7 +184,8 @@ namespace Steamworks
 		/// <summary>
 		/// Activates the Big Picture text input dialog which only supports gamepad input.
 		/// </summary>
-		public static bool ShowGamepadTextInput( GamepadTextInputMode inputMode, GamepadTextInputLineMode lineInputMode, string description, int maxChars, string existingText = "" )
+		public static bool ShowGamepadTextInput( GamepadTextInputMode inputMode, GamepadTextInputLineMode lineInputMode,
+			string description, int maxChars, string existingText = "" )
 		{
 			return Internal.ShowGamepadTextInput( inputMode, lineInputMode, description, (uint)maxChars, existingText );
 		}

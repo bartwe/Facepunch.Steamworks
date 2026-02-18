@@ -2421,5 +2421,4 @@ namespace Steamworks
 		Authentication = 2,
 		AuthenticationAndSecure = 3,
 	}
-
 }

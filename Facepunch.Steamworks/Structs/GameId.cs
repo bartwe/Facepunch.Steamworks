@@ -5,7 +5,7 @@
 		// TODO - Be able to access these vars
 
 		/*
-		 
+
 		enum EGameIDType
 		{
 			k_EGameIDTypeApp		= 0,

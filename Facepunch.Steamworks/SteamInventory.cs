@@ -291,7 +291,6 @@ namespace Steamworks
 					return null;
 
 
-
 				return await InventoryResult.GetAsync( sresult.Value );
 			}
 			finally
@@ -358,11 +357,8 @@ namespace Steamworks
 
 			return new InventoryPurchaseResult
 			{
-				Result = r.Value.Result,
-				OrderID = r.Value.OrderID,
-				TransID = r.Value.TransID
+				Result = r.Value.Result, OrderID = r.Value.OrderID, TransID = r.Value.TransID
 			};
 		}
-
 	}
 }

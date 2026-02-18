@@ -8,16 +8,19 @@ namespace Steamworks
 	{
 		internal static class Native
 		{
-			[DllImport( Platform.LibraryName, EntryPoint = "SteamGameServer_RunCallbacks", CallingConvention = CallingConvention.Cdecl )]
+			[DllImport( Platform.LibraryName, EntryPoint = "SteamGameServer_RunCallbacks",
+				CallingConvention = CallingConvention.Cdecl )]
 			public static extern void SteamGameServer_RunCallbacks();
 
-			[DllImport( Platform.LibraryName, EntryPoint = "SteamGameServer_Shutdown", CallingConvention = CallingConvention.Cdecl )]
+			[DllImport( Platform.LibraryName, EntryPoint = "SteamGameServer_Shutdown",
+				CallingConvention = CallingConvention.Cdecl )]
 			public static extern void SteamGameServer_Shutdown();
 
-			[DllImport( Platform.LibraryName, EntryPoint = "SteamGameServer_GetHSteamPipe", CallingConvention = CallingConvention.Cdecl )]
+			[DllImport( Platform.LibraryName, EntryPoint = "SteamGameServer_GetHSteamPipe",
+				CallingConvention = CallingConvention.Cdecl )]
 			public static extern HSteamPipe SteamGameServer_GetHSteamPipe();
-
 		}
+
 		static internal void RunCallbacks()
 		{
 			Native.SteamGameServer_RunCallbacks();
@@ -32,6 +35,5 @@ namespace Steamworks
 		{
 			return Native.SteamGameServer_GetHSteamPipe();
 		}
-
 	}
 }

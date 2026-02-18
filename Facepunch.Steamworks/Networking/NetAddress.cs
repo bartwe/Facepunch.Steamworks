@@ -6,11 +6,9 @@ namespace Steamworks.Data
 	[StructLayout( LayoutKind.Explicit, Size = 18, Pack = 1 )]
 	public partial struct NetAddress
 	{
-		[FieldOffset( 0 )]
-		internal IPV4 ip;
+		[FieldOffset( 0 )] internal IPV4 ip;
 
-		[FieldOffset( 16 )]
-		internal ushort port;
+		[FieldOffset( 16 )] internal ushort port;
 
 		internal struct IPV4
 		{

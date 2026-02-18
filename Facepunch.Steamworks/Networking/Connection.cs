@@ -2,7 +2,6 @@
 
 namespace Steamworks.Data
 {
-
 	/// <summary>
 	/// Used as a base to create your client connection. This creates a socket
 	/// to a single connection.
@@ -68,12 +67,13 @@ namespace Steamworks.Data
 		/// <summary>
 		/// This is the best version to use.
 		/// </summary>
-		public unsafe Result SendMessage( IntPtr ptr, int size, SendType sendType = SendType.Reliable, ushort laneIndex = 0 )
+		public unsafe Result SendMessage( IntPtr ptr, int size, SendType sendType = SendType.Reliable,
+			ushort laneIndex = 0 )
 		{
 			if ( ptr == IntPtr.Zero )
-				throw new ArgumentNullException( nameof( ptr ) );
+				throw new ArgumentNullException( nameof(ptr) );
 			if ( size == 0 )
-				throw new ArgumentException( "`size` cannot be zero", nameof( size ) );
+				throw new ArgumentException( "`size` cannot be zero", nameof(size) );
 
 			var copyPtr = BufferManager.Get( size, 1 );
 			Buffer.MemoryCopy( (void*)ptr, (void*)copyPtr, size, size );
@@ -110,7 +110,8 @@ namespace Steamworks.Data
 		/// Ideally should be using an IntPtr version unless you're being really careful with the byte[] array and 
 		/// you're not creating a new one every frame (like using .ToArray())
 		/// </summary>
-		public unsafe Result SendMessage( byte[] data, int offset, int length, SendType sendType = SendType.Reliable, ushort laneIndex = 0 )
+		public unsafe Result SendMessage( byte[] data, int offset, int length, SendType sendType = SendType.Reliable,
+			ushort laneIndex = 0 )
 		{
 			fixed ( byte* ptr = data )
 			{
@@ -151,7 +152,7 @@ namespace Steamworks.Data
 		/// </summary>
 		public ConnectionStatus QuickStatus()
 		{
-			ConnectionStatus connectionStatus = default( ConnectionStatus );
+			ConnectionStatus connectionStatus = default(ConnectionStatus);
 
 			SteamNetworkingSockets.Internal.GetConnectionRealTimeStatus( this, ref connectionStatus, 0, null );
 
@@ -164,7 +165,8 @@ namespace Steamworks.Data
 		/// </summary>
 		public Result ConfigureConnectionLanes( int[] lanePriorities, ushort[] laneWeights )
 		{
-			return SteamNetworkingSockets.Internal.ConfigureConnectionLanes( this, lanePriorities.Length, lanePriorities, laneWeights );
+			return SteamNetworkingSockets.Internal.ConfigureConnectionLanes( this, lanePriorities.Length,
+				lanePriorities, laneWeights );
 		}
 	}
 }

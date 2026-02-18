@@ -60,6 +60,7 @@ namespace Steamworks
 
 						OnConnecting( info );
 					}
+
 					break;
 				case ConnectionState.Connected:
 					if ( Connecting && !Connected )
@@ -69,6 +70,7 @@ namespace Steamworks
 
 						OnConnected( info );
 					}
+
 					break;
 				case ConnectionState.ClosedByPeer:
 				case ConnectionState.ProblemDetectedLocally:
@@ -80,6 +82,7 @@ namespace Steamworks
 
 						OnDisconnected( info );
 					}
+
 					break;
 			}
 		}
@@ -110,14 +113,16 @@ namespace Steamworks
 
 		public unsafe int Receive( int bufferSize = 32, bool receiveToEnd = true )
 		{
-			if ( bufferSize < 1 || bufferSize > 256 ) throw new ArgumentOutOfRangeException( nameof( bufferSize ) );
+			if ( bufferSize < 1 || bufferSize > 256 ) throw new ArgumentOutOfRangeException( nameof(bufferSize) );
 
 			int totalProcessed = 0;
 			NetMsg** messageBuffer = stackalloc NetMsg*[bufferSize];
 
 			while ( true )
 			{
-				int processed = SteamNetworkingSockets.Internal.ReceiveMessagesOnConnection( Connection, new IntPtr( &messageBuffer[0] ), bufferSize );
+				int processed =
+					SteamNetworkingSockets.Internal.ReceiveMessagesOnConnection( Connection,
+						new IntPtr( &messageBuffer[0] ), bufferSize );
 				totalProcessed += processed;
 
 				try
@@ -160,20 +165,23 @@ namespace Steamworks
 		/// <param name="size">Size of the message data.</param>
 		/// <param name="sendType">Flags to control delivery of the message.</param>
 		/// <param name="results">An optional array to hold the results of sending the messages for each connection.</param>
-		public unsafe void SendMessages( Connection[] connections, int connectionCount, IntPtr ptr, int size, SendType sendType = SendType.Reliable, Result[] results = null )
+		public unsafe void SendMessages( Connection[] connections, int connectionCount, IntPtr ptr, int size,
+			SendType sendType = SendType.Reliable, Result[] results = null )
 		{
 			if ( connections == null )
-				throw new ArgumentNullException( nameof( connections ) );
+				throw new ArgumentNullException( nameof(connections) );
 			if ( connectionCount < 0 || connectionCount > connections.Length )
-				throw new ArgumentException( "`connectionCount` must be between 0 and `connections.Length`", nameof( connectionCount ) );
+				throw new ArgumentException( "`connectionCount` must be between 0 and `connections.Length`",
+					nameof(connectionCount) );
 			if ( results != null && connectionCount > results.Length )
-				throw new ArgumentException( "`results` must have at least `connectionCount` entries", nameof( results ) );
+				throw new ArgumentException( "`results` must have at least `connectionCount` entries",
+					nameof(results) );
 			if ( connectionCount > 1024 ) // restricting this because we stack allocate based on this value
-				throw new ArgumentOutOfRangeException( nameof( connectionCount ) );
+				throw new ArgumentOutOfRangeException( nameof(connectionCount) );
 			if ( ptr == IntPtr.Zero )
-				throw new ArgumentNullException( nameof( ptr ) );
+				throw new ArgumentNullException( nameof(ptr) );
 			if ( size == 0 )
-				throw new ArgumentException( "`size` cannot be zero", nameof( size ) );
+				throw new ArgumentException( "`size` cannot be zero", nameof(size) );
 
 			if ( connectionCount == 0 )
 				return;
@@ -220,7 +228,8 @@ namespace Steamworks
 		/// Ideally should be using an IntPtr version unless you're being really careful with the byte[] array and 
 		/// you're not creating a new one every frame (like using .ToArray())
 		/// </summary>
-		public unsafe void SendMessages( Connection[] connections, int connectionCount, byte[] data, SendType sendType = SendType.Reliable, Result[] results = null )
+		public unsafe void SendMessages( Connection[] connections, int connectionCount, byte[] data,
+			SendType sendType = SendType.Reliable, Result[] results = null )
 		{
 			fixed ( byte* ptr = data )
 			{
@@ -232,7 +241,8 @@ namespace Steamworks
 		/// Ideally should be using an IntPtr version unless you're being really careful with the byte[] array and 
 		/// you're not creating a new one every frame (like using .ToArray())
 		/// </summary>
-		public unsafe void SendMessages( Connection[] connections, int connectionCount, byte[] data, int offset, int length, SendType sendType = SendType.Reliable, Result[] results = null )
+		public unsafe void SendMessages( Connection[] connections, int connectionCount, byte[] data, int offset,
+			int length, SendType sendType = SendType.Reliable, Result[] results = null )
 		{
 			fixed ( byte* ptr = data )
 			{
@@ -243,7 +253,8 @@ namespace Steamworks
 		/// <summary>
 		/// This creates a ton of garbage - so don't do anything with this beyond testing!
 		/// </summary>
-		public void SendMessages( Connection[] connections, int connectionCount, string str, SendType sendType = SendType.Reliable, Result[] results = null )
+		public void SendMessages( Connection[] connections, int connectionCount, string str,
+			SendType sendType = SendType.Reliable, Result[] results = null )
 		{
 			var bytes = System.Text.Encoding.UTF8.GetBytes( str );
 			SendMessages( connections, connectionCount, bytes, sendType, results );

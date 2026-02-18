@@ -46,7 +46,6 @@ namespace Steamworks
 
 					i.DefinitionId = int.Parse( part );
 					i.Definition = SteamInventory.FindDefinition( i.DefinitionId );
-
 				}
 				catch ( System.Exception )
 				{
@@ -71,11 +70,7 @@ namespace Steamworks
 
 		internal static InventoryRecipe FromString( string part, InventoryDef Result )
 		{
-			var r = new InventoryRecipe
-			{
-				Result = Result,
-				Source = part
-			};
+			var r = new InventoryRecipe { Result = Result, Source = part };
 
 			var parts = part.Split( new[] { ',' }, StringSplitOptions.RemoveEmptyEntries );
 
@@ -91,6 +86,7 @@ namespace Steamworks
 		public static bool operator ==( InventoryRecipe a, InventoryRecipe b ) => a.GetHashCode() == b.GetHashCode();
 		public static bool operator !=( InventoryRecipe a, InventoryRecipe b ) => a.GetHashCode() != b.GetHashCode();
 		public override bool Equals( object p ) => this.Equals( (InventoryRecipe)p );
+
 		public override int GetHashCode()
 		{
 			return Source.GetHashCode();

@@ -23,6 +23,7 @@ namespace Steamworks
 		/// <summary>
 		/// Received a message from a connection
 		/// </summary>
-		void OnMessage( Connection connection, NetIdentity identity, IntPtr data, int size, long messageNum, long recvTime, int channel );
+		void OnMessage( Connection connection, NetIdentity identity, IntPtr data, int size, long messageNum,
+			long recvTime, int channel );
 	}
 }

@@ -153,7 +153,9 @@ namespace Steamworks.Data
 		// Name: HServerListRequest, Type: void *
 		public IntPtr Value;
 
-		public static implicit operator HServerListRequest( IntPtr value ) => new HServerListRequest() { Value = value };
+		public static implicit operator HServerListRequest( IntPtr value ) =>
+			new HServerListRequest() { Value = value };
+
 		public static implicit operator IntPtr( HServerListRequest value ) => value.Value;
 		public override string ToString() => Value.ToString();
 		public override int GetHashCode() => Value.GetHashCode();
@@ -196,19 +198,25 @@ namespace Steamworks.Data
 		public int CompareTo( UGCHandle_t other ) => Value.CompareTo( other.Value );
 	}
 
-	internal struct PublishedFileUpdateHandle_t : IEquatable<PublishedFileUpdateHandle_t>, IComparable<PublishedFileUpdateHandle_t>
+	internal struct PublishedFileUpdateHandle_t : IEquatable<PublishedFileUpdateHandle_t>,
+		IComparable<PublishedFileUpdateHandle_t>
 	{
 		// Name: PublishedFileUpdateHandle_t, Type: unsigned long long
 		public ulong Value;
 
-		public static implicit operator PublishedFileUpdateHandle_t( ulong value ) => new PublishedFileUpdateHandle_t() { Value = value };
+		public static implicit operator PublishedFileUpdateHandle_t( ulong value ) =>
+			new PublishedFileUpdateHandle_t() { Value = value };
+
 		public static implicit operator ulong( PublishedFileUpdateHandle_t value ) => value.Value;
 		public override string ToString() => Value.ToString();
 		public override int GetHashCode() => Value.GetHashCode();
 		public override bool Equals( object p ) => this.Equals( (PublishedFileUpdateHandle_t)p );
 		public bool Equals( PublishedFileUpdateHandle_t p ) => p.Value == Value;
 		public static bool operator ==( PublishedFileUpdateHandle_t a, PublishedFileUpdateHandle_t b ) => a.Equals( b );
-		public static bool operator !=( PublishedFileUpdateHandle_t a, PublishedFileUpdateHandle_t b ) => !a.Equals( b );
+
+		public static bool operator !=( PublishedFileUpdateHandle_t a, PublishedFileUpdateHandle_t b ) =>
+			!a.Equals( b );
+
 		public int CompareTo( PublishedFileUpdateHandle_t other ) => Value.CompareTo( other.Value );
 	}
 
@@ -228,12 +236,15 @@ namespace Steamworks.Data
 		public int CompareTo( PublishedFileId other ) => Value.CompareTo( other.Value );
 	}
 
-	internal struct UGCFileWriteStreamHandle_t : IEquatable<UGCFileWriteStreamHandle_t>, IComparable<UGCFileWriteStreamHandle_t>
+	internal struct UGCFileWriteStreamHandle_t : IEquatable<UGCFileWriteStreamHandle_t>,
+		IComparable<UGCFileWriteStreamHandle_t>
 	{
 		// Name: UGCFileWriteStreamHandle_t, Type: unsigned long long
 		public ulong Value;
 
-		public static implicit operator UGCFileWriteStreamHandle_t( ulong value ) => new UGCFileWriteStreamHandle_t() { Value = value };
+		public static implicit operator UGCFileWriteStreamHandle_t( ulong value ) =>
+			new UGCFileWriteStreamHandle_t() { Value = value };
+
 		public static implicit operator ulong( UGCFileWriteStreamHandle_t value ) => value.Value;
 		public override string ToString() => Value.ToString();
 		public override int GetHashCode() => Value.GetHashCode();
@@ -260,12 +271,15 @@ namespace Steamworks.Data
 		public int CompareTo( SteamLeaderboard_t other ) => Value.CompareTo( other.Value );
 	}
 
-	internal struct SteamLeaderboardEntries_t : IEquatable<SteamLeaderboardEntries_t>, IComparable<SteamLeaderboardEntries_t>
+	internal struct SteamLeaderboardEntries_t : IEquatable<SteamLeaderboardEntries_t>,
+		IComparable<SteamLeaderboardEntries_t>
 	{
 		// Name: SteamLeaderboardEntries_t, Type: unsigned long long
 		public ulong Value;
 
-		public static implicit operator SteamLeaderboardEntries_t( ulong value ) => new SteamLeaderboardEntries_t() { Value = value };
+		public static implicit operator SteamLeaderboardEntries_t( ulong value ) =>
+			new SteamLeaderboardEntries_t() { Value = value };
+
 		public static implicit operator ulong( SteamLeaderboardEntries_t value ) => value.Value;
 		public override string ToString() => Value.ToString();
 		public override int GetHashCode() => Value.GetHashCode();
@@ -340,12 +354,15 @@ namespace Steamworks.Data
 		public int CompareTo( HTTPRequestHandle other ) => Value.CompareTo( other.Value );
 	}
 
-	internal struct HTTPCookieContainerHandle : IEquatable<HTTPCookieContainerHandle>, IComparable<HTTPCookieContainerHandle>
+	internal struct HTTPCookieContainerHandle : IEquatable<HTTPCookieContainerHandle>,
+		IComparable<HTTPCookieContainerHandle>
 	{
 		// Name: HTTPCookieContainerHandle, Type: unsigned int
 		public uint Value;
 
-		public static implicit operator HTTPCookieContainerHandle( uint value ) => new HTTPCookieContainerHandle() { Value = value };
+		public static implicit operator HTTPCookieContainerHandle( uint value ) =>
+			new HTTPCookieContainerHandle() { Value = value };
+
 		public static implicit operator uint( HTTPCookieContainerHandle value ) => value.Value;
 		public override string ToString() => Value.ToString();
 		public override int GetHashCode() => Value.GetHashCode();
@@ -377,7 +394,9 @@ namespace Steamworks.Data
 		// Name: InputActionSetHandle_t, Type: unsigned long long
 		public ulong Value;
 
-		public static implicit operator InputActionSetHandle_t( ulong value ) => new InputActionSetHandle_t() { Value = value };
+		public static implicit operator InputActionSetHandle_t( ulong value ) =>
+			new InputActionSetHandle_t() { Value = value };
+
 		public static implicit operator ulong( InputActionSetHandle_t value ) => value.Value;
 		public override string ToString() => Value.ToString();
 		public override int GetHashCode() => Value.GetHashCode();
@@ -388,12 +407,15 @@ namespace Steamworks.Data
 		public int CompareTo( InputActionSetHandle_t other ) => Value.CompareTo( other.Value );
 	}
 
-	internal struct InputDigitalActionHandle_t : IEquatable<InputDigitalActionHandle_t>, IComparable<InputDigitalActionHandle_t>
+	internal struct InputDigitalActionHandle_t : IEquatable<InputDigitalActionHandle_t>,
+		IComparable<InputDigitalActionHandle_t>
 	{
 		// Name: InputDigitalActionHandle_t, Type: unsigned long long
 		public ulong Value;
 
-		public static implicit operator InputDigitalActionHandle_t( ulong value ) => new InputDigitalActionHandle_t() { Value = value };
+		public static implicit operator InputDigitalActionHandle_t( ulong value ) =>
+			new InputDigitalActionHandle_t() { Value = value };
+
 		public static implicit operator ulong( InputDigitalActionHandle_t value ) => value.Value;
 		public override string ToString() => Value.ToString();
 		public override int GetHashCode() => Value.GetHashCode();
@@ -404,12 +426,15 @@ namespace Steamworks.Data
 		public int CompareTo( InputDigitalActionHandle_t other ) => Value.CompareTo( other.Value );
 	}
 
-	internal struct InputAnalogActionHandle_t : IEquatable<InputAnalogActionHandle_t>, IComparable<InputAnalogActionHandle_t>
+	internal struct InputAnalogActionHandle_t : IEquatable<InputAnalogActionHandle_t>,
+		IComparable<InputAnalogActionHandle_t>
 	{
 		// Name: InputAnalogActionHandle_t, Type: unsigned long long
 		public ulong Value;
 
-		public static implicit operator InputAnalogActionHandle_t( ulong value ) => new InputAnalogActionHandle_t() { Value = value };
+		public static implicit operator InputAnalogActionHandle_t( ulong value ) =>
+			new InputAnalogActionHandle_t() { Value = value };
+
 		public static implicit operator ulong( InputAnalogActionHandle_t value ) => value.Value;
 		public override string ToString() => Value.ToString();
 		public override int GetHashCode() => Value.GetHashCode();
@@ -436,57 +461,80 @@ namespace Steamworks.Data
 		public int CompareTo( ControllerHandle_t other ) => Value.CompareTo( other.Value );
 	}
 
-	internal struct ControllerActionSetHandle_t : IEquatable<ControllerActionSetHandle_t>, IComparable<ControllerActionSetHandle_t>
+	internal struct ControllerActionSetHandle_t : IEquatable<ControllerActionSetHandle_t>,
+		IComparable<ControllerActionSetHandle_t>
 	{
 		// Name: ControllerActionSetHandle_t, Type: unsigned long long
 		public ulong Value;
 
-		public static implicit operator ControllerActionSetHandle_t( ulong value ) => new ControllerActionSetHandle_t() { Value = value };
+		public static implicit operator ControllerActionSetHandle_t( ulong value ) =>
+			new ControllerActionSetHandle_t() { Value = value };
+
 		public static implicit operator ulong( ControllerActionSetHandle_t value ) => value.Value;
 		public override string ToString() => Value.ToString();
 		public override int GetHashCode() => Value.GetHashCode();
 		public override bool Equals( object p ) => this.Equals( (ControllerActionSetHandle_t)p );
 		public bool Equals( ControllerActionSetHandle_t p ) => p.Value == Value;
 		public static bool operator ==( ControllerActionSetHandle_t a, ControllerActionSetHandle_t b ) => a.Equals( b );
-		public static bool operator !=( ControllerActionSetHandle_t a, ControllerActionSetHandle_t b ) => !a.Equals( b );
+
+		public static bool operator !=( ControllerActionSetHandle_t a, ControllerActionSetHandle_t b ) =>
+			!a.Equals( b );
+
 		public int CompareTo( ControllerActionSetHandle_t other ) => Value.CompareTo( other.Value );
 	}
 
-	internal struct ControllerDigitalActionHandle_t : IEquatable<ControllerDigitalActionHandle_t>, IComparable<ControllerDigitalActionHandle_t>
+	internal struct ControllerDigitalActionHandle_t : IEquatable<ControllerDigitalActionHandle_t>,
+		IComparable<ControllerDigitalActionHandle_t>
 	{
 		// Name: ControllerDigitalActionHandle_t, Type: unsigned long long
 		public ulong Value;
 
-		public static implicit operator ControllerDigitalActionHandle_t( ulong value ) => new ControllerDigitalActionHandle_t() { Value = value };
+		public static implicit operator ControllerDigitalActionHandle_t( ulong value ) =>
+			new ControllerDigitalActionHandle_t() { Value = value };
+
 		public static implicit operator ulong( ControllerDigitalActionHandle_t value ) => value.Value;
 		public override string ToString() => Value.ToString();
 		public override int GetHashCode() => Value.GetHashCode();
 		public override bool Equals( object p ) => this.Equals( (ControllerDigitalActionHandle_t)p );
 		public bool Equals( ControllerDigitalActionHandle_t p ) => p.Value == Value;
-		public static bool operator ==( ControllerDigitalActionHandle_t a, ControllerDigitalActionHandle_t b ) => a.Equals( b );
-		public static bool operator !=( ControllerDigitalActionHandle_t a, ControllerDigitalActionHandle_t b ) => !a.Equals( b );
+
+		public static bool operator ==( ControllerDigitalActionHandle_t a, ControllerDigitalActionHandle_t b ) =>
+			a.Equals( b );
+
+		public static bool operator !=( ControllerDigitalActionHandle_t a, ControllerDigitalActionHandle_t b ) =>
+			!a.Equals( b );
+
 		public int CompareTo( ControllerDigitalActionHandle_t other ) => Value.CompareTo( other.Value );
 	}
 
-	internal struct ControllerAnalogActionHandle_t : IEquatable<ControllerAnalogActionHandle_t>, IComparable<ControllerAnalogActionHandle_t>
+	internal struct ControllerAnalogActionHandle_t : IEquatable<ControllerAnalogActionHandle_t>,
+		IComparable<ControllerAnalogActionHandle_t>
 	{
 		// Name: ControllerAnalogActionHandle_t, Type: unsigned long long
 		public ulong Value;
 
-		public static implicit operator ControllerAnalogActionHandle_t( ulong value ) => new ControllerAnalogActionHandle_t() { Value = value };
+		public static implicit operator ControllerAnalogActionHandle_t( ulong value ) =>
+			new ControllerAnalogActionHandle_t() { Value = value };
+
 		public static implicit operator ulong( ControllerAnalogActionHandle_t value ) => value.Value;
 		public override string ToString() => Value.ToString();
 		public override int GetHashCode() => Value.GetHashCode();
 		public override bool Equals( object p ) => this.Equals( (ControllerAnalogActionHandle_t)p );
 		public bool Equals( ControllerAnalogActionHandle_t p ) => p.Value == Value;
-		public static bool operator ==( ControllerAnalogActionHandle_t a, ControllerAnalogActionHandle_t b ) => a.Equals( b );
-		public static bool operator !=( ControllerAnalogActionHandle_t a, ControllerAnalogActionHandle_t b ) => !a.Equals( b );
+
+		public static bool operator ==( ControllerAnalogActionHandle_t a, ControllerAnalogActionHandle_t b ) =>
+			a.Equals( b );
+
+		public static bool operator !=( ControllerAnalogActionHandle_t a, ControllerAnalogActionHandle_t b ) =>
+			!a.Equals( b );
+
 		public int CompareTo( ControllerAnalogActionHandle_t other ) => Value.CompareTo( other.Value );
 	}
 
 	internal struct UGCQueryHandle_t : IEquatable<UGCQueryHandle_t>, IComparable<UGCQueryHandle_t>
 	{
 		public static readonly UGCQueryHandle_t Invalid = 0xfffffffffffffffful;
+
 		// Name: UGCQueryHandle_t, Type: unsigned long long
 		public ulong Value;
 
@@ -570,7 +618,9 @@ namespace Steamworks.Data
 		// Name: SteamInventoryResult_t, Type: int
 		public int Value;
 
-		public static implicit operator SteamInventoryResult_t( int value ) => new SteamInventoryResult_t() { Value = value };
+		public static implicit operator SteamInventoryResult_t( int value ) =>
+			new SteamInventoryResult_t() { Value = value };
+
 		public static implicit operator int( SteamInventoryResult_t value ) => value.Value;
 		public override string ToString() => Value.ToString();
 		public override int GetHashCode() => Value.GetHashCode();
@@ -581,19 +631,27 @@ namespace Steamworks.Data
 		public int CompareTo( SteamInventoryResult_t other ) => Value.CompareTo( other.Value );
 	}
 
-	internal struct SteamInventoryUpdateHandle_t : IEquatable<SteamInventoryUpdateHandle_t>, IComparable<SteamInventoryUpdateHandle_t>
+	internal struct SteamInventoryUpdateHandle_t : IEquatable<SteamInventoryUpdateHandle_t>,
+		IComparable<SteamInventoryUpdateHandle_t>
 	{
 		// Name: SteamInventoryUpdateHandle_t, Type: unsigned long long
 		public ulong Value;
 
-		public static implicit operator SteamInventoryUpdateHandle_t( ulong value ) => new SteamInventoryUpdateHandle_t() { Value = value };
+		public static implicit operator SteamInventoryUpdateHandle_t( ulong value ) =>
+			new SteamInventoryUpdateHandle_t() { Value = value };
+
 		public static implicit operator ulong( SteamInventoryUpdateHandle_t value ) => value.Value;
 		public override string ToString() => Value.ToString();
 		public override int GetHashCode() => Value.GetHashCode();
 		public override bool Equals( object p ) => this.Equals( (SteamInventoryUpdateHandle_t)p );
 		public bool Equals( SteamInventoryUpdateHandle_t p ) => p.Value == Value;
-		public static bool operator ==( SteamInventoryUpdateHandle_t a, SteamInventoryUpdateHandle_t b ) => a.Equals( b );
-		public static bool operator !=( SteamInventoryUpdateHandle_t a, SteamInventoryUpdateHandle_t b ) => !a.Equals( b );
+
+		public static bool operator ==( SteamInventoryUpdateHandle_t a, SteamInventoryUpdateHandle_t b ) =>
+			a.Equals( b );
+
+		public static bool operator !=( SteamInventoryUpdateHandle_t a, SteamInventoryUpdateHandle_t b ) =>
+			!a.Equals( b );
+
 		public int CompareTo( SteamInventoryUpdateHandle_t other ) => Value.CompareTo( other.Value );
 	}
 
@@ -602,7 +660,9 @@ namespace Steamworks.Data
 		// Name: RemotePlaySessionID_t, Type: unsigned int
 		public uint Value;
 
-		public static implicit operator RemotePlaySessionID_t( uint value ) => new RemotePlaySessionID_t() { Value = value };
+		public static implicit operator RemotePlaySessionID_t( uint value ) =>
+			new RemotePlaySessionID_t() { Value = value };
+
 		public static implicit operator uint( RemotePlaySessionID_t value ) => value.Value;
 		public override string ToString() => Value.ToString();
 		public override int GetHashCode() => Value.GetHashCode();
@@ -634,7 +694,9 @@ namespace Steamworks.Data
 		// Name: SteamNetworkingPOPID, Type: unsigned int
 		public uint Value;
 
-		public static implicit operator SteamNetworkingPOPID( uint value ) => new SteamNetworkingPOPID() { Value = value };
+		public static implicit operator SteamNetworkingPOPID( uint value ) =>
+			new SteamNetworkingPOPID() { Value = value };
+
 		public static implicit operator uint( SteamNetworkingPOPID value ) => value.Value;
 		public override string ToString() => Value.ToString();
 		public override int GetHashCode() => Value.GetHashCode();
@@ -644,5 +706,4 @@ namespace Steamworks.Data
 		public static bool operator !=( SteamNetworkingPOPID a, SteamNetworkingPOPID b ) => !a.Equals( b );
 		public int CompareTo( SteamNetworkingPOPID other ) => Value.CompareTo( other.Value );
 	}
-
 }

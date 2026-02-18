@@ -26,5 +26,4 @@
 		/// </summary>
 		public int Size { get; internal set; }
 	}
-
 }

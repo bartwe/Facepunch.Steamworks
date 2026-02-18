@@ -25,11 +25,14 @@ namespace Steamworks
 
 		internal static void InstallEvents()
 		{
-			Dispatch.Install<ValidateAuthTicketResponse_t>( x => OnValidateAuthTicketResponse?.Invoke( x.SteamID, x.OwnerSteamID, x.AuthSessionResponse ), true );
+			Dispatch.Install<ValidateAuthTicketResponse_t>(
+				x => OnValidateAuthTicketResponse?.Invoke( x.SteamID, x.OwnerSteamID, x.AuthSessionResponse ), true );
 			Dispatch.Install<SteamServersConnected_t>( x => OnSteamServersConnected?.Invoke(), true );
-			Dispatch.Install<SteamServerConnectFailure_t>( x => OnSteamServerConnectFailure?.Invoke( x.Result, x.StillRetrying ), true );
+			Dispatch.Install<SteamServerConnectFailure_t>(
+				x => OnSteamServerConnectFailure?.Invoke( x.Result, x.StillRetrying ), true );
 			Dispatch.Install<SteamServersDisconnected_t>( x => OnSteamServersDisconnected?.Invoke( x.Result ), true );
-			Dispatch.Install<SteamNetAuthenticationStatus_t>( x => OnSteamNetAuthenticationStatus?.Invoke( x.Avail ), true );
+			Dispatch.Install<SteamNetAuthenticationStatus_t>( x => OnSteamNetAuthenticationStatus?.Invoke( x.Avail ),
+				true );
 		}
 
 		/// <summary>
@@ -80,9 +83,11 @@ namespace Steamworks
 			//
 			// Get other interfaces
 			//
-			if ( !SteamInternal.GameServer_Init( ipaddress, 0, init.GamePort, init.QueryPort, secure, init.VersionString ) )
+			if ( !SteamInternal.GameServer_Init( ipaddress, 0, init.GamePort, init.QueryPort, secure,
+				    init.VersionString ) )
 			{
-				throw new System.Exception( $"InitGameServer returned false ({ipaddress},{0},{init.GamePort},{init.QueryPort},{secure},\"{init.VersionString}\")" );
+				throw new System.Exception(
+					$"InitGameServer returned false ({ipaddress},{0},{init.GamePort},{init.QueryPort},{secure},\"{init.VersionString}\")" );
 			}
 
 			//
@@ -171,8 +176,14 @@ namespace Steamworks
 		public static bool DedicatedServer
 		{
 			get => _dedicatedServer;
-			set { if ( _dedicatedServer == value ) return; Internal.SetDedicatedServer( value ); _dedicatedServer = value; }
+			set
+			{
+				if ( _dedicatedServer == value ) return;
+				Internal.SetDedicatedServer( value );
+				_dedicatedServer = value;
+			}
 		}
+
 		private static bool _dedicatedServer;
 
 		/// <summary>
@@ -182,8 +193,14 @@ namespace Steamworks
 		public static int MaxPlayers
 		{
 			get => _maxplayers;
-			set { if ( _maxplayers == value ) return; Internal.SetMaxPlayerCount( value ); _maxplayers = value; }
+			set
+			{
+				if ( _maxplayers == value ) return;
+				Internal.SetMaxPlayerCount( value );
+				_maxplayers = value;
+			}
 		}
+
 		private static int _maxplayers = 0;
 
 		/// <summary>
@@ -193,8 +210,14 @@ namespace Steamworks
 		public static int BotCount
 		{
 			get => _botcount;
-			set { if ( _botcount == value ) return; Internal.SetBotPlayerCount( value ); _botcount = value; }
+			set
+			{
+				if ( _botcount == value ) return;
+				Internal.SetBotPlayerCount( value );
+				_botcount = value;
+			}
 		}
+
 		private static int _botcount = 0;
 
 		/// <summary>
@@ -203,8 +226,14 @@ namespace Steamworks
 		public static string MapName
 		{
 			get => _mapname;
-			set { if ( _mapname == value ) return; Internal.SetMapName( value ); _mapname = value; }
+			set
+			{
+				if ( _mapname == value ) return;
+				Internal.SetMapName( value );
+				_mapname = value;
+			}
 		}
+
 		private static string _mapname;
 
 		/// <summary>
@@ -213,8 +242,14 @@ namespace Steamworks
 		public static string ModDir
 		{
 			get => _modDir;
-			internal set { if ( _modDir == value ) return; Internal.SetModDir( value ); _modDir = value; }
+			internal set
+			{
+				if ( _modDir == value ) return;
+				Internal.SetModDir( value );
+				_modDir = value;
+			}
 		}
+
 		private static string _modDir = "";
 
 		/// <summary>
@@ -223,8 +258,14 @@ namespace Steamworks
 		public static string Product
 		{
 			get => _product;
-			internal set { if ( _product == value ) return; Internal.SetProduct( value ); _product = value; }
+			internal set
+			{
+				if ( _product == value ) return;
+				Internal.SetProduct( value );
+				_product = value;
+			}
 		}
+
 		private static string _product = "";
 
 		/// <summary>
@@ -233,8 +274,14 @@ namespace Steamworks
 		public static string GameDescription
 		{
 			get => _gameDescription;
-			internal set { if ( _gameDescription == value ) return; Internal.SetGameDescription( value ); _gameDescription = value; }
+			internal set
+			{
+				if ( _gameDescription == value ) return;
+				Internal.SetGameDescription( value );
+				_gameDescription = value;
+			}
 		}
+
 		private static string _gameDescription = "";
 
 		/// <summary>
@@ -243,8 +290,14 @@ namespace Steamworks
 		public static string ServerName
 		{
 			get => _serverName;
-			set { if ( _serverName == value ) return; Internal.SetServerName( value ); _serverName = value; }
+			set
+			{
+				if ( _serverName == value ) return;
+				Internal.SetServerName( value );
+				_serverName = value;
+			}
 		}
+
 		private static string _serverName = "";
 
 		/// <summary>
@@ -253,8 +306,14 @@ namespace Steamworks
 		public static bool Passworded
 		{
 			get => _passworded;
-			set { if ( _passworded == value ) return; Internal.SetPasswordProtected( value ); _passworded = value; }
+			set
+			{
+				if ( _passworded == value ) return;
+				Internal.SetPasswordProtected( value );
+				_passworded = value;
+			}
 		}
+
 		private static bool _passworded;
 
 		/// <summary>
@@ -271,6 +330,7 @@ namespace Steamworks
 				_gametags = value;
 			}
 		}
+
 		private static string _gametags = "";
 
 		/// <summary>

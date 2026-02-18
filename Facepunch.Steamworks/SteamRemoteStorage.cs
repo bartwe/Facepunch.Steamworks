@@ -51,6 +51,7 @@ namespace Steamworks
 				{
 					return null;
 				}
+
 				return buffer;
 			}
 		}
@@ -179,6 +180,5 @@ namespace Steamworks
 				}
 			}
 		}
-
 	}
 }

@@ -21,15 +21,11 @@ namespace Steamworks.Ugc
 				a.NativeStrings[i] = Marshal.StringToHGlobalAnsi( array[i] );
 			}
 
-			var size = Marshal.SizeOf( typeof( IntPtr ) ) * a.NativeStrings.Length;
+			var size = Marshal.SizeOf( typeof(IntPtr) ) * a.NativeStrings.Length;
 			a.NativeArray = Marshal.AllocHGlobal( size );
 			Marshal.Copy( a.NativeStrings, 0, a.NativeArray, a.NativeStrings.Length );
 
-			a.Value = new SteamParamStringArray_t
-			{
-				Strings = a.NativeArray,
-				NumStrings = array.Length
-			};
+			a.Value = new SteamParamStringArray_t { Strings = a.NativeArray, NumStrings = array.Length };
 
 			return a;
 		}
