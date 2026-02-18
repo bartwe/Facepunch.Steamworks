@@ -113,7 +113,7 @@ namespace Steamworks
 
 		public unsafe int Receive( int bufferSize = 32, bool receiveToEnd = true )
 		{
-			if ( bufferSize < 1 || bufferSize > 256 ) throw new ArgumentOutOfRangeException( nameof(bufferSize) );
+			if ( bufferSize < 1 || bufferSize > 256 ) throw new ArgumentOutOfRangeException( nameof( bufferSize ) );
 
 			int totalProcessed = 0;
 			NetMsg** messageBuffer = stackalloc NetMsg*[bufferSize];
@@ -169,19 +169,19 @@ namespace Steamworks
 			SendType sendType = SendType.Reliable, Result[] results = null )
 		{
 			if ( connections == null )
-				throw new ArgumentNullException( nameof(connections) );
+				throw new ArgumentNullException( nameof( connections ) );
 			if ( connectionCount < 0 || connectionCount > connections.Length )
 				throw new ArgumentException( "`connectionCount` must be between 0 and `connections.Length`",
-					nameof(connectionCount) );
+					nameof( connectionCount ) );
 			if ( results != null && connectionCount > results.Length )
 				throw new ArgumentException( "`results` must have at least `connectionCount` entries",
-					nameof(results) );
+					nameof( results ) );
 			if ( connectionCount > 1024 ) // restricting this because we stack allocate based on this value
-				throw new ArgumentOutOfRangeException( nameof(connectionCount) );
+				throw new ArgumentOutOfRangeException( nameof( connectionCount ) );
 			if ( ptr == IntPtr.Zero )
-				throw new ArgumentNullException( nameof(ptr) );
+				throw new ArgumentNullException( nameof( ptr ) );
 			if ( size == 0 )
-				throw new ArgumentException( "`size` cannot be zero", nameof(size) );
+				throw new ArgumentException( "`size` cannot be zero", nameof( size ) );
 
 			if ( connectionCount == 0 )
 				return;

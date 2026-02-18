@@ -170,7 +170,7 @@ namespace Steamworks
 			fixed ( byte* b = readBuffer )
 			{
 				if ( Internal.GetVoice( true, (IntPtr)b, (uint)readBuffer.Length, ref szWritten, false, IntPtr.Zero, 0,
-					    ref deprecated, 0 ) != VoiceResult.OK )
+						ref deprecated, 0 ) != VoiceResult.OK )
 					return 0;
 			}
 
@@ -198,7 +198,7 @@ namespace Steamworks
 			fixed ( byte* b = readBuffer )
 			{
 				if ( Internal.GetVoice( true, (IntPtr)b, (uint)readBuffer.Length, ref szWritten, false, IntPtr.Zero, 0,
-					    ref deprecated, 0 ) != VoiceResult.OK )
+						ref deprecated, 0 ) != VoiceResult.OK )
 					return null;
 			}
 
@@ -251,7 +251,7 @@ namespace Steamworks
 			fixed ( byte* dst = to )
 			{
 				if ( Internal.DecompressVoice( (IntPtr)frm, (uint)length, (IntPtr)dst, (uint)to.Length, ref szWritten,
-					    SampleRate ) != VoiceResult.OK )
+						SampleRate ) != VoiceResult.OK )
 					return 0;
 			}
 
@@ -278,7 +278,7 @@ namespace Steamworks
 			fixed ( byte* dst = to )
 			{
 				if ( Internal.DecompressVoice( (IntPtr)frm, checked((uint)from.Length), (IntPtr)dst,
-					    checked((uint)to.Length), ref szWritten, SampleRate ) != VoiceResult.OK )
+						checked((uint)to.Length), ref szWritten, SampleRate ) != VoiceResult.OK )
 					return 0;
 			}
 
@@ -303,7 +303,7 @@ namespace Steamworks
 			uint szWritten = 0;
 
 			if ( Internal.DecompressVoice( from, checked((uint)length), to, checked((uint)bufferSize), ref szWritten,
-				    SampleRate ) != VoiceResult.OK )
+					SampleRate ) != VoiceResult.OK )
 				return 0;
 
 			return (int)szWritten;

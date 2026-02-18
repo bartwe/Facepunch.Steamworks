@@ -14,7 +14,10 @@ namespace Steamworks.Data
 		{
 			var r = new LeaderboardEntry
 			{
-				User = new Friend( e.SteamIDUser ), GlobalRank = e.GlobalRank, Score = e.Score, Details = null
+				User = new Friend( e.SteamIDUser ),
+				GlobalRank = e.GlobalRank,
+				Score = e.Score,
+				Details = null
 			};
 
 			if ( e.CDetails > 0 )

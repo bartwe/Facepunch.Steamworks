@@ -114,7 +114,7 @@ namespace Steamworks.Data
 		internal ulong ControllerHandle; // controllerHandle InputHandle_t
 
 		internal SteamInputActionEventType EEventType; // eEventType ESteamInputActionEventType
-		// internal SteamInputActionEvent_t.AnalogAction_t AnalogAction; // analogAction SteamInputActionEvent_t::AnalogAction_t
+													   // internal SteamInputActionEvent_t.AnalogAction_t AnalogAction; // analogAction SteamInputActionEvent_t::AnalogAction_t
 	}
 
 	[StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]

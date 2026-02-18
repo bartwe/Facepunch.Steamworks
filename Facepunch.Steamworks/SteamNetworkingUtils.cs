@@ -319,7 +319,7 @@ namespace Steamworks
 			int value = 0;
 			NetConfigType dtype = NetConfigType.Int32;
 			int* ptr = &value;
-			UIntPtr size = new UIntPtr( sizeof(int) );
+			UIntPtr size = new UIntPtr( sizeof( int ) );
 			var result = Internal.GetConfigValue( type, NetConfigScope.Global, IntPtr.Zero, ref dtype, (IntPtr)ptr,
 				ref size );
 			if ( result != NetConfigResult.OK )
@@ -340,7 +340,7 @@ namespace Steamworks
 			float value = 0;
 			NetConfigType dtype = NetConfigType.Float;
 			float* ptr = &value;
-			UIntPtr size = new UIntPtr( sizeof(float) );
+			UIntPtr size = new UIntPtr( sizeof( float ) );
 			var result = Internal.GetConfigValue( type, NetConfigScope.Global, IntPtr.Zero, ref dtype, (IntPtr)ptr,
 				ref size );
 			if ( result != NetConfigResult.OK )

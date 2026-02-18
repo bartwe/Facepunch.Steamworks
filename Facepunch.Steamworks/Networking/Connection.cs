@@ -71,9 +71,9 @@ namespace Steamworks.Data
 			ushort laneIndex = 0 )
 		{
 			if ( ptr == IntPtr.Zero )
-				throw new ArgumentNullException( nameof(ptr) );
+				throw new ArgumentNullException( nameof( ptr ) );
 			if ( size == 0 )
-				throw new ArgumentException( "`size` cannot be zero", nameof(size) );
+				throw new ArgumentException( "`size` cannot be zero", nameof( size ) );
 
 			var copyPtr = BufferManager.Get( size, 1 );
 			Buffer.MemoryCopy( (void*)ptr, (void*)copyPtr, size, size );
@@ -152,7 +152,7 @@ namespace Steamworks.Data
 		/// </summary>
 		public ConnectionStatus QuickStatus()
 		{
-			ConnectionStatus connectionStatus = default(ConnectionStatus);
+			ConnectionStatus connectionStatus = default( ConnectionStatus );
 
 			SteamNetworkingSockets.Internal.GetConnectionRealTimeStatus( this, ref connectionStatus, 0, null );
 

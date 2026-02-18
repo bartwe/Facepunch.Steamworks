@@ -139,7 +139,7 @@ namespace Steamworks
 
 			try
 			{
-				return (T)Convert.ChangeType( val, typeof(T) );
+				return (T)Convert.ChangeType( val, typeof( T ) );
 			}
 			catch ( System.Exception )
 			{

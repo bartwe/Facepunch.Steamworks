@@ -84,7 +84,7 @@ namespace Steamworks
 			// Get other interfaces
 			//
 			if ( !SteamInternal.GameServer_Init( ipaddress, 0, init.GamePort, init.QueryPort, secure,
-				    init.VersionString ) )
+					init.VersionString ) )
 			{
 				throw new System.Exception(
 					$"InitGameServer returned false ({ipaddress},{0},{init.GamePort},{init.QueryPort},{secure},\"{init.VersionString}\")" );

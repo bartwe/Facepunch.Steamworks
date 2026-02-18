@@ -183,7 +183,7 @@ namespace Steamworks
 			var str = "";
 
 			var fields = t.GetFields( System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public |
-			                          System.Reflection.BindingFlags.NonPublic );
+									  System.Reflection.BindingFlags.NonPublic );
 
 			if ( fields.Length == 0 )
 				return "[no fields]";
@@ -297,7 +297,7 @@ namespace Steamworks
 		/// </summary>
 		internal static void Install<T>( Action<T> p, bool server = false ) where T : ICallbackData
 		{
-			var t = default(T);
+			var t = default( T );
 			var type = t!.CallbackType;
 
 			if ( !Callbacks.TryGetValue( type, out var list ) )

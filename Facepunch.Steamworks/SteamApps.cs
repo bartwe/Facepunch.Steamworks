@@ -115,7 +115,7 @@ namespace Steamworks
 		/// </summary>
 		public static IEnumerable<DlcInformation> DlcInformation()
 		{
-			var appid = default(AppId);
+			var appid = default( AppId );
 			var available = false;
 
 			for ( int i = 0; i < Internal.GetDLCCount(); i++ )
@@ -235,7 +235,9 @@ namespace Steamworks
 
 			return new DownloadProgress
 			{
-				BytesDownloaded = punBytesDownloaded, BytesTotal = punBytesTotal, Active = true
+				BytesDownloaded = punBytesDownloaded,
+				BytesTotal = punBytesTotal,
+				Active = true
 			};
 		}
 

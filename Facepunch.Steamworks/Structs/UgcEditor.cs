@@ -183,7 +183,7 @@ namespace Steamworks.Ugc
 		public async Task<PublishResult> SubmitAsync( IProgress<float> progress = null,
 			Action<PublishResult> onItemCreated = null )
 		{
-			var result = default(PublishResult);
+			var result = default( PublishResult );
 
 			progress?.Report( 0 );
 

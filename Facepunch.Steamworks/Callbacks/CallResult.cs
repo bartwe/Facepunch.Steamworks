@@ -47,7 +47,7 @@ namespace Steamworks
 			if ( !utils.IsAPICallCompleted( call, ref failed ) || failed )
 				return null;
 
-			var t = default(T);
+			var t = default( T );
 			var size = t.DataSize;
 			var ptr = Marshal.AllocHGlobal( size );
 
@@ -62,7 +62,7 @@ namespace Steamworks
 				Dispatch.OnDebugCallback?.Invoke( t.CallbackType,
 					Dispatch.CallbackToString( t.CallbackType, ptr, size ), server );
 
-				return ((T?)Marshal.PtrToStructure( ptr, typeof(T) ));
+				return ((T?)Marshal.PtrToStructure( ptr, typeof( T ) ));
 			}
 			finally
 			{

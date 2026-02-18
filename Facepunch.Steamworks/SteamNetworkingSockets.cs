@@ -276,7 +276,7 @@ namespace Steamworks
 		/// </summary>
 		public static Result GetFakeIP( int fakePortIndex, out NetAddress address )
 		{
-			var pInfo = default(SteamNetworkingFakeIPResult_t);
+			var pInfo = default( SteamNetworkingFakeIPResult_t );
 
 			Internal.GetFakeIP( 0, ref pInfo );
 

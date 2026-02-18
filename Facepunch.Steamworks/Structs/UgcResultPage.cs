@@ -22,7 +22,7 @@ namespace Steamworks.Ugc
 		{
 			get
 			{
-				var details = default(SteamUGCDetails_t);
+				var details = default( SteamUGCDetails_t );
 				for ( uint i = 0; i < ResultCount; i++ )
 				{
 					if ( SteamUGC.Internal.GetQueryUGCResult( Handle, i, ref details ) )
@@ -98,8 +98,8 @@ namespace Steamworks.Ugc
 									string originalFileName; //what is this???
 									ItemPreviewType previewType = default;
 									if ( SteamUGC.Internal.GetQueryUGCAdditionalPreview(
-										    Handle, i, j, out previewUrlOrVideo, out originalFileName,
-										    ref previewType ) )
+											Handle, i, j, out previewUrlOrVideo, out originalFileName,
+											ref previewType ) )
 									{
 										item.AdditionalPreviews[j] = new UgcAdditionalPreview(
 											previewUrlOrVideo, originalFileName, previewType );

@@ -51,7 +51,7 @@ namespace Steamworks.Data
 
 			var r = new long[days];
 
-			var rows = SteamUserStats.Internal.GetGlobalStatHistory( Name, r, (uint)r.Length * sizeof(long) );
+			var rows = SteamUserStats.Internal.GetGlobalStatHistory( Name, r, (uint)r.Length * sizeof( long ) );
 
 			if ( days != rows )
 				r = r.Take( rows ).ToArray();
@@ -66,7 +66,7 @@ namespace Steamworks.Data
 
 			var r = new double[days];
 
-			var rows = SteamUserStats.Internal.GetGlobalStatHistory( Name, r, (uint)r.Length * sizeof(double) );
+			var rows = SteamUserStats.Internal.GetGlobalStatHistory( Name, r, (uint)r.Length * sizeof( double ) );
 
 			if ( days != rows )
 				r = r.Take( rows ).ToArray();

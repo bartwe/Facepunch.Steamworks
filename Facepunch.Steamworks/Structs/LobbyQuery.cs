@@ -53,11 +53,11 @@ namespace Steamworks.Data
 		{
 			if ( string.IsNullOrEmpty( key ) )
 				throw new System.ArgumentException( "Key string provided for LobbyQuery filter is null or empty",
-					nameof(key) );
+					nameof( key ) );
 
 			if ( key.Length > SteamMatchmaking.MaxLobbyKeyLength )
 				throw new System.ArgumentException( $"Key length is longer than {SteamMatchmaking.MaxLobbyKeyLength}",
-					nameof(key) );
+					nameof( key ) );
 
 			if ( stringFilters == null )
 				stringFilters = new Dictionary<string, string>();
@@ -116,11 +116,11 @@ namespace Steamworks.Data
 		{
 			if ( string.IsNullOrEmpty( key ) )
 				throw new System.ArgumentException( "Key string provided for LobbyQuery filter is null or empty",
-					nameof(key) );
+					nameof( key ) );
 
 			if ( key.Length > SteamMatchmaking.MaxLobbyKeyLength )
 				throw new System.ArgumentException( $"Key length is longer than {SteamMatchmaking.MaxLobbyKeyLength}",
-					nameof(key) );
+					nameof( key ) );
 
 			if ( numericalFilters == null )
 				numericalFilters = new List<NumericalFilter>();
@@ -142,11 +142,11 @@ namespace Steamworks.Data
 		{
 			if ( string.IsNullOrEmpty( key ) )
 				throw new System.ArgumentException( "Key string provided for LobbyQuery filter is null or empty",
-					nameof(key) );
+					nameof( key ) );
 
 			if ( key.Length > SteamMatchmaking.MaxLobbyKeyLength )
 				throw new System.ArgumentException( $"Key length is longer than {SteamMatchmaking.MaxLobbyKeyLength}",
-					nameof(key) );
+					nameof( key ) );
 
 			if ( nearValFilters == null )
 				nearValFilters = new Dictionary<string, int>();

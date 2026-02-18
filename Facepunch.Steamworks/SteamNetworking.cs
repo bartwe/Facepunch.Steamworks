@@ -94,7 +94,7 @@ namespace Steamworks
 			{
 				SteamId steamid = 1;
 				if ( !Internal.ReadP2PPacket( (IntPtr)p, (uint)buffer.Length, ref size, ref steamid, channel ) ||
-				     size == 0 )
+					 size == 0 )
 					return null;
 
 				var data = new byte[size];

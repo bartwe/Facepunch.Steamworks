@@ -136,9 +136,9 @@ namespace Steamworks.Data
 		public bool Equals( ServerInfo other )
 		{
 			return AddressRaw == other.AddressRaw
-			       && SteamId == other.SteamId
-			       && ConnectionPort == other.ConnectionPort
-			       && QueryPort == other.QueryPort;
+				   && SteamId == other.SteamId
+				   && ConnectionPort == other.ConnectionPort
+				   && QueryPort == other.QueryPort;
 		}
 
 		public override int GetHashCode()

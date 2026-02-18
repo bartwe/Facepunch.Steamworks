@@ -357,7 +357,9 @@ namespace Steamworks
 
 			return new InventoryPurchaseResult
 			{
-				Result = r.Value.Result, OrderID = r.Value.OrderID, TransID = r.Value.TransID
+				Result = r.Value.Result,
+				OrderID = r.Value.OrderID,
+				TransID = r.Value.TransID
 			};
 		}
 	}
