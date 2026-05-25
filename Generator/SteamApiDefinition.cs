@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Generator
 {
@@ -11,10 +11,10 @@ namespace Generator
     {
         public class Interface
         {
-            [JsonProperty( PropertyName = "classname" )]
+            [JsonPropertyName("classname")]
             public string Name { get; set; }
 
-            [JsonProperty( PropertyName = "version_string" )]
+            [JsonPropertyName("version_string")]
             public string VersionString { get; set; }
 
             public class Method
@@ -30,9 +30,9 @@ namespace Generator
                 }
 
                 public Param[] Params { get; set; }
-                [JsonProperty( PropertyName = "methodname" )]
+                [JsonPropertyName("methodname")]
                 public string Name { get; set; }
-                [JsonProperty( PropertyName = "methodname_flat" )]
+                [JsonPropertyName("methodname_flat")]
                 public string FlatName { get; set; }
 
             }
@@ -58,15 +58,15 @@ namespace Generator
         {
             public class EnumValue
             {
-                [JsonProperty( PropertyName = "name" )]
+                [JsonPropertyName("name")]
                 public string Name { get; set; }
-                [JsonProperty( PropertyName = "value" )]
+                [JsonPropertyName("value")]
                 public string Value { get; set; }
             }
 
-            [JsonProperty( PropertyName = "enumname" )]
+            [JsonPropertyName("enumname")]
             public string Name { get; set; }
-            [JsonProperty( PropertyName = "values" )]
+            [JsonPropertyName("values")]
             public EnumValue[] Values { get; set; }
         }
 
@@ -75,9 +75,9 @@ namespace Generator
 
         public class TypeDef
         {
-            [JsonProperty( PropertyName = "typedef" )]
+            [JsonPropertyName("typedef")]
             public string Name { get; set; }
-            [JsonProperty( PropertyName = "type" )]
+            [JsonPropertyName("type")]
             public string Type { get; set; }
         }
 
@@ -87,15 +87,15 @@ namespace Generator
         {
             public class StructFields
             {
-                [JsonProperty( PropertyName = "fieldname" )]
+                [JsonPropertyName("fieldname")]
                 public string Name { get; set; }
-                [JsonProperty( PropertyName = "fieldtype" )]
+                [JsonPropertyName("fieldtype")]
                 public string Type { get; set; }
             }
 
-            [JsonProperty( PropertyName = "struct" )]
+            [JsonPropertyName("struct")]
             public string Name { get; set; }
-            [JsonProperty( PropertyName = "fields" )]
+            [JsonPropertyName("fields")]
             public StructFields[] Fields { get; set; }
             public Interface.Method[] Methods { get; set; }
 
@@ -124,7 +124,7 @@ namespace Generator
 
         public class CallbackStructDef : StructDef
         {
-            [JsonProperty( PropertyName = "callback_id" )]
+            [JsonPropertyName("callback_id")]
             public int CallbackId { get; set; }
         }
 
@@ -132,14 +132,14 @@ namespace Generator
 
         public class Const
         {
-            [JsonProperty( PropertyName = "consttype" )]
+            [JsonPropertyName("consttype")]
             public string Type { get; set; }
 
-            [JsonProperty( PropertyName = "constname" )]
+            [JsonPropertyName("constname")]
             public string Name { get; set; }
 
 
-            [JsonProperty( PropertyName = "constval" )]
+            [JsonPropertyName("constval")]
             public string Val { get; set; }
         }
 
