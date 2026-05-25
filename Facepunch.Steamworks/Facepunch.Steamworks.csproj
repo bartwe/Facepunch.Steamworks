@@ -10,19 +10,19 @@
 		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
-		<Configurations>DebugLinuxArm32;DebugLinuxX64;DebugWindowsX64;DebugWindowsAOTX64</Configurations>
+		<Configurations>DebugLinuxArm32;DebugLinuxArm64;DebugLinuxX64;DebugMacOSX64;DebugMacOSArm64;DebugWindowsX64;DebugWindowsArm64;DebugWindowsAOTX64</Configurations>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
 		<Nullable>warnings</Nullable>
 		<OutputPath>bin\$(Configuration)</OutputPath>
 		<PlatformTarget>AnyCPU</PlatformTarget>
-		<Platforms>AnyCPU</Platforms>
+		<Platforms>AnyCPU;x64</Platforms>
 		<RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
 		<RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
 		<EnableNETAnalyzers>False</EnableNETAnalyzers>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugWindowsX64|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugWindowsX64|AnyCPU' Or '$(Configuration)|$(Platform)'=='DebugWindowsX64|x64'">
 		<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
 		<DefineConstants>DEBUG;TRACE;PLATFORM_WIN64;PLATFORM_WIN;PLATFORM_64</DefineConstants>
 		<Optimize>true</Optimize>
@@ -31,21 +31,51 @@
 		<NoWarn>1701;1702;IDE0060;IDE0161;IDE1006;IDE0046;IDE0090</NoWarn>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugLinuxArm32|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugWindowsArm64|AnyCPU' Or '$(Configuration)|$(Platform)'=='DebugWindowsArm64|x64'">
+		<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+		<DefineConstants>DEBUG;TRACE;PLATFORM_WIN64;PLATFORM_WIN;PLATFORM_64</DefineConstants>
+		<Optimize>true</Optimize>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<WarningsAsErrors />
+		<NoWarn>1701;1702;IDE0060;IDE0161;IDE1006;IDE0046;IDE0090</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugLinuxArm32|AnyCPU' Or '$(Configuration)|$(Platform)'=='DebugLinuxArm32|x64'">
 		<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
 		<DefineConstants>DEBUG;TRACE;PLATFORM_POSIX</DefineConstants>
 		<Optimize>true</Optimize>
 		<NoWarn>1701;1702;IDE0060;IDE0161;IDE1006;IDE0046;IDE0090</NoWarn>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugLinuxX64|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugLinuxX64|AnyCPU' Or '$(Configuration)|$(Platform)'=='DebugLinuxX64|x64'">
 		<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
 		<DefineConstants>DEBUG;TRACE;PLATFORM_POSIX</DefineConstants>
 		<Optimize>true</Optimize>
 		<NoWarn>1701;1702;IDE0060;IDE0161;IDE1006;IDE0046;IDE0090</NoWarn>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugWindowsAOTX64|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugLinuxArm64|AnyCPU' Or '$(Configuration)|$(Platform)'=='DebugLinuxArm64|x64'">
+		<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+		<DefineConstants>DEBUG;TRACE;PLATFORM_POSIX</DefineConstants>
+		<Optimize>true</Optimize>
+		<NoWarn>1701;1702;IDE0060;IDE0161;IDE1006;IDE0046;IDE0090</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugMacOSX64|AnyCPU' Or '$(Configuration)|$(Platform)'=='DebugMacOSX64|x64'">
+		<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+		<DefineConstants>DEBUG;TRACE;PLATFORM_POSIX</DefineConstants>
+		<Optimize>true</Optimize>
+		<NoWarn>1701;1702;IDE0060;IDE0161;IDE1006;IDE0046;IDE0090</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugMacOSArm64|AnyCPU' Or '$(Configuration)|$(Platform)'=='DebugMacOSArm64|x64'">
+		<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+		<DefineConstants>DEBUG;TRACE;PLATFORM_POSIX</DefineConstants>
+		<Optimize>true</Optimize>
+		<NoWarn>1701;1702;IDE0060;IDE0161;IDE1006;IDE0046;IDE0090</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugWindowsAOTX64|AnyCPU' Or '$(Configuration)|$(Platform)'=='DebugWindowsAOTX64|x64'">
 		<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
 		<DefineConstants>DEBUG;TRACE;PLATFORM_WIN64;PLATFORM_WIN;PLATFORM_64</DefineConstants>
 		<Optimize>true</Optimize>
@@ -56,7 +86,7 @@
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 	</PropertyGroup>
 
-	<ItemGroup Condition="'$(Configuration)|$(Platform)'=='DebugWindowsAOTX64|AnyCPU'">
+	<ItemGroup Condition="'$(Configuration)|$(Platform)'=='DebugWindowsAOTX64|AnyCPU' Or '$(Configuration)|$(Platform)'=='DebugWindowsAOTX64|x64'">
 		<RuntimeHostConfigurationOption Include="System.Runtime.InteropServices.EnableCppInterop" Value="true" />
 	</ItemGroup>
 
