@@ -2,13 +2,20 @@
 
 	<PropertyGroup>
 		<AssemblyName>Facepunch.Steamworks.Posix</AssemblyName>
+		<Configurations>Debug;Release;DebugLinuxX64</Configurations>
 		<DefineConstants>$(DefineConstants);PLATFORM_POSIX</DefineConstants>
 		<TargetFrameworks>netstandard2.1;net6.0</TargetFrameworks>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<LangVersion>10</LangVersion>	
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<Platforms>AnyCPU;x64</Platforms>
 		<RootNamespace>Steamworks</RootNamespace>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugLinuxX64|AnyCPU' Or '$(Configuration)|$(Platform)' == 'DebugLinuxX64|x64'">
+		<DefineConstants>$(DefineConstants);TRACE;DEBUG</DefineConstants>
+		<NoWarn>1701;1702;1705;618;1591</NoWarn>
 	</PropertyGroup>
 
 	<Import Project="Facepunch.Steamworks.targets" />
