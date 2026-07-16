@@ -6,8 +6,10 @@ using Steamworks.Data;
 
 namespace Steamworks
 {
+#if !TEST_LINUX64
 	[DeploymentItem( "steam_api64.dll" )]
 	[DeploymentItem( "steam_api.dll" )]
+#endif
 	[TestClass]
 	public class FriendsTest
 	{

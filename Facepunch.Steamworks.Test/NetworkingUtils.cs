@@ -8,8 +8,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Steamworks
 {
     [TestClass]
+#if !TEST_LINUX64
     [DeploymentItem( "steam_api64.dll" )]
     [DeploymentItem( "steam_api.dll" )]
+#endif
     public class NetworkUtilsTest
 	{
 		static string GarrysLocation = "lhr=4+0,ams=13+1/10+0,par=17+1/12+0,lux=17+1,fra=18+1/18+0,sto=25+2,sto2=26+2,mad=27+2,vie=31+3/30+0,iad=90+9/75+0,sgp=173+17/174+17,gru=200+20/219+0";
