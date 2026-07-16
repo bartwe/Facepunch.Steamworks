@@ -4,8 +4,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Steamworks
 {
+#if !TEST_LINUX64
     [DeploymentItem( "steam_api64.dll" )]
 	[DeploymentItem( "steam_api.dll" )]
+#endif
 	[TestClass]
     public partial class GameServerTest
     {

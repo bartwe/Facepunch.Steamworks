@@ -8,13 +8,23 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Steamworks
 {
     [TestClass]
+#if !TEST_LINUX64
     [DeploymentItem( "steam_api64.dll" )]
     [DeploymentItem( "steam_api.dll" )]
+#endif
     public class AppTest
     {
 		[AssemblyInitialize]
 		public static void AssemblyInit( TestContext context )
 		{
+#if TEST_LINUX64
+			const string runLinuxTestsEnvironmentVariable = "FACEPUNCH_STEAMWORKS_RUN_LINUX_TESTS";
+			if ( !string.Equals( Environment.GetEnvironmentVariable( runLinuxTestsEnvironmentVariable ), "1", StringComparison.Ordinal ) )
+			{
+				Assert.Inconclusive( $"Linux Steamworks integration tests require a running Steam client and an account that owns app 252490. Set {runLinuxTestsEnvironmentVariable}=1 to run them." );
+			}
+#endif
+
 			Steamworks.Dispatch.OnDebugCallback = ( type, str, server ) =>
 			{
 				Console.WriteLine( $"[Callback {type} {(server ? "server" : "client")}]" );

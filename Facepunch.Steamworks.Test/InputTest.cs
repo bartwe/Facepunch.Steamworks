@@ -10,9 +10,11 @@ using Steamworks.Data;
 namespace Steamworks
 {
     [TestClass]
+#if !TEST_LINUX64
     [DeploymentItem( "steam_api64.dll" )]
 	[DeploymentItem( "steam_api.dll" )]
 	[DeploymentItem( "controller_config/game_actions_252490.vdf" )]
+#endif
     public class InputTest
 	{
 		[TestMethod]
@@ -29,4 +31,3 @@ namespace Steamworks
 	}
 
 }
- 
