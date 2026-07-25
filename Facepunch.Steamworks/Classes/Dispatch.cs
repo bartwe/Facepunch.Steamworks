@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -171,16 +172,36 @@ namespace Steamworks
 		/// <summary>
 		/// Given a callback, try to turn it into a string
 		/// </summary>
-		internal static string CallbackToString( CallbackType type, IntPtr data, int expectedsize )
+		internal static string CallbackToString( CallbackType type, IntPtr data, int dataSize )
 		{
-			if ( !CallbackTypeFactory.All.TryGetValue( type, out var t ) )
+			if ( !CallbackTypeFactory.All.TryGetValue( type, out var formatter ) )
 				return $"[{type} not in sdk]";
 
-			var strct = data.ToType( t );
-			if ( strct == null )
+			return formatter( data, dataSize );
+		}
+
+		internal static string CallbackToString<
+			[DynamicallyAccessedMembers( DynamicallyAccessedMemberTypes.PublicFields |
+			                            DynamicallyAccessedMemberTypes.NonPublicFields |
+			                            DynamicallyAccessedMemberTypes.PublicConstructors |
+			                            DynamicallyAccessedMemberTypes.NonPublicConstructors )]
+			T
+		>( IntPtr data, int dataSize ) where T : struct, ICallbackData
+		{
+			if ( data == IntPtr.Zero )
 				return "[null]";
 
+			var expectedDataSize = default( T ).DataSize;
+			if ( dataSize != expectedDataSize )
+			{
+				throw new InvalidOperationException(
+					$"Callback data size mismatch for {typeof( T ).FullName}: expected {expectedDataSize}, received {dataSize}."
+				);
+			}
+
 			var str = "";
+			var strct = data.ToType<T>();
+			var t = typeof( T );
 
 			var fields = t.GetFields( System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public |
 									  System.Reflection.BindingFlags.NonPublic );
@@ -295,7 +316,11 @@ namespace Steamworks
 		/// <summary>
 		/// Install a global callback. The passed function will get called if it's all good.
 		/// </summary>
-		internal static void Install<T>( Action<T> p, bool server = false ) where T : ICallbackData
+		internal static void Install<
+			[DynamicallyAccessedMembers( DynamicallyAccessedMemberTypes.PublicConstructors |
+			                            DynamicallyAccessedMemberTypes.NonPublicConstructors )]
+			T
+		>( Action<T> p, bool server = false ) where T : ICallbackData
 		{
 			var t = default( T );
 			var type = t!.CallbackType;

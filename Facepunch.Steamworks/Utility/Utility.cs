@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Net;
 using System.Runtime.InteropServices;
@@ -8,20 +9,16 @@ namespace Steamworks
 {
 	public static partial class Utility
 	{
-		static internal T ToType<T>( this IntPtr ptr )
+		static internal T ToType<
+			[DynamicallyAccessedMembers( DynamicallyAccessedMemberTypes.PublicConstructors |
+			                            DynamicallyAccessedMemberTypes.NonPublicConstructors )]
+			T
+		>( this IntPtr ptr )
 		{
 			if ( ptr == IntPtr.Zero )
 				return default;
 
-			return (T)Marshal.PtrToStructure( ptr, typeof( T ) );
-		}
-
-		static internal object ToType( this IntPtr ptr, System.Type t )
-		{
-			if ( ptr == IntPtr.Zero )
-				return default;
-
-			return Marshal.PtrToStructure( ptr, t );
+			return Marshal.PtrToStructure<T>( ptr );
 		}
 
 		static internal uint Swap( uint x )

@@ -23,7 +23,7 @@ namespace Generator
 			int last = -1;
 
 			StartBlock( "internal static partial class CallbackTypeFactory" );
-			StartBlock( "internal static System.Collections.Generic.Dictionary<CallbackType, System.Type> All = new System.Collections.Generic.Dictionary<CallbackType, System.Type>" );
+			StartBlock( "internal static System.Collections.Generic.Dictionary<CallbackType, System.Func<System.IntPtr, int, string>> All = new System.Collections.Generic.Dictionary<CallbackType, System.Func<System.IntPtr, int, string>>" );
 			foreach ( var c in def.callback_structs.OrderBy( x => x.CallbackId ) )
 			{
 				if ( Cleanup.IsDeprecated( c.Name ) )
@@ -32,7 +32,7 @@ namespace Generator
 				if ( last == c.CallbackId )
 					Write( "// " );
 
-				WriteLine( $"{{ CallbackType.{c.Name.Replace( "_t", "" ) }, typeof( {Cleanup.ConvertType(c.Name)} )}}," );
+				WriteLine( $"{{ CallbackType.{c.Name.Replace( "_t", "" ) }, Dispatch.CallbackToString<{Cleanup.ConvertType(c.Name)}> }}," );
 
 				last = c.CallbackId;
 			}
