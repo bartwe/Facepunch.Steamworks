@@ -22,7 +22,7 @@ namespace Steamworks
 		/// </summary>
 		public string ActionSet
 		{
-			set => SteamInput.Internal.ActivateActionSet( Handle, SteamInput.Internal.GetActionSetHandle( value ) );
+			set => SteamInput.Internal.ActivateActionSet( Handle, SteamInput.GetActionSetHandle( value ) );
 		}
 
 		public void DeactivateLayer( string layer ) =>
@@ -32,6 +32,7 @@ namespace Steamworks
 			SteamInput.Internal.ActivateActionSetLayer( Handle, SteamInput.Internal.GetActionSetHandle( layer ) );
 
 		public void ClearLayers() => SteamInput.Internal.DeactivateAllActionSetLayers( Handle );
+		public bool ShowBindingPanel() => SteamInput.Internal.ShowBindingPanel(Handle);
 
 
 		/// <summary>

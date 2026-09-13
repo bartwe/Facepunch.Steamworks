@@ -284,13 +284,14 @@ namespace Steamworks
 
 		#endregion
 
-		internal int GetDigitalActionOrigins( InputHandle_t inputHandle, InputActionSetHandle_t actionSetHandle,
-			InputDigitalActionHandle_t digitalActionHandle, ref InputActionOrigin originsOut )
-		{
-			var returnValue = _GetDigitalActionOrigins( Self, inputHandle, actionSetHandle, digitalActionHandle,
-				ref originsOut );
-			return returnValue;
-		}
+        internal unsafe int GetDigitalActionOrigins(InputHandle_t inputHandle, InputActionSetHandle_t actionSetHandle,
+            InputDigitalActionHandle_t digitalActionHandle, Span<InputActionOrigin> originsOut)
+        {
+            if (originsOut.Length != 8) throw new ArgumentException("Steam requires eight action origin slots.", nameof(originsOut));
+            originsOut.Clear();
+            fixed (InputActionOrigin* origins = originsOut)
+                return _GetDigitalActionOrigins(Self, inputHandle, actionSetHandle, digitalActionHandle, ref *origins);
+        }
 
 		#region FunctionMeta
 

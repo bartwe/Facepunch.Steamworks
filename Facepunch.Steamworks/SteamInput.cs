@@ -21,6 +21,24 @@ namespace Steamworks
 
 		internal const int STEAM_CONTROLLER_MAX_COUNT = 16;
 
+		public static bool Init() => Internal.Init(true);
+		public static bool Shutdown()
+		{
+			var result = Internal.Shutdown();
+			if (result) { DigitalHandles.Clear(); AnalogHandles.Clear(); ActionSets.Clear(); }
+			return result;
+		}
+		public static bool SetActionManifestPath(string absolutePath) => Internal.SetInputActionManifestFilePath(absolutePath);
+		public static int GetControllers(Span<Controller> controllers)
+		{
+			if (controllers.Length != STEAM_CONTROLLER_MAX_COUNT)
+				throw new ArgumentException("Expected storage for 16 Steam controllers.", nameof(controllers));
+			var count = Internal.GetConnectedControllers(queryArray);
+			if (count < 0 || count > controllers.Length) throw new InvalidOperationException("Invalid Steam controller count.");
+			for (var i = 0; i < count; i++) controllers[i] = new Controller(queryArray[i]);
+			return count;
+		}
+
 
 		/// <summary>
 		/// You shouldn't really need to call this because it gets called by <see cref="SteamClient.RunCallbacks"/>
@@ -61,16 +79,25 @@ namespace Steamworks
 		/// <returns></returns>
 		public static string GetDigitalActionGlyph( Controller controller, string action )
 		{
-			InputActionOrigin origin = InputActionOrigin.None;
+			Span<InputActionOrigin> origins = stackalloc InputActionOrigin[8];
 
 			Internal.GetDigitalActionOrigins(
 				controller.Handle,
 				Internal.GetCurrentActionSet( controller.Handle ),
 				GetDigitalActionHandle( action ),
-				ref origin
+				origins
 			);
 
-			return Internal.GetGlyphForActionOrigin_Legacy( origin );
+			return Internal.GetGlyphForActionOrigin_Legacy( origins[0] );
+		}
+
+		public static string GetDigitalActionLabel(Controller controller, string actionSet, string action)
+		{
+			Span<InputActionOrigin> origins = stackalloc InputActionOrigin[8];
+			var count = Internal.GetDigitalActionOrigins(controller.Handle, GetActionSetHandle(actionSet), GetDigitalActionHandle(action), origins);
+			var names = new string[count];
+			for (var i = 0; i < count; i++) names[i] = Internal.GetStringForActionOrigin(origins[i]);
+			return string.Join(" / ", names);
 		}
 
 
@@ -81,12 +108,12 @@ namespace Steamworks
 		/// </summary>
 		public static string GetPngActionGlyph( Controller controller, string action, GlyphSize size )
 		{
-			InputActionOrigin origin = InputActionOrigin.None;
+			Span<InputActionOrigin> origins = stackalloc InputActionOrigin[8];
 
 			Internal.GetDigitalActionOrigins( controller.Handle, Internal.GetCurrentActionSet( controller.Handle ),
-				GetDigitalActionHandle( action ), ref origin );
+				GetDigitalActionHandle( action ), origins );
 
-			return Internal.GetGlyphPNGForActionOrigin( origin, size, 0 );
+			return Internal.GetGlyphPNGForActionOrigin( origins[0], size, 0 );
 		}
 
 		/// <summary>
@@ -96,12 +123,12 @@ namespace Steamworks
 		/// </summary>
 		public static string GetSvgActionGlyph( Controller controller, string action )
 		{
-			InputActionOrigin origin = InputActionOrigin.None;
+			Span<InputActionOrigin> origins = stackalloc InputActionOrigin[8];
 
 			Internal.GetDigitalActionOrigins( controller.Handle, Internal.GetCurrentActionSet( controller.Handle ),
-				GetDigitalActionHandle( action ), ref origin );
+				GetDigitalActionHandle( action ), origins );
 
-			return Internal.GetGlyphSVGForActionOrigin( origin, 0 );
+			return Internal.GetGlyphSVGForActionOrigin( origins[0], 0 );
 		}
 
 		internal static Dictionary<string, InputDigitalActionHandle_t> DigitalHandles =

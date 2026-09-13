@@ -341,13 +341,20 @@ namespace Steamworks
 
 		#endregion
 
-		internal bool GetEnteredGamepadTextInput( out string pchText )
-		{
-			using var mempchText = Helpers.TakeMemory();
-			var returnValue = _GetEnteredGamepadTextInput( Self, mempchText, (1024 * 32) );
-			pchText = Helpers.MemoryToString( mempchText );
-			return returnValue;
-		}
+        internal unsafe bool GetEnteredGamepadTextInput(out string pchText)
+        {
+            var length = GetEnteredGamepadTextLength();
+            if (length == 0) { pchText = string.Empty; return true; }
+            var buffer = new byte[(int)length];
+            fixed (byte* pointer = buffer)
+            {
+                if (!_GetEnteredGamepadTextInput(Self, (IntPtr)pointer, length)) { pchText = string.Empty; return false; }
+            }
+            var terminator = Array.IndexOf(buffer, (byte)0);
+            if (terminator < 0) throw new InvalidOperationException("Steam returned unterminated keyboard text.");
+            pchText = new System.Text.UTF8Encoding(false, true).GetString(buffer, 0, terminator);
+            return true;
+        }
 
 		#region FunctionMeta
 
