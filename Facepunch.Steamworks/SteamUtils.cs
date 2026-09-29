@@ -129,7 +129,7 @@ namespace Steamworks
 		/// <summary>
 		/// Returns battery power [0-1].
 		/// </summary>
-		public static float CurrentBatteryPower => Math.Min( Internal.GetCurrentBatteryPower() / 100, 1.0f );
+		public static float CurrentBatteryPower => Math.Min( Internal.GetCurrentBatteryPower() / 100.0f, 1.0f );
 
 		static NotificationPosition overlayNotificationPosition = NotificationPosition.BottomRight;
 
