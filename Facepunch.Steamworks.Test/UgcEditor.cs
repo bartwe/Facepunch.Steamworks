@@ -123,8 +123,10 @@ namespace Steamworks
 			}
 			finally
 			{
-				System.IO.File.Delete( testFolder.FullName + "/testfile.bin" );
+				System.IO.File.Delete( testFolder.FullName + "/testfile1.bin" );
 			}
+
+			Assert.IsFalse( System.IO.File.Exists( testFolder.FullName + "/testfile1.bin" ) );
 
 		}
 
