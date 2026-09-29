@@ -37,7 +37,7 @@ namespace Steamworks.Data
 		{
 			get
 			{
-				NetIdentity id = default;
+				NetIdentity id = this;
 				return InternalIsLocalHost( ref id );
 			}
 		}
