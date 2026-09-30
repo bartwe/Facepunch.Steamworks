@@ -148,7 +148,7 @@ namespace Steamworks.Data
 
 				if ( IsIPv6AllZeros )
 				{
-					return IPAddress.IPv6Loopback;
+					return IPAddress.IPv6Any;
 				}
 
 				throw new System.NotImplementedException( "Oops - no IPV6 support yet?" );

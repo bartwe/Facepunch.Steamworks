@@ -352,9 +352,10 @@ You can also hit up the [Steamworks Thread](http://steamcommunity.com/groups/ste
 
 We also have [a wiki you can read](https://wiki.facepunch.com/steamworks/) and help fill out with examples and advice.
 
-# Managed unit tests
+# Unit tests
 
-The unit tests require .NET 10 and do not initialize Steam or load its native library.
+The unit tests require .NET 10 on Linux x64 and do not initialize Steam.
+The NetAddress tests use the bundled native Steam library, copied to the test output.
 Run them separately from the integration tests, which require a running Steam client:
 
 ```sh
