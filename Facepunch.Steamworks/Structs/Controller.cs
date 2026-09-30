@@ -57,7 +57,7 @@ namespace Steamworks
 
 		public static bool operator ==( Controller a, Controller b ) => a.Equals( b );
 		public static bool operator !=( Controller a, Controller b ) => !(a == b);
-		public override bool Equals( object p ) => this.Equals( (Controller)p );
+		public override bool Equals( object p ) => p is Controller other && this.Equals( other );
 		public override int GetHashCode() => Handle.GetHashCode();
 		public bool Equals( Controller p ) => p.Handle == Handle;
 	}
