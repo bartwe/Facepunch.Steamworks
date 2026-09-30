@@ -12,6 +12,8 @@ namespace Steamworks
 	/// </summary>
 	public class SteamUGC : SteamSharedClass<SteamUGC>
 	{
+		static event Action<DownloadItemResult_t> OnDownloadItemCompleted;
+
 		internal static ISteamUGC Internal => Interface as ISteamUGC;
 
 		internal override bool InitializeInterface( bool server )
@@ -26,7 +28,11 @@ namespace Steamworks
 
 		internal static void InstallEvents( bool server )
 		{
-			Dispatch.Install<DownloadItemResult_t>( x => OnDownloadItemResult?.Invoke( x.Result ), server );
+			Dispatch.Install<DownloadItemResult_t>( x =>
+			{
+				OnDownloadItemCompleted?.Invoke( x );
+				OnDownloadItemResult?.Invoke( x.Result );
+			}, server );
 			Dispatch.Install<RemoteStoragePublishedFileSubscribed_t>(
 				x => OnItemSubscribed?.Invoke( x.AppID.Value, x.PublishedFileId ), server );
 			Dispatch.Install<RemoteStoragePublishedFileUnsubscribed_t>(
@@ -83,36 +89,35 @@ namespace Steamworks
 
 			progress?.Invoke( 0.0f );
 
-			if ( Download( fileId, true ) == false )
-				return item.IsInstalled;
-
-			// Steam docs about Download:
-			// If the return value is true then register and wait
-			// for the Callback DownloadItemResult_t before calling 
-			// GetItemInstallInfo or accessing the workshop item on disk.
-
-			// Wait for DownloadItemResult_t
+			// Wait for this item's result before accessing its installed content.
 			{
-				Action<Result> onDownloadStarted = null;
+				var downloadResult = new TaskCompletionSource<Result>();
+				Action<DownloadItemResult_t> onDownloadCompleted = result =>
+				{
+					if ( result.PublishedFileId == fileId )
+						downloadResult.TrySetResult( result.Result );
+				};
 
+				OnDownloadItemCompleted += onDownloadCompleted;
 				try
 				{
-					var downloadStarted = false;
+					if ( Download( fileId, true ) == false )
+						return item.IsInstalled;
 
-					onDownloadStarted = r => downloadStarted = true;
-					OnDownloadItemResult += onDownloadStarted;
-
-					while ( downloadStarted == false )
+					while ( !downloadResult.Task.IsCompleted )
 					{
 						if ( ct.IsCancellationRequested )
 							break;
 
 						await Task.Delay( milisecondsUpdateDelay );
 					}
+
+					if ( downloadResult.Task.IsCompleted && await downloadResult.Task != Result.OK )
+						return false;
 				}
 				finally
 				{
-					OnDownloadItemResult -= onDownloadStarted;
+					OnDownloadItemCompleted -= onDownloadCompleted;
 				}
 			}
 

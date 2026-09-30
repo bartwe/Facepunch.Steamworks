@@ -361,6 +361,15 @@ Run them separately from the integration tests, which require a running Steam cl
 dotnet test Facepunch.Steamworks.UnitTests/Facepunch.Steamworks.UnitTests.csproj -c DebugLinuxX64 -m:4
 ```
 
+# Download regression tests
+
+On Linux with .NET 10 and `cc`, these tests build a small native stub and exercise
+`SteamUGC.DownloadAsync` and callback dispatch without a Steam client or network:
+
+```sh
+dotnet test Facepunch.Steamworks.DownloadTests/Facepunch.Steamworks.DownloadTests.csproj -c DebugLinuxX64 -m:4
+```
+
 # License
 
 MIT - do whatever you want.
