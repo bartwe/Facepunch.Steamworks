@@ -201,7 +201,7 @@ namespace Steamworks
 			}
 		}
 
-		public string LocalBasePriceFormatted => Utility.FormatPrice( SteamInventory.Currency, LocalPrice / 100.0 );
+		public string LocalBasePriceFormatted => Utility.FormatPrice( SteamInventory.Currency, LocalBasePrice / 100.0 );
 
 		InventoryRecipe[] _recContaining;
 

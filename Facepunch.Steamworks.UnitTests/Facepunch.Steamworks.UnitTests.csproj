@@ -14,4 +14,12 @@
     <PackageReference Include="MSTest.TestAdapter" Version="4.3.2" />
     <PackageReference Include="MSTest.TestFramework" Version="4.3.2" />
   </ItemGroup>
+  <Target Name="BuildInventoryTestStub" BeforeTargets="CopyFilesToOutputDirectory"
+          Inputs="$(MSBuildProjectDirectory)/Native/Inventory.c;$(MSBuildProjectFullPath)"
+          Outputs="$(TargetDir)libinventory_test.so">
+    <Exec Command="cc -shared -fPIC -std=c99 -Wall -Wextra -Werror &quot;$(MSBuildProjectDirectory)/Native/Inventory.c&quot; -o &quot;$(TargetDir)libinventory_test.so&quot;" />
+    <ItemGroup>
+      <FileWrites Include="$(TargetDir)libinventory_test.so" />
+    </ItemGroup>
+  </Target>
 </Project>

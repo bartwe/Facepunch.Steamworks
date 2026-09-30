@@ -352,9 +352,11 @@ You can also hit up the [Steamworks Thread](http://steamcommunity.com/groups/ste
 
 We also have [a wiki you can read](https://wiki.facepunch.com/steamworks/) and help fill out with examples and advice.
 
-# Managed unit tests
+# Unit tests
 
-The unit tests require .NET 10 and do not initialize Steam or load its native library.
+The unit tests require .NET 10 and a C compiler available as `cc` (tested on Linux).
+They do not initialize Steam or load its native library. The inventory pricing tests
+build a small native stub to exercise the real managed getters with fixed prices.
 Run them separately from the integration tests, which require a running Steam client:
 
 ```sh
