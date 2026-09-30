@@ -9,6 +9,8 @@ namespace Steamworks.ServerList
 	{
 		public List<string> Ips = new List<string>();
 		bool wantsCancel;
+		object queryLock = new object();
+		Internet activeQuery;
 
 		public IpList( IEnumerable<string> list )
 		{
@@ -42,7 +44,27 @@ namespace Steamworks.ServerList
 						list.AddFilter( "gameaddr", server );
 					}
 
-					await list.RunQueryAsync( timeoutSeconds );
+					try
+					{
+						Task<bool> query;
+						lock ( queryLock )
+						{
+							if ( wantsCancel )
+								return false;
+
+							query = list.RunQueryAsync( timeoutSeconds );
+							activeQuery = list;
+						}
+
+						await query;
+					}
+					finally
+					{
+						lock ( queryLock )
+						{
+							activeQuery = null;
+						}
+					}
 
 					if ( wantsCancel )
 						return false;
@@ -63,7 +85,12 @@ namespace Steamworks.ServerList
 
 		public override void Cancel()
 		{
-			wantsCancel = true;
+			lock ( queryLock )
+			{
+				wantsCancel = true;
+				if ( activeQuery != null && activeQuery.request.Value != IntPtr.Zero )
+					activeQuery.Cancel();
+			}
 		}
 	}
 }

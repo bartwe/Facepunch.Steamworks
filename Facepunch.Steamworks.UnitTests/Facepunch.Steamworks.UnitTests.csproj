@@ -14,4 +14,7 @@
     <PackageReference Include="MSTest.TestAdapter" Version="4.3.2" />
     <PackageReference Include="MSTest.TestFramework" Version="4.3.2" />
   </ItemGroup>
+  <Target Name="BuildServerListStub" AfterTargets="Build" Condition="$([MSBuild]::IsOSPlatform('Linux'))">
+    <Exec Command="cc -std=c11 -Wall -Wextra -Werror -shared -fPIC &quot;$(MSBuildProjectDirectory)/Native/server_list_stub.c&quot; -o &quot;$(TargetDir)libserver_list_stub.so&quot;" />
+  </Target>
 </Project>

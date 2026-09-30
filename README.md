@@ -352,10 +352,12 @@ You can also hit up the [Steamworks Thread](http://steamcommunity.com/groups/ste
 
 We also have [a wiki you can read](https://wiki.facepunch.com/steamworks/) and help fill out with examples and advice.
 
-# Managed unit tests
+# Unit tests
 
-The unit tests require .NET 10 and do not initialize Steam or load its native library.
-Run them separately from the integration tests, which require a running Steam client:
+The unit tests require .NET 10 and do not require a running Steam client or its native
+library. On Linux, the server-list tests also require `cc` to build a small native
+API stub that exercises the real managed query loop; those tests are skipped on
+other platforms. Run this suite separately from the Steam integration tests:
 
 ```sh
 dotnet test Facepunch.Steamworks.UnitTests/Facepunch.Steamworks.UnitTests.csproj -c DebugLinuxX64 -m:4
