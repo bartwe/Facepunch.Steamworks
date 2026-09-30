@@ -263,8 +263,13 @@ namespace Steamworks
 			{
 				SizeInBytes = r.Value.FileSize,
 				Flags = r.Value.Flags,
-				Sha1 = string.Join( "", r.Value.FileSHA.Select( x => x.ToString( "x" ) ) )
+				Sha1 = FormatSha1( r.Value.FileSHA )
 			};
+		}
+
+		internal static string FormatSha1( byte[] sha1 )
+		{
+			return string.Join( "", sha1.Select( x => x.ToString( "x2" ) ) );
 		}
 
 		/// <summary>
