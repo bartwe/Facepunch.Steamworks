@@ -229,7 +229,7 @@ namespace Steamworks.Data
 		public static implicit operator ulong( PublishedFileId value ) => value.Value;
 		public override string ToString() => Value.ToString();
 		public override int GetHashCode() => Value.GetHashCode();
-		public override bool Equals( object p ) => this.Equals( (PublishedFileId)p );
+		public override bool Equals( object p ) => p is PublishedFileId other && Equals( other );
 		public bool Equals( PublishedFileId p ) => p.Value == Value;
 		public static bool operator ==( PublishedFileId a, PublishedFileId b ) => a.Equals( b );
 		public static bool operator !=( PublishedFileId a, PublishedFileId b ) => !a.Equals( b );
