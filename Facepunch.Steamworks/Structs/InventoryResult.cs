@@ -69,6 +69,7 @@ namespace Steamworks
 			if ( _id.Value == -1 ) return;
 
 			SteamInventory.Internal.DestroyResult( _id );
+			_id = Defines.k_SteamInventoryResultInvalid;
 		}
 
 		internal static async Task<InventoryResult?> GetAsync( SteamInventoryResult_t sresult )
