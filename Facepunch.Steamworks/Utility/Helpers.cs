@@ -84,6 +84,15 @@ namespace Steamworks
 			}
 		}
 
+		internal static string DecodeUtf8( byte[] buffer )
+		{
+			var length = Array.IndexOf( buffer, (byte)0 );
+			if ( length < 0 )
+				length = buffer.Length;
+
+			return Encoding.UTF8.GetString( buffer, 0, length );
+		}
+
 		internal unsafe static string MemoryToString( IntPtr ptr )
 		{
 			var len = 0;

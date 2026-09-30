@@ -78,7 +78,7 @@ namespace Generator
 
                 if ( t.StartsWith( "char " ) && t.Contains( "[" ) )
                 {
-					WriteLine( $"internal string {CleanMemberName( m.Name )}UTF8() => System.Text.Encoding.UTF8.GetString( {CleanMemberName( m.Name )}, 0, System.Array.IndexOf<byte>( {CleanMemberName( m.Name )}, 0 ) );" );
+					WriteLine( $"internal string {CleanMemberName( m.Name )}UTF8() => Helpers.DecodeUtf8( {CleanMemberName( m.Name )} );" );
 
 					var num = t.Replace( "char", "" ).Trim( '[', ']', ' ' );
 					t = "byte[]";
