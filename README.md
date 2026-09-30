@@ -355,6 +355,10 @@ We also have [a wiki you can read](https://wiki.facepunch.com/steamworks/) and h
 # Managed unit tests
 
 The unit tests require .NET 10 and do not initialize Steam or load its native library.
+On Linux, the Fake IP socket tests also require `cc` to build a small native test
+shim. They exercise the managed wrappers and check the port index passed across
+the native boundary; they do not test live Steam relay connectivity. These tests
+are skipped on other platforms.
 Run them separately from the integration tests, which require a running Steam client:
 
 ```sh
