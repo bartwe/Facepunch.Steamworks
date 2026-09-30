@@ -352,6 +352,15 @@ You can also hit up the [Steamworks Thread](http://steamcommunity.com/groups/ste
 
 We also have [a wiki you can read](https://wiki.facepunch.com/steamworks/) and help fill out with examples and advice.
 
+# Managed unit tests
+
+The unit tests require .NET 10 and do not initialize Steam or load its native library.
+Run them separately from the integration tests, which require a running Steam client:
+
+```sh
+dotnet test Facepunch.Steamworks.UnitTests/Facepunch.Steamworks.UnitTests.csproj -c DebugLinuxX64 -m:4
+```
+
 # License
 
 MIT - do whatever you want.

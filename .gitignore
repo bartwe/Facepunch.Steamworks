@@ -75,3 +75,4 @@ Generator/bin
 *.XML
 .vs
 Facepunch.Steamworks.Test/bin/**
+Facepunch.Steamworks.UnitTests/bin/**

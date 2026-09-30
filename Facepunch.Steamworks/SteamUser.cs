@@ -218,8 +218,8 @@ namespace Steamworks
 
 			set
 			{
-				if ( SampleRate < 11025 ) throw new System.Exception( "Sample Rate must be between 11025 and 48000" );
-				if ( SampleRate > 48000 ) throw new System.Exception( "Sample Rate must be between 11025 and 48000" );
+				if ( value < 11025 ) throw new System.Exception( "Sample Rate must be between 11025 and 48000" );
+				if ( value > 48000 ) throw new System.Exception( "Sample Rate must be between 11025 and 48000" );
 
 				sampleRate = value;
 			}
