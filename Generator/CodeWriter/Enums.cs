@@ -68,6 +68,14 @@ namespace Generator
                         break;
                 }
 
+                if ( iFinished != int.MaxValue )
+                {
+                    // A separator after "k_" ends the prefix; keep shared member letters such as "C" in "Close".
+                    int separator = o.Values.First().Name.Substring( 0, iFinished ).LastIndexOf( '_' );
+                    if ( separator > 1 )
+                        iFinished = separator + 1;
+                }
+
                 foreach ( var entry in o.Values )
                 {
                     var ename = entry.Name;

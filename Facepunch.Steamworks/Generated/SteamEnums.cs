@@ -843,9 +843,9 @@ namespace Steamworks
 	//
 	internal enum UGCReadAction : int
 	{
-		ontinueReadingUntilFinished = 0,
-		ontinueReading = 1,
-		lose = 2,
+		ContinueReadingUntilFinished = 0,
+		ContinueReading = 1,
+		Close = 2,
 	}
 
 	//
