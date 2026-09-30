@@ -121,7 +121,7 @@ namespace Steamworks
 		{
 			string val = GetProperty( name );
 
-			if ( val.Length == 0 ) return false;
+			if ( string.IsNullOrEmpty( val ) ) return false;
 			if ( val[0] == '0' || val[0] == 'F' || val[0] == 'f' ) return false;
 
 			return true;
