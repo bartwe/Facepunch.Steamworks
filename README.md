@@ -355,7 +355,7 @@ We also have [a wiki you can read](https://wiki.facepunch.com/steamworks/) and h
 # Unit tests
 
 The unit tests require .NET 10 and do not require a running Steam client or its native
-library. On Linux, the Fake IP socket and server-list tests also require `cc` to
+library. On Linux, the Fake IP socket, inventory pricing, and server-list tests also require `cc` to
 build native API stubs. They exercise the managed wrappers, forwarded Fake IP port
 indices, and the managed query loop without live Steam connectivity. These tests
 are skipped on other platforms. Run this suite separately from the Steam integration tests:
