@@ -177,7 +177,7 @@ namespace Steamworks
 
 		public static bool operator ==( InventoryItem a, InventoryItem b ) => a._id == b._id;
 		public static bool operator !=( InventoryItem a, InventoryItem b ) => a._id != b._id;
-		public override bool Equals( object p ) => this.Equals( (InventoryItem)p );
+		public override bool Equals( object p ) => p is InventoryItem item && Equals( item );
 		public override int GetHashCode() => _id.GetHashCode();
 		public bool Equals( InventoryItem p ) => p._id == _id;
 	}
