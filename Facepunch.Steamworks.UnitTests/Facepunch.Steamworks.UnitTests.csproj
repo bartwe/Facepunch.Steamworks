@@ -16,4 +16,10 @@
     <PackageReference Include="MSTest.TestAdapter" Version="4.3.2" />
     <PackageReference Include="MSTest.TestFramework" Version="4.3.2" />
   </ItemGroup>
+  <Target Name="BuildFakeIPTestShim" AfterTargets="Build"
+          Condition="$([MSBuild]::IsOSPlatform('Linux'))"
+          Inputs="$(MSBuildProjectDirectory)/FakeIPTestShim.c;$(MSBuildProjectFullPath)"
+          Outputs="$(TargetDir)libsteam_api.so">
+    <Exec Command="cc -std=c11 -shared -fPIC -Wall -Wextra -Werror &quot;$(MSBuildProjectDirectory)/FakeIPTestShim.c&quot; -o &quot;$(TargetDir)libsteam_api.so&quot;" />
+  </Target>
 </Project>

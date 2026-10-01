@@ -294,7 +294,7 @@ namespace Steamworks
 		{
 			var t = new T();
 			var options = Array.Empty<NetKeyValue>();
-			t.Socket = Internal.CreateListenSocketP2PFakeIP( 0, options.Length, options );
+			t.Socket = Internal.CreateListenSocketP2PFakeIP( fakePortIndex, options.Length, options );
 			t.Initialize();
 			SetSocketManager( t.Socket.Id, t );
 			return t;
@@ -311,7 +311,7 @@ namespace Steamworks
 		public static SocketManager CreateRelaySocketFakeIP( int fakePortIndex, ISocketManager intrface )
 		{
 			var options = Array.Empty<NetKeyValue>();
-			var socket = Internal.CreateListenSocketP2PFakeIP( 0, options.Length, options );
+			var socket = Internal.CreateListenSocketP2PFakeIP( fakePortIndex, options.Length, options );
 
 			var t = new SocketManager { Socket = socket, Interface = intrface };
 
