@@ -77,3 +77,4 @@ Generator/bin
 Facepunch.Steamworks.Test/bin/**
 Facepunch.Steamworks.UnitTests/bin/**
 Facepunch.Steamworks.NativeTests/bin/**
+Facepunch.Steamworks.DownloadTests/bin/**

@@ -374,6 +374,15 @@ Steam inventory stub and exercise the real P/Invoke wrappers without a Steam cli
 dotnet test Facepunch.Steamworks.NativeTests/Facepunch.Steamworks.NativeTests.csproj -c DebugLinuxX64 -m:4
 ```
 
+# Download regression tests
+
+On Linux with .NET 10 and `cc`, these tests build a small native stub and exercise
+`SteamUGC.DownloadAsync` and callback dispatch without a Steam client or network:
+
+```sh
+dotnet test Facepunch.Steamworks.DownloadTests/Facepunch.Steamworks.DownloadTests.csproj -c DebugLinuxX64 -m:4
+```
+
 # License
 
 MIT - do whatever you want.
