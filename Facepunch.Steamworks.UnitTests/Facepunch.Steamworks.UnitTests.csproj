@@ -22,4 +22,7 @@
           Outputs="$(TargetDir)libsteam_api.so">
     <Exec Command="cc -std=c11 -shared -fPIC -Wall -Wextra -Werror &quot;$(MSBuildProjectDirectory)/FakeIPTestShim.c&quot; -o &quot;$(TargetDir)libsteam_api.so&quot;" />
   </Target>
+  <Target Name="BuildServerListStub" AfterTargets="Build" Condition="$([MSBuild]::IsOSPlatform('Linux'))">
+    <Exec Command="cc -std=c11 -Wall -Wextra -Werror -shared -fPIC &quot;$(MSBuildProjectDirectory)/Native/server_list_stub.c&quot; -o &quot;$(TargetDir)libserver_list_stub.so&quot;" />
+  </Target>
 </Project>
