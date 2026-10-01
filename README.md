@@ -365,6 +365,15 @@ The NetAddress tests use the bundled Linux x64 native Steam library without init
 dotnet test Facepunch.Steamworks.UnitTests/Facepunch.Steamworks.UnitTests.csproj -c DebugLinuxX64 -m:4
 ```
 
+# Native boundary tests
+
+These tests require Linux, .NET 10, and a C compiler (`cc`). They build a small
+Steam inventory stub and exercise the real P/Invoke wrappers without a Steam client:
+
+```sh
+dotnet test Facepunch.Steamworks.NativeTests/Facepunch.Steamworks.NativeTests.csproj -c DebugLinuxX64 -m:4
+```
+
 # License
 
 MIT - do whatever you want.

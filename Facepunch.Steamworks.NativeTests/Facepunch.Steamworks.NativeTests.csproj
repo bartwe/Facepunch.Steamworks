@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Configurations>Debug;Release;DebugLinuxX64</Configurations>
+    <Nullable>enable</Nullable>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Facepunch.Steamworks/Facepunch.Steamworks.Posix.csproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
+    <PackageReference Include="MSTest.TestAdapter" Version="4.3.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="4.3.2" />
+  </ItemGroup>
+  <Target Name="BuildInventoryStub" BeforeTargets="CoreCompile">
+    <Error Condition="!$([MSBuild]::IsOSPlatform('Linux'))" Text="The inventory native-stub tests require Linux and a C compiler (cc)." />
+    <MakeDir Directories="$(TargetDir)" />
+    <Exec Command="cc -shared -fPIC -Wall -Wextra -Werror &quot;$(MSBuildProjectDirectory)/InventoryStub.c&quot; -o &quot;$(TargetDir)libsteam_api.so&quot;" />
+  </Target>
+</Project>
