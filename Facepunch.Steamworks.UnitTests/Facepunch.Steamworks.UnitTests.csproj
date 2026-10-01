@@ -8,6 +8,8 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="../Facepunch.Steamworks/Facepunch.Steamworks.Posix.csproj" />
+    <ProjectReference Include="../Generator/Generator.csproj" />
+    <None Include="../Generator/steam_sdk/steam_api.json" Link="steam_api.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
