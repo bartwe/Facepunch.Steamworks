@@ -135,6 +135,9 @@ namespace Steamworks
 			if ( length <= 0 )
 				length = data.Length;
 
+			if ( length > data.Length )
+				throw new ArgumentOutOfRangeException( nameof( length ) );
+
 			fixed ( byte* p = data )
 			{
 				return Internal.SendP2PPacket( steamid, (IntPtr)p, checked((uint)length), (P2PSend)sendType, nChannel );
