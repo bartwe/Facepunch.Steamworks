@@ -78,3 +78,6 @@ Facepunch.Steamworks.Test/bin/**
 Facepunch.Steamworks.UnitTests/bin/**
 Facepunch.Steamworks.NativeTests/bin/**
 Facepunch.Steamworks.DownloadTests/bin/**
+Facepunch.Steamworks.FakeIPTests/bin/**
+Facepunch.Steamworks.ServerListTests/bin/**
+Facepunch.Steamworks.InventoryPriceTests/bin/**

@@ -7,6 +7,7 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="FakeIPSocketTest.cs;IpListTest.cs;InventoryPriceTest.cs" />
     <ProjectReference Include="../Facepunch.Steamworks/Facepunch.Steamworks.Posix.csproj" />
     <ProjectReference Include="../Generator/Generator.csproj" />
     <None Include="../Generator/steam_sdk/steam_api.json" Link="steam_api.json" CopyToOutputDirectory="PreserveNewest" />
@@ -21,21 +22,4 @@
     <PackageReference Include="MSTest.TestAdapter" Version="4.3.2" />
     <PackageReference Include="MSTest.TestFramework" Version="4.3.2" />
   </ItemGroup>
-  <Target Name="BuildFakeIPTestShim" AfterTargets="Build"
-          Condition="$([MSBuild]::IsOSPlatform('Linux'))"
-          Inputs="$(MSBuildProjectDirectory)/FakeIPTestShim.c;$(MSBuildProjectFullPath)"
-          Outputs="$(TargetDir)libsteam_api.so">
-    <Exec Command="cc -std=c11 -shared -fPIC -Wall -Wextra -Werror &quot;$(MSBuildProjectDirectory)/FakeIPTestShim.c&quot; -o &quot;$(TargetDir)libsteam_api.so&quot;" />
-  </Target>
-  <Target Name="BuildServerListStub" AfterTargets="Build" Condition="$([MSBuild]::IsOSPlatform('Linux'))">
-    <Exec Command="cc -std=c11 -Wall -Wextra -Werror -shared -fPIC &quot;$(MSBuildProjectDirectory)/Native/server_list_stub.c&quot; -o &quot;$(TargetDir)libserver_list_stub.so&quot;" />
-  </Target>
-  <Target Name="BuildInventoryTestStub" BeforeTargets="CopyFilesToOutputDirectory"
-          Inputs="$(MSBuildProjectDirectory)/Native/Inventory.c;$(MSBuildProjectFullPath)"
-          Outputs="$(TargetDir)libinventory_test.so">
-    <Exec Command="cc -shared -fPIC -std=c99 -Wall -Wextra -Werror &quot;$(MSBuildProjectDirectory)/Native/Inventory.c&quot; -o &quot;$(TargetDir)libinventory_test.so&quot;" />
-    <ItemGroup>
-      <FileWrites Include="$(TargetDir)libinventory_test.so" />
-    </ItemGroup>
-  </Target>
 </Project>

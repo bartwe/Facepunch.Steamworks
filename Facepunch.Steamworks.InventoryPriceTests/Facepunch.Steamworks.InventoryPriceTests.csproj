@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Configurations>Debug;Release;DebugLinuxX64</Configurations>
+    <Nullable>enable</Nullable>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../Facepunch.Steamworks.UnitTests/InventoryPriceTest.cs" Link="InventoryPriceTest.cs" />
+    <ProjectReference Include="../Facepunch.Steamworks/Facepunch.Steamworks.Posix.csproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
+    <PackageReference Include="MSTest.TestAdapter" Version="4.3.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="4.3.2" />
+  </ItemGroup>
+  <Target Name="BuildInventoryTestStub" AfterTargets="Build">
+    <Error Condition="!$([MSBuild]::IsOSPlatform('Linux'))" Text="The inventory pricing tests require Linux and a C compiler (cc)." />
+    <Exec Command="cc -shared -fPIC -std=c99 -Wall -Wextra -Werror &quot;$(MSBuildProjectDirectory)/../Facepunch.Steamworks.UnitTests/Native/Inventory.c&quot; -o &quot;$(TargetDir)libinventory_test.so&quot;" />
+  </Target>
+</Project>

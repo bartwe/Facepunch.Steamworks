@@ -354,18 +354,26 @@ We also have [a wiki you can read](https://wiki.facepunch.com/steamworks/) and h
 
 # Unit tests
 
-The unit tests require .NET 10 and do not require a running Steam client or its native
-library. On Linux, the Fake IP socket, inventory pricing, and server-list tests also require `cc` to
-build native API stubs. They exercise the managed wrappers, forwarded Fake IP port
-indices, and the managed query loop without live Steam connectivity. These tests
-are skipped on other platforms. Run this suite separately from the Steam integration tests:
-The NetAddress tests use the bundled Linux x64 native Steam library without initializing Steam.
+The unit tests require .NET 10 on Linux x64. The NetAddress tests use the bundled
+native Steam library without initializing Steam. Run this suite separately from
+the Steam integration tests, which require a running Steam client:
 
 ```sh
 dotnet test Facepunch.Steamworks.UnitTests/Facepunch.Steamworks.UnitTests.csproj -c DebugLinuxX64 -m:4
 ```
 
 # Native boundary tests
+
+Native stubs run in separate test projects because each process can register only
+one native-library resolver for the Steamworks assembly. They must also remain
+separate from NetAddress tests, which use the real Steam native library. On Linux
+with .NET 10 and `cc`, run all three suites:
+
+```sh
+dotnet test Facepunch.Steamworks.FakeIPTests/Facepunch.Steamworks.FakeIPTests.csproj -c DebugLinuxX64 -m:4
+dotnet test Facepunch.Steamworks.ServerListTests/Facepunch.Steamworks.ServerListTests.csproj -c DebugLinuxX64 -m:4
+dotnet test Facepunch.Steamworks.InventoryPriceTests/Facepunch.Steamworks.InventoryPriceTests.csproj -c DebugLinuxX64 -m:4
+```
 
 These tests require Linux, .NET 10, and a C compiler (`cc`). They build a small
 Steam inventory stub and exercise the real P/Invoke wrappers without a Steam client:
