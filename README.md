@@ -359,6 +359,7 @@ library. On Linux, the Fake IP socket, inventory pricing, and server-list tests 
 build native API stubs. They exercise the managed wrappers, forwarded Fake IP port
 indices, and the managed query loop without live Steam connectivity. These tests
 are skipped on other platforms. Run this suite separately from the Steam integration tests:
+The NetAddress tests use the bundled Linux x64 native Steam library without initializing Steam.
 
 ```sh
 dotnet test Facepunch.Steamworks.UnitTests/Facepunch.Steamworks.UnitTests.csproj -c DebugLinuxX64 -m:4
